@@ -8,11 +8,17 @@ IMG_WIDTH = 299
 IMG_HEIGHT = 299
 BATCH_SIZE = 32
 
-def get_user_id(file_path):
-    # convert the path to a list of path components
-    parts = tf.strings.split(file_path, '/')
-    filename = tf.strings.split(parts[-1], ".")[0]
-    return filename
+
+def get_preprocessed_image_for_user(userid: tf.Tensor) -> tf.Tensor:
+    """For a given userid, returns the preprocessed image vector of that user.
+    
+    Arguments:
+        userid {tf.Tensor} -- the userid string tensor
+        
+    Returns:
+        tf.Tensor -- the preprocessed image vector
+    """
+    raise NotImplementedError("TODO")
 
 def process_path(file_path):
     # load the raw data from the file as a string
@@ -30,6 +36,15 @@ def decode_image(image):
 
 image_embedding_module_url = "https://tfhub.dev/google/tf2-preview/inception_v3/feature_vector/4"
 embed_image = hub.KerasLayer(image_embedding_module_url, output_shape=[2048], trainable=False, name="image_features")
+
+def image_for_user(userid: tf.Tensor):
+    """Returns the image for a given userid.
+    """
+    pass
+
+def image_vector_for_user(userid_dataset: tf.data.Dataset):
+    pass
+
 
 dataset = (
         file_names
