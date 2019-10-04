@@ -25,10 +25,12 @@ def baseline(input_dir: str, output_dir: str, train_profiles_file_path: str):
 
     # find the most frequent age group
     most_frequent_age_group_series = ds.age_group.value_counts(sort=True, ascending=False, dropna=False)
+    print("Persons per age group:")
+    print(most_frequent_age_group_series)
+    
     # take the name of the first row in the series
     most_frequent_age_group = next(age_group for age_group, count in most_frequent_age_group_series.items())
     print("Most frequent age group:", most_frequent_age_group)
-    
     average_gender_value = ds.gender.mean()
     most_common_gender = round(average_gender_value)
     print("Average gender value:", average_gender_value)
