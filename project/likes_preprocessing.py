@@ -3,7 +3,10 @@ import tensorflow_hub as hub
 import pandas as pd
 from typing import *
 
-def make_dataset(input_dir: str, userids: List[str]) -> tf.data.Dataset:
+#def make_dataset(input_dir: str, userids: List[str], COUNT_CUTOFF: int, saveTocsv: bool) -> tf.data.Dataset:
+
+
+def make_multihot_like_mat(input_dir: str, userids: List[str], COUNT_CUTOFF: int, saveTocsv: bool):
     """Creates the preprocessed text dataset for the given userid's.
     
     Arguments:
@@ -13,43 +16,34 @@ def make_dataset(input_dir: str, userids: List[str]) -> tf.data.Dataset:
     Returns:
         tf.data.Dataset -- the preprocessed text dataset, where each entry is the feature vector.
     """
-    # TODO
-    #open Relationship.csv file
+    # Get raw data
     df = pd.read_csv(input_dir)
-    df = df.drop(['index'], axis=1)
+    df = df.drop(['Unnamed: 0'], axis=1)
 
-    #Save unique userID column
-    userid = df['userid'].unique()
+    freq_like_id = df["like_id"].value_counts()
+    likes_kept = freq_like_id[freq_like_id > COUNT_CUTOFF]
+    likes_kept_inds = likes_kept.keys()
+    filtered_table = df[df["like_id"].isin(likes_kept_inds)]
 
-    #Create the multihot matrix
-    relHot1 = pd.get_dummies(df, columns=["like_id"])
-    relHot1 = relHot1.groupby(['userid']).sum()
+    relHot = pd.get_dummies(filtered_table, columns=["like_id"])
+    relHot = relHot.groupby(['userid']).sum()
 
-    #Insert the userID column
-    relHot1.insert(0, "userid", userid)
+    if saveTocsv:
+        # create a userid row
+        userid = relHot.index
+        relHot.insert(0, "userid", userid)
 
-    # save to csv
-    #relHot1.to_csv('multiHot.csv', index=None, header=True)
+        # create string: Relation_Multihot_CUTOFF.csv
+        PATH = "/home/mila/teaching/user07/IsabelleWorkshop/"
+        output_filename = "Relation_Multihot_" + str(COUNT_CUTOFF) + ".csv"
+        # save to csv
+        relHot.to_csv(PATH + output_filename, index=None, header=True)
 
-    return relHot1
+        relHot = relHot.drop(["userid"], axis=1)
+
+
+    return relHot
 
 
 
     raise NotImplementedError()
-
-
-#Isa: working on making the likes onehotmatrix
-
-#It isnt possible to make a oneHot matrix with all profile entries
-
-#Sol 1: Make batches
-""" 
-slice the data frame into batches (for loop)
-create onehot_mat_i
-store it into an array?
-List of onehot_mat
-"""
-
-#Sol 1.5: Get ride of the likes with a freq < LIKE_FREQ_CUTOFF
-
-#Sol2: Dimension reduction solutions ex:PCA
