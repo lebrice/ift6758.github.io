@@ -12,9 +12,11 @@ def make_multihot_like_mat(input_dir: str, userids: List[str], COUNT_CUTOFF: int
     Arguments:
         input_dir {str} -- the parent input directory
         userids {List[str]} -- the list of userids
+        COUNT_CUTOFF {int} -- minimal frequency of a like
+        saveTocsv {bool} -- save the multihot matrix to Isabelle's directory
     
     Returns:
-        tf.data.Dataset -- the preprocessed text dataset, where each entry is the feature vector.
+        relHot -- multihot matrix of the like_id. Rows are indexed with userid
     """
     # Get raw data
     df = pd.read_csv(input_dir)
