@@ -198,5 +198,6 @@ if __name__ == "__main__":
     train_config: TrainConfig = args.train_config
     
     model = train(hparams, train_config)
+    print(f"Saved model weights are located at '{train_config.log_dir}'")
     # save_path = os.path.join(train_config.log_dir, "model_final.h5")
     # model.save(save_path)
