@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3.7
 
 
 import argparse
@@ -12,7 +12,11 @@ from typing import *
 import numpy as np
 import pandas as pd
 import simple_parsing
+
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
 import tensorflow as tf
+tf.get_logger().setLevel('ERROR')
 from tensorboard.plugins.hparams import api as hp
 
 from simple_parsing import ArgumentParser
@@ -20,8 +24,12 @@ from simple_parsing import ArgumentParser
 from model import HyperParameters, get_model
 from preprocessing_pipeline import preprocess_train
 
-today_str = (datetime.now().strftime("%Y-%m-%d_%H:%M"))
+today_str = (datetime.now().strftime("%Y-%m-%d_%H:%M:%S"))
 from utils import DEBUG
+
+from orion.client import report_results
+
+
 
 print("DEBUGGING: ", DEBUG)
 
@@ -69,7 +77,7 @@ class TrainData():
     for the training set, with userids as index.
     """
 
-def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: TrainConfig) -> Tuple[tf.data.Dataset, tf.data.Dataset]:
+def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: TrainConfig) -> Tuple[tf.data.Dataset, tf.data.Dataset, int, int]:
     train_data = TrainData(*preprocess_train(data_dir, hparams.num_like_pages))
 
     features = train_data.train_features
@@ -92,7 +100,7 @@ def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: 
     
 
     if DEBUG:
-        print("Writing dummy likes kept")
+        # writing some dummy 'kept' likes.
         with open(os.path.join(train_config.log_dir, "train_features_likes.csv"), "w") as f:
             f.write(",".join(str(v) for v in range(hparams.num_like_pages)))
     else:
@@ -144,20 +152,20 @@ def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: 
             "agr": labels['agr'].astype("float32"),
             "neu": labels['neu'].astype("float32"),
         })
+        num_entries = text_features.shape[0]
         return (tf.data.Dataset.zip((features_dataset, labels_dataset))
             .cache()
             .shuffle(5 * hparams.batch_size)
             .batch(hparams.batch_size)
-        )
+        ), num_entries
     
-    train_dataset = make_dataset(train_features, train_labels)
-    valid_dataset = make_dataset(valid_features, valid_labels)
-    return train_dataset, valid_dataset
+    train_dataset, train_samples = make_dataset(train_features, train_labels)
+    valid_dataset, valid_samples = make_dataset(valid_features, valid_labels)
+    return train_dataset, valid_dataset, train_samples, valid_samples
 
 def train(train_dir: str, hparams: HyperParameters, train_config: TrainConfig):
     # Create the required directories if not present.
     os.makedirs(train_config.log_dir, exist_ok=True)
-
     # save the hyperparameter config to a file.
     with open(os.path.join(train_config.log_dir, "hyperparameters.json"), "w") as f:
         json.dump(asdict(hparams), f, indent=4)
@@ -166,9 +174,19 @@ def train(train_dir: str, hparams: HyperParameters, train_config: TrainConfig):
         json.dump(asdict(train_config), f, indent=4)
 
     model = get_model(hparams)
-    model.summary()
+    # model.summary()
 
-    train_dataset, valid_dataset = train_input_pipeline(train_dir, hparams, train_config)
+    train_dataset, valid_dataset, train_samples, valid_samples = train_input_pipeline(train_dir, hparams, train_config)
+    if DEBUG:
+        train_dataset = train_dataset.repeat(100)
+        train_samples *= 100
+
+        valid_dataset = valid_dataset.repeat(100)
+        valid_samples *= 100
+
+    print("num training examples:", train_samples)
+    print("num validation examples:", valid_samples)
+
     training_callbacks = [
         tf.keras.callbacks.ModelCheckpoint(
             filepath=os.path.join(train_config.log_dir, "model.h5"),
@@ -180,14 +198,16 @@ def train(train_dir: str, hparams: HyperParameters, train_config: TrainConfig):
         tf.keras.callbacks.TensorBoard(log_dir = train_config.log_dir, profile_batch=0),
         hp.KerasCallback(train_config.log_dir, asdict(hparams)),
     ]
-    model.fit(
-        train_dataset.repeat(100) if DEBUG else train_dataset,
+    history = model.fit(
+        train_dataset if DEBUG else train_dataset,
         validation_data=valid_dataset,
         epochs=train_config.epochs,
-        callbacks=training_callbacks
+        callbacks=training_callbacks,
+        # steps_per_epoch=int(train_samples / hparams.batch_size),
     )
-    return model
-
+    best_val_loss = min(history.history["val_loss"])
+    print("BEST VALIDATION LOSS:", best_val_loss)
+    return best_val_loss
 
 
 if __name__ == "__main__":
@@ -206,7 +226,13 @@ if __name__ == "__main__":
     print("Train_config:", train_config)
 
     train_dir = "./debug_data" if DEBUG else "~/Train"
-    model = train(train_dir, hparams, train_config)
+    best_val_loss = train(train_dir, hparams, train_config)
     print(f"Saved model weights are located at '{train_config.log_dir}'")
+    
+    report_results([dict(
+        name='validation_loss',
+        type='objective',
+        value=best_val_loss)])
+
     # save_path = os.path.join(train_config.log_dir, "model_final.h5")
     # model.save(save_path)
