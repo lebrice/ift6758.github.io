@@ -11,9 +11,9 @@ from tensorboard.plugins.hparams import api as hp
 @dataclass
 class HyperParameters():
     # the batch size
-    batch_size: int = 32
+    batch_size: int = 100
     # the number of dense layers in our model.
-    num_layers: int = 10
+    num_layers: int = 2
     # the number of units in each dense layer.
     dense_units: int = 256
     
