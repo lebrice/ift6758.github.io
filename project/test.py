@@ -134,7 +134,7 @@ if __name__ == "__main__":
     pred_labels = ["age_group", "gender", "ext", "ope", "agr", "neu", "con"]
 
     predictions=model.predict(test_dataset)
-    print(len(predictions))
+    print(len(predictions), "predictions")
     from user import User
     
     for i, user in enumerate(test_dataset.unbatch()):
@@ -143,6 +143,7 @@ if __name__ == "__main__":
         pred_dict["userid"] = userid
         pred_dict["age_group_id"] = np.argmax(pred_dict.pop("age_group"))
         pred_dict["gender"] = int(np.round(pred_dict["gender"]))
+        
         user = User(**pred_dict)
         print(user)
         with open(os.path.join(output_dir, f"{userid}.xml"), "w") as xml_file:
