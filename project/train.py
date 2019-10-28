@@ -233,6 +233,8 @@ if __name__ == "__main__":
     os.makedirs("logs", exist_ok=True)
     experiment_results_file = os.path.join("logs", train_config.experiment_name +"-results.txt")
     with open(experiment_results_file, "a") as f:
+        if DEBUG:
+            f.write("(DEBUG)\t")
         f.write(f"log_dir: {train_config.log_dir}, val_loss: {best_val_loss:.3f}, hparams: {hparams}\n")
 
     from orion.client import report_results    

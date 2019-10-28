@@ -3,11 +3,10 @@
 pip install --quiet orion
 
 # TODO: change this to the maximum number of desired trials.
-MAX_TRIALS=5
+MAX_TRIALS=20
 EXPERIMENT_NAME="batch_size_experiment"
 
 mkdir logs
-rm logs/$EXPERIMENT_NAME.txt
 
 EPOCHS_PER_EXPERIMENT=5
 
@@ -17,4 +16,5 @@ orion -v --debug hunt --max-trials $MAX_TRIALS -n $EXPERIMENT_NAME ./train.py \
         --batch_size~"choices(32,64,128,256)" \
         --num_layers~"randint(1,10)" \
         --activation~"choices('relu','tanh','linear')" \
-        > "logs/$EXPERIMENT_NAME.txt"
+        --learning_rate~"choices(0.05, 0.01, 0.1, 0.005)" \
+        >> "logs/$EXPERIMENT_NAME.txt"
