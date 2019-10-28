@@ -154,10 +154,8 @@ def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: 
     valid_dataset = make_dataset(valid_features, valid_labels)
     return train_dataset, valid_dataset
 
-def train(hparams: HyperParameters, train_config: TrainConfig):
+def train(train_dir: str, hparams: HyperParameters, train_config: TrainConfig):
     # Create the required directories if not present.
-
-    os.makedirs(train_config.log_dir, exist_ok=True)
     os.makedirs(train_config.log_dir, exist_ok=True)
 
     # save the hyperparameter config to a file.
@@ -170,7 +168,6 @@ def train(hparams: HyperParameters, train_config: TrainConfig):
     model = get_model(hparams)
     model.summary()
 
-    train_dir = "./debug_data" if DEBUG else "~/Train"
     train_dataset, valid_dataset = train_input_pipeline(train_dir, hparams, train_config)
     training_callbacks = [
         tf.keras.callbacks.ModelCheckpoint(
@@ -184,7 +181,7 @@ def train(hparams: HyperParameters, train_config: TrainConfig):
         hp.KerasCallback(train_config.log_dir, asdict(hparams)),
     ]
     model.fit(
-        train_dataset.repeat(10) if DEBUG else train_dataset,
+        train_dataset.repeat(100) if DEBUG else train_dataset,
         validation_data=valid_dataset,
         epochs=train_config.epochs,
         callbacks=training_callbacks
@@ -204,8 +201,12 @@ if __name__ == "__main__":
     hparams: HyperParameters = args.hparams
     train_config: TrainConfig = args.train_config
     
+    
+    print("Hyperparameters:", hparams)
+    print("Train_config:", train_config)
 
-    model = train(hparams, train_config)
+    train_dir = "./debug_data" if DEBUG else "~/Train"
+    model = train(train_dir, hparams, train_config)
     print(f"Saved model weights are located at '{train_config.log_dir}'")
     # save_path = os.path.join(train_config.log_dir, "model_final.h5")
     # model.save(save_path)

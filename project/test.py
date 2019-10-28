@@ -147,4 +147,4 @@ if __name__ == "__main__":
         user = User(**pred_dict)
         print(user)
         with open(os.path.join(output_dir, f"{userid}.xml"), "w") as xml_file:
-            xml_file.write(user.to_xml()) 
+            xml_file.write(user.to_xml())
