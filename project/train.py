@@ -27,10 +27,6 @@ from preprocessing_pipeline import preprocess_train
 today_str = (datetime.now().strftime("%Y-%m-%d_%H:%M:%S"))
 from utils import DEBUG
 
-from orion.client import report_results
-
-
-
 print("DEBUGGING: ", DEBUG)
 
 @dataclass()
@@ -47,6 +43,8 @@ class TrainConfig():
 
     epochs: int = 50
     """Number of passes through the dataset"""   
+
+    experiment_name: str = "default_experiment" 
 
     # train_features_min_max: Tuple[pd.DataFrame, pd.DataFrame] = field(init=False)
     # train_features_image_means: List[float] = field(init=False)
@@ -222,17 +220,24 @@ if __name__ == "__main__":
     train_config: TrainConfig = args.train_config
     
     
+
+
     print("Hyperparameters:", hparams)
     print("Train_config:", train_config)
 
     train_dir = "./debug_data" if DEBUG else "~/Train"
     best_val_loss = train(train_dir, hparams, train_config)
     print(f"Saved model weights are located at '{train_config.log_dir}'")
+
     
+    os.makedirs("logs", exist_ok=True)
+    experiment_results_file = os.path.join("logs", train_config.experiment_name +"-results.txt")
+    with open(experiment_results_file, "a") as f:
+        f.write(f"log_dir: {train_config.log_dir}, val_loss: {best_val_loss:.3f}, hparams: {hparams}\n")
+
+    from orion.client import report_results    
     report_results([dict(
         name='validation_loss',
         type='objective',
-        value=best_val_loss)])
-
-    # save_path = os.path.join(train_config.log_dir, "model_final.h5")
-    # model.save(save_path)
+        value=best_val_loss,
+    )])

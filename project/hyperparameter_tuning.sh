@@ -11,9 +11,8 @@ rm logs/$EXPERIMENT_NAME.txt
 
 EPOCHS_PER_EXPERIMENT=5
 
-export ORION_RESULTS_PATH="logs/$EXPERIMENT_NAME-results.txt"
-
 orion -v --debug hunt --max-trials $MAX_TRIALS -n $EXPERIMENT_NAME ./train.py \
+        --experiment_name $EXPERIMENT_NAME \
         --epochs $EPOCHS_PER_EXPERIMENT \
         --batch_size~"choices(32,64,128,256)" \
         --num_layers~"randint(1,10)" \
