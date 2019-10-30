@@ -161,6 +161,25 @@ def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: 
     valid_dataset, valid_samples = make_dataset(valid_features, valid_labels)
     return train_dataset, valid_dataset, train_samples, valid_samples
 
+import warnings
+class EarlyStoppingByLossVal(tf.keras.callbacks.Callback):
+    def __init__(self, monitor='val_loss', max_value=1e5, verbose = True):
+        super().__init__()
+        self.monitor = monitor
+        self.max_value = max_value
+        self.verbose = verbose
+
+    def on_batch_end(self, epoch, logs={}):
+        current = logs.get(self.monitor)
+        if current is None:
+            warnings.warn("Early stopping requires %s available!" % self.monitor, RuntimeWarning)
+
+        if current > self.max_value:
+            if self.verbose > 0:
+                print(f"Epoch {epoch}: early stopping because loss is greater than max value.")
+            self.model.stop_training = True
+
+
 def train(train_dir: str, hparams: HyperParameters, train_config: TrainConfig):
     # Create the required directories if not present.
     os.makedirs(train_config.log_dir, exist_ok=True)
@@ -196,6 +215,11 @@ def train(train_dir: str, hparams: HyperParameters, train_config: TrainConfig):
         tf.keras.callbacks.TensorBoard(log_dir = train_config.log_dir, profile_batch=0),
         hp.KerasCallback(train_config.log_dir, asdict(hparams)),
         tf.keras.callbacks.TerminateOnNaN(),
+
+        # Interrupt training if `val_loss` stops improving for over 3 epochs
+        tf.keras.callbacks.EarlyStopping(patience=3, monitor='val_loss'),
+        EarlyStoppingByLossVal()
+
     ]
     history = model.fit(
         train_dataset if DEBUG else train_dataset,
