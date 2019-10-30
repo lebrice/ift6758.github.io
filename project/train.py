@@ -195,6 +195,7 @@ def train(train_dir: str, hparams: HyperParameters, train_config: TrainConfig):
         ),
         tf.keras.callbacks.TensorBoard(log_dir = train_config.log_dir, profile_batch=0),
         hp.KerasCallback(train_config.log_dir, asdict(hparams)),
+        tf.keras.callbacks.TerminateOnNaN(),
     ]
     history = model.fit(
         train_dataset if DEBUG else train_dataset,
