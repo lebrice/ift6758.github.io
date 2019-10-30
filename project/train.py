@@ -220,8 +220,6 @@ if __name__ == "__main__":
     train_config: TrainConfig = args.train_config
     
     
-
-
     print("Hyperparameters:", hparams)
     print("Train_config:", train_config)
 

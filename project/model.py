@@ -11,16 +11,16 @@ from typing import *
 @dataclass
 class HyperParameters():
     # the batch size
-    batch_size: int = 100
+    batch_size: int = 64
     # the number of dense layers in our model.
-    num_layers: int = 2
+    num_layers: int = 5
     # the number of units in each dense layer.
     dense_units: int = 256
     
     # the activation function used after each dense layer
     activation: str = "tanh"
 
-    learning_rate: float = 0.05
+    learning_rate: float = 0.005
 
     # number of individual 'pages' that were kept during preprocessing of the 'likes'.
     # This corresponds to the number of entries in the multi-hot like vector.
@@ -33,8 +33,6 @@ class HyperParameters():
     use_batchnorm: bool = True
     num_text_features: int = 91
     num_image_features: int = 63
-
-
 
 
 def get_model(hparams: HyperParameters) -> tf.keras.Model:
