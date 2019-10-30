@@ -174,7 +174,7 @@ class EarlyStoppingByLossVal(tf.keras.callbacks.Callback):
         if current is None:
             warnings.warn("Early stopping requires %s available!" % self.monitor, RuntimeWarning)
 
-        if current > self.max_value:
+        elif current > self.max_value:
             if self.verbose > 0:
                 print(f"Epoch {epoch}: early stopping because loss is greater than max value.")
             self.model.stop_training = True
