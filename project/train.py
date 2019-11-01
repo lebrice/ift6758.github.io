@@ -31,7 +31,12 @@ print("DEBUGGING: ", DEBUG)
 
 @dataclass()
 class TrainConfig():
-    log_dir: str = f"checkpoints/{today_str}"
+    experiment_name: str = "default_experiment"
+    """
+    Name of the experiment
+    """
+
+    log_dir: str = os.path.join("checkpoints", today_str)
     """
     The directory where the model checkpoints, as well as logs and event files should be saved at.
     """
@@ -44,11 +49,13 @@ class TrainConfig():
     epochs: int = 50
     """Number of passes through the dataset"""   
 
-    experiment_name: str = "default_experiment" 
 
     early_stopping_patience: int = 5
     """Interrupt training if `val_loss` doesn't improving for over `early_stopping_patience` epochs."""
     
+    def __post_init__(self):
+        self.log_dir = os.path.join("checkpoints", self.experiment_name , today_str)
+        os.makedirs(self.log_dir, exist_ok=True)
     # train_features_min_max: Tuple[pd.DataFrame, pd.DataFrame] = field(init=False)
     # train_features_image_means: List[float] = field(init=False)
 
@@ -260,6 +267,7 @@ if __name__ == "__main__":
     train_config: TrainConfig = args.train_config
     hparams.num_like_pages
     
+    print("Experiment name:", train_config.experiment_name)
     print("Hyperparameters:", hparams)
     print("Train_config:", train_config)
 
