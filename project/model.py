@@ -10,6 +10,7 @@ from typing import *
 
 @dataclass
 class HyperParameters():
+    """Hyperparameters of our model."""
     # the batch size
     batch_size: int = 64
     # the number of dense layers in our model.
@@ -31,8 +32,8 @@ class HyperParameters():
     dropout_rate: float = 0.1
 
     use_batchnorm: bool = True
-    num_text_features: int = 91
-    num_image_features: int = 63
+    num_text_features: ClassVar[int] = 91
+    num_image_features: ClassVar[int] = 63
 
 
 def get_model(hparams: HyperParameters) -> tf.keras.Model:

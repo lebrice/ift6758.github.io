@@ -166,22 +166,30 @@ def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: 
 
 import warnings
 class EarlyStoppingWhenValueExplodes(tf.keras.callbacks.Callback):
-    def __init__(self, monitor='val_loss', max_value=1e5, verbose = True):
+    def __init__(self, monitor='val_loss', max_value=1e5, verbose = True, check_every_batch=False):
         super().__init__()
         self.monitor = monitor
         self.max_value = max_value
         self.verbose = verbose
+        self.check_every_batch = check_every_batch
 
-    def on_epoch_end(self, epoch, logs={}):
+    def on_batch_end(self, batch: int, logs: Dict[str, Any]):
+        if self.check_every_batch:
+            self.check(batch, logs)
+         
+    def on_epoch_end(self, epoch: int, logs: Dict[str, Any]):
+        if not self.check_every_batch:
+            self.check(epoch, logs)
+
+    def check(self, t: int, logs: Dict[str, Any]):
         current = logs.get(self.monitor)
         if current is None:
-            warnings.warn(RuntimeWarning(f"Epoch{epoch}: Early stopping requires {self.monitor} available!"))
+            warnings.warn(RuntimeWarning(f"Early stopping requires {self.monitor} available!"))
 
         elif current > self.max_value:
             if self.verbose:
-                print(f"Epoch {epoch}: Early stopping because loss is greater than max value ({self.monitor} = {current})")
+                print(f"\n\n{'Batch' if self.check_every_batch else 'Epoch'} {t}: Early stopping because loss is greater than max value ({self.monitor} = {current})\n\n")
             self.model.stop_training = True
-
 
 def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConfig):
     
@@ -220,21 +228,25 @@ def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConf
         tf.keras.callbacks.TensorBoard(log_dir = train_config.log_dir, profile_batch=0),
         hp.KerasCallback(train_config.log_dir, asdict(hparams)),
         tf.keras.callbacks.TerminateOnNaN(),
+        EarlyStoppingWhenValueExplodes(monitor="loss", check_every_batch=True),
         tf.keras.callbacks.EarlyStopping(patience=train_config.early_stopping_patience, monitor='val_loss'),
-        EarlyStoppingWhenValueExplodes(),
-
     ]
-    history = model.fit(
-        train_dataset if DEBUG else train_dataset,
-        validation_data=valid_dataset,
-        epochs=train_config.epochs,
-        callbacks=training_callbacks,
-        # steps_per_epoch=int(train_samples / hparams.batch_size),
-    )
-    best_val_loss = min(history.history["val_loss"])
-    print("BEST VALIDATION LOSS:", best_val_loss)
-    return best_val_loss
+    history = None
+    try:
 
+        history = model.fit(
+            train_dataset if DEBUG else train_dataset,
+            validation_data=valid_dataset,
+            epochs=train_config.epochs,
+            callbacks=training_callbacks,
+            # steps_per_epoch=int(train_samples / hparams.batch_size),
+        )
+        best_val_loss = min(history.history["val_loss"])
+        print("BEST VALIDATION LOSS:", best_val_loss)
+        return best_val_loss
+    except Exception as e:
+        print(f"\n\n {e} \n\n")
+        return np.PINF
 
 if __name__ == "__main__":
     parser = ArgumentParser()
@@ -264,6 +276,9 @@ if __name__ == "__main__":
             best_val_loss = train(train_data_dir, hparams, train_config)
             print(f"Saved model weights are located at '{train_config.log_dir}'")
 
+    if np.isposinf(best_val_loss):
+        print("TRAINING DIVERGED.")
+    
     os.makedirs("logs", exist_ok=True)
     experiment_results_file = os.path.join("logs", train_config.experiment_name +"-results.txt")
     with open(experiment_results_file, "a") as f:
