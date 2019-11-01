@@ -31,7 +31,7 @@ print("DEBUGGING: ", DEBUG)
 
 @dataclass()
 class TrainConfig():
-    experiment_name: str = "default_experiment"
+    experiment_name: str = "debug" if DEBUG else "default_experiment"
     """
     Name of the experiment
     """
@@ -249,11 +249,13 @@ def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConf
             # steps_per_epoch=int(train_samples / hparams.batch_size),
         )
         best_val_loss = min(history.history["val_loss"])
+        num_epochs = len(history.history["val_loss"])
+
         print("BEST VALIDATION LOSS:", best_val_loss)
-        return best_val_loss
+        return best_val_loss, num_epochs
     except Exception as e:
         print(f"\n\n {e} \n\n")
-        return np.PINF
+        return np.PINF, -1
 
 if __name__ == "__main__":
     parser = ArgumentParser()
@@ -281,7 +283,7 @@ if __name__ == "__main__":
     with open(os.path.join(train_config.log_dir, "train_log.txt"), "w") as f:
         import contextlib
         with contextlib.redirect_stdout(f):
-            best_val_loss = train(train_data_dir, hparams, train_config)
+            best_val_loss, num_epochs = train(train_data_dir, hparams, train_config)
             print(f"Saved model weights are located at '{train_config.log_dir}'")
 
     if np.isposinf(best_val_loss):
@@ -292,7 +294,7 @@ if __name__ == "__main__":
     with open(experiment_results_file, "a") as f:
         if DEBUG:
             f.write("(DEBUG)\t")
-        f.write(f"log_dir: {train_config.log_dir}, val_loss: {best_val_loss:.3f}, hparams: {hparams}\n")
+        f.write(f"Total epochs: {num_epochs:04d}, val_loss: {best_val_loss:.3f}, log_dir: {train_config.log_dir}, hparams: {hparams}\n")
 
     from orion.client import report_results    
     report_results([dict(
