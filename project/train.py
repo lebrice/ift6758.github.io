@@ -46,7 +46,7 @@ class TrainConfig():
 
     experiment_name: str = "default_experiment" 
 
-    early_stopping_patience: int = 3
+    early_stopping_patience: int = 5
     """Interrupt training if `val_loss` doesn't improving for over `early_stopping_patience` epochs."""
     
     # train_features_min_max: Tuple[pd.DataFrame, pd.DataFrame] = field(init=False)

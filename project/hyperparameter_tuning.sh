@@ -8,11 +8,11 @@ EXPERIMENT_NAME="batch_size_experiment"
 
 mkdir logs
 
-EPOCHS_PER_EXPERIMENT=5
+MAX_EPOCHS_PER_EXPERIMENT=50
 
 orion -v --debug hunt --max-trials $MAX_TRIALS -n $EXPERIMENT_NAME ./ift6758.github.io/project/train.py \
         --experiment_name $EXPERIMENT_NAME \
-        --epochs $EPOCHS_PER_EXPERIMENT \
+        --epochs $MAX_EPOCHS_PER_EXPERIMENT \
         --batch_size~"choices(32,64,128,256)" \
         --num_layers~"randint(1,10)" \
         --activation~"choices('relu','tanh','linear')" \
