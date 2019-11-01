@@ -14,14 +14,21 @@ class HyperParameters():
     # the batch size
     batch_size: int = 64
     # the number of dense layers in our model.
-    num_layers: int = 5
+    num_layers: int = 3
     # the number of units in each dense layer.
     dense_units: int = 256
     
     # the activation function used after each dense layer
     activation: str = "tanh"
-
+    # Which optimizer to use during training.
+    optimizer: str = "adam"
+    # Learning Rate
     learning_rate: float = 0.005
+
+    # L1 regularization coefficient
+    l1_reg: float = 0.
+    # L2 regularization coefficient
+    l2_reg: float = 0.
 
     # number of individual 'pages' that were kept during preprocessing of the 'likes'.
     # This corresponds to the number of entries in the multi-hot like vector.
@@ -30,8 +37,9 @@ class HyperParameters():
     use_dropout: bool = True
     # the dropout rate
     dropout_rate: float = 0.1
+    # wether or not Batch Normalization should be applied after each dense layer.
+    use_batchnorm: bool = False
 
-    use_batchnorm: bool = True
     num_text_features: ClassVar[int] = 91
     num_image_features: ClassVar[int] = 63
 
@@ -55,7 +63,11 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
     # TODO: maybe use some kind of binary neural network here to condense a [`num_like_pages`] bool vector down to something more manageable (ex: [128] floats)
     likes_condensing_block = tf.keras.Sequential(name="likes_condensing_block")
     for n_units in [512, 256, 128]:
-        likes_condensing_block.add(tf.keras.layers.Dense(units=n_units, activation=hparams.activation))
+        likes_condensing_block.add(tf.keras.layers.Dense(
+            units=n_units,
+            activation=hparams.activation,
+            kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
+        ))
 
     condensed_likes = likes_condensing_block(likes_float)
 
@@ -63,7 +75,11 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
     dense_layers = tf.keras.Sequential(name="dense_layers")
     dense_layers.add(tf.keras.layers.Concatenate())
     for i in range(hparams.num_layers):
-        dense_layers.add(tf.keras.layers.Dense(units=hparams.dense_units, activation=hparams.activation))
+        dense_layers.add(tf.keras.layers.Dense(
+            units=hparams.dense_units,
+            activation=hparams.activation,
+            kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
+        ))
         
         if hparams.use_batchnorm:
             dense_layers.add(tf.keras.layers.BatchNormalization())
@@ -110,7 +126,8 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
         outputs=[age_group, gender, ext, ope, agr, neu, con]
     )
     model.compile(
-        optimizer=tf.keras.optimizers.Adam(learning_rate = hparams.learning_rate),
+        optimizer=tf.keras.optimizers.get({"class_name": hparams.optimizer,
+                               "config": {"learning_rate": hparams.learning_rate}}),
         loss={
             "age_group": tf.keras.losses.CategoricalCrossentropy(),
             "gender": "binary_crossentropy",
