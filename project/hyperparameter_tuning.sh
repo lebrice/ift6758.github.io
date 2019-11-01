@@ -21,6 +21,7 @@ orion -v --debug hunt --max-trials $MAX_TRIALS -n $EXPERIMENT_NAME ./ift6758.git
         --num_like_pages 5000 \
         --use_dropout~"choices(True, False)" \
         --use_batchnorm~"choices(True, False)" \
+        --optimizer sgd \
         --l1_reg~"choices(0, 0.05, 0.01, 0.005, 0.001)" \
         --l2_reg~"choices(0, 0.05, 0.01, 0.005, 0.001)" \
         >> "logs/$EXPERIMENT_NAME.txt"
