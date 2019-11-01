@@ -38,7 +38,7 @@ class TrainConfig():
 
     validation_data_fraction: float = 0.2
     """
-    The fraction of all data corresponding to the validation set. (20% by default)
+    The fraction of all data corresponding to the validation set.
     """
 
     epochs: int = 50
@@ -46,6 +46,9 @@ class TrainConfig():
 
     experiment_name: str = "default_experiment" 
 
+    early_stopping_patience: int = 3
+    """Interrupt training if `val_loss` doesn't improving for over `early_stopping_patience` epochs."""
+    
     # train_features_min_max: Tuple[pd.DataFrame, pd.DataFrame] = field(init=False)
     # train_features_image_means: List[float] = field(init=False)
 
@@ -162,27 +165,29 @@ def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: 
     return train_dataset, valid_dataset, train_samples, valid_samples
 
 import warnings
-class EarlyStoppingByLossVal(tf.keras.callbacks.Callback):
+class EarlyStoppingWhenValueExplodes(tf.keras.callbacks.Callback):
     def __init__(self, monitor='val_loss', max_value=1e5, verbose = True):
         super().__init__()
         self.monitor = monitor
         self.max_value = max_value
         self.verbose = verbose
 
-    def on_batch_end(self, epoch, logs={}):
+    def on_epoch_end(self, epoch, logs={}):
         current = logs.get(self.monitor)
         if current is None:
-            warnings.warn("Early stopping requires %s available!" % self.monitor, RuntimeWarning)
+            warnings.warn(RuntimeWarning(f"Epoch{epoch}: Early stopping requires {self.monitor} available!"))
 
         elif current > self.max_value:
-            if self.verbose > 0:
-                print(f"Epoch {epoch}: early stopping because loss is greater than max value.")
+            if self.verbose:
+                print(f"Epoch {epoch}: Early stopping because loss is greater than max value ({self.monitor} = {current})")
             self.model.stop_training = True
 
 
-def train(train_dir: str, hparams: HyperParameters, train_config: TrainConfig):
-    # Create the required directories if not present.
-    os.makedirs(train_config.log_dir, exist_ok=True)
+def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConfig):
+    
+    print("Hyperparameters:", hparams)
+    print("Train_config:", train_config)
+
     # save the hyperparameter config to a file.
     with open(os.path.join(train_config.log_dir, "hyperparameters.json"), "w") as f:
         json.dump(asdict(hparams), f, indent=4)
@@ -193,7 +198,7 @@ def train(train_dir: str, hparams: HyperParameters, train_config: TrainConfig):
     model = get_model(hparams)
     # model.summary()
 
-    train_dataset, valid_dataset, train_samples, valid_samples = train_input_pipeline(train_dir, hparams, train_config)
+    train_dataset, valid_dataset, train_samples, valid_samples = train_input_pipeline(train_data_dir, hparams, train_config)
     if DEBUG:
         train_dataset = train_dataset.repeat(100)
         train_samples *= 100
@@ -215,10 +220,8 @@ def train(train_dir: str, hparams: HyperParameters, train_config: TrainConfig):
         tf.keras.callbacks.TensorBoard(log_dir = train_config.log_dir, profile_batch=0),
         hp.KerasCallback(train_config.log_dir, asdict(hparams)),
         tf.keras.callbacks.TerminateOnNaN(),
-
-        # Interrupt training if `val_loss` stops improving for over 3 epochs
-        tf.keras.callbacks.EarlyStopping(patience=3, monitor='val_loss'),
-        EarlyStoppingByLossVal()
+        tf.keras.callbacks.EarlyStopping(patience=train_config.early_stopping_patience, monitor='val_loss'),
+        EarlyStoppingWhenValueExplodes(),
 
     ]
     history = model.fit(
@@ -243,16 +246,24 @@ if __name__ == "__main__":
     
     hparams: HyperParameters = args.hparams
     train_config: TrainConfig = args.train_config
-    
+    hparams.num_like_pages
     
     print("Hyperparameters:", hparams)
     print("Train_config:", train_config)
 
-    train_dir = "./debug_data" if DEBUG else "~/Train"
-    best_val_loss = train(train_dir, hparams, train_config)
-    print(f"Saved model weights are located at '{train_config.log_dir}'")
-
+    train_data_dir = "./debug_data" if DEBUG else "~/Train"
     
+    # Create the required directories if not present.
+    os.makedirs(train_config.log_dir, exist_ok=True)
+    
+    print("Training directory:", train_config.log_dir)
+
+    with open(os.path.join(train_config.log_dir, "train_log.txt"), "w") as f:
+        import contextlib
+        with contextlib.redirect_stdout(f):
+            best_val_loss = train(train_data_dir, hparams, train_config)
+            print(f"Saved model weights are located at '{train_config.log_dir}'")
+
     os.makedirs("logs", exist_ok=True)
     experiment_results_file = os.path.join("logs", train_config.experiment_name +"-results.txt")
     with open(experiment_results_file, "a") as f:
