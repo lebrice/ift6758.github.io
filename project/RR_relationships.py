@@ -3,7 +3,7 @@ import pandas as pd
 from scipy import stats
 import os
 
-def rel_high_var(data_dir='', k=100, threshold=0.5):
+def rel_high_var(data_dir='~/Train', k=100, threshold=0.5):
     '''
     Purpose: get list of likes to keep as features
     Input:
@@ -16,10 +16,10 @@ def rel_high_var(data_dir='', k=100, threshold=0.5):
     '''
 
     #path="/home/rd/PycharmProjects/UdeM/6758/project" #rd local
-    path=os.path.join(os.path.join(data_dir, "Relation") #server
+    path=os.path.join(data_dir, "Relation") #server
 
-    #relation = pd.read_csv(os.path.join(os.path.join(data_dir, "Relation", "Relation.csv"), index_col=0)
-    relation = pd.read_csv(os.path.join(path, "dummyRel.csv"))#, index_col=0)
+    relation = pd.read_csv(os.path.join(path, "Relation.csv"))#, index_col=0)
+    #relation = pd.read_csv(os.path.join(path, "dummyRel.csv"))#, index_col=0)
     relation = relation.drop(['Unnamed: 0'], axis=1)
     relation['value']=1
     #columns=relation.loc[:, 'like_id'].unique()
