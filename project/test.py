@@ -128,7 +128,7 @@ if __name__ == "__main__":
         hparams=HyperParameters(**json.load(f))
 
     with open(trained_model_config_path) as f:
-        train_config=TrainConfig(log_dir=trained_model_dir, **json.load(f))
+        train_config=TrainConfig(**json.load(f))
 
     model=get_model(hparams)
     model.load_weights(trained_model_weights_path)
