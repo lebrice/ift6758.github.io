@@ -257,18 +257,7 @@ def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConf
         print(f"\n\n {e} \n\n")
         return np.PINF, -1
 
-if __name__ == "__main__":
-    parser = ArgumentParser()
-    
-    parser.add_arguments(HyperParameters, "hparams")
-    parser.add_arguments(TrainConfig, "train_config")
-
-    args = parser.parse_args()
-    
-    hparams: HyperParameters = args.hparams
-    train_config: TrainConfig = args.train_config
-    hparams.num_like_pages
-    
+def main(hparams: HyperParameters, train_config: TrainConfig):
     print("Experiment name:", train_config.experiment_name)
     print("Hyperparameters:", hparams)
     print("Train_config:", train_config)
@@ -302,3 +291,18 @@ if __name__ == "__main__":
         type='objective',
         value=best_val_loss,
     )])
+
+
+
+if __name__ == "__main__":
+    parser = ArgumentParser()
+    
+    parser.add_arguments(HyperParameters, "hparams")
+    parser.add_arguments(TrainConfig, "train_config")
+
+    args = parser.parse_args()
+    
+    hparams: HyperParameters = args.hparams
+    train_config: TrainConfig = args.train_config
+    main(hparams, train_config)
+    

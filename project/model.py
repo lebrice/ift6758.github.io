@@ -12,29 +12,29 @@ from typing import *
 class HyperParameters():
     """Hyperparameters of our model."""
     # the batch size
-    batch_size: int = 64
+    batch_size: int = 256
     # the number of dense layers in our model.
     num_layers: int = 3
     # the number of units in each dense layer.
-    dense_units: int = 256
+    dense_units: int = 64
     
     # the activation function used after each dense layer
     activation: str = "tanh"
     # Which optimizer to use during training.
-    optimizer: str = "adam"
+    optimizer: str = "sgd"
     # Learning Rate
-    learning_rate: float = 0.005
+    learning_rate: float = 0.01
 
     # L1 regularization coefficient
-    l1_reg: float = 0.
+    l1_reg: float = 0.01
     # L2 regularization coefficient
-    l2_reg: float = 0.
+    l2_reg: float = 0.01
 
     # number of individual 'pages' that were kept during preprocessing of the 'likes'.
     # This corresponds to the number of entries in the multi-hot like vector.
     num_like_pages: int = 5000
     # wether or not Dropout layers should be used
-    use_dropout: bool = True
+    use_dropout: bool = False
     # the dropout rate
     dropout_rate: float = 0.1
     # wether or not Batch Normalization should be applied after each dense layer.

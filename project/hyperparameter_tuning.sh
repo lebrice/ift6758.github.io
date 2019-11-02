@@ -6,7 +6,7 @@ pip install --quiet orion
 MAX_TRIALS=50
 EXPERIMENT_NAME="SGD_with_regularization"
 
-mkdir logs
+mkdir -f logs
 
 MAX_EPOCHS_PER_EXPERIMENT=50
 
