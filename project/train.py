@@ -11,7 +11,6 @@ from typing import *
 
 import numpy as np
 import pandas as pd
-import simple_parsing
 
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
@@ -19,7 +18,6 @@ import tensorflow as tf
 tf.get_logger().setLevel('ERROR')
 from tensorboard.plugins.hparams import api as hp
 
-from simple_parsing import ArgumentParser
 
 from model import HyperParameters, get_model
 from preprocessing_pipeline import preprocess_train
@@ -36,7 +34,7 @@ class TrainConfig():
     Name of the experiment
     """
 
-    log_dir: str = os.path.join("checkpoints", today_str)
+    log_dir: str = ""
     """
     The directory where the model checkpoints, as well as logs and event files should be saved at.
     """
@@ -54,7 +52,8 @@ class TrainConfig():
     """Interrupt training if `val_loss` doesn't improving for over `early_stopping_patience` epochs."""
     
     def __post_init__(self):
-        self.log_dir = os.path.join("checkpoints", self.experiment_name , today_str)
+        if not self.log_dir:
+            self.log_dir = os.path.join("checkpoints", self.experiment_name , today_str)
         os.makedirs(self.log_dir, exist_ok=True)
     # train_features_min_max: Tuple[pd.DataFrame, pd.DataFrame] = field(init=False)
     # train_features_image_means: List[float] = field(init=False)
@@ -295,6 +294,7 @@ def main(hparams: HyperParameters, train_config: TrainConfig):
 
 
 if __name__ == "__main__":
+    from simple_parsing import ArgumentParser
     parser = ArgumentParser()
     
     parser.add_arguments(HyperParameters, "hparams")
