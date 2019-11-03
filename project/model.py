@@ -12,28 +12,9 @@ from typing import *
 
 """
 checkpoints/slim_models/2019-11-03_21:02:19
- 
 Total epochs: 0133,
 val_loss: 7.832,
 log_dir: checkpoints/slim_models/2019-11-03_21:02:19,
-hparams: HyperParameters(
-    batch_size=64,
-    num_layers=1,
-    dense_units=32,
-    activation='tanh',
-    optimizer='sgd',
-    learning_rate=0.01,
-    l1_reg=0.005,
-    l2_reg=0.005,
-    num_like_pages=5000,
-    use_dropout=True,
-    dropout_rate=0.1,
-    use_batchnorm=False
-)
-
-Total epochs: 0125,
-val_loss: 7.970,
-log_dir: checkpoints/slim_models/2019-11-03_21:06:43,
     age_group_loss: 3.2845
     gender_loss: 0.6823
     ext_loss: 0.6500
@@ -66,6 +47,24 @@ log_dir: checkpoints/slim_models/2019-11-03_21:06:43,
     val_neu_root_mean_squared_error: 0.8223
     val_con_root_mean_squared_error: 0.7408
     BEST VALIDATION LOSS: 7.831837256749471
+hparams: HyperParameters(
+    batch_size=64,
+    num_layers=1,
+    dense_units=32,
+    activation='tanh',
+    optimizer='sgd',
+    learning_rate=0.01,
+    l1_reg=0.005,
+    l2_reg=0.005,
+    num_like_pages=5000,
+    use_dropout=True,
+    dropout_rate=0.1,
+    use_batchnorm=False
+)
+
+Total epochs: 0125,
+val_loss: 7.970,
+log_dir: checkpoints/slim_models/2019-11-03_21:06:43,
 hparams: HyperParameters(
     batch_size=64,
     num_layers=1,
