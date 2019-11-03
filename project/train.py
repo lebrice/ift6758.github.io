@@ -125,7 +125,10 @@ def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: 
     # assert len(column_names) == expected_num_columns, column_names
     
     all_features = features.values
-    validation_data_percentage = 0.2
+    validation_data_percentage = train_config.validation_data_fraction
+    if validation_data_percentage == 0:
+        print("USING NO VALIDATION SET.")
+        
     cutoff = int(all_features.shape[0] * validation_data_percentage)
 
     valid_features, valid_labels = features.values[:cutoff], labels[:cutoff]
@@ -167,8 +170,11 @@ def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: 
         ), num_entries
     
     train_dataset, train_samples = make_dataset(train_features, train_labels)
-    valid_dataset, valid_samples = make_dataset(valid_features, valid_labels)
-    return train_dataset, valid_dataset, train_samples, valid_samples
+    if cutoff != 0:
+        valid_dataset, valid_samples = make_dataset(valid_features, valid_labels)
+        return train_dataset, valid_dataset, train_samples, valid_samples
+    else:
+        return train_dataset, None, train_samples, 0
 
 import warnings
 class EarlyStoppingWhenValueExplodes(tf.keras.callbacks.Callback):
@@ -216,26 +222,30 @@ def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConf
     if DEBUG:
         train_dataset = train_dataset.repeat(100)
         train_samples *= 100
-
-        valid_dataset = valid_dataset.repeat(100)
-        valid_samples *= 100
+        if valid_dataset:
+            valid_dataset = valid_dataset.repeat(100)
+            valid_samples *= 100
 
     print("num training examples:", train_samples)
     print("num validation examples:", valid_samples)
 
+    using_validation_set = valid_samples != 0
     training_callbacks = [
-        tf.keras.callbacks.ModelCheckpoint(
-            filepath=os.path.join(train_config.log_dir, "model.h5"),
-            monitor = "val_loss",
-            verbose=1,
-            save_best_only=True,
-            mode = 'auto'
-        ),
         tf.keras.callbacks.TensorBoard(log_dir = train_config.log_dir, profile_batch=0),
         hp.KerasCallback(train_config.log_dir, asdict(hparams)),
         tf.keras.callbacks.TerminateOnNaN(),
         EarlyStoppingWhenValueExplodes(monitor="loss", check_every_batch=True),
-        tf.keras.callbacks.EarlyStopping(patience=train_config.early_stopping_patience, monitor='val_loss'),
+        tf.keras.callbacks.ModelCheckpoint(
+            filepath=os.path.join(train_config.log_dir, "model.h5"),
+            monitor = "val_loss" if using_validation_set else "loss",
+            verbose=1,
+            save_best_only=True,
+            mode = 'auto'
+        ),
+        tf.keras.callbacks.EarlyStopping(
+            patience=train_config.early_stopping_patience,
+            monitor='val_loss' if using_validation_set else "loss"
+        ),
     ]
     history = None
     try:
@@ -247,11 +257,12 @@ def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConf
             callbacks=training_callbacks,
             # steps_per_epoch=int(train_samples / hparams.batch_size),
         )
-        best_val_loss = min(history.history["val_loss"])
-        num_epochs = len(history.history["val_loss"])
+        loss_metric = "val_loss" if using_validation_set else "loss"
+        best_loss_value = min(history.history[loss_metric])
+        num_epochs = len(history.history[loss_metric])
 
-        print("BEST VALIDATION LOSS:", best_val_loss)
-        return best_val_loss, num_epochs
+        print(f"BEST {'VALIDATION' if using_validation_set else 'TRAIN'} LOSS:", best_loss_value)
+        return best_loss_value, num_epochs
     except Exception as e:
         print(f"\n\n {e} \n\n")
         return np.PINF, -1

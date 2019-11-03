@@ -2,7 +2,7 @@
 
 EXPERIMENT_NAME="best_model_01"
 
-mkdir -f logs
+mkdir logs
 
 MAX_EPOCHS=500
 # Total epochs: 0050, val_loss: 12.778, log_dir: checkpoints/SGD_with_regularization/2019-11-02_00:19:03,
@@ -22,4 +22,5 @@ python ./ift6758.github.io/project/train.py \
         --optimizer sgd \
         --l1_reg 0.01 \
         --l2_reg 0.01 \
+        --validation_data_fraction 0.0 \
         >> "logs/$EXPERIMENT_NAME.txt"
