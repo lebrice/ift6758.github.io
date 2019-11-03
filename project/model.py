@@ -12,14 +12,14 @@ from typing import *
 class HyperParameters():
     """Hyperparameters of our model."""
     # the batch size
-    batch_size: int = 256
+    batch_size: int = 64
     # the number of dense layers in our model.
-    num_layers: int = 3
+    num_layers: int = 2
     # the number of units in each dense layer.
     dense_units: int = 64
     
     # the activation function used after each dense layer
-    activation: str = "tanh"
+    activation: str = "relu"
     # Which optimizer to use during training.
     optimizer: str = "sgd"
     # Learning Rate
@@ -34,7 +34,7 @@ class HyperParameters():
     # This corresponds to the number of entries in the multi-hot like vector.
     num_like_pages: int = 5000
     # wether or not Dropout layers should be used
-    use_dropout: bool = False
+    use_dropout: bool = True
     # the dropout rate
     dropout_rate: float = 0.1
     # wether or not Batch Normalization should be applied after each dense layer.
@@ -57,12 +57,11 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
     text_features  =    tf.keras.Input([hparams.num_text_features], dtype=tf.float32, name="text_features")
     likes_features =    tf.keras.Input([hparams.num_like_pages], dtype=tf.bool, name="likes_features")
 
-    # TODO: see below.
-    likes_float = tf.cast(likes_features, tf.float32)
 
     # TODO: maybe use some kind of binary neural network here to condense a [`num_like_pages`] bool vector down to something more manageable (ex: [128] floats)
+    likes_float = tf.cast(likes_features, tf.float32)
     likes_condensing_block = tf.keras.Sequential(name="likes_condensing_block")
-    for n_units in [512, 256, 128]:
+    for n_units in [256, 128, 64]:
         likes_condensing_block.add(tf.keras.layers.Dense(
             units=n_units,
             activation=hparams.activation,
