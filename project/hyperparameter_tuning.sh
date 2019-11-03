@@ -16,7 +16,7 @@ orion -v --debug hunt --max-trials $MAX_TRIALS -n $EXPERIMENT_NAME ./ift6758.git
         --batch_size 64 \
         --num_layers~"randint(1,3)" \
         --dense_units~"choices(32, 64, 128)" \
-        --activation~"choices(tanh, relu)" \
+        --activation~"choices('tanh', 'relu')" \
         --learning_rate~"choices(0.01, 0.005)" \
         --num_like_pages 5000 \
         --use_dropout True \
