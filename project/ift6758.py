@@ -9,7 +9,7 @@ import pandas as pd
 import textwrap
 from dataclasses import dataclass, field, InitVar
 
-from .user import User, average_user
+from user import User, average_user
 
 def get_arguments():
     parser = argparse.ArgumentParser(
