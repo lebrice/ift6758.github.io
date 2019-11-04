@@ -37,7 +37,7 @@ class average_user :
     def __init__(self):
         self.userid = 'placeholder'
         self.age_group = 'xx-24'
-        self.gender = 'female'
+        self.gender = getGender
         self.ope = 3.91
         self.con = 3.45
         self.ext = 3.49
@@ -57,6 +57,24 @@ class average_user :
             open="{self.ope}"
         />""")
         return user_text
+    
+    def getGender:
+        #TODO PATH_IMAGE + PATH_PROFILES
+        profiles = pd.read_csv(PATH_PROFILES)
+        oxford = pd.read_csv(PATH_IMAGES)
+        
+        oxford = oxford.rename(columns={"userId":"userid"})
+        oxford.drop_duplicates(subset ="userid",keep = "first", inplace=True)
+        
+        facial_hair=oxford.loc[:,['userid']]
+        facial_hair['hair']= oxford.facialHair_sideburns+oxford.facialHair_mustache+oxford.facialHair_beard
+        
+        t_gender = profiles.merge(facial_hair, on="userid")
+        t_gender.set_index(keys='userid', inplace=True, drop=True)
+        t_gender.drop(['Unnamed: 0'], axis=1).head()
+        
+        Male=t_gender[['hair']][t_gender.loc[:,'gender'] == 0]
+        Female=t_gender[['hair']][t_gender.loc[:,'gender'] == 1]
 
 
 def main():
