@@ -147,9 +147,10 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
 
     condensed_likes = likes_condensing_block(likes_float)
 
+    feature_vector = tf.keras.layers.Concatenate(name="feature_vector")([text_features, image_features, condensed_likes])
+
     # Dense block (applied on all the features, concatenated.)
     dense_layers = tf.keras.Sequential(name="dense_layers")
-    dense_layers.add(tf.keras.layers.Concatenate())
     for i in range(hparams.num_layers):
         dense_layers.add(tf.keras.layers.Dense(
             units=hparams.dense_units,
@@ -165,11 +166,11 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
 
         
     # get the dense feature representation
-    features = dense_layers([text_features, image_features, condensed_likes])
+    features = dense_layers(feature_vector)
     
     # MODEL OUTPUTS:
     age_group = tf.keras.layers.Dense(units=4, activation="softmax", name="age_group")(features)
-    gender = tf.keras.layers.Dense(units=1, activation="sigmoid", name="gender")(features)
+    gender = tf.keras.layers.Dense(units=1, activation="sigmoid", name="gender")(feature_vector)
     
     def personality_scaling(name: str) -> tf.keras.layers.Layer:
         """Returns a layer that scales a sigmoid output [0, 1) output to the desired 'personality' range of [1, 5)
