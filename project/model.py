@@ -169,12 +169,12 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
     
     # MODEL OUTPUTS:
 
-    gender_block = sequential_block("gender_block", hparams)
-    gender_block.add(tf.keras.layers.Dense(units=1, activation="sigmoid", name="gender"))
+    gender_block = sequential_block("gender", hparams)
+    gender_block.add(tf.keras.layers.Dense(units=1, activation="sigmoid", name="gender_out"))
     gender = gender_block(feature_vector)
 
-    age_group_block = sequential_block("age_group_block", hparams)
-    age_group_block.add(tf.keras.layers.Dense(units=4, activation="softmax", name="age_group"))
+    age_group_block = sequential_block("age_group", hparams)
+    age_group_block.add(tf.keras.layers.Dense(units=4, activation="softmax", name="age_group_out"))
     age_group = age_group_block(feature_vector)
 
     
@@ -192,9 +192,9 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
     
     personality_outputs: List[tf.Tensor] = []
     for personality_trait in ["ext", "ope", "agr", "neu", "con"]:
-        block = sequential_block(f"{personality_trait}_block", hparams)
+        block = sequential_block(personality_trait, hparams)
         block.add(tf.keras.layers.Dense(units=1, activation="sigmoid", name=f"{personality_trait}_sigmoid"))
-        block.add(personality_scaling(personality_trait))
+        block.add(personality_scaling(f"{personality_trait}_scaling"))
         output_tensor = block(feature_vector)
         personality_outputs.append(output_tensor)
 
