@@ -308,59 +308,68 @@ def main(hparams: HyperParameters, train_config: TrainConfig):
             num_epochs, metrics_dict = train(train_data_dir, hparams, train_config)
             print(f"Saved model weights are located at '{train_config.log_dir}'")
     
+    from io import StringIO
+    f = StringIO()
+    
+    
+    def relative_improvement(metric_name) -> float:
+        value_to_beat = baseline_metrics[metric_name]
+        result_value = metrics_dict[metric_name]
+        if "accuracy" in metric_name:
+            return result_value - value_to_beat
+        else:
+            # the term is an error or loss.
+            return value_to_beat - result_value
+    
+    
+    if DEBUG:
+        f.write("(DEBUG)\t")
+    f.write(f"Total epochs: {num_epochs:04d}, log_dir: {train_config.log_dir}, ")
+    if not metrics_dict:
+        f.write("TRAINING DIVERGED!")
+        print("TRAINING DIVERGED!")
+        return
+
+    relevant_metrics = {
+        metric_name: result for metric_name, result in metrics_dict.items() if metric_name in baseline_metrics
+    }
+    other_metrics = {
+        metric_name: result for metric_name, result in metrics_dict.items() if metric_name not in baseline_metrics
+    }
+    improvement_from_baseline = {
+        metric_name: relative_improvement(metric_name) for metric_name in relevant_metrics
+    }
+    beating_the_baseline = {
+        metric_name: improvement for metric_name, improvement in improvement_from_baseline.items() if improvement > 0 
+    }
+    total_improvement = sum(improvement_from_baseline.values())
+    f.write(f"total improvement: {total_improvement}\n\t")
+    
+    for metric_name, result_value in relevant_metrics.items(): 
+        f.write(f"{metric_name}: {result_value:.3f} ")
+    f.write("\n\t")
+
+    for metric_name, result_value in other_metrics.items(): 
+        f.write(f"{metric_name}: {result_value:.3f} ")
+    f.write("\n\t")
+
+    for metric_name, improvement in beating_the_baseline.items():
+        result = metrics_dict[metric_name]
+        target = baseline_metrics[metric_name]
+        f.write(f"BEATING THE BASELINE AT '{metric_name}': (Baseline: {target:.4f}, Ours: {result:.4f}, improvement of {improvement:.4f})\n\t")
+
+    f.write(f"Hparams: {hparams}\n")
+    f.write("\n")
+
+    f.seek(0)
+    print(f.read())
+    f.seek(0)
+
     os.makedirs("logs", exist_ok=True)
     experiment_results_file = os.path.join("logs", train_config.experiment_name +"-results.txt")
-    with open(experiment_results_file, "a") as f:
+    with open(experiment_results_file, "a") as runs_results_file:
+        f.write(f.read())
 
-        def relative_improvement(metric_name) -> float:
-            value_to_beat = baseline_metrics[metric_name]
-            result_value = metrics_dict[metric_name]
-            if "accuracy" in metric_name:
-                return result_value - value_to_beat
-            else:
-                # the term is an error or loss.
-                return value_to_beat - result_value
-        
-        
-        if DEBUG:
-            f.write("(DEBUG)\t")
-        f.write(f"Total epochs: {num_epochs:04d}, log_dir: {train_config.log_dir}, ")
-        if not metrics_dict:
-            f.write("TRAINING DIVERGED!")
-            print("TRAINING DIVERGED!")
-            return
-
-        relevant_metrics = {
-            metric_name: result for metric_name, result in metrics_dict.items() if metric_name in baseline_metrics
-        }
-        other_metrics = {
-            metric_name: result for metric_name, result in metrics_dict.items() if metric_name not in baseline_metrics
-        }
-        improvement_from_baseline = {
-            metric_name: relative_improvement(metric_name) for metric_name in relevant_metrics
-        }
-        beating_the_baseline = {
-            metric_name: improvement for metric_name, improvement in improvement_from_baseline.items() if improvement > 0 
-        }
-        total_improvement = sum(improvement_from_baseline.values())
-        f.write(f"total improvement: {total_improvement}\n\t")
-        
-        for metric_name, result_value in relevant_metrics.items(): 
-            f.write(f"{metric_name}: {result_value:.3f} ")
-        f.write("\n\t")
-
-        for metric_name, result_value in other_metrics.items(): 
-            f.write(f"{metric_name}: {result_value:.3f} ")
-        f.write("\n\t")
-
-        for metric_name, improvement in beating_the_baseline.items():
-            result = metrics_dict[metric_name]
-            target = baseline_metrics[metric_name]
-            f.write(f"BEATING THE BASELINE AT '{metric_name}': (Baseline: {target:.4f}, Ours: {result:.4f}, improvement of {improvement:.4f})\n\t")
-
-        f.write(f"Hparams: {hparams}\n")
-        f.write("\n")
-    
     using_validation_set = train_config.validation_data_fraction != 0.0
     if using_validation_set:
         from orion.client import report_results    

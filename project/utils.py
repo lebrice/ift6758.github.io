@@ -3,6 +3,14 @@ import tensorflow as tf
 from socket import gethostname
 DEBUG = "fabrice" in gethostname()
 
+class PrintLayer(tf.keras.layers.Layer):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+    
+    def call(self, inputs):
+        tf.print(inputs)
+        return inputs
+
 
 def random_multihot_vector(num_examples, num_classes, prob_1: float = 0.5) -> tf.Tensor:
     """Creates a multi-hot random 'likes' vector.
