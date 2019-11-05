@@ -11,6 +11,7 @@ from typing import *
 
 import numpy as np
 import pandas as pd
+import time
 
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
@@ -73,6 +74,14 @@ class TrainConfig():
         os.makedirs(self.log_dir, exist_ok=True)
     # train_features_min_max: Tuple[pd.DataFrame, pd.DataFrame] = field(init=False)
     # train_features_image_means: List[float] = field(init=False)
+
+
+@dataclass
+class TrainingResults:
+    total_epochs: int = -1
+    metrics_dict: Dict[str, float] = field(default_factory=dict)
+    model_param_count: int = -1
+    training_time_secs: float = -1
 
 
 @dataclass()
@@ -192,38 +201,14 @@ def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: 
     else:
         return train_dataset, None, train_samples, 0
 
-import warnings
-class EarlyStoppingWhenValueExplodes(tf.keras.callbacks.Callback):
-    def __init__(self, monitor='val_loss', max_value=1e5, verbose = True, check_every_batch=False):
-        super().__init__()
-        self.monitor = monitor
-        self.max_value = max_value
-        self.verbose = verbose
-        self.check_every_batch = check_every_batch
 
-    def on_batch_end(self, batch: int, logs: Dict[str, Any]):
-        if self.check_every_batch:
-            self.check(batch, logs)
-         
-    def on_epoch_end(self, epoch: int, logs: Dict[str, Any]):
-        if not self.check_every_batch:
-            self.check(epoch, logs)
-
-    def check(self, t: int, logs: Dict[str, Any]):
-        current = logs.get(self.monitor)
-        if current is None:
-            warnings.warn(RuntimeWarning(f"Early stopping requires {self.monitor} available!"))
-
-        elif current > self.max_value:
-            if self.verbose:
-                print(f"\n\n{'Batch' if self.check_every_batch else 'Epoch'} {t}: Early stopping because loss is greater than max value ({self.monitor} = {current})\n\n")
-            self.model.stop_training = True
-
-
-def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConfig):
+def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConfig) -> TrainingResults:
     
     print("Hyperparameters:", hparams)
     print("Train_config:", train_config)
+
+    start_time = time.time()
+
 
     # save the hyperparameter config to a file.
     with open(os.path.join(train_config.log_dir, "hyperparameters.json"), "w") as f:
@@ -251,7 +236,7 @@ def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConf
         tf.keras.callbacks.TensorBoard(log_dir = train_config.log_dir, profile_batch=0),
         hp.KerasCallback(train_config.log_dir, asdict(hparams)),
         tf.keras.callbacks.TerminateOnNaN(),
-        EarlyStoppingWhenValueExplodes(monitor="loss", check_every_batch=True),
+        utils.EarlyStoppingWhenValueExplodes(monitor="loss", check_every_batch=True),
         tf.keras.callbacks.ModelCheckpoint(
             filepath=os.path.join(train_config.log_dir, "model.h5"),
             monitor = "val_loss" if using_validation_set else "loss",
@@ -266,6 +251,7 @@ def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConf
     ]
     history = None
     try:
+
         history = model.fit(
             train_dataset if DEBUG else train_dataset,
             validation_data=valid_dataset if using_validation_set else None,
@@ -273,24 +259,36 @@ def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConf
             callbacks=training_callbacks,
             # steps_per_epoch=int(train_samples / hparams.batch_size),
         )
+        end_time = time.time()
+        training_time_secs = end_time - start_time
+        
         loss_metric = "val_loss" if using_validation_set else "loss"
         best_loss_value = min(history.history[loss_metric])
         num_epochs = len(history.history[loss_metric])
 
         print(f"BEST {'VALIDATION' if using_validation_set else 'TRAIN'} LOSS:", best_loss_value)
-
+        
+        results = TrainingResults()
+        results.total_epochs = num_epochs
+        results.model_param_count = model.count_params()
+        results.training_time_secs = training_time_secs
+        
         if using_validation_set:
             metrics = model.evaluate(valid_dataset)
-            metrics_dict = OrderedDict(zip(model.metrics_names, metrics))
-            return num_epochs, metrics_dict
+            results.metrics_dict = OrderedDict(zip(model.metrics_names, metrics))
         else:
-            return num_epochs, {metric_name: values[-1] for metric_name, values in history.history.items()}
+            results.metrics_dict = {metric_name: values[-1] for metric_name, values in history.history.items()}
+        
+        return results
+
     except Exception as e:
         print(f"\n\n {e} \n\n")
-        return -1, {}
+        return TrainingResults()
 
 
-def log_results(total_epochs: int, metrics_dict: Dict[str, float]):
+def log_results(results: TrainingResults):
+    metrics_dict = results.metrics_dict
+    total_epochs = results.total_epochs    
     from io import StringIO
     f = StringIO()
     def relative_improvement(metric_name) -> float:
@@ -358,17 +356,17 @@ def main(hparams: HyperParameters, train_config: TrainConfig):
     print("Train_config:", train_config)
 
     train_data_dir = os.path.join(os.path.curdir, "debug_data") if DEBUG else "~/Train"
-    
     # Create the required directories if not present.
     os.makedirs(train_config.log_dir, exist_ok=True)
     
     print("Training directory:", train_config.log_dir)
 
     with utils.log_to_file(os.path.join(train_config.log_dir, "train_log.txt")):
-        num_epochs, metrics_dict = train(train_data_dir, hparams, train_config)
+        results = train(train_data_dir, hparams, train_config)
+        
         print(f"Saved model weights are located at '{train_config.log_dir}'")
     
-    log_results(num_epochs, metrics_dict)
+    log_results(results)
 
     using_validation_set = train_config.validation_data_fraction != 0.0
     if using_validation_set:
@@ -376,7 +374,7 @@ def main(hparams: HyperParameters, train_config: TrainConfig):
         report_results([dict(
             name='validation_loss',
             type='objective',
-            value=metrics_dict["loss"],
+            value=results.metrics_dict["loss"],
         )])
 
     print("TRAINING COMPLETE")
