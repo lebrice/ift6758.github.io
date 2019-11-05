@@ -1,0 +1,761 @@
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=64, num_layers=6, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_01:16:19', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_01:16:19
+OrderedDict([('loss', 24.68581225077311),
+             ('age_group_loss', 3.350736),
+             ('gender_loss', 0.677223),
+             ('ext_loss', 0.6865986),
+             ('ope_loss', 0.43680525),
+             ('agr_loss', 0.45786062),
+             ('neu_loss', 0.6658128),
+             ('con_loss', 0.5419028),
+             ('age_group_categorical_accuracy', 0.83),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8287963),
+             ('ope_root_mean_squared_error', 0.6604339),
+             ('agr_root_mean_squared_error', 0.67698354),
+             ('neu_root_mean_squared_error', 0.81564146),
+             ('con_root_mean_squared_error', 0.7364869)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=64, num_layers=1, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_01:18:56', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_01:18:56
+OrderedDict([('loss', 26.044532585144044),
+             ('age_group_loss', 3.348111),
+             ('gender_loss', 0.6900413),
+             ('ext_loss', 0.6873898),
+             ('ope_loss', 0.4392603),
+             ('agr_loss', 0.47435078),
+             ('neu_loss', 0.71272475),
+             ('con_loss', 0.55636626),
+             ('age_group_categorical_accuracy', 0.12157895),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.82920474),
+             ('ope_root_mean_squared_error', 0.66356814),
+             ('agr_root_mean_squared_error', 0.68945473),
+             ('neu_root_mean_squared_error', 0.8444244),
+             ('con_root_mean_squared_error', 0.74763393)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=256, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_01:20:40', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_01:20:40
+OrderedDict([('loss', 31.01446032524109),
+             ('age_group_loss', 3.3913276),
+             ('gender_loss', 0.67850715),
+             ('ext_loss', 0.69616145),
+             ('ope_loss', 0.43883622),
+             ('agr_loss', 0.47006702),
+             ('neu_loss', 0.6559812),
+             ('con_loss', 0.5475365),
+             ('age_group_categorical_accuracy', 0.88),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8361266),
+             ('ope_root_mean_squared_error', 0.66715014),
+             ('agr_root_mean_squared_error', 0.6875189),
+             ('neu_root_mean_squared_error', 0.81527376),
+             ('con_root_mean_squared_error', 0.7375087)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=256, num_layers=6, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_01:23:13', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_01:23:13
+OrderedDict([('loss', 25.79294466972351),
+             ('age_group_loss', 3.3319607),
+             ('gender_loss', 0.6788635),
+             ('ext_loss', 0.6972591),
+             ('ope_loss', 0.44024992),
+             ('agr_loss', 0.4551124),
+             ('neu_loss', 0.6654982),
+             ('con_loss', 0.53914064),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.83013594),
+             ('ope_root_mean_squared_error', 0.66376835),
+             ('agr_root_mean_squared_error', 0.676694),
+             ('neu_root_mean_squared_error', 0.8157363),
+             ('con_root_mean_squared_error', 0.73634)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=64, num_layers=8, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_01:24:39', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_01:24:39
+OrderedDict([('loss', 30.360402870178223),
+             ('age_group_loss', 3.3481178),
+             ('gender_loss', 0.7872159),
+             ('ext_loss', 0.75257933),
+             ('ope_loss', 0.4398169),
+             ('agr_loss', 0.6565827),
+             ('neu_loss', 0.8557464),
+             ('con_loss', 0.6232469),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.4094737),
+             ('gender_recall', 0.0),
+             ('ext_root_mean_squared_error', 0.868494),
+             ('ope_root_mean_squared_error', 0.66284865),
+             ('agr_root_mean_squared_error', 0.81085926),
+             ('neu_root_mean_squared_error', 0.9239469),
+             ('con_root_mean_squared_error', 0.78851134)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=256, num_layers=3, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_01:26:18', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_01:26:18
+OrderedDict([('loss', 25.407107830047607),
+             ('age_group_loss', 3.3542228),
+             ('gender_loss', 0.6763903),
+             ('ext_loss', 0.6891413),
+             ('ope_loss', 0.4476569),
+             ('agr_loss', 0.45890677),
+             ('neu_loss', 0.65952384),
+             ('con_loss', 0.5461182),
+             ('age_group_categorical_accuracy', 0.23842105),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8294973),
+             ('ope_root_mean_squared_error', 0.6657824),
+             ('agr_root_mean_squared_error', 0.6772718),
+             ('neu_root_mean_squared_error', 0.8156281),
+             ('con_root_mean_squared_error', 0.7367527)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=128, num_layers=7, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_01:27:36', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_01:27:36
+OrderedDict([('loss', 24.7776362101237),
+             ('age_group_loss', 3.3431516),
+             ('gender_loss', 0.6773092),
+             ('ext_loss', 0.6867469),
+             ('ope_loss', 0.4373423),
+             ('agr_loss', 0.4585331),
+             ('neu_loss', 0.6654482),
+             ('con_loss', 0.54397553),
+             ('age_group_categorical_accuracy', 1.0),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8288537),
+             ('ope_root_mean_squared_error', 0.6617248),
+             ('agr_root_mean_squared_error', 0.6772247),
+             ('neu_root_mean_squared_error', 0.816046),
+             ('con_root_mean_squared_error', 0.7370292)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=256, num_layers=8, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_01:30:28', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_01:30:28
+OrderedDict([('loss', 30.972947120666504),
+             ('age_group_loss', 3.331962),
+             ('gender_loss', 0.67753625),
+             ('ext_loss', 0.6889629),
+             ('ope_loss', 0.4289161),
+             ('agr_loss', 0.4635501),
+             ('neu_loss', 0.6644882),
+             ('con_loss', 0.550028),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8276828),
+             ('ope_root_mean_squared_error', 0.6604657),
+             ('agr_root_mean_squared_error', 0.67682827),
+             ('neu_root_mean_squared_error', 0.8182959),
+             ('con_root_mean_squared_error', 0.7423524)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=128, num_layers=3, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_01:33:13', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_01:33:13
+OrderedDict([('loss', 29.330885696411134),
+             ('age_group_loss', 3.3442223),
+             ('gender_loss', 0.6876413),
+             ('ext_loss', 0.68639535),
+             ('ope_loss', 0.43746942),
+             ('agr_loss', 0.46000206),
+             ('neu_loss', 0.69694084),
+             ('con_loss', 0.54838985),
+             ('age_group_categorical_accuracy', 0.09421053),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.82725286),
+             ('ope_root_mean_squared_error', 0.661233),
+             ('agr_root_mean_squared_error', 0.67712504),
+             ('neu_root_mean_squared_error', 0.83449185),
+             ('con_root_mean_squared_error', 0.74013436)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=256, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_01:35:35', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_01:35:35
+OrderedDict([('loss', 33.29594969749451),
+             ('age_group_loss', 3.2614877),
+             ('gender_loss', 0.6821659),
+             ('ext_loss', 0.7633403),
+             ('ope_loss', 0.45298883),
+             ('agr_loss', 0.63287103),
+             ('neu_loss', 0.900547),
+             ('con_loss', 1.1340686),
+             ('age_group_categorical_accuracy', 0.9757895),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.87141764),
+             ('ope_root_mean_squared_error', 0.67051023),
+             ('agr_root_mean_squared_error', 0.7961098),
+             ('neu_root_mean_squared_error', 0.94394153),
+             ('con_root_mean_squared_error', 1.060525)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=128, num_layers=7, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_01:36:58', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_01:36:58
+OrderedDict([('loss', 32.32651023864746),
+             ('age_group_loss', 3.34476),
+             ('gender_loss', 0.7580635),
+             ('ext_loss', 0.7656701),
+             ('ope_loss', 0.4554499),
+             ('agr_loss', 0.7729038),
+             ('neu_loss', 1.3857911),
+             ('con_loss', 1.0724989),
+             ('age_group_categorical_accuracy', 1.0),
+             ('gender_binary_accuracy', 0.4094737),
+             ('gender_recall', 0.0),
+             ('ext_root_mean_squared_error', 0.8746798),
+             ('ope_root_mean_squared_error', 0.67572844),
+             ('agr_root_mean_squared_error', 0.8784904),
+             ('neu_root_mean_squared_error', 1.1772987),
+             ('con_root_mean_squared_error', 1.0356528)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=128, num_layers=6, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_01:38:27', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_01:38:27
+OrderedDict([('loss', 26.311492029825846),
+             ('age_group_loss', 3.345826),
+             ('gender_loss', 0.67673975),
+             ('ext_loss', 0.69269085),
+             ('ope_loss', 0.43853506),
+             ('agr_loss', 0.45887098),
+             ('neu_loss', 0.6648171),
+             ('con_loss', 0.54343253),
+             ('age_group_categorical_accuracy', 0.01631579),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8327877),
+             ('ope_root_mean_squared_error', 0.6613127),
+             ('agr_root_mean_squared_error', 0.6768766),
+             ('neu_root_mean_squared_error', 0.81596655),
+             ('con_root_mean_squared_error', 0.73648113)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=256, num_layers=8, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_01:41:21', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_01:41:21
+OrderedDict([('loss', 26.185409545898438),
+             ('age_group_loss', 3.3690646),
+             ('gender_loss', 0.6776118),
+             ('ext_loss', 0.69531345),
+             ('ope_loss', 0.43920696),
+             ('agr_loss', 0.45581234),
+             ('neu_loss', 0.6599189),
+             ('con_loss', 0.53749067),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.83233774),
+             ('ope_root_mean_squared_error', 0.66126895),
+             ('agr_root_mean_squared_error', 0.67773867),
+             ('neu_root_mean_squared_error', 0.81574225),
+             ('con_root_mean_squared_error', 0.73633754)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=64, num_layers=2, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_01:43:38', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_01:43:38
+OrderedDict([('loss', 26.15565980275472),
+             ('age_group_loss', 3.3467982),
+             ('gender_loss', 0.692586),
+             ('ext_loss', 0.7137626),
+             ('ope_loss', 0.44961038),
+             ('agr_loss', 0.4579897),
+             ('neu_loss', 0.6759327),
+             ('con_loss', 0.5439643),
+             ('age_group_categorical_accuracy', 0.025789473),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.84443533),
+             ('ope_root_mean_squared_error', 0.67101914),
+             ('agr_root_mean_squared_error', 0.6772318),
+             ('neu_root_mean_squared_error', 0.82184285),
+             ('con_root_mean_squared_error', 0.73688203)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=256, num_layers=5, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_01:45:10', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_01:45:10
+OrderedDict([('loss', 30.541103839874268),
+             ('age_group_loss', 3.305989),
+             ('gender_loss', 0.6949597),
+             ('ext_loss', 1.0315918),
+             ('ope_loss', 0.4467028),
+             ('agr_loss', 0.6617977),
+             ('neu_loss', 0.6815107),
+             ('con_loss', 0.596993),
+             ('age_group_categorical_accuracy', 0.10210526),
+             ('gender_binary_accuracy', 0.4094737),
+             ('gender_recall', 0.0),
+             ('ext_root_mean_squared_error', 1.0080476),
+             ('ope_root_mean_squared_error', 0.6673997),
+             ('agr_root_mean_squared_error', 0.8079483),
+             ('neu_root_mean_squared_error', 0.81634986),
+             ('con_root_mean_squared_error', 0.7740993)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=256, num_layers=5, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_01:46:59', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_01:46:59
+OrderedDict([('loss', 25.197312831878662),
+             ('age_group_loss', 3.3356707),
+             ('gender_loss', 0.6765207),
+             ('ext_loss', 0.6811682),
+             ('ope_loss', 0.4470343),
+             ('agr_loss', 0.45419478),
+             ('neu_loss', 0.6625884),
+             ('con_loss', 0.5358375),
+             ('age_group_categorical_accuracy', 0.04842105),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.830703),
+             ('ope_root_mean_squared_error', 0.6651317),
+             ('agr_root_mean_squared_error', 0.6768832),
+             ('neu_root_mean_squared_error', 0.81524086),
+             ('con_root_mean_squared_error', 0.736529)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=128, num_layers=3, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_01:48:30', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_01:48:30
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=128, num_layers=2, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_02:33:29', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_02:33:29
+OrderedDict([('loss', 24.753917439778647),
+             ('age_group_loss', 3.3485),
+             ('gender_loss', 0.6767031),
+             ('ext_loss', 0.6849958),
+             ('ope_loss', 0.43638957),
+             ('agr_loss', 0.48288193),
+             ('neu_loss', 0.66382766),
+             ('con_loss', 0.54446715),
+             ('age_group_categorical_accuracy', 0.8931579),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8273989),
+             ('ope_root_mean_squared_error', 0.66040325),
+             ('agr_root_mean_squared_error', 0.6957311),
+             ('neu_root_mean_squared_error', 0.8152251),
+             ('con_root_mean_squared_error', 0.7368222)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=64, num_layers=8, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_02:34:53', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_02:34:53
+OrderedDict([('loss', 24.812341435750326),
+             ('age_group_loss', 3.3533626),
+             ('gender_loss', 0.6797123),
+             ('ext_loss', 0.7448838),
+             ('ope_loss', 0.44130486),
+             ('agr_loss', 0.4600583),
+             ('neu_loss', 0.6643723),
+             ('con_loss', 0.5568199),
+             ('age_group_categorical_accuracy', 1.0),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.86276114),
+             ('ope_root_mean_squared_error', 0.6644117),
+             ('agr_root_mean_squared_error', 0.6782523),
+             ('neu_root_mean_squared_error', 0.81517035),
+             ('con_root_mean_squared_error', 0.74538165)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=64, num_layers=8, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_02:36:40', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_02:36:40
+OrderedDict([('loss', 29.221029154459636),
+             ('age_group_loss', 3.348113),
+             ('gender_loss', 0.67803776),
+             ('ext_loss', 0.6912593),
+             ('ope_loss', 0.4388651),
+             ('agr_loss', 0.46341094),
+             ('neu_loss', 0.69276685),
+             ('con_loss', 0.5466573),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8321353),
+             ('ope_root_mean_squared_error', 0.66039586),
+             ('agr_root_mean_squared_error', 0.6806965),
+             ('neu_root_mean_squared_error', 0.83198327),
+             ('con_root_mean_squared_error', 0.7376514)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=256, num_layers=8, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_02:39:29', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_02:39:29
+OrderedDict([('loss', 25.694144010543823),
+             ('age_group_loss', 3.357933),
+             ('gender_loss', 0.67517704),
+             ('ext_loss', 0.69842374),
+             ('ope_loss', 0.43135616),
+             ('agr_loss', 0.45809668),
+             ('neu_loss', 0.66318655),
+             ('con_loss', 0.53993905),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8360228),
+             ('ope_root_mean_squared_error', 0.6614032),
+             ('agr_root_mean_squared_error', 0.6775742),
+             ('neu_root_mean_squared_error', 0.8153861),
+             ('con_root_mean_squared_error', 0.73648053)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=128, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_02:41:05', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_02:41:05
+OrderedDict([('loss', 29.650607681274415),
+             ('age_group_loss', 3.3517146),
+             ('gender_loss', 0.676731),
+             ('ext_loss', 0.7394917),
+             ('ope_loss', 0.43845856),
+             ('agr_loss', 0.47111893),
+             ('neu_loss', 0.6998502),
+             ('con_loss', 0.54189646),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8598947),
+             ('ope_root_mean_squared_error', 0.6619935),
+             ('agr_root_mean_squared_error', 0.6862949),
+             ('neu_root_mean_squared_error', 0.83638203),
+             ('con_root_mean_squared_error', 0.7363779)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=128, num_layers=3, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_02:43:49', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_02:43:49
+OrderedDict([('loss', 32.22571589152018),
+             ('age_group_loss', 3.3426745),
+             ('gender_loss', 0.82151705),
+             ('ext_loss', 1.0155396),
+             ('ope_loss', 0.5046094),
+             ('agr_loss', 0.8029855),
+             ('neu_loss', 0.69757056),
+             ('con_loss', 1.5125474),
+             ('age_group_categorical_accuracy', 1.0),
+             ('gender_binary_accuracy', 0.4094737),
+             ('gender_recall', 0.0),
+             ('ext_root_mean_squared_error', 1.0086137),
+             ('ope_root_mean_squared_error', 0.7105484),
+             ('agr_root_mean_squared_error', 0.8970533),
+             ('neu_root_mean_squared_error', 0.83537513),
+             ('con_root_mean_squared_error', 1.2302632)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=256, num_layers=5, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_02:45:03', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_02:45:03
+OrderedDict([('loss', 27.325634002685547),
+             ('age_group_loss', 3.369065),
+             ('gender_loss', 0.67540646),
+             ('ext_loss', 0.691394),
+             ('ope_loss', 0.43825543),
+             ('agr_loss', 0.46097255),
+             ('neu_loss', 0.6651318),
+             ('con_loss', 0.5422017),
+             ('age_group_categorical_accuracy', 0.85052633),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.82731223),
+             ('ope_root_mean_squared_error', 0.661387),
+             ('agr_root_mean_squared_error', 0.6767003),
+             ('neu_root_mean_squared_error', 0.81738824),
+             ('con_root_mean_squared_error', 0.7363263)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=128, num_layers=3, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_02:46:31', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_02:46:31
+OrderedDict([('loss', 24.79052276611328),
+             ('age_group_loss', 3.3501046),
+             ('gender_loss', 0.67979825),
+             ('ext_loss', 0.6903736),
+             ('ope_loss', 0.43531033),
+             ('agr_loss', 0.45892724),
+             ('neu_loss', 0.66573715),
+             ('con_loss', 0.5486737),
+             ('age_group_categorical_accuracy', 0.09894737),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.83092546),
+             ('ope_root_mean_squared_error', 0.6605396),
+             ('agr_root_mean_squared_error', 0.67793405),
+             ('neu_root_mean_squared_error', 0.8163929),
+             ('con_root_mean_squared_error', 0.7399792)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=256, num_layers=4, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_02:48:06', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_02:48:06
+OrderedDict([('loss', 25.408549785614014),
+             ('age_group_loss', 3.32454),
+             ('gender_loss', 0.678051),
+             ('ext_loss', 0.68119985),
+             ('ope_loss', 0.44722262),
+             ('agr_loss', 0.4732095),
+             ('neu_loss', 0.67504865),
+             ('con_loss', 0.5400448),
+             ('age_group_categorical_accuracy', 0.75631577),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8283675),
+             ('ope_root_mean_squared_error', 0.6670488),
+             ('agr_root_mean_squared_error', 0.67906713),
+             ('neu_root_mean_squared_error', 0.8190106),
+             ('con_root_mean_squared_error', 0.7368198)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=128, num_layers=2, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_02:49:26', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_02:49:26
+OrderedDict([('loss', 29.028611373901366),
+             ('age_group_loss', 3.343688),
+             ('gender_loss', 0.6794645),
+             ('ext_loss', 0.7257497),
+             ('ope_loss', 0.44093528),
+             ('agr_loss', 0.4925412),
+             ('neu_loss', 0.6643773),
+             ('con_loss', 0.581019),
+             ('age_group_categorical_accuracy', 0.017368421),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8526203),
+             ('ope_root_mean_squared_error', 0.66366863),
+             ('agr_root_mean_squared_error', 0.7015488),
+             ('neu_root_mean_squared_error', 0.81514806),
+             ('con_root_mean_squared_error', 0.7625457)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=64, num_layers=2, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_02:51:49', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_02:51:49
+OrderedDict([('loss', 29.454542541503905),
+             ('age_group_loss', 3.3389227),
+             ('gender_loss', 0.6958431),
+             ('ext_loss', 0.75703394),
+             ('ope_loss', 0.44198292),
+             ('agr_loss', 0.45937294),
+             ('neu_loss', 0.7217084),
+             ('con_loss', 0.55844045),
+             ('age_group_categorical_accuracy', 0.27),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.86933154),
+             ('ope_root_mean_squared_error', 0.6632364),
+             ('agr_root_mean_squared_error', 0.67666596),
+             ('neu_root_mean_squared_error', 0.8493912),
+             ('con_root_mean_squared_error', 0.7473637)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=64, num_layers=8, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_02:53:28', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_02:53:28
+OrderedDict([('loss', 30.296636644999186),
+             ('age_group_loss', 3.3402364),
+             ('gender_loss', 0.68242735),
+             ('ext_loss', 1.2923981),
+             ('ope_loss', 0.43741053),
+             ('agr_loss', 0.57718384),
+             ('neu_loss', 0.76446074),
+             ('con_loss', 0.5641905),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 1.1384026),
+             ('ope_root_mean_squared_error', 0.6603908),
+             ('agr_root_mean_squared_error', 0.758423),
+             ('neu_root_mean_squared_error', 0.87451863),
+             ('con_root_mean_squared_error', 0.75131696)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=256, num_layers=7, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_02:54:59', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_02:54:59
+OrderedDict([('loss', 27.30630612373352),
+             ('age_group_loss', 3.3282504),
+             ('gender_loss', 0.6774307),
+             ('ext_loss', 0.6993875),
+             ('ope_loss', 0.43663058),
+             ('agr_loss', 0.45521754),
+             ('neu_loss', 0.65984845),
+             ('con_loss', 0.53912836),
+             ('age_group_categorical_accuracy', 0.14631578),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8316427),
+             ('ope_root_mean_squared_error', 0.6632797),
+             ('agr_root_mean_squared_error', 0.6767276),
+             ('neu_root_mean_squared_error', 0.8164057),
+             ('con_root_mean_squared_error', 0.7366914)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=256, num_layers=5, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_02:57:28', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_02:57:28
+OrderedDict([('loss', 30.75992178916931),
+             ('age_group_loss', 3.3616445),
+             ('gender_loss', 0.6819492),
+             ('ext_loss', 0.69338596),
+             ('ope_loss', 0.44031423),
+             ('agr_loss', 0.47052497),
+             ('neu_loss', 0.6706622),
+             ('con_loss', 0.5555679),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.82807225),
+             ('ope_root_mean_squared_error', 0.6603758),
+             ('agr_root_mean_squared_error', 0.6815831),
+             ('neu_root_mean_squared_error', 0.81593615),
+             ('con_root_mean_squared_error', 0.74522525)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=128, num_layers=6, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_02:59:49', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_02:59:49
+OrderedDict([('loss', 24.945842361450197),
+             ('age_group_loss', 3.342082),
+             ('gender_loss', 0.6764487),
+             ('ext_loss', 0.68966866),
+             ('ope_loss', 0.43750727),
+             ('agr_loss', 0.46008962),
+             ('neu_loss', 0.66380566),
+             ('con_loss', 0.54202265),
+             ('age_group_categorical_accuracy', 0.48157895),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8310232),
+             ('ope_root_mean_squared_error', 0.6618576),
+             ('agr_root_mean_squared_error', 0.6774087),
+             ('neu_root_mean_squared_error', 0.8154316),
+             ('con_root_mean_squared_error', 0.7365897)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=64, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_03:02:15', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_03:02:15
+OrderedDict([('loss', 29.26493345896403),
+             ('age_group_loss', 3.3546767),
+             ('gender_loss', 0.68098456),
+             ('ext_loss', 0.7332781),
+             ('ope_loss', 0.43619925),
+             ('agr_loss', 0.4759169),
+             ('neu_loss', 0.7257721),
+             ('con_loss', 0.5418102),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8575266),
+             ('ope_root_mean_squared_error', 0.66073895),
+             ('agr_root_mean_squared_error', 0.69044095),
+             ('neu_root_mean_squared_error', 0.8513977),
+             ('con_root_mean_squared_error', 0.7364142)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=64, num_layers=3, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_03:05:02', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_03:05:02
+OrderedDict([('loss', 24.671474583943684),
+             ('age_group_loss', 3.345486),
+             ('gender_loss', 0.6771024),
+             ('ext_loss', 0.68871415),
+             ('ope_loss', 0.4360413),
+             ('agr_loss', 0.45975542),
+             ('neu_loss', 0.6652324),
+             ('con_loss', 0.54234624),
+             ('age_group_categorical_accuracy', 0.7236842),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8300402),
+             ('ope_root_mean_squared_error', 0.6615965),
+             ('agr_root_mean_squared_error', 0.6773496),
+             ('neu_root_mean_squared_error', 0.8152117),
+             ('con_root_mean_squared_error', 0.7367902)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=256, num_layers=6, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_03:07:11', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_03:07:11
+OrderedDict([('loss', 25.89602255821228),
+             ('age_group_loss', 3.3356705),
+             ('gender_loss', 0.6778874),
+             ('ext_loss', 0.68821335),
+             ('ope_loss', 0.4390145),
+             ('agr_loss', 0.44845337),
+             ('neu_loss', 0.6578032),
+             ('con_loss', 0.5425971),
+             ('age_group_categorical_accuracy', 0.15105264),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.83192444),
+             ('ope_root_mean_squared_error', 0.6614568),
+             ('agr_root_mean_squared_error', 0.6766698),
+             ('neu_root_mean_squared_error', 0.81539655),
+             ('con_root_mean_squared_error', 0.7363246)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=128, num_layers=5, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_03:09:22', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_03:09:22
+OrderedDict([('loss', 29.576725260416666),
+             ('age_group_loss', 3.3388772),
+             ('gender_loss', 0.6773654),
+             ('ext_loss', 0.684089),
+             ('ope_loss', 0.44745997),
+             ('agr_loss', 0.46911713),
+             ('neu_loss', 0.73670405),
+             ('con_loss', 0.5582308),
+             ('age_group_categorical_accuracy', 0.9142105),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8272179),
+             ('ope_root_mean_squared_error', 0.66935974),
+             ('agr_root_mean_squared_error', 0.6843029),
+             ('neu_root_mean_squared_error', 0.8580525),
+             ('con_root_mean_squared_error', 0.74786574)])
+DEBUGGING:  False
+Experiment name: hparam_sweep_2
+Hyperparameters: HyperParameters(batch_size=256, num_layers=2, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='hparam_sweep_2', log_dir='checkpoints/hparam_sweep_2/2019-11-05_03:12:03', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/hparam_sweep_2/2019-11-05_03:12:03
+OrderedDict([('loss', 29.937060832977295),
+             ('age_group_loss', 3.3579354),
+             ('gender_loss', 0.6826057),
+             ('ext_loss', 0.6969397),
+             ('ope_loss', 0.44193897),
+             ('agr_loss', 0.45935923),
+             ('neu_loss', 0.66168493),
+             ('con_loss', 0.5486746),
+             ('age_group_categorical_accuracy', 0.0010526315),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8329251),
+             ('ope_root_mean_squared_error', 0.6604168),
+             ('agr_root_mean_squared_error', 0.67687607),
+             ('neu_root_mean_squared_error', 0.8163737),
+             ('con_root_mean_squared_error', 0.73842305)])

@@ -1,0 +1,1071 @@
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=64, num_layers=6, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_03:31:08', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_03:31:08
+OrderedDict([('loss', 24.685749371846516),
+             ('age_group_loss', 3.3638647),
+             ('gender_loss', 0.4655529),
+             ('ext_loss', 0.7033574),
+             ('ope_loss', 0.43772754),
+             ('agr_loss', 0.45853153),
+             ('neu_loss', 0.67155904),
+             ('con_loss', 0.54476994),
+             ('age_group_categorical_accuracy', 1.0),
+             ('gender_binary_accuracy', 0.80526316),
+             ('gender_recall', 0.9135472),
+             ('ext_root_mean_squared_error', 0.83818966),
+             ('ope_root_mean_squared_error', 0.66147906),
+             ('agr_root_mean_squared_error', 0.67681575),
+             ('neu_root_mean_squared_error', 0.8194855),
+             ('con_root_mean_squared_error', 0.7378257)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=256, num_layers=4, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_03:32:34', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_03:32:34
+OrderedDict([('loss', 24.822814464569092),
+             ('age_group_loss', 3.3208292),
+             ('gender_loss', 0.4785133),
+             ('ext_loss', 0.68645287),
+             ('ope_loss', 0.43540293),
+             ('agr_loss', 0.45939994),
+             ('neu_loss', 0.6588645),
+             ('con_loss', 0.54786617),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.7973684),
+             ('gender_recall', 0.92335117),
+             ('ext_root_mean_squared_error', 0.8281775),
+             ('ope_root_mean_squared_error', 0.66237855),
+             ('agr_root_mean_squared_error', 0.67673415),
+             ('neu_root_mean_squared_error', 0.8162541),
+             ('con_root_mean_squared_error', 0.7391234)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=64, num_layers=2, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_03:34:07', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_03:34:07
+OrderedDict([('loss', 24.28978576660156),
+             ('age_group_loss', 3.3389215),
+             ('gender_loss', 0.4515724),
+             ('ext_loss', 0.691299),
+             ('ope_loss', 0.43838024),
+             ('agr_loss', 0.46488827),
+             ('neu_loss', 0.6644971),
+             ('con_loss', 0.5422084),
+             ('age_group_categorical_accuracy', 0.022105264),
+             ('gender_binary_accuracy', 0.80105263),
+             ('gender_recall', 0.92959005),
+             ('ext_root_mean_squared_error', 0.83157206),
+             ('ope_root_mean_squared_error', 0.662017),
+             ('agr_root_mean_squared_error', 0.6825263),
+             ('neu_root_mean_squared_error', 0.81531835),
+             ('con_root_mean_squared_error', 0.7367583)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=128, num_layers=7, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_03:35:25', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_03:35:25
+OrderedDict([('loss', 32.1355904897054),
+             ('age_group_loss', 3.341564),
+             ('gender_loss', 0.4383156),
+             ('ext_loss', 1.7083334),
+             ('ope_loss', 0.4417031),
+             ('agr_loss', 0.4586943),
+             ('neu_loss', 1.0718575),
+             ('con_loss', 0.5441034),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.8094737),
+             ('gender_recall', 0.78163993),
+             ('ext_root_mean_squared_error', 1.3067123),
+             ('ope_root_mean_squared_error', 0.6646911),
+             ('agr_root_mean_squared_error', 0.67738134),
+             ('neu_root_mean_squared_error', 1.0355346),
+             ('con_root_mean_squared_error', 0.73799944)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=64, num_layers=5, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_03:36:50', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_03:36:50
+OrderedDict([('loss', 29.1647544225057),
+             ('age_group_loss', 3.3415513),
+             ('gender_loss', 0.51007545),
+             ('ext_loss', 0.68878686),
+             ('ope_loss', 0.4424224),
+             ('agr_loss', 0.46745798),
+             ('neu_loss', 0.6694343),
+             ('con_loss', 0.5483361),
+             ('age_group_categorical_accuracy', 0.8457895),
+             ('gender_binary_accuracy', 0.80526316),
+             ('gender_recall', 0.885918),
+             ('ext_root_mean_squared_error', 0.8306437),
+             ('ope_root_mean_squared_error', 0.6653149),
+             ('agr_root_mean_squared_error', 0.6844642),
+             ('neu_root_mean_squared_error', 0.81772035),
+             ('con_root_mean_squared_error', 0.74106985)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=256, num_layers=4, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_03:39:20', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_03:39:20
+OrderedDict([('loss', 27.130271911621094),
+             ('age_group_loss', 3.3764858),
+             ('gender_loss', 0.42841783),
+             ('ext_loss', 0.6898858),
+             ('ope_loss', 0.4382061),
+             ('agr_loss', 0.46270856),
+             ('neu_loss', 0.7013815),
+             ('con_loss', 0.53839844),
+             ('age_group_categorical_accuracy', 0.95842105),
+             ('gender_binary_accuracy', 0.80315787),
+             ('gender_recall', 0.93939394),
+             ('ext_root_mean_squared_error', 0.8346961),
+             ('ope_root_mean_squared_error', 0.6645825),
+             ('agr_root_mean_squared_error', 0.6779151),
+             ('neu_root_mean_squared_error', 0.83858407),
+             ('con_root_mean_squared_error', 0.73655087)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=128, num_layers=4, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_03:40:45', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_03:40:45
+OrderedDict([('loss', 25.185452524820963),
+             ('age_group_loss', 3.3463604),
+             ('gender_loss', 0.4757485),
+             ('ext_loss', 0.69433266),
+             ('ope_loss', 0.43753427),
+             ('agr_loss', 0.460295),
+             ('neu_loss', 0.66466486),
+             ('con_loss', 0.5424928),
+             ('age_group_categorical_accuracy', 0.33),
+             ('gender_binary_accuracy', 0.7773684),
+             ('gender_recall', 0.9607843),
+             ('ext_root_mean_squared_error', 0.8330342),
+             ('ope_root_mean_squared_error', 0.6611945),
+             ('agr_root_mean_squared_error', 0.6783823),
+             ('neu_root_mean_squared_error', 0.8153672),
+             ('con_root_mean_squared_error', 0.7366494)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=256, num_layers=8, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_03:42:29', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_03:42:29
+OrderedDict([('loss', 25.2037935256958),
+             ('age_group_loss', 3.3690643),
+             ('gender_loss', 0.4348273),
+             ('ext_loss', 0.68482625),
+             ('ope_loss', 0.4329112),
+             ('agr_loss', 0.4557871),
+             ('neu_loss', 0.66299325),
+             ('con_loss', 0.5476635),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.8231579),
+             ('gender_recall', 0.84581107),
+             ('ext_root_mean_squared_error', 0.8300103),
+             ('ope_root_mean_squared_error', 0.66096467),
+             ('agr_root_mean_squared_error', 0.6766743),
+             ('neu_root_mean_squared_error', 0.81665844),
+             ('con_root_mean_squared_error', 0.7387558)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=256, num_layers=6, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_03:44:10', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_03:44:10
+OrderedDict([('loss', 27.681368827819824),
+             ('age_group_loss', 3.4210105),
+             ('gender_loss', 0.49326617),
+             ('ext_loss', 0.6906465),
+             ('ope_loss', 0.43402654),
+             ('agr_loss', 0.46219733),
+             ('neu_loss', 0.65981734),
+             ('con_loss', 0.54553545),
+             ('age_group_categorical_accuracy', 0.020526316),
+             ('gender_binary_accuracy', 0.80105263),
+             ('gender_recall', 0.89483064),
+             ('ext_root_mean_squared_error', 0.8279625),
+             ('ope_root_mean_squared_error', 0.66121435),
+             ('agr_root_mean_squared_error', 0.6778602),
+             ('neu_root_mean_squared_error', 0.8151489),
+             ('con_root_mean_squared_error', 0.73767304)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=128, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_03:46:34', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_03:46:34
+OrderedDict([('loss', 29.538511530558267),
+             ('age_group_loss', 3.3485072),
+             ('gender_loss', 0.5363492),
+             ('ext_loss', 0.8252308),
+             ('ope_loss', 0.4365875),
+             ('agr_loss', 0.45909098),
+             ('neu_loss', 0.6679344),
+             ('con_loss', 0.5464577),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.80105263),
+             ('gender_recall', 0.7950089),
+             ('ext_root_mean_squared_error', 0.9091809),
+             ('ope_root_mean_squared_error', 0.660374),
+             ('agr_root_mean_squared_error', 0.6770734),
+             ('neu_root_mean_squared_error', 0.8169545),
+             ('con_root_mean_squared_error', 0.7384958)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=128, num_layers=3, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_03:49:34', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_03:49:34
+OrderedDict([('loss', 29.373973083496093),
+             ('age_group_loss', 3.344223),
+             ('gender_loss', 0.4690327),
+             ('ext_loss', 0.6896697),
+             ('ope_loss', 0.4600386),
+             ('agr_loss', 0.45769268),
+             ('neu_loss', 0.6689304),
+             ('con_loss', 0.5509091),
+             ('age_group_categorical_accuracy', 0.12684211),
+             ('gender_binary_accuracy', 0.7868421),
+             ('gender_recall', 0.9465241),
+             ('ext_root_mean_squared_error', 0.8302337),
+             ('ope_root_mean_squared_error', 0.6790618),
+             ('agr_root_mean_squared_error', 0.67668545),
+             ('neu_root_mean_squared_error', 0.81819403),
+             ('con_root_mean_squared_error', 0.7419625)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=256, num_layers=8, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_03:51:36', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_03:51:36
+OrderedDict([('loss', 26.66749334335327),
+             ('age_group_loss', 3.335671),
+             ('gender_loss', 0.46299374),
+             ('ext_loss', 0.6967653),
+             ('ope_loss', 0.42930245),
+             ('agr_loss', 0.4562677),
+             ('neu_loss', 0.6657564),
+             ('con_loss', 0.5431341),
+             ('age_group_categorical_accuracy', 0.010526316),
+             ('gender_binary_accuracy', 0.7963158),
+             ('gender_recall', 0.73707664),
+             ('ext_root_mean_squared_error', 0.83587486),
+             ('ope_root_mean_squared_error', 0.6604788),
+             ('agr_root_mean_squared_error', 0.676697),
+             ('neu_root_mean_squared_error', 0.81607485),
+             ('con_root_mean_squared_error', 0.73814934)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=128, num_layers=2, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_03:53:30', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_03:53:30
+OrderedDict([('loss', 26.464701970418293),
+             ('age_group_loss', 3.3415534),
+             ('gender_loss', 0.49396074),
+             ('ext_loss', 0.71302253),
+             ('ope_loss', 0.46232665),
+             ('agr_loss', 0.46371123),
+             ('neu_loss', 0.66691494),
+             ('con_loss', 0.542961),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.77157897),
+             ('gender_recall', 0.96880573),
+             ('ext_root_mean_squared_error', 0.84461486),
+             ('ope_root_mean_squared_error', 0.6795862),
+             ('agr_root_mean_squared_error', 0.6803062),
+             ('neu_root_mean_squared_error', 0.8164363),
+             ('con_root_mean_squared_error', 0.73705775)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=64, num_layers=4, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_03:54:45', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_03:54:45
+OrderedDict([('loss', 29.85306078592936),
+             ('age_group_loss', 3.342861),
+             ('gender_loss', 0.47564682),
+             ('ext_loss', 0.6881548),
+             ('ope_loss', 0.4351529),
+             ('agr_loss', 0.47390714),
+             ('neu_loss', 0.7067652),
+             ('con_loss', 1.0389487),
+             ('age_group_categorical_accuracy', 0.046842106),
+             ('gender_binary_accuracy', 0.7989474),
+             ('gender_recall', 0.93315506),
+             ('ext_root_mean_squared_error', 0.8292796),
+             ('ope_root_mean_squared_error', 0.66041565),
+             ('agr_root_mean_squared_error', 0.6890087),
+             ('neu_root_mean_squared_error', 0.84100723),
+             ('con_root_mean_squared_error', 1.0209826)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=256, num_layers=8, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_03:56:08', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_03:56:08
+OrderedDict([('loss', 31.428112745285034),
+             ('age_group_loss', 3.4173005),
+             ('gender_loss', 0.48607183),
+             ('ext_loss', 0.6815161),
+             ('ope_loss', 0.43732834),
+             ('agr_loss', 0.45835197),
+             ('neu_loss', 0.6640428),
+             ('con_loss', 0.5459432),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.7973684),
+             ('gender_recall', 0.9188948),
+             ('ext_root_mean_squared_error', 0.8279628),
+             ('ope_root_mean_squared_error', 0.6612599),
+             ('agr_root_mean_squared_error', 0.67941165),
+             ('neu_root_mean_squared_error', 0.8158932),
+             ('con_root_mean_squared_error', 0.73651916)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=128, num_layers=3, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_03:58:55', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_03:58:55
+OrderedDict([('loss', 26.385319646199545),
+             ('age_group_loss', 3.3447566),
+             ('gender_loss', 0.45623338),
+             ('ext_loss', 0.7200433),
+             ('ope_loss', 0.44788644),
+             ('agr_loss', 0.55324167),
+             ('neu_loss', 0.85049695),
+             ('con_loss', 0.5846882),
+             ('age_group_categorical_accuracy', 0.9868421),
+             ('gender_binary_accuracy', 0.8226316),
+             ('gender_recall', 0.8547237),
+             ('ext_root_mean_squared_error', 0.84877145),
+             ('ope_root_mean_squared_error', 0.6691332),
+             ('agr_root_mean_squared_error', 0.74398994),
+             ('neu_root_mean_squared_error', 0.9228466),
+             ('con_root_mean_squared_error', 0.76491547)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=128, num_layers=5, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:00:20', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:00:20
+OrderedDict([('loss', 26.458163452148437),
+             ('age_group_loss', 3.3490348),
+             ('gender_loss', 0.48129407),
+             ('ext_loss', 0.6928927),
+             ('ope_loss', 0.4419426),
+             ('agr_loss', 0.45821783),
+             ('neu_loss', 0.6669726),
+             ('con_loss', 0.5450837),
+             ('age_group_categorical_accuracy', 0.8905263),
+             ('gender_binary_accuracy', 0.798421),
+             ('gender_recall', 0.9251337),
+             ('ext_root_mean_squared_error', 0.83242863),
+             ('ope_root_mean_squared_error', 0.66458714),
+             ('agr_root_mean_squared_error', 0.67700917),
+             ('neu_root_mean_squared_error', 0.81646264),
+             ('con_root_mean_squared_error', 0.73834807)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=128, num_layers=4, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:02:36', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:02:36
+OrderedDict([('loss', 30.182694498697916),
+             ('age_group_loss', 3.34476),
+             ('gender_loss', 0.45363382),
+             ('ext_loss', 0.7467317),
+             ('ope_loss', 0.45289472),
+             ('agr_loss', 0.51669157),
+             ('neu_loss', 0.749689),
+             ('con_loss', 0.6064203),
+             ('age_group_categorical_accuracy', 0.0015789474),
+             ('gender_binary_accuracy', 0.80473685),
+             ('gender_recall', 0.8983957),
+             ('ext_root_mean_squared_error', 0.86438),
+             ('ope_root_mean_squared_error', 0.6722175),
+             ('agr_root_mean_squared_error', 0.71917284),
+             ('neu_root_mean_squared_error', 0.8657115),
+             ('con_root_mean_squared_error', 0.77878964)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=256, num_layers=2, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:04:33', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:04:33
+OrderedDict([('loss', 30.429848670959473),
+             ('age_group_loss', 3.3097064),
+             ('gender_loss', 0.41242012),
+             ('ext_loss', 0.7024301),
+             ('ope_loss', 0.43588996),
+             ('agr_loss', 0.46294534),
+             ('neu_loss', 0.67761314),
+             ('con_loss', 0.5527131),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.7989474),
+             ('gender_recall', 0.942959),
+             ('ext_root_mean_squared_error', 0.83769375),
+             ('ope_root_mean_squared_error', 0.6628916),
+             ('agr_root_mean_squared_error', 0.6797299),
+             ('neu_root_mean_squared_error', 0.8154517),
+             ('con_root_mean_squared_error', 0.73916113)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=64, num_layers=3, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:06:19', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:06:19
+OrderedDict([('loss', 26.106844774882),
+             ('age_group_loss', 3.3376083),
+             ('gender_loss', 0.46432647),
+             ('ext_loss', 0.6873436),
+             ('ope_loss', 0.45103198),
+             ('agr_loss', 0.5344393),
+             ('neu_loss', 0.73106897),
+             ('con_loss', 0.54455197),
+             ('age_group_categorical_accuracy', 0.7863158),
+             ('gender_binary_accuracy', 0.798421),
+             ('gender_recall', 0.9349376),
+             ('ext_root_mean_squared_error', 0.8297929),
+             ('ope_root_mean_squared_error', 0.67168343),
+             ('agr_root_mean_squared_error', 0.73139924),
+             ('neu_root_mean_squared_error', 0.85412353),
+             ('con_root_mean_squared_error', 0.73703396)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=64, num_layers=7, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:07:40', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:07:40
+OrderedDict([('loss', 24.911559677124025),
+             ('age_group_loss', 3.3428597),
+             ('gender_loss', 0.46878472),
+             ('ext_loss', 0.68474853),
+             ('ope_loss', 0.43570155),
+             ('agr_loss', 0.45822755),
+             ('neu_loss', 0.66371727),
+             ('con_loss', 0.54690045),
+             ('age_group_categorical_accuracy', 0.9994737),
+             ('gender_binary_accuracy', 0.7963158),
+             ('gender_recall', 0.9402852),
+             ('ext_root_mean_squared_error', 0.82784975),
+             ('ope_root_mean_squared_error', 0.6606592),
+             ('agr_root_mean_squared_error', 0.6771739),
+             ('neu_root_mean_squared_error', 0.81554157),
+             ('con_root_mean_squared_error', 0.7387647)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=64, num_layers=7, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:09:32', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:09:32
+OrderedDict([('loss', 29.979646174112954),
+             ('age_group_loss', 3.3494287),
+             ('gender_loss', 0.45464432),
+             ('ext_loss', 1.0063174),
+             ('ope_loss', 0.4356282),
+             ('agr_loss', 0.83211696),
+             ('neu_loss', 1.1624335),
+             ('con_loss', 0.5438183),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.8221053),
+             ('gender_recall', 0.8752228),
+             ('ext_root_mean_squared_error', 1.0034667),
+             ('ope_root_mean_squared_error', 0.6604283),
+             ('agr_root_mean_squared_error', 0.91317093),
+             ('neu_root_mean_squared_error', 1.0774173),
+             ('con_root_mean_squared_error', 0.7365999)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:11:17', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:11:17
+OrderedDict([('loss', 28.11454022725423),
+             ('age_group_loss', 3.353318),
+             ('gender_loss', 0.51514685),
+             ('ext_loss', 0.7428068),
+             ('ope_loss', 0.45186704),
+             ('agr_loss', 0.46030152),
+             ('neu_loss', 0.66697943),
+             ('con_loss', 0.5416369),
+             ('age_group_categorical_accuracy', 0.032105263),
+             ('gender_binary_accuracy', 0.75842106),
+             ('gender_recall', 0.9144385),
+             ('ext_root_mean_squared_error', 0.86184484),
+             ('ope_root_mean_squared_error', 0.6720612),
+             ('agr_root_mean_squared_error', 0.6790435),
+             ('neu_root_mean_squared_error', 0.8168598),
+             ('con_root_mean_squared_error', 0.7366746)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=64, num_layers=8, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:13:16', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:13:16
+OrderedDict([('loss', 29.719689178466798),
+             ('age_group_loss', 3.353364),
+             ('gender_loss', 0.5132407),
+             ('ext_loss', 0.68361735),
+             ('ope_loss', 0.43912318),
+             ('agr_loss', 0.53085655),
+             ('neu_loss', 0.7559284),
+             ('con_loss', 0.54133034),
+             ('age_group_categorical_accuracy', 1.0),
+             ('gender_binary_accuracy', 0.7968421),
+             ('gender_recall', 0.8814617),
+             ('ext_root_mean_squared_error', 0.82731915),
+             ('ope_root_mean_squared_error', 0.6612762),
+             ('agr_root_mean_squared_error', 0.7300384),
+             ('neu_root_mean_squared_error', 0.86981803),
+             ('con_root_mean_squared_error', 0.73686796)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=128, num_layers=2, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:15:39', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:15:39
+OrderedDict([('loss', 24.403232192993165),
+             ('age_group_loss', 3.3415473),
+             ('gender_loss', 0.4500406),
+             ('ext_loss', 0.688442),
+             ('ope_loss', 0.4364813),
+             ('agr_loss', 0.4580372),
+             ('neu_loss', 0.6747148),
+             ('con_loss', 0.54270285),
+             ('age_group_categorical_accuracy', 0.034736842),
+             ('gender_binary_accuracy', 0.80105263),
+             ('gender_recall', 0.9465241),
+             ('ext_root_mean_squared_error', 0.82958734),
+             ('ope_root_mean_squared_error', 0.6606736),
+             ('agr_root_mean_squared_error', 0.67671096),
+             ('neu_root_mean_squared_error', 0.8215094),
+             ('con_root_mean_squared_error', 0.73754823)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=64, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:17:00', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:17:00
+OrderedDict([('loss', 29.54227263132731),
+             ('age_group_loss', 3.3362978),
+             ('gender_loss', 0.53776973),
+             ('ext_loss', 0.7580555),
+             ('ope_loss', 0.43746594),
+             ('agr_loss', 0.45873383),
+             ('neu_loss', 0.672576),
+             ('con_loss', 0.5431472),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.79421055),
+             ('gender_recall', 0.926025),
+             ('ext_root_mean_squared_error', 0.8704064),
+             ('ope_root_mean_squared_error', 0.66062075),
+             ('agr_root_mean_squared_error', 0.6775022),
+             ('neu_root_mean_squared_error', 0.8183682),
+             ('con_root_mean_squared_error', 0.73654467)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=64, num_layers=5, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:19:20', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:19:20
+OrderedDict([('loss', 24.754200553894044),
+             ('age_group_loss', 3.3507369),
+             ('gender_loss', 0.4864227),
+             ('ext_loss', 0.68924147),
+             ('ope_loss', 0.43598828),
+             ('agr_loss', 0.45864615),
+             ('neu_loss', 0.66929233),
+             ('con_loss', 0.54385567),
+             ('age_group_categorical_accuracy', 0.91),
+             ('gender_binary_accuracy', 0.80105263),
+             ('gender_recall', 0.90909094),
+             ('ext_root_mean_squared_error', 0.83008796),
+             ('ope_root_mean_squared_error', 0.66144276),
+             ('agr_root_mean_squared_error', 0.6774362),
+             ('neu_root_mean_squared_error', 0.8180901),
+             ('con_root_mean_squared_error', 0.7363327)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=64, num_layers=1, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:21:13', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:21:13
+OrderedDict([('loss', 27.22914193471273),
+             ('age_group_loss', 3.3402371),
+             ('gender_loss', 0.49259043),
+             ('ext_loss', 0.7183699),
+             ('ope_loss', 0.43561777),
+             ('agr_loss', 0.46784604),
+             ('neu_loss', 0.67575413),
+             ('con_loss', 0.5481176),
+             ('age_group_categorical_accuracy', 0.9068421),
+             ('gender_binary_accuracy', 0.7510526),
+             ('gender_recall', 0.9483066),
+             ('ext_root_mean_squared_error', 0.8483194),
+             ('ope_root_mean_squared_error', 0.66057736),
+             ('agr_root_mean_squared_error', 0.68406075),
+             ('neu_root_mean_squared_error', 0.8234616),
+             ('con_root_mean_squared_error', 0.7401313)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=128, num_layers=4, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:24:01', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:24:01
+OrderedDict([('loss', 25.291874567667644),
+             ('age_group_loss', 3.347965),
+             ('gender_loss', 0.5792628),
+             ('ext_loss', 0.70357484),
+             ('ope_loss', 0.4358983),
+             ('agr_loss', 0.4592833),
+             ('neu_loss', 0.66883695),
+             ('con_loss', 0.5429424),
+             ('age_group_categorical_accuracy', 0.19421053),
+             ('gender_binary_accuracy', 0.76842105),
+             ('gender_recall', 0.9661319),
+             ('ext_root_mean_squared_error', 0.8385118),
+             ('ope_root_mean_squared_error', 0.6603765),
+             ('agr_root_mean_squared_error', 0.6771675),
+             ('neu_root_mean_squared_error', 0.8179905),
+             ('con_root_mean_squared_error', 0.73666203)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=256, num_layers=3, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:25:24', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:25:24
+OrderedDict([('loss', 26.31088352203369),
+             ('age_group_loss', 3.3059883),
+             ('gender_loss', 0.4151332),
+             ('ext_loss', 0.70494366),
+             ('ope_loss', 0.4333488),
+             ('agr_loss', 0.46340066),
+             ('neu_loss', 0.6680809),
+             ('con_loss', 0.54852706),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.82842106),
+             ('gender_recall', 0.8475936),
+             ('ext_root_mean_squared_error', 0.838555),
+             ('ope_root_mean_squared_error', 0.6633276),
+             ('agr_root_mean_squared_error', 0.6773824),
+             ('neu_root_mean_squared_error', 0.81584454),
+             ('con_root_mean_squared_error', 0.737617)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=128, num_layers=3, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:26:46', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:26:46
+OrderedDict([('loss', 26.16560961405436),
+             ('age_group_loss', 3.3399425),
+             ('gender_loss', 0.46107024),
+             ('ext_loss', 0.6902824),
+             ('ope_loss', 0.43967906),
+             ('agr_loss', 0.45967472),
+             ('neu_loss', 0.67043775),
+             ('con_loss', 0.5504332),
+             ('age_group_categorical_accuracy', 0.049473684),
+             ('gender_binary_accuracy', 0.81473684),
+             ('gender_recall', 0.87433153),
+             ('ext_root_mean_squared_error', 0.8305011),
+             ('ope_root_mean_squared_error', 0.6628545),
+             ('agr_root_mean_squared_error', 0.6776653),
+             ('neu_root_mean_squared_error', 0.8181964),
+             ('con_root_mean_squared_error', 0.74234545)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=128, num_layers=2, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:28:41', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:28:41
+OrderedDict([('loss', 24.781147638956707),
+             ('age_group_loss', 3.3501046),
+             ('gender_loss', 0.456261),
+             ('ext_loss', 0.69591945),
+             ('ope_loss', 0.4364968),
+             ('agr_loss', 0.45804694),
+             ('neu_loss', 0.6658553),
+             ('con_loss', 0.5412772),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.7989474),
+             ('gender_recall', 0.87967914),
+             ('ext_root_mean_squared_error', 0.83407336),
+             ('ope_root_mean_squared_error', 0.66050196),
+             ('agr_root_mean_squared_error', 0.67699015),
+             ('neu_root_mean_squared_error', 0.81514835),
+             ('con_root_mean_squared_error', 0.7364156)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=128, num_layers=3, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:30:23', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:30:23
+OrderedDict([('loss', 24.543526713053385),
+             ('age_group_loss', 3.3474305),
+             ('gender_loss', 0.45838553),
+             ('ext_loss', 0.6841161),
+             ('ope_loss', 0.44321796),
+             ('agr_loss', 0.4577863),
+             ('neu_loss', 0.69397706),
+             ('con_loss', 0.5496746),
+             ('age_group_categorical_accuracy', 0.97105265),
+             ('gender_binary_accuracy', 0.8089474),
+             ('gender_recall', 0.79679143),
+             ('ext_root_mean_squared_error', 0.82726204),
+             ('ope_root_mean_squared_error', 0.6654293),
+             ('agr_root_mean_squared_error', 0.67738014),
+             ('neu_root_mean_squared_error', 0.83368874),
+             ('con_root_mean_squared_error', 0.74172264)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=64, num_layers=7, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:31:44', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:31:44
+OrderedDict([('loss', 29.299264208475748),
+             ('age_group_loss', 3.3415518),
+             ('gender_loss', 0.5240752),
+             ('ext_loss', 0.717559),
+             ('ope_loss', 0.44053236),
+             ('agr_loss', 0.48561314),
+             ('neu_loss', 0.66493475),
+             ('con_loss', 0.5423476),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.7936842),
+             ('gender_recall', 0.7673797),
+             ('ext_root_mean_squared_error', 0.8465706),
+             ('ope_root_mean_squared_error', 0.6622697),
+             ('agr_root_mean_squared_error', 0.6954402),
+             ('neu_root_mean_squared_error', 0.81684464),
+             ('con_root_mean_squared_error', 0.7365421)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=256, num_layers=2, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:34:10', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:34:10
+OrderedDict([('loss', 24.22655153274536),
+             ('age_group_loss', 3.276304),
+             ('gender_loss', 0.45283645),
+             ('ext_loss', 0.6868342),
+             ('ope_loss', 0.43180072),
+             ('agr_loss', 0.455094),
+             ('neu_loss', 0.66508585),
+             ('con_loss', 0.5342645),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.7963158),
+             ('gender_recall', 0.92156863),
+             ('ext_root_mean_squared_error', 0.8318857),
+             ('ope_root_mean_squared_error', 0.66070056),
+             ('agr_root_mean_squared_error', 0.68061274),
+             ('neu_root_mean_squared_error', 0.81607765),
+             ('con_root_mean_squared_error', 0.73633236)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=256, num_layers=4, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:35:36', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:35:36
+OrderedDict([('loss', 25.15649151802063),
+             ('age_group_loss', 3.3579333),
+             ('gender_loss', 0.4749381),
+             ('ext_loss', 0.689595),
+             ('ope_loss', 0.42975786),
+             ('agr_loss', 0.45118558),
+             ('neu_loss', 0.6624003),
+             ('con_loss', 0.54741544),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.8094737),
+             ('gender_recall', 0.88235295),
+             ('ext_root_mean_squared_error', 0.8291744),
+             ('ope_root_mean_squared_error', 0.66102535),
+             ('agr_root_mean_squared_error', 0.6770874),
+             ('neu_root_mean_squared_error', 0.8152313),
+             ('con_root_mean_squared_error', 0.7363665)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=64, num_layers=7, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:37:41', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:37:41
+OrderedDict([('loss', 24.71476453145345),
+             ('age_group_loss', 3.338921),
+             ('gender_loss', 0.5138097),
+             ('ext_loss', 0.6843275),
+             ('ope_loss', 0.4375313),
+             ('agr_loss', 0.47931117),
+             ('neu_loss', 0.694685),
+             ('con_loss', 0.5575093),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.7873684),
+             ('gender_recall', 0.94741535),
+             ('ext_root_mean_squared_error', 0.82763284),
+             ('ope_root_mean_squared_error', 0.6619404),
+             ('agr_root_mean_squared_error', 0.692607),
+             ('neu_root_mean_squared_error', 0.8339226),
+             ('con_root_mean_squared_error', 0.74679387)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=256, num_layers=8, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:39:14', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:39:14
+OrderedDict([('loss', 32.166147232055664),
+             ('age_group_loss', 3.3727849),
+             ('gender_loss', 0.46761858),
+             ('ext_loss', 1.0239589),
+             ('ope_loss', 0.46176025),
+             ('agr_loss', 0.6194066),
+             ('neu_loss', 0.88862723),
+             ('con_loss', 0.7908641),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.798421),
+             ('gender_recall', 0.9278075),
+             ('ext_root_mean_squared_error', 1.0050032),
+             ('ope_root_mean_squared_error', 0.6783755),
+             ('agr_root_mean_squared_error', 0.79004484),
+             ('neu_root_mean_squared_error', 0.94078887),
+             ('con_root_mean_squared_error', 0.88568646)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=256, num_layers=5, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:40:56', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:40:56
+OrderedDict([('loss', 25.487985134124756),
+             ('age_group_loss', 3.357933),
+             ('gender_loss', 0.45629555),
+             ('ext_loss', 0.6824498),
+             ('ope_loss', 0.43009567),
+             ('agr_loss', 0.45638993),
+             ('neu_loss', 0.6664974),
+             ('con_loss', 0.5384887),
+             ('age_group_categorical_accuracy', 0.045789473),
+             ('gender_binary_accuracy', 0.7963158),
+             ('gender_recall', 0.9278075),
+             ('ext_root_mean_squared_error', 0.82982224),
+             ('ope_root_mean_squared_error', 0.66120493),
+             ('agr_root_mean_squared_error', 0.6767916),
+             ('neu_root_mean_squared_error', 0.815168),
+             ('con_root_mean_squared_error', 0.7365232)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=64, num_layers=5, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:42:57', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:42:57
+OrderedDict([('loss', 29.811943117777506),
+             ('age_group_loss', 3.345488),
+             ('gender_loss', 0.4666426),
+             ('ext_loss', 0.9666384),
+             ('ope_loss', 0.5603351),
+             ('agr_loss', 0.4577609),
+             ('neu_loss', 1.088458),
+             ('con_loss', 0.57370126),
+             ('age_group_categorical_accuracy', 0.9994737),
+             ('gender_binary_accuracy', 0.8089474),
+             ('gender_recall', 0.90641713),
+             ('ext_root_mean_squared_error', 0.9831848),
+             ('ope_root_mean_squared_error', 0.75012976),
+             ('agr_root_mean_squared_error', 0.6767297),
+             ('neu_root_mean_squared_error', 1.04356),
+             ('con_root_mean_squared_error', 0.75690395)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=256, num_layers=5, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:44:31', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:44:31
+OrderedDict([('loss', 26.776443004608154),
+             ('age_group_loss', 3.3579342),
+             ('gender_loss', 0.44686386),
+             ('ext_loss', 0.7086342),
+             ('ope_loss', 0.44505775),
+             ('agr_loss', 0.4668013),
+             ('neu_loss', 0.66976804),
+             ('con_loss', 0.54891515),
+             ('age_group_categorical_accuracy', 0.042105265),
+             ('gender_binary_accuracy', 0.8115789),
+             ('gender_recall', 0.8128342),
+             ('ext_root_mean_squared_error', 0.8338515),
+             ('ope_root_mean_squared_error', 0.66171944),
+             ('agr_root_mean_squared_error', 0.67985606),
+             ('neu_root_mean_squared_error', 0.8151758),
+             ('con_root_mean_squared_error', 0.73639446)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=256, num_layers=1, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:46:07', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:46:07
+OrderedDict([('loss', 27.010724544525146),
+             ('age_group_loss', 3.3282502),
+             ('gender_loss', 0.48850068),
+             ('ext_loss', 0.6879612),
+             ('ope_loss', 0.43857735),
+             ('agr_loss', 0.46706071),
+             ('neu_loss', 0.6621146),
+             ('con_loss', 0.5422843),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.761579),
+             ('gender_recall', 0.9848485),
+             ('ext_root_mean_squared_error', 0.82829237),
+             ('ope_root_mean_squared_error', 0.66112256),
+             ('agr_root_mean_squared_error', 0.6841742),
+             ('neu_root_mean_squared_error', 0.81517375),
+             ('con_root_mean_squared_error', 0.7364514)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=256, num_layers=5, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:47:21', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:47:21
+OrderedDict([('loss', 27.362151384353638),
+             ('age_group_loss', 3.3208296),
+             ('gender_loss', 0.43953818),
+             ('ext_loss', 0.68647844),
+             ('ope_loss', 0.43608958),
+             ('agr_loss', 0.46220815),
+             ('neu_loss', 0.66629684),
+             ('con_loss', 0.5410654),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.8094737),
+             ('gender_recall', 0.8903743),
+             ('ext_root_mean_squared_error', 0.82809156),
+             ('ope_root_mean_squared_error', 0.661493),
+             ('agr_root_mean_squared_error', 0.6790708),
+             ('neu_root_mean_squared_error', 0.81596273),
+             ('con_root_mean_squared_error', 0.7368789)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=128, num_layers=8, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:49:23', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:49:23
+OrderedDict([('loss', 24.444179407755534),
+             ('age_group_loss', 3.3415475),
+             ('gender_loss', 0.4658712),
+             ('ext_loss', 0.6882239),
+             ('ope_loss', 0.4404788),
+             ('agr_loss', 0.46426147),
+             ('neu_loss', 0.68601346),
+             ('con_loss', 0.5483643),
+             ('age_group_categorical_accuracy', 1.0),
+             ('gender_binary_accuracy', 0.8005263),
+             ('gender_recall', 0.92691624),
+             ('ext_root_mean_squared_error', 0.8294713),
+             ('ope_root_mean_squared_error', 0.66318744),
+             ('agr_root_mean_squared_error', 0.6818434),
+             ('neu_root_mean_squared_error', 0.8284906),
+             ('con_root_mean_squared_error', 0.7399912)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=256, num_layers=3, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:51:11', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:51:11
+OrderedDict([('loss', 25.376258850097656),
+             ('age_group_loss', 3.3839066),
+             ('gender_loss', 0.43826434),
+             ('ext_loss', 0.6910578),
+             ('ope_loss', 0.44618213),
+             ('agr_loss', 0.46171695),
+             ('neu_loss', 0.6631681),
+             ('con_loss', 0.5407114),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.80473685),
+             ('gender_recall', 0.8930481),
+             ('ext_root_mean_squared_error', 0.8316541),
+             ('ope_root_mean_squared_error', 0.6625527),
+             ('agr_root_mean_squared_error', 0.67681605),
+             ('neu_root_mean_squared_error', 0.8154533),
+             ('con_root_mean_squared_error', 0.7363214)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=256, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:53:03', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:53:03
+OrderedDict([('loss', 31.798309803009033),
+             ('age_group_loss', 3.3356714),
+             ('gender_loss', 0.42348355),
+             ('ext_loss', 1.045035),
+             ('ope_loss', 0.47445893),
+             ('agr_loss', 0.59031534),
+             ('neu_loss', 0.9183806),
+             ('con_loss', 0.8866826),
+             ('age_group_categorical_accuracy', 0.87210524),
+             ('gender_binary_accuracy', 0.81526315),
+             ('gender_recall', 0.9144385),
+             ('ext_root_mean_squared_error', 1.02326),
+             ('ope_root_mean_squared_error', 0.6909328),
+             ('agr_root_mean_squared_error', 0.76818013),
+             ('neu_root_mean_squared_error', 0.96480036),
+             ('con_root_mean_squared_error', 0.94796515)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=256, num_layers=3, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:54:38', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:54:38
+OrderedDict([('loss', 24.962926626205444),
+             ('age_group_loss', 3.3801956),
+             ('gender_loss', 0.42526078),
+             ('ext_loss', 0.6926524),
+             ('ope_loss', 0.4374874),
+             ('agr_loss', 0.46464473),
+             ('neu_loss', 0.671133),
+             ('con_loss', 0.5340649),
+             ('age_group_categorical_accuracy', 0.93526316),
+             ('gender_binary_accuracy', 0.81631577),
+             ('gender_recall', 0.88770056),
+             ('ext_root_mean_squared_error', 0.8314042),
+             ('ope_root_mean_squared_error', 0.6629698),
+             ('agr_root_mean_squared_error', 0.6797736),
+             ('neu_root_mean_squared_error', 0.8153647),
+             ('con_root_mean_squared_error', 0.7371094)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=64, num_layers=6, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:55:59', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:55:59
+OrderedDict([('loss', 26.302789624532064),
+             ('age_group_loss', 3.336296),
+             ('gender_loss', 0.47464657),
+             ('ext_loss', 0.72742754),
+             ('ope_loss', 0.43894726),
+             ('agr_loss', 0.46646845),
+             ('neu_loss', 0.66621387),
+             ('con_loss', 0.55118805),
+             ('age_group_categorical_accuracy', 0.44263157),
+             ('gender_binary_accuracy', 0.80157894),
+             ('gender_recall', 0.9411765),
+             ('ext_root_mean_squared_error', 0.85198295),
+             ('ope_root_mean_squared_error', 0.6626706),
+             ('agr_root_mean_squared_error', 0.682263),
+             ('neu_root_mean_squared_error', 0.8160206),
+             ('con_root_mean_squared_error', 0.7422675)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=64, num_layers=2, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:57:24', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:57:24
+OrderedDict([('loss', 29.057358423868816),
+             ('age_group_loss', 3.3336723),
+             ('gender_loss', 0.5465975),
+             ('ext_loss', 0.6850919),
+             ('ope_loss', 0.43769982),
+             ('agr_loss', 0.46298456),
+             ('neu_loss', 0.66566193),
+             ('con_loss', 0.54965687),
+             ('age_group_categorical_accuracy', 0.002105263),
+             ('gender_binary_accuracy', 0.7747368),
+             ('gender_recall', 0.92156863),
+             ('ext_root_mean_squared_error', 0.82758856),
+             ('ope_root_mean_squared_error', 0.66136414),
+             ('agr_root_mean_squared_error', 0.6806127),
+             ('neu_root_mean_squared_error', 0.81515527),
+             ('con_root_mean_squared_error', 0.741817)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=256, num_layers=6, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_04:59:09', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_04:59:09
+OrderedDict([('loss', 25.748555421829224),
+             ('age_group_loss', 3.4024582),
+             ('gender_loss', 0.44692555),
+             ('ext_loss', 0.6948967),
+             ('ope_loss', 0.43541065),
+             ('agr_loss', 0.44800764),
+             ('neu_loss', 0.6747454),
+             ('con_loss', 0.5435109),
+             ('age_group_categorical_accuracy', 0.0015789474),
+             ('gender_binary_accuracy', 0.8068421),
+             ('gender_recall', 0.899287),
+             ('ext_root_mean_squared_error', 0.83045024),
+             ('ope_root_mean_squared_error', 0.66239226),
+             ('agr_root_mean_squared_error', 0.6767387),
+             ('neu_root_mean_squared_error', 0.81514686),
+             ('con_root_mean_squared_error', 0.7363362)])
+DEBUGGING:  False
+Experiment name: simpler_gender
+Hyperparameters: HyperParameters(batch_size=256, num_layers=1, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='simpler_gender', log_dir='checkpoints/simpler_gender/2019-11-05_05:01:18', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/simpler_gender/2019-11-05_05:01:18
+OrderedDict([('loss', 29.517935752868652),
+             ('age_group_loss', 3.3356729),
+             ('gender_loss', 0.5370558),
+             ('ext_loss', 0.7004337),
+             ('ope_loss', 0.43543255),
+             ('agr_loss', 0.45789573),
+             ('neu_loss', 0.6657023),
+             ('con_loss', 0.554775),
+             ('age_group_categorical_accuracy', 0.9563158),
+             ('gender_binary_accuracy', 0.74263155),
+             ('gender_recall', 0.9491979),
+             ('ext_root_mean_squared_error', 0.84033275),
+             ('ope_root_mean_squared_error', 0.660486),
+             ('agr_root_mean_squared_error', 0.67747265),
+             ('neu_root_mean_squared_error', 0.8156411),
+             ('con_root_mean_squared_error', 0.74600357)])
