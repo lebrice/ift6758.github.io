@@ -4,7 +4,7 @@ pip install --quiet orion
 
 # TODO: change this to the maximum number of desired trials.
 MAX_TRIALS=20
-EXPERIMENT_NAME="scaled_loss_fixed_metrics"
+EXPERIMENT_NAME="hparam_sweep_2"
 
 mkdir -f logs
 
