@@ -302,7 +302,21 @@ def main(hparams: HyperParameters, train_config: TrainConfig):
             f.write(f"{metric_name}: {metric_value:.3f} ")
         f.write(f"\tHparams: {hparams}")
         f.write("\n")
-    
+
+        baseline_metrics = {
+            "gender_binary_accuracy":         0.591,
+            "age_group_categorical_accuracy": 0.594,
+            "ope_root_mean_squared_error":    0.652,
+            "neu_root_mean_squared_error":    0.798,
+            "ext_root_mean_squared_error":    0.788,
+            "agr_root_mean_squared_error":    0.665,
+            "con_root_mean_squared_error":    0.734,
+        }
+        for metric_name, value_to_beat in baseline_metrics.items():
+            beat_the_baseline = metrics_dict[metric_name] > value_to_beat if "accuracy" in metric_name else metrics_dict[metric_name] < value_to_beat
+            if beat_the_baseline:
+                f.write(f"BEATING THE BASELINE AT '{metric_name}': {metrics_dict[metric_name]} (baseline: {value_to_beat})\n")
+
     import pprint
     pprint.pprint(metrics_dict)
     using_validation_set = train_config.validation_data_fraction != 0.0
