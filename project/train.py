@@ -308,13 +308,6 @@ def main(hparams: HyperParameters, train_config: TrainConfig):
     os.makedirs("logs", exist_ok=True)
     experiment_results_file = os.path.join("logs", train_config.experiment_name +"-results.txt")
     with open(experiment_results_file, "a") as f:
-        if DEBUG:
-            f.write("(DEBUG)\t")
-        f.write(f"Total epochs: {num_epochs:04d}, log_dir: {train_config.log_dir}\n")
-        
-        beating_baseline_text = ""
-        difference_from_baseline = 0.
-        
         def relative_improvement(metric_name) -> float:
             value_to_beat = baseline_metrics[metric_name]
             result_value = metrics_dict[metric_name]
@@ -336,10 +329,16 @@ def main(hparams: HyperParameters, train_config: TrainConfig):
         beating_the_baseline = {
             metric_name: improvement for metric_name, improvement in improvement_from_baseline.items() if improvement > 0 
         }
-        f.write("\t")
+        total_improvement = sum(improvement_from_baseline.values())
+        
+        if DEBUG:
+            f.write("(DEBUG)\t")
+        f.write(f"Total epochs: {num_epochs:04d}, log_dir: {train_config.log_dir}, total improvement: {total_improvement}\n\t")
+        
         for metric_name, result_value in relevant_metrics.items(): 
             f.write(f"{metric_name}: {result_value:.3f} ")
-        f.write("\n\t")        
+        f.write("\n\t")
+
         for metric_name, result_value in other_metrics.items(): 
             f.write(f"{metric_name}: {result_value:.3f} ")
         f.write("\n\t")
@@ -349,7 +348,7 @@ def main(hparams: HyperParameters, train_config: TrainConfig):
             target = baseline_metrics[metric_name]
             f.write(f"BEATING THE BASELINE AT '{metric_name}': (Baseline: {target:.4f}, Ours: {result:.4f}, improvement of {improvement:.4f})\n\t")
 
-        f.write(f"\tHparams: {hparams}\n")
+        f.write(f"Hparams: {hparams}\n")
         f.write("\n")
 
     import pprint
