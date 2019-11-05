@@ -342,7 +342,7 @@ def log_results(results: TrainingResults):
     os.makedirs("logs", exist_ok=True)
     experiment_results_file = os.path.join("logs", train_config.experiment_name +"-results.txt")
     with open(experiment_results_file, "a") as runs_results_file:
-        f.write(f.read())
+        runs_results_file.write(f.read())
 
 
 def main(hparams: HyperParameters, train_config: TrainConfig):
