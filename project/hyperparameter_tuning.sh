@@ -4,7 +4,7 @@ pip install --quiet orion
 
 # TODO: change this to the maximum number of desired trials.
 MAX_TRIALS=100
-EXPERIMENT_NAME="simpler_gender"
+EXPERIMENT_NAME="one_branch_each"
 
 mkdir -p logs
 
