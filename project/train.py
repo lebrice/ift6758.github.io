@@ -23,11 +23,12 @@ from collections import OrderedDict
 from model import HyperParameters, get_model
 from preprocessing_pipeline import preprocess_train
 
-today_str = (datetime.now().strftime("%Y-%m-%d_%H:%M:%S"))
+today_str = (datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
 from utils import DEBUG
 
 print("DEBUGGING: ", DEBUG)
 
+tf.random.set_seed(123123)
 
 baseline_metrics = {
     "gender_binary_accuracy":         0.591,
@@ -67,7 +68,7 @@ class TrainConfig():
     
     def __post_init__(self):
         if not self.log_dir:
-            self.log_dir = os.path.join("checkpoints", self.experiment_name , today_str)
+            self.log_dir = os.path.join(os.path.curdir, "checkpoints", self.experiment_name , today_str)
         os.makedirs(self.log_dir, exist_ok=True)
     # train_features_min_max: Tuple[pd.DataFrame, pd.DataFrame] = field(init=False)
     # train_features_image_means: List[float] = field(init=False)
@@ -276,7 +277,6 @@ def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConf
 
         print(f"BEST {'VALIDATION' if using_validation_set else 'TRAIN'} LOSS:", best_loss_value)
 
-
         if using_validation_set:
             metrics = model.evaluate(valid_dataset)
             metrics_dict = OrderedDict(zip(model.metrics_names, metrics))
@@ -291,7 +291,7 @@ def main(hparams: HyperParameters, train_config: TrainConfig):
     print("Hyperparameters:", hparams)
     print("Train_config:", train_config)
 
-    train_data_dir = "./debug_data" if DEBUG else "~/Train"
+    train_data_dir = os.path.join(os.path.curdir, "debug_data") if DEBUG else "~/Train"
     
     # Create the required directories if not present.
     os.makedirs(train_config.log_dir, exist_ok=True)
