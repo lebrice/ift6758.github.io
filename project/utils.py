@@ -12,6 +12,19 @@ class PrintLayer(tf.keras.layers.Layer):
         return inputs
 
 
+
+import contextlib
+
+@contextlib.contextmanager
+def log_to_file(path: str):
+    # redirect print output to a log file if not in DEBUG mode
+    if DEBUG:
+        yield
+    else:
+        with open(path, "a") as f:
+            with contextlib.redirect_stdout(f):
+                yield
+
 def random_multihot_vector(num_examples, num_classes, prob_1: float = 0.5) -> tf.Tensor:
     """Creates a multi-hot random 'likes' vector.
     

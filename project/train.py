@@ -21,6 +21,7 @@ from tensorboard.plugins.hparams import api as hp
 from collections import OrderedDict
 
 from model import HyperParameters, get_model
+import utils
 from preprocessing_pipeline import preprocess_train
 
 today_str = (datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
@@ -288,30 +289,10 @@ def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConf
         print(f"\n\n {e} \n\n")
         return -1, {}
 
-def main(hparams: HyperParameters, train_config: TrainConfig):
-    print("Experiment name:", train_config.experiment_name)
-    print("Hyperparameters:", hparams)
-    print("Train_config:", train_config)
 
-    train_data_dir = os.path.join(os.path.curdir, "debug_data") if DEBUG else "~/Train"
-    
-    # Create the required directories if not present.
-    os.makedirs(train_config.log_dir, exist_ok=True)
-    
-    print("Training directory:", train_config.log_dir)
-
-    with open(os.path.join(train_config.log_dir, "train_log.txt"), "w") as f:
-        import contextlib
-        # redirect log to a file if we are not in DEBUG mode.
-        write_log_to_file = contextlib.nullcontext() if DEBUG else contextlib.redirect_stdout(f)
-        with write_log_to_file:
-            num_epochs, metrics_dict = train(train_data_dir, hparams, train_config)
-            print(f"Saved model weights are located at '{train_config.log_dir}'")
-    
+def log_results(total_epochs: int, metrics_dict: Dict[str, float]):
     from io import StringIO
     f = StringIO()
-    
-    
     def relative_improvement(metric_name) -> float:
         value_to_beat = baseline_metrics[metric_name]
         result_value = metrics_dict[metric_name]
@@ -324,7 +305,7 @@ def main(hparams: HyperParameters, train_config: TrainConfig):
     
     if DEBUG:
         f.write("(DEBUG)\t")
-    f.write(f"Total epochs: {num_epochs:04d}, log_dir: {train_config.log_dir}, ")
+    f.write(f"Total epochs: {total_epochs:04d}, log_dir: {train_config.log_dir}, ")
     if not metrics_dict:
         f.write("TRAINING DIVERGED!")
         print("TRAINING DIVERGED!")
@@ -369,6 +350,25 @@ def main(hparams: HyperParameters, train_config: TrainConfig):
     experiment_results_file = os.path.join("logs", train_config.experiment_name +"-results.txt")
     with open(experiment_results_file, "a") as runs_results_file:
         f.write(f.read())
+
+
+def main(hparams: HyperParameters, train_config: TrainConfig):
+    print("Experiment name:", train_config.experiment_name)
+    print("Hyperparameters:", hparams)
+    print("Train_config:", train_config)
+
+    train_data_dir = os.path.join(os.path.curdir, "debug_data") if DEBUG else "~/Train"
+    
+    # Create the required directories if not present.
+    os.makedirs(train_config.log_dir, exist_ok=True)
+    
+    print("Training directory:", train_config.log_dir)
+
+    with utils.log_to_file(os.path.join(train_config.log_dir, "train_log.txt")):
+        num_epochs, metrics_dict = train(train_data_dir, hparams, train_config)
+        print(f"Saved model weights are located at '{train_config.log_dir}'")
+    
+    log_results(num_epochs, metrics_dict)
 
     using_validation_set = train_config.validation_data_fraction != 0.0
     if using_validation_set:

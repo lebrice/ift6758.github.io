@@ -85,7 +85,7 @@ hparams: HyperParameters(
 class HyperParameters():
     """Hyperparameters of our model."""
     # the batch size
-    batch_size: int = 64
+    batch_size: int = 128
     # the number of dense layers in our model.
     num_layers: int = 1
     # the number of units in each dense layer.
@@ -221,7 +221,9 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
         optimizer=tf.keras.optimizers.get({"class_name": hparams.optimizer,
                                "config": {"learning_rate": hparams.learning_rate}}),
         loss={
+            # TODO: use weights for the different age groups, depending on their frequency
             "age_group": tf.keras.losses.CategoricalCrossentropy(),
+            # TODO: same for gender
             "gender": "binary_crossentropy",
             "ext": "mse",
             "ope": "mse",
