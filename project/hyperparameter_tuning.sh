@@ -4,7 +4,7 @@ pip install --quiet orion
 
 # TODO: change this to the maximum number of desired trials.
 MAX_TRIALS=10
-EXPERIMENT_NAME="likes_conv_condensing"
+EXPERIMENT_NAME="likes_conv_condensing_2"
 
 mkdir -p logs
 
@@ -14,8 +14,8 @@ orion -v --debug hunt --max-trials $MAX_TRIALS -n $EXPERIMENT_NAME ./ift6758.git
         --experiment_name $EXPERIMENT_NAME \
         --epochs $MAX_EPOCHS_PER_EXPERIMENT \
         --batch_size 128 \
-        --num_layers 1 \
-        --dense_units 32 \
+        --num_layers~"randint(1, 10)" \
+        --dense_units~"choices(32, 64, 128, 256)" \
         --learning_rate 0.005 \
         --num_like_pages~"choices(50000, 20000, 10000, 5000)" \
         --likes_condensing_factor~"choices(2,3,4,5,10)" \
