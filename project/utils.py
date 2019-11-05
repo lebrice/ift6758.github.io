@@ -1,10 +1,14 @@
 import tensorflow as tf
 import warnings
 import contextlib
-from socket import gethostname
-from typing import *
+import socket
 
-DEBUG = "fabrice" in gethostname()
+from typing import *
+hostnames = ["fabrice", "marie", "isa", "remi"] 
+machine_hostname = socket.gethostname()
+# DEBUG should be True if running scripts locally.
+# This will automatically use the debug_data, and print more information to the console.
+DEBUG = any(name in machine_hostname for name in hostnames)
 
 class PrintLayer(tf.keras.layers.Layer):
     def __init__(self, *args, **kwargs):
@@ -13,8 +17,6 @@ class PrintLayer(tf.keras.layers.Layer):
     def call(self, inputs):
         tf.print(inputs)
         return inputs
-
-
 
 @contextlib.contextmanager
 def log_to_file(path: str):

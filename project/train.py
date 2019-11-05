@@ -72,8 +72,6 @@ class TrainConfig():
         if not self.log_dir:
             self.log_dir = os.path.join(os.path.curdir, "checkpoints", self.experiment_name , today_str)
         os.makedirs(self.log_dir, exist_ok=True)
-    # train_features_min_max: Tuple[pd.DataFrame, pd.DataFrame] = field(init=False)
-    # train_features_image_means: List[float] = field(init=False)
 
 
 @dataclass
@@ -85,8 +83,7 @@ class TrainingResults:
 
 
 @dataclass()
-class TrainData():
-    
+class TrainData():    
     train_features: pd.DataFrame
     """vectorized features scaled between 0 and 1
     for each user id in the training set, concatenated for all modalities
@@ -117,9 +114,7 @@ def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: 
 
     features.drop(["noface", "multiface"], axis=1, inplace=True)
     
-
     mins, maxes = train_data.features_min_max
-
     with open(os.path.join(train_config.log_dir, "train_features_max.csv"), "w") as f:    
         # maxes.to_csv(f, header=True)
         f.write(",".join(str(v) for v in maxes))
