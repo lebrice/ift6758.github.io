@@ -105,7 +105,7 @@ class HyperParameters():
 
     # number of individual 'pages' that were kept during preprocessing of the 'likes'.
     # This corresponds to the number of entries in the multi-hot like vector.
-    num_like_pages: int = 5000
+    num_like_pages: int = 10_000
     # wether or not Dropout layers should be used
     use_dropout: bool = True
     # the dropout rate
@@ -134,18 +134,41 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
     text_features  =    tf.keras.Input([hparams.num_text_features], dtype=tf.float32, name="text_features")
     likes_features =    tf.keras.Input([hparams.num_like_pages], dtype=tf.bool, name="likes_features")
 
+    class PrintLayer(tf.keras.layers.Layer):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+        
+        def call(self, inputs):
+            tf.print(inputs)
+            return inputs
 
-    # TODO: maybe use some kind of binary neural network here to condense a [`num_like_pages`] bool vector down to something more manageable (ex: [128] floats)
-    likes_float = tf.cast(likes_features, tf.float32)
-    likes_condensing_block = tf.keras.Sequential(name="likes_condensing_block")
-    for n_units in [256, 128, 64]:
-        likes_condensing_block.add(tf.keras.layers.Dense(
-            units=n_units,
-            activation=hparams.activation,
-            kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
-        ))
+    def likes_condensing(hparams: HyperParameters) -> tf.keras.Sequential:    
+        # TODO: maybe use some kind of binary neural network here to condense a [`num_like_pages`] bool vector down to something more manageable (ex: [128] floats)
+        block = tf.keras.Sequential(name="likes_condensing_block")
+        block.add(tf.keras.layers.Lambda(lambda likes_onehot: tf.cast(likes_onehot, tf.bfloat16), input_shape=[hparams.num_like_pages]))
+        
+        # block.add(PrintLayer([]))
 
-    condensed_likes = likes_condensing_block(likes_float)
+        block.add(tf.keras.layers.Reshape((hparams.num_like_pages, 1)))
+        while block.output_shape[-2] > 512:
+            print("adding output to reduce dimension of like vector:", block.output_shape)
+            block.add(tf.keras.layers.Conv1D(
+                filters=1,
+                strides=5,
+                kernel_size=5,
+            ))
+        block.add(tf.keras.layers.Flatten())
+        
+        for n_units in [256, 128, 64]:
+            block.add(tf.keras.layers.Dense(
+                units=n_units,
+                activation=hparams.activation,
+                kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
+            ))
+        return block
+
+    likes_condensing_block = likes_condensing(hparams)
+    condensed_likes = likes_condensing_block(likes_features)
 
     # Dense block (applied on all the features, concatenated.)
     dense_layers = tf.keras.Sequential(name="dense_layers")
@@ -155,13 +178,13 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
             units=hparams.dense_units,
             activation=hparams.activation,
             kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
-        ))
-        
+        ))        
         if hparams.use_batchnorm:
             dense_layers.add(tf.keras.layers.BatchNormalization())
         
         if hparams.use_dropout:
             dense_layers.add(tf.keras.layers.Dropout(hparams.dropout_rate))
+
 
         
     # get the dense feature representation
