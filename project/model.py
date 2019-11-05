@@ -116,6 +116,8 @@ class HyperParameters():
     gender_loss_weight: float = 1.0
     age_loss_weight: float = 1.0
 
+    # factor used as the stride and kernel size in the likes compressing block.
+    likes_condensing_factor: int = 5
 
     num_text_features: ClassVar[int] = 91
     num_image_features: ClassVar[int] = 63
@@ -147,6 +149,7 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
         block = tf.keras.Sequential(name="likes_condensing_block")
         block.add(tf.keras.layers.Lambda(lambda likes_onehot: tf.cast(likes_onehot, tf.bfloat16), input_shape=[hparams.num_like_pages]))
         
+        ## add this to see values during training.
         # block.add(PrintLayer([]))
 
         block.add(tf.keras.layers.Reshape((hparams.num_like_pages, 1)))
@@ -157,42 +160,42 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
                 strides=5,
                 kernel_size=5,
             ))
+
         block.add(tf.keras.layers.Flatten())
-        
-        for n_units in [256, 128, 64]:
-            block.add(tf.keras.layers.Dense(
-                units=n_units,
-                activation=hparams.activation,
-                kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
-            ))
         return block
 
     likes_condensing_block = likes_condensing(hparams)
     condensed_likes = likes_condensing_block(likes_features)
 
-    # Dense block (applied on all the features, concatenated.)
-    dense_layers = tf.keras.Sequential(name="dense_layers")
-    dense_layers.add(tf.keras.layers.Concatenate())
-    for i in range(hparams.num_layers):
-        dense_layers.add(tf.keras.layers.Dense(
-            units=hparams.dense_units,
-            activation=hparams.activation,
-            kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
-        ))        
-        if hparams.use_batchnorm:
-            dense_layers.add(tf.keras.layers.BatchNormalization())
-        
-        if hparams.use_dropout:
-            dense_layers.add(tf.keras.layers.Dropout(hparams.dropout_rate))
-
-
-        
-    # get the dense feature representation
-    features = dense_layers([text_features, image_features, condensed_likes])
+    feature_vector = tf.keras.layers.Concatenate(name="feature_vector")([text_features, image_features, condensed_likes])
+    
+    def sequential_block(name: str, hparams: HyperParameters):
+        # Dense block (applied on all the features, concatenated.)
+        dense_layers = tf.keras.Sequential(name=name)
+        for i in range(hparams.num_layers):
+            dense_layers.add(tf.keras.layers.Dense(
+                units=hparams.dense_units,
+                activation=hparams.activation,
+                kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
+            ))
+            
+            if hparams.use_batchnorm:
+                dense_layers.add(tf.keras.layers.BatchNormalization())
+            
+            if hparams.use_dropout:
+                dense_layers.add(tf.keras.layers.Dropout(hparams.dropout_rate))
+        return dense_layers
     
     # MODEL OUTPUTS:
-    age_group = tf.keras.layers.Dense(units=4, activation="softmax", name="age_group")(features)
-    gender = tf.keras.layers.Dense(units=1, activation="sigmoid", name="gender")(features)
+
+    gender_block = sequential_block("gender", hparams)
+    gender_block.add(tf.keras.layers.Dense(units=1, activation="sigmoid", name="gender_out"))
+    gender = gender_block(feature_vector)
+
+    age_group_block = sequential_block("age_group", hparams)
+    age_group_block.add(tf.keras.layers.Dense(units=4, activation="softmax", name="age_group_out"))
+    age_group = age_group_block(feature_vector)
+
     
     def personality_scaling(name: str) -> tf.keras.layers.Layer:
         """Returns a layer that scales a sigmoid output [0, 1) output to the desired 'personality' range of [1, 5)
@@ -204,25 +207,19 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
             tf.keras.layers.Layer -- the layer to use.
         """
         return tf.keras.layers.Lambda(lambda x: x * 4.0 + 1.0, name=name)
-
-    ext_sigmoid = tf.keras.layers.Dense(units=1, activation="sigmoid", name="ext_sigmoid")(features)
-    ext = personality_scaling("ext")(ext_sigmoid)
-
-    ope_sigmoid = tf.keras.layers.Dense(units=1, activation="sigmoid", name="ope_sigmoid")(features)
-    ope = personality_scaling("ope")(ope_sigmoid)
     
-    agr_sigmoid = tf.keras.layers.Dense(units=1, activation="sigmoid", name="agr_sigmoid")(features)
-    agr = personality_scaling("agr")(agr_sigmoid)
     
-    neu_sigmoid = tf.keras.layers.Dense(units=1, activation="sigmoid", name="neu_sigmoid")(features)
-    neu = personality_scaling("neu")(neu_sigmoid)
-    
-    con_sigmoid = tf.keras.layers.Dense(units=1, activation="sigmoid", name="con_sigmoid")(features)
-    con = personality_scaling("con")(con_sigmoid)
+    personality_outputs: List[tf.Tensor] = []
+    for personality_trait in ["ext", "ope", "agr", "neu", "con"]:
+        block = sequential_block(personality_trait, hparams)
+        block.add(tf.keras.layers.Dense(units=1, activation="sigmoid", name=f"{personality_trait}_sigmoid"))
+        block.add(personality_scaling(f"{personality_trait}_scaling"))
+        output_tensor = block(feature_vector)
+        personality_outputs.append(output_tensor)
 
     model = tf.keras.Model(
         inputs=[text_features, image_features, likes_features],
-        outputs=[age_group, gender, ext, ope, agr, neu, con]
+        outputs=[age_group, gender, *personality_outputs]
     )
     model.compile(
         optimizer=tf.keras.optimizers.get({"class_name": hparams.optimizer,
