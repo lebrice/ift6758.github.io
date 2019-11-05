@@ -217,6 +217,7 @@ class EarlyStoppingWhenValueExplodes(tf.keras.callbacks.Callback):
                 print(f"\n\n{'Batch' if self.check_every_batch else 'Epoch'} {t}: Early stopping because loss is greater than max value ({self.monitor} = {current})\n\n")
             self.model.stop_training = True
 
+
 def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConfig):
     
     print("Hyperparameters:", hparams)
@@ -276,12 +277,12 @@ def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConf
 
         print(f"BEST {'VALIDATION' if using_validation_set else 'TRAIN'} LOSS:", best_loss_value)
 
-
         if using_validation_set:
             metrics = model.evaluate(valid_dataset)
             metrics_dict = OrderedDict(zip(model.metrics_names, metrics))
             return num_epochs, metrics_dict
-    
+        else:
+            return num_epochs, {metric_name: values[-1] for metric_name, values in history.history.items()}
     except Exception as e:
         print(f"\n\n {e} \n\n")
         return -1, {}
@@ -303,11 +304,11 @@ def main(hparams: HyperParameters, train_config: TrainConfig):
         with contextlib.redirect_stdout(f):
             num_epochs, metrics_dict = train(train_data_dir, hparams, train_config)
             print(f"Saved model weights are located at '{train_config.log_dir}'")
-        
-
+    
     os.makedirs("logs", exist_ok=True)
     experiment_results_file = os.path.join("logs", train_config.experiment_name +"-results.txt")
     with open(experiment_results_file, "a") as f:
+
         def relative_improvement(metric_name) -> float:
             value_to_beat = baseline_metrics[metric_name]
             result_value = metrics_dict[metric_name]
@@ -317,6 +318,15 @@ def main(hparams: HyperParameters, train_config: TrainConfig):
                 # the term is an error or loss.
                 return value_to_beat - result_value
         
+        
+        if DEBUG:
+            f.write("(DEBUG)\t")
+        f.write(f"Total epochs: {num_epochs:04d}, log_dir: {train_config.log_dir}, ")
+        if not metrics_dict:
+            f.write("TRAINING DIVERGED!")
+            print("TRAINING DIVERGED!")
+            return
+
         relevant_metrics = {
             metric_name: result for metric_name, result in metrics_dict.items() if metric_name in baseline_metrics
         }
@@ -330,10 +340,7 @@ def main(hparams: HyperParameters, train_config: TrainConfig):
             metric_name: improvement for metric_name, improvement in improvement_from_baseline.items() if improvement > 0 
         }
         total_improvement = sum(improvement_from_baseline.values())
-        
-        if DEBUG:
-            f.write("(DEBUG)\t")
-        f.write(f"Total epochs: {num_epochs:04d}, log_dir: {train_config.log_dir}, total improvement: {total_improvement}\n\t")
+        f.write(f"total improvement: {total_improvement}\n\t")
         
         for metric_name, result_value in relevant_metrics.items(): 
             f.write(f"{metric_name}: {result_value:.3f} ")
@@ -350,9 +357,7 @@ def main(hparams: HyperParameters, train_config: TrainConfig):
 
         f.write(f"Hparams: {hparams}\n")
         f.write("\n")
-
-    import pprint
-    pprint.pprint(metrics_dict)
+    
     using_validation_set = train_config.validation_data_fraction != 0.0
     if using_validation_set:
         from orion.client import report_results    
@@ -362,6 +367,7 @@ def main(hparams: HyperParameters, train_config: TrainConfig):
             value=metrics_dict["loss"],
         )])
 
+    print("TRAINING COMPLETE")
 
 
 if __name__ == "__main__":
