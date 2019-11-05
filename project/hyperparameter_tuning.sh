@@ -3,10 +3,10 @@
 pip install --quiet orion
 
 # TODO: change this to the maximum number of desired trials.
-MAX_TRIALS=20
-EXPERIMENT_NAME="hparam_sweep_2"
+MAX_TRIALS=100
+EXPERIMENT_NAME="simpler_gender"
 
-mkdir -f logs
+mkdir -p logs
 
 MAX_EPOCHS_PER_EXPERIMENT=500
 
