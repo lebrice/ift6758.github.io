@@ -301,7 +301,9 @@ def main(hparams: HyperParameters, train_config: TrainConfig):
 
     with open(os.path.join(train_config.log_dir, "train_log.txt"), "w") as f:
         import contextlib
-        with contextlib.redirect_stdout(f):
+        # redirect log to a file if we are not in DEBUG mode.
+        write_log_to_file = contextlib.nullcontext() if DEBUG else contextlib.redirect_stdout(f)
+        with write_log_to_file:
             num_epochs, metrics_dict = train(train_data_dir, hparams, train_config)
             print(f"Saved model weights are located at '{train_config.log_dir}'")
     
