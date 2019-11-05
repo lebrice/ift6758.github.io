@@ -18,6 +18,7 @@ import tensorflow as tf
 tf.get_logger().setLevel('ERROR')
 from tensorboard.plugins.hparams import api as hp
 
+from collections import OrderedDict
 
 from model import HyperParameters, get_model
 from preprocessing_pipeline import preprocess_train
@@ -249,10 +250,9 @@ def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConf
     ]
     history = None
     try:
-
         history = model.fit(
             train_dataset if DEBUG else train_dataset,
-            validation_data=valid_dataset,
+            validation_data=valid_dataset if using_validation_set else None,
             epochs=train_config.epochs,
             callbacks=training_callbacks,
             # steps_per_epoch=int(train_samples / hparams.batch_size),
@@ -262,10 +262,16 @@ def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConf
         num_epochs = len(history.history[loss_metric])
 
         print(f"BEST {'VALIDATION' if using_validation_set else 'TRAIN'} LOSS:", best_loss_value)
-        return best_loss_value, num_epochs
+
+
+        if using_validation_set:
+            metrics = model.evaluate(valid_dataset)
+            metrics_dict = OrderedDict(zip(model.metrics_names, metrics))
+            return num_epochs, metrics_dict
+    
     except Exception as e:
         print(f"\n\n {e} \n\n")
-        return np.PINF, -1
+        return -1, {}
 
 def main(hparams: HyperParameters, train_config: TrainConfig):
     print("Experiment name:", train_config.experiment_name)
@@ -282,25 +288,31 @@ def main(hparams: HyperParameters, train_config: TrainConfig):
     with open(os.path.join(train_config.log_dir, "train_log.txt"), "w") as f:
         import contextlib
         with contextlib.redirect_stdout(f):
-            best_val_loss, num_epochs = train(train_data_dir, hparams, train_config)
+            num_epochs, metrics_dict = train(train_data_dir, hparams, train_config)
             print(f"Saved model weights are located at '{train_config.log_dir}'")
+        
 
-    if np.isposinf(best_val_loss):
-        print("TRAINING DIVERGED.")
-    
     os.makedirs("logs", exist_ok=True)
     experiment_results_file = os.path.join("logs", train_config.experiment_name +"-results.txt")
     with open(experiment_results_file, "a") as f:
         if DEBUG:
             f.write("(DEBUG)\t")
-        f.write(f"Total epochs: {num_epochs:04d}, val_loss: {best_val_loss:.3f}, log_dir: {train_config.log_dir}, hparams: {hparams}\n")
-
-    from orion.client import report_results    
-    report_results([dict(
-        name='validation_loss',
-        type='objective',
-        value=best_val_loss,
-    )])
+        f.write(f"Total epochs: {num_epochs:04d}, log_dir: {train_config.log_dir}")
+        for metric_name, metric_value in metrics_dict.items():
+            f.write(f"{metric_name}: {metric_value} ")
+        f.write(f"Hparams: {hparams}")
+        f.write("\n")
+    
+    import pprint
+    pprint.pprint(metrics_dict)
+    using_validation_set = train_config.validation_data_fraction != 0.0
+    if using_validation_set:
+        from orion.client import report_results    
+        report_results([dict(
+            name='validation_loss',
+            type='objective',
+            value=metrics_dict["loss"],
+        )])
 
 
 
