@@ -28,6 +28,19 @@ from utils import DEBUG
 
 print("DEBUGGING: ", DEBUG)
 
+
+baseline_metrics = {
+    "gender_binary_accuracy":         0.591,
+    "age_group_categorical_accuracy": 0.594,
+    "ope_root_mean_squared_error":    0.652,
+    "neu_root_mean_squared_error":    0.798,
+    "ext_root_mean_squared_error":    0.788,
+    "agr_root_mean_squared_error":    0.665,
+    "con_root_mean_squared_error":    0.734,
+}
+
+
+
 @dataclass()
 class TrainConfig():
     experiment_name: str = "debug" if DEBUG else "default_experiment"
@@ -297,25 +310,47 @@ def main(hparams: HyperParameters, train_config: TrainConfig):
     with open(experiment_results_file, "a") as f:
         if DEBUG:
             f.write("(DEBUG)\t")
-        f.write(f"Total epochs: {num_epochs:04d}, log_dir: {train_config.log_dir}\t")
-        for metric_name, metric_value in metrics_dict.items():
-            f.write(f"{metric_name}: {metric_value:.3f} ")
-        f.write(f"\tHparams: {hparams}")
-        f.write("\n")
-
-        baseline_metrics = {
-            "gender_binary_accuracy":         0.591,
-            "age_group_categorical_accuracy": 0.594,
-            "ope_root_mean_squared_error":    0.652,
-            "neu_root_mean_squared_error":    0.798,
-            "ext_root_mean_squared_error":    0.788,
-            "agr_root_mean_squared_error":    0.665,
-            "con_root_mean_squared_error":    0.734,
+        f.write(f"Total epochs: {num_epochs:04d}, log_dir: {train_config.log_dir}\n")
+        
+        beating_baseline_text = ""
+        difference_from_baseline = 0.
+        
+        def relative_improvement(metric_name) -> float:
+            value_to_beat = baseline_metrics[metric_name]
+            result_value = metrics_dict[metric_name]
+            if "accuracy" in metric_name:
+                return result_value - value_to_beat
+            else:
+                # the term is an error or loss.
+                return value_to_beat - result_value
+        
+        relevant_metrics = {
+            metric_name: result for metric_name, result in metrics_dict.items() if metric_name in baseline_metrics
         }
-        for metric_name, value_to_beat in baseline_metrics.items():
-            beat_the_baseline = metrics_dict[metric_name] > value_to_beat if "accuracy" in metric_name else metrics_dict[metric_name] < value_to_beat
-            if beat_the_baseline:
-                f.write(f"BEATING THE BASELINE AT '{metric_name}': {metrics_dict[metric_name]} (baseline: {value_to_beat})\n")
+        other_metrics = {
+            metric_name: result for metric_name, result in metrics_dict.items() if metric_name not in baseline_metrics
+        }
+        improvement_from_baseline = {
+            metric_name: relative_improvement(metric_name) for metric_name in relevant_metrics
+        }
+        beating_the_baseline = {
+            metric_name: improvement for metric_name, improvement in improvement_from_baseline.items() if improvement > 0 
+        }
+        f.write("\t")
+        for metric_name, result_value in relevant_metrics.items(): 
+            f.write(f"{metric_name}: {result_value:.3f} ")
+        f.write("\n\t")        
+        for metric_name, result_value in other_metrics.items(): 
+            f.write(f"{metric_name}: {result_value:.3f} ")
+        f.write("\n\t")
+
+        for metric_name, improvement in beating_the_baseline.items():
+            result = metrics_dict[metric_name]
+            target = baseline_metrics[metric_name]
+            f.write(f"BEATING THE BASELINE AT '{metric_name}': (Baseline: {target:.4f}, Ours: {result:.4f}, improvement of {improvement:.4f})\n\t")
+
+        f.write(f"\tHparams: {hparams}\n")
+        f.write("\n")
 
     import pprint
     pprint.pprint(metrics_dict)
