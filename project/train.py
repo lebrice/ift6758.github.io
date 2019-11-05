@@ -297,10 +297,10 @@ def main(hparams: HyperParameters, train_config: TrainConfig):
     with open(experiment_results_file, "a") as f:
         if DEBUG:
             f.write("(DEBUG)\t")
-        f.write(f"Total epochs: {num_epochs:04d}, log_dir: {train_config.log_dir}")
+        f.write(f"Total epochs: {num_epochs:04d}, log_dir: {train_config.log_dir}\t")
         for metric_name, metric_value in metrics_dict.items():
-            f.write(f"{metric_name}: {metric_value} ")
-        f.write(f"Hparams: {hparams}")
+            f.write(f"{metric_name}: {metric_value:.3f} ")
+        f.write(f"\tHparams: {hparams}")
         f.write("\n")
     
     import pprint
