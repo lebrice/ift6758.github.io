@@ -233,7 +233,7 @@ def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConf
         json.dump(asdict(train_config), f, indent=4)
 
     model = get_model(hparams)
-    # model.summary()
+    model.summary()
 
     train_dataset, valid_dataset, train_samples, valid_samples = train_input_pipeline(train_data_dir, hparams, train_config)
     if DEBUG:
