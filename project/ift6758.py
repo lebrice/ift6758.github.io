@@ -81,24 +81,23 @@ def get_gender_from_facial_hair(data_dir: str, threshold: float = 0.25) -> pd.Da
     oxford = oxford.rename(columns={"userId":"userid"})
     nrc = nrc.rename(columns={"userId":"userid"})
     likes = likes.rename(columns={"userId":"userid"})        
-
-    user_ids = liwc.merge(oxford["userid"], on="userid", how='outer')
+    
+    oxford.drop_duplicates(subset ="userid",keep = "first", inplace=True)
+    
+    user_ids = oxford.merge(liwc["userid"], on="userid", how='outer')
     user_ids = user_ids.merge(nrc["userid"], on="userid", how='outer')
     user_ids = user_ids.merge(likes["userid"], on="userid", how='outer')
-    user_ids=user_ids.loc[:,'userid'].unique()
-
-    oxford = oxford.rename(columns={"userId":"userid"})
-    oxford.drop_duplicates(subset ="userid",keep = "first", inplace=True)
+    #user_ids=user_ids.loc[:,'userid'].unique()
 
     def get_amount_of_hair(oxford: pd.DataFrame) -> pd.Series:
         return oxford.facialHair_mustache + oxford.facialHair_beard
     
-    facial_hair = oxford.loc[:,['userid']]
+    user_ids = user_ids['userid'].unique()
+    facial_hair = pd.DataFrame(user_ids, columns=["userid"])
     facial_hair['hair'] = get_amount_of_hair(oxford)
-
+    
     women = facial_hair.loc[:,['userid']]
     women['gender'] = facial_hair['hair'] < threshold
-    
     women.set_index("userid", inplace=True)
     return women
 
@@ -114,7 +113,7 @@ def main():
 
     gender_dataframe = get_gender_from_facial_hair(input_dir)
     # TODO: create the predictions from the model here, like in test.py.
-
+    files_created = 0
     for (userid, is_female) in gender_dataframe.itertuples():
         user = User(
             userid = userid,
@@ -128,6 +127,7 @@ def main():
         print(user)
         with open(os.path.join(output_dir, f"{userid}.xml"), "w") as xml_file:
             xml_file.write(user.to_xml())
-
+            files_created += 1
+    print("Successfully wrote ", files_created, "xml files.")
 if __name__ == '__main__':
     sys.exit(main())
