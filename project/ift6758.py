@@ -82,18 +82,17 @@ def get_gender_from_facial_hair(data_dir: str, threshold: float = 0.25) -> pd.Da
     nrc = nrc.rename(columns={"userId":"userid"})
     likes = likes.rename(columns={"userId":"userid"})        
 
-    user_ids = liwc.merge(oxford["userid"], on="userid", how='outer')
+    oxford.drop_duplicates(subset ="userid",keep = "first", inplace=True)
+    
+    user_ids = oxford.merge(liwc["userid"], on="userid", how='outer')
     user_ids = user_ids.merge(nrc["userid"], on="userid", how='outer')
     user_ids = user_ids.merge(likes["userid"], on="userid", how='outer')
-    user_ids=user_ids.loc[:,'userid'].unique()
-
-    oxford = oxford.rename(columns={"userId":"userid"})
-    oxford.drop_duplicates(subset ="userid",keep = "first", inplace=True)
+    #user_ids=user_ids.loc[:,'userid'].unique()
 
     def get_amount_of_hair(oxford: pd.DataFrame) -> pd.Series:
         return oxford.facialHair_mustache + oxford.facialHair_beard
     
-    facial_hair = oxford.loc[:,['userid']]
+    facial_hair = user_ids.loc[:,['userid']]
     facial_hair['hair'] = get_amount_of_hair(oxford)
 
     women = facial_hair.loc[:,['userid']]
