@@ -21,7 +21,7 @@ mkdir -p logs
 
 MAX_EPOCHS_PER_EXPERIMENT=500
 
-orion -v hunt --max-trials $MAX_TRIALS -n $EXPERIMENT_NAME ./ift6758.github.io/project/train.py \
+orion -v --debug hunt --max-trials $MAX_TRIALS -n $EXPERIMENT_NAME ./ift6758.github.io/project/train.py \
         --experiment_name $EXPERIMENT_NAME \
         --epochs $MAX_EPOCHS_PER_EXPERIMENT \
         --batch_size 128 \
