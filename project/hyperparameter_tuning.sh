@@ -5,17 +5,16 @@ pip install --quiet orion
 # TODO: change this to the maximum number of desired trials.
 MAX_TRIALS=10
 EXPERIMENT_NAME="better_likes_condensing"
-latest_tag=`git describe --tags`
 
-echo "experiment name is '$EXPERIMENT_NAME'"
+latest_tag=`git --git-dir=ift6758.github.io/.git --work-tree=ift6758.github.io describe --tags`
 echo "latest tag is '$latest_tag'"
+echo "experiment name is '$EXPERIMENT_NAME'"
 
 if [[ $latest_tag == $EXPERIMENT_NAME ]]; then
         echo "Starting experiment '$EXPERIMENT_NAME'."
 else
-        echo "experiment name '$EXPERIMENT_NAME' is not the same as the latest tag '$latest_tag'!"
-        echo "this will make it hard to reproduce the results.."
-        exit
+        echo "WARNING: experiment name '$EXPERIMENT_NAME' is not the same as the latest tag '$latest_tag'!"
+        echo "this will make it hard to reproduce the results, as the code used at train and test-time might be different!"
 fi
 
 mkdir -p logs
