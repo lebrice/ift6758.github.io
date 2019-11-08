@@ -124,6 +124,71 @@ class HyperParameters():
     num_text_features: ClassVar[int] = 91
     num_image_features: ClassVar[int] = 63
 
+best_model_hparams = HyperParameters(batch_size=64, num_layers=8, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+
+def likes_condensing(hparams: HyperParameters) -> tf.keras.Sequential:
+    """Condenses a `hparams.num_like_pages`-long vector down to something more manageable.
+    The transformation itself will be trained by backpropagation from all the outputs.
+    
+    Arguments:
+        hparams {HyperParameters} -- the model hyperparameters
+    
+    Returns:
+        tf.keras.Sequential -- A Sequential block that takes in a like multi-hot binary (bool) tensor, and returns a condensed float tensor.
+    """
+    block = tf.keras.Sequential(name="likes_condensing_block")
+    block.add(tf.keras.layers.Lambda(lambda likes_onehot: tf.cast(likes_onehot, tf.bfloat16), input_shape=[hparams.num_like_pages]))
+    block.add(tf.keras.layers.Reshape((hparams.num_like_pages, 1)))
+    # while the output tensor is greater than the maximum size:
+    while block.output_shape[-2] > hparams.likes_condensed_vector_max_size:
+        print("adding output to reduce dimension of like vector:", block.output_shape)
+        block.add(tf.keras.layers.Conv1D(
+            filters=1,
+            strides=hparams.likes_condensing_factor,
+            kernel_size=hparams.likes_condensing_factor,
+        ))
+    block.add(tf.keras.layers.Flatten())
+    return block
+
+
+def sequential_block(name: str, hparams: HyperParameters) -> tf.keras.Sequential:
+    """Series of dense layers
+    
+    Arguments:
+        name {str} -- The name to give to this series of layers.
+        hparams {HyperParameters} -- Hyperparameters
+    
+    Returns:
+        tf.keras.Sequential -- a Sequential model
+    """
+    dense_layers = tf.keras.Sequential(name=name)
+    for i in range(hparams.num_layers):
+        dense_layers.add(tf.keras.layers.Dense(
+            units=hparams.dense_units,
+            activation=hparams.activation,
+            kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
+        ))
+        
+        if hparams.use_batchnorm:
+            dense_layers.add(tf.keras.layers.BatchNormalization())
+        
+        if hparams.use_dropout:
+            dense_layers.add(tf.keras.layers.Dropout(hparams.dropout_rate))
+    return dense_layers
+
+ 
+def personality_scaling(name: str) -> tf.keras.layers.Layer:
+    """Returns a layer that scales a sigmoid output [0, 1) output to the desired 'personality' range of [1, 5)
+    
+    Arguments:
+        name {str} -- the name to give to the layer.
+    
+    Returns:
+        tf.keras.layers.Layer -- the layer to use.
+    """
+    return tf.keras.layers.Lambda(lambda x: x * 4.0 + 1.0, name=name)
+
 
 def get_model(hparams: HyperParameters) -> tf.keras.Model:
     # INPUTS: genderate content: (e.g., text, image and relations)
@@ -137,54 +202,13 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
     image_features =    tf.keras.Input([hparams.num_image_features], dtype=tf.float32, name="image_features")
     text_features  =    tf.keras.Input([hparams.num_text_features], dtype=tf.float32, name="text_features")
     likes_features =    tf.keras.Input([hparams.num_like_pages], dtype=tf.bool, name="likes_features")
-
-    def likes_condensing_block(hparams: HyperParameters) -> tf.keras.Sequential:    
-        # TODO: maybe use some kind of binary neural network here to condense a [`num_like_pages`] bool vector down to something more manageable (ex: [128] floats)
-        block = tf.keras.Sequential(name="likes_condensing_block")
-        block.add(tf.keras.layers.Lambda(lambda likes_onehot: tf.cast(likes_onehot, tf.bfloat16), input_shape=[hparams.num_like_pages]))
-        block.add(tf.keras.layers.Reshape((hparams.num_like_pages, 1)))
-        while block.output_shape[-2] > hparams.likes_condensed_vector_max_size:
-            print("adding output to reduce dimension of like vector:", block.output_shape)
-            block.add(tf.keras.layers.Conv1D(
-                filters=1,
-                strides=hparams.likes_condensing_factor,
-                kernel_size=hparams.likes_condensing_factor,
-            ))
-        block.add(tf.keras.layers.Flatten())
-        return block
-
-    likes_condensing = likes_condensing_block(hparams)
-    condensed_likes = likes_condensing(likes_features)
+    
+    likes_condensing_block = likes_condensing(hparams)
+    condensed_likes = likes_condensing_block(likes_features)
 
     feature_vector = tf.keras.layers.Concatenate(name="feature_vector")([text_features, image_features, condensed_likes])
-    
-    def sequential_block(name: str, hparams: HyperParameters) -> tf.keras.Sequential:
-        """Series of dense layers
-        
-        Arguments:
-            name {str} -- The name to give to this series of layers.
-            hparams {HyperParameters} -- [description]
-        
-        Returns:
-            [type] -- [description]
-        """
-        dense_layers = tf.keras.Sequential(name=name)
-        for i in range(hparams.num_layers):
-            dense_layers.add(tf.keras.layers.Dense(
-                units=hparams.dense_units,
-                activation=hparams.activation,
-                kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
-            ))
-            
-            if hparams.use_batchnorm:
-                dense_layers.add(tf.keras.layers.BatchNormalization())
-            
-            if hparams.use_dropout:
-                dense_layers.add(tf.keras.layers.Dropout(hparams.dropout_rate))
-        return dense_layers
-    
-    # MODEL OUTPUTS:
 
+    # MODEL OUTPUTS:
     gender_block = sequential_block("gender", hparams)
     gender_block.add(tf.keras.layers.Dense(units=1, activation="sigmoid", name="gender_out"))
     gender = gender_block(feature_vector)
@@ -192,24 +216,13 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
     age_group_block = sequential_block("age_group", hparams)
     age_group_block.add(tf.keras.layers.Dense(units=4, activation="softmax", name="age_group_out"))
     age_group = age_group_block(feature_vector)
-    
-    def personality_scaling(name: str) -> tf.keras.layers.Layer:
-        """Returns a layer that scales a sigmoid output [0, 1) output to the desired 'personality' range of [1, 5)
-        
-        Arguments:
-            name {str} -- the name to give to the layer.
-        
-        Returns:
-            tf.keras.layers.Layer -- the layer to use.
-        """
-        return tf.keras.layers.Lambda(lambda x: x * 4.0 + 1.0, name=name)
-    
-    
+   
     personality_outputs: List[tf.Tensor] = []
     for personality_trait in ["ext", "ope", "agr", "neu", "con"]:
         block = sequential_block(personality_trait, hparams)
         block.add(tf.keras.layers.Dense(units=1, activation="sigmoid", name=f"{personality_trait}_sigmoid"))
         block.add(personality_scaling(f"{personality_trait}_scaling"))
+
         output_tensor = block(feature_vector)
         personality_outputs.append(output_tensor)
 
