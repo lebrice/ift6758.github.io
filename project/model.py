@@ -127,7 +127,7 @@ class HyperParameters():
 best_model_hparams = HyperParameters(batch_size=64, num_layers=8, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
 
 
-def likes_condensing(hparams: HyperParameters) -> tf.keras.Sequential:
+def likes_condensing(hparams: HyperParameters, use_conv = False) -> tf.keras.Sequential:
     """Condenses a `hparams.num_like_pages`-long vector down to something more manageable.
     The transformation itself will be trained by backpropagation from all the outputs.
     
@@ -139,17 +139,22 @@ def likes_condensing(hparams: HyperParameters) -> tf.keras.Sequential:
     """
     block = tf.keras.Sequential(name="likes_condensing_block")
     block.add(tf.keras.layers.Lambda(lambda likes_onehot: tf.cast(likes_onehot, tf.bfloat16), input_shape=[hparams.num_like_pages]))
-    block.add(tf.keras.layers.Reshape((hparams.num_like_pages, 1)))
-    # while the output tensor is greater than the maximum size:
-    while block.output_shape[-2] > hparams.likes_condensed_vector_max_size:
-        print("adding output to reduce dimension of like vector:", block.output_shape)
-        block.add(tf.keras.layers.Conv1D(
-            filters=1,
-            strides=hparams.likes_condensing_factor,
-            kernel_size=hparams.likes_condensing_factor,
-        ))
-    block.add(tf.keras.layers.Flatten())
-    return block
+
+    if use_conv:
+        block.add(tf.keras.layers.Reshape((hparams.num_like_pages, 1)))
+        # while the output tensor is greater than the maximum size:
+        while block.output_shape[-2] > hparams.likes_condensed_vector_max_size:
+            print("adding output to reduce dimension of like vector:", block.output_shape)
+            block.add(tf.keras.layers.Conv1D(
+                filters=1,
+                strides=hparams.likes_condensing_factor,
+                kernel_size=hparams.likes_condensing_factor,
+            ))
+        block.add(tf.keras.layers.Flatten())
+        return block
+    else:
+        block.add(sequential_block("likes_condensing_dense", hparams))
+        return block
 
 
 def sequential_block(name: str, hparams: HyperParameters) -> tf.keras.Sequential:
@@ -203,6 +208,7 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
     text_features  =    tf.keras.Input([hparams.num_text_features], dtype=tf.float32, name="text_features")
     likes_features =    tf.keras.Input([hparams.num_like_pages], dtype=tf.bool, name="likes_features")
     
+    # NOTE: trying dense vs conv at the moment.
     likes_condensing_block = likes_condensing(hparams)
     condensed_likes = likes_condensing_block(likes_features)
 
