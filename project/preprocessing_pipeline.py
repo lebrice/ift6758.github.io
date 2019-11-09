@@ -315,8 +315,9 @@ def preprocess_train(data_dir, num_likes=10_000):
     feat_min = features_to_scale.min()
     feat_max = features_to_scale.max()
 
-    feat_scaled = (features_to_scale - feat_min) / (feat_max - feat_min)
+    # feat_scaled = (features_to_scale - feat_min) / (feat_max - feat_min)
     features_min_max = (feat_min, feat_max)
+    feat_scaled = features_to_scale
 
     if DEBUG:
         likes_kept = [str(v) for v in range(num_likes)]
@@ -365,8 +366,9 @@ def preprocess_test(data_dir, min_max_train, image_means_train, likes_kept_train
     feat_min = min_max_train[0]
     feat_max = min_max_train[1]
 
-    feat_scaled = (features_to_scale - feat_min) / (feat_max - feat_min)
-
+    # feat_scaled = (features_to_scale - feat_min) / (feat_max - feat_min)
+    feat_scaled = features_to_scale
+    
     # multi-hot matrix of likes from train data
     likes_data = get_relations(data_dir, sub_ids, likes_kept_train)
     
