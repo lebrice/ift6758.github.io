@@ -86,7 +86,7 @@ def create_unique_user_id_df(data_dir: str):
     return pd.DataFrame(user_ids, columns=["userid"])
 
 
-def get_gender_from_facial_hair(data_dir: str, threshold: float = 0.25) -> pd.DataFrame:
+def get_gender_from_facial_hair(data_dir: str, threshold: float = 0.05) -> pd.DataFrame:
     """Simple baseline that uses the facial hair features to determine gender.
     
     Arguments:
