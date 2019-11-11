@@ -21,10 +21,10 @@ def get_text_data(input_dir):
         text_data {pandas DataFrame of float}: unscaled text data (liwc and nrc combined)
     """
     # Load and sort text data
-    liwc = pd.read_csv(os.path.join(input_dir, 'Text/liwc.csv'), sep = ',')
+    liwc = pd.read_csv(os.path.join(input_dir, "Text", "liwc.csv"), sep = ',')
     liwc = liwc.sort_values(by=['userId'])
 
-    nrc = pd.read_csv(os.path.join(input_dir, 'Text/nrc.csv'), sep = ',')
+    nrc = pd.read_csv(os.path.join(input_dir, "Text", "nrc.csv"), sep = ',')
     nrc = nrc.sort_values(by=['userId'])
 
     # Build list of subject ids ordered alphabetically

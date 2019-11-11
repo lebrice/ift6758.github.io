@@ -1,0 +1,699 @@
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=2, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-09_23-03-34', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-09_23-03-34
+Total epochs: 0166, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-09_23-03-34, total improvement: 0.32281092596054095
+	age_group_categorical_accuracy: 1.000 gender_binary_accuracy: 0.589 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 7.765 age_group_loss: 3.355 gender_loss: 0.676 ext_loss: 0.687 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.543 gender_recall: 0.998 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 1.0000, improvement of 0.4060)
+	Hparams: HyperParameters(batch_size=128, num_layers=2, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=8, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-09_23-07-06', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-09_23-07-06
+Total epochs: 0500, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-09_23-07-06, total improvement: -0.6769422512054442
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 14.679 age_group_loss: 3.344 gender_loss: 0.677 ext_loss: 0.689 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=8, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=3, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-09_23-41-24', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-09_23-41-24
+Total epochs: 0180, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-09_23-41-24, total improvement: -0.6768890838623045
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 7.992 age_group_loss: 3.361 gender_loss: 0.676 ext_loss: 0.688 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.665 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=3, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=3, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-09_23-44-47', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-09_23-44-47
+Total epochs: 0133, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-09_23-44-47, total improvement: 0.15142879676818866
+	age_group_categorical_accuracy: 0.828 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 9.103 age_group_loss: 3.339 gender_loss: 0.677 ext_loss: 0.690 ope_loss: 0.438 agr_loss: 0.459 neu_loss: 0.666 con_loss: 0.542 gender_recall: 1.000 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.8284, improvement of 0.2344)
+	Hparams: HyperParameters(batch_size=128, num_layers=3, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=50000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-09_23-47-45', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-09_23-47-45
+Total epochs: 0038, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-09_23-47-45, total improvement: -0.3667505602836607
+	age_group_categorical_accuracy: 0.993 gender_binary_accuracy: 0.593 ext_root_mean_squared_error: 0.897 ope_root_mean_squared_error: 0.694 agr_root_mean_squared_error: 0.766 neu_root_mean_squared_error: 1.152 con_root_mean_squared_error: 0.896 
+	loss: 57.756 age_group_loss: 3.356 gender_loss: 0.662 ext_loss: 0.805 ope_loss: 0.481 agr_loss: 0.586 neu_loss: 1.326 con_loss: 0.803 gender_recall: 0.977 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.9926, improvement of 0.3986)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.5932, improvement of 0.0022)
+	Hparams: HyperParameters(batch_size=128, num_layers=1, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=50000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=8, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-09_23-55-23', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-09_23-55-23
+Total epochs: 0270, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-09_23-55-23, total improvement: -0.6770719509124754
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 7.967 age_group_loss: 3.336 gender_loss: 0.678 ext_loss: 0.687 ope_loss: 0.439 agr_loss: 0.457 neu_loss: 0.665 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=8, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_00-03-35', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_00-03-35
+Total epochs: 0055, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_00-03-35, total improvement: -0.7388413683995603
+	age_group_categorical_accuracy: 0.005 gender_binary_accuracy: 0.528 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.660 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.818 con_root_mean_squared_error: 0.739 
+	loss: 11.320 age_group_loss: 3.382 gender_loss: 0.686 ext_loss: 0.688 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.669 con_loss: 0.546 gender_recall: 0.365 
+	Hparams: HyperParameters(batch_size=128, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_00-05-00', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_00-05-00
+Total epochs: 0038, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_00-05-00, total improvement: -0.3622172694206236
+	age_group_categorical_accuracy: 0.986 gender_binary_accuracy: 0.593 ext_root_mean_squared_error: 0.896 ope_root_mean_squared_error: 0.683 agr_root_mean_squared_error: 0.767 neu_root_mean_squared_error: 1.132 con_root_mean_squared_error: 0.915 
+	loss: 59.853 age_group_loss: 3.357 gender_loss: 0.664 ext_loss: 0.804 ope_loss: 0.466 agr_loss: 0.588 neu_loss: 1.281 con_loss: 0.838 gender_recall: 0.992 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.9858, improvement of 0.3918)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.5932, improvement of 0.0022)
+	Hparams: HyperParameters(batch_size=128, num_layers=1, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=5, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=50000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_00-06-33', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_00-06-33
+Total epochs: 0138, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_00-06-33, total improvement: 0.3229646463394167
+	age_group_categorical_accuracy: 1.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 19.684 age_group_loss: 3.344 gender_loss: 0.677 ext_loss: 0.689 ope_loss: 0.439 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.542 gender_recall: 1.000 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 1.0000, improvement of 0.4060)
+	Hparams: HyperParameters(batch_size=128, num_layers=5, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=50000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_00-18-50', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_00-18-50
+Total epochs: 0476, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_00-18-50, total improvement: -0.6770769577026365
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 10.658 age_group_loss: 3.349 gender_loss: 0.677 ext_loss: 0.689 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.665 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_00-32-49', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_00-32-49
+Total epochs: 0040, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_00-32-49, total improvement: 0.2675475854873659
+	age_group_categorical_accuracy: 0.974 gender_binary_accuracy: 0.573 ext_root_mean_squared_error: 0.837 ope_root_mean_squared_error: 0.664 agr_root_mean_squared_error: 0.676 neu_root_mean_squared_error: 0.817 con_root_mean_squared_error: 0.737 
+	loss: 26.129 age_group_loss: 3.349 gender_loss: 0.675 ext_loss: 0.700 ope_loss: 0.440 agr_loss: 0.455 neu_loss: 0.668 con_loss: 0.543 gender_recall: 0.840 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.9742, improvement of 0.3802)
+	Hparams: HyperParameters(batch_size=128, num_layers=1, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=4, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_00-35-22', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_00-35-22
+Total epochs: 0284, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_00-35-22, total improvement: -0.6772759776115416
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 11.229 age_group_loss: 3.351 gender_loss: 0.677 ext_loss: 0.688 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.543 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=4, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=3, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=50000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_00-43-07', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_00-43-07
+Total epochs: 0112, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_00-43-07, total improvement: -0.04223158168792707
+	age_group_categorical_accuracy: 0.635 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 11.597 age_group_loss: 3.355 gender_loss: 0.677 ext_loss: 0.689 ope_loss: 0.440 agr_loss: 0.458 neu_loss: 0.665 con_loss: 0.542 gender_recall: 1.000 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.6347, improvement of 0.0407)
+	Hparams: HyperParameters(batch_size=128, num_layers=3, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=50000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=7, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_00-53-34', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_00-53-34
+Total epochs: 0500, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_00-53-34, total improvement: -0.6771450858116148
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 14.652 age_group_loss: 3.339 gender_loss: 0.677 ext_loss: 0.688 ope_loss: 0.439 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=7, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=5, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_01-31-03', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_01-31-03
+Total epochs: 0138, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_01-31-03, total improvement: -0.6770672421455382
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 17.800 age_group_loss: 3.344 gender_loss: 0.677 ext_loss: 0.689 ope_loss: 0.439 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=5, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=7, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_01-37-47', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_01-37-47
+Total epochs: 0500, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_01-37-47, total improvement: -0.6771464567184446
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 14.421 age_group_loss: 3.339 gender_loss: 0.677 ext_loss: 0.688 ope_loss: 0.439 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=7, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=5, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_02-04-40', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_02-04-40
+Total epochs: 0123, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_02-04-40, total improvement: -0.676766894340515
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 9.835 age_group_loss: 3.351 gender_loss: 0.677 ext_loss: 0.688 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.543 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=5, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=4, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_02-08-03', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_02-08-03
+Total epochs: 0316, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_02-08-03, total improvement: -0.6765762190818785
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.829 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 11.259 age_group_loss: 3.344 gender_loss: 0.677 ext_loss: 0.688 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.541 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=4, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=8, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_02-21-22', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_02-21-22
+Total epochs: 0270, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_02-21-22, total improvement: -0.6770782094001768
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 7.958 age_group_loss: 3.336 gender_loss: 0.678 ext_loss: 0.687 ope_loss: 0.439 agr_loss: 0.457 neu_loss: 0.665 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=8, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=2, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_02-28-39', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_02-28-39
+Total epochs: 0095, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_02-28-39, total improvement: 0.24788735103607196
+	age_group_categorical_accuracy: 1.000 gender_binary_accuracy: 0.588 ext_root_mean_squared_error: 0.848 ope_root_mean_squared_error: 0.659 agr_root_mean_squared_error: 0.728 neu_root_mean_squared_error: 0.820 con_root_mean_squared_error: 0.736 
+	loss: 59.814 age_group_loss: 3.350 gender_loss: 0.668 ext_loss: 0.720 ope_loss: 0.433 agr_loss: 0.530 neu_loss: 0.673 con_loss: 0.541 gender_recall: 0.904 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 1.0000, improvement of 0.4060)
+	Hparams: HyperParameters(batch_size=128, num_layers=2, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=5, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_02-31-06', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_02-31-06
+Total epochs: 0138, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_02-31-06, total improvement: 0.32295719575881976
+	age_group_categorical_accuracy: 1.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 41.599 age_group_loss: 3.344 gender_loss: 0.677 ext_loss: 0.689 ope_loss: 0.439 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.542 gender_recall: 1.000 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 1.0000, improvement of 0.4060)
+	Hparams: HyperParameters(batch_size=128, num_layers=5, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_02-36-36', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_02-36-36
+Total epochs: 0044, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_02-36-36, total improvement: -0.684507607065141
+	age_group_categorical_accuracy: 0.011 gender_binary_accuracy: 0.588 ext_root_mean_squared_error: 0.828 ope_root_mean_squared_error: 0.670 agr_root_mean_squared_error: 0.679 neu_root_mean_squared_error: 0.817 con_root_mean_squared_error: 0.742 
+	loss: 56.137 age_group_loss: 3.350 gender_loss: 0.680 ext_loss: 0.687 ope_loss: 0.449 agr_loss: 0.460 neu_loss: 0.669 con_loss: 0.551 gender_recall: 0.897 
+	Hparams: HyperParameters(batch_size=128, num_layers=1, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=8, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_02-39-39', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_02-39-39
+Total epochs: 0039, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_02-39-39, total improvement: -0.6766650896072386
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 111.691 age_group_loss: 3.347 gender_loss: 0.672 ext_loss: 0.689 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.666 con_loss: 0.543 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=8, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=8, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_02-41-44', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_02-41-44
+Total epochs: 0270, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_02-41-44, total improvement: -0.6770859580039976
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 7.988 age_group_loss: 3.336 gender_loss: 0.678 ext_loss: 0.687 ope_loss: 0.439 agr_loss: 0.457 neu_loss: 0.665 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=8, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=6, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_02-51-42', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_02-51-42
+Total epochs: 0345, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_02-51-42, total improvement: 0.323211349964142
+	age_group_categorical_accuracy: 1.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 8.935 age_group_loss: 3.353 gender_loss: 0.677 ext_loss: 0.687 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.665 con_loss: 0.542 gender_recall: 1.000 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 1.0000, improvement of 0.4060)
+	Hparams: HyperParameters(batch_size=128, num_layers=6, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=3, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_03-01-01', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_03-01-01
+Total epochs: 0072, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_03-01-01, total improvement: -0.676677725791931
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 15.603 age_group_loss: 3.348 gender_loss: 0.677 ext_loss: 0.688 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.543 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=3, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=7, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_03-06-49', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_03-06-49
+Total epochs: 0287, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_03-06-49, total improvement: 0.3230966706275942
+	age_group_categorical_accuracy: 1.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 9.041 age_group_loss: 3.349 gender_loss: 0.677 ext_loss: 0.687 ope_loss: 0.437 agr_loss: 0.459 neu_loss: 0.664 con_loss: 0.542 gender_recall: 1.000 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 1.0000, improvement of 0.4060)
+	Hparams: HyperParameters(batch_size=128, num_layers=7, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=2, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=50000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_03-16-28', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_03-16-28
+Total epochs: 0114, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_03-16-28, total improvement: -0.6756099681854246
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.660 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 10.454 age_group_loss: 3.352 gender_loss: 0.671 ext_loss: 0.688 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=2, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=50000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=4, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_03-27-14', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_03-27-14
+Total epochs: 0072, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_03-27-14, total improvement: -0.6771446685791014
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 17.259 age_group_loss: 3.345 gender_loss: 0.677 ext_loss: 0.687 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.663 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=4, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=5, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_03-33-15', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_03-33-15
+Total epochs: 0314, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_03-33-15, total improvement: -0.6767213563919066
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.829 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 7.964 age_group_loss: 3.347 gender_loss: 0.677 ext_loss: 0.688 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.663 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=5, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=5, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=50000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_03-41-25', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_03-41-25
+Total epochs: 0314, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_03-41-25, total improvement: -0.6767201046943663
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.829 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 8.033 age_group_loss: 3.347 gender_loss: 0.677 ext_loss: 0.688 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.663 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=5, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=50000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=2, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_03-57-09', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_03-57-09
+Total epochs: 0137, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_03-57-09, total improvement: -0.4649677942991255
+	age_group_categorical_accuracy: 0.209 gender_binary_accuracy: 0.592 ext_root_mean_squared_error: 0.829 ope_root_mean_squared_error: 0.660 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 8.550 age_group_loss: 3.347 gender_loss: 0.676 ext_loss: 0.688 ope_loss: 0.436 agr_loss: 0.458 neu_loss: 0.666 con_loss: 0.543 gender_recall: 0.981 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.5916, improvement of 0.0006)
+	Hparams: HyperParameters(batch_size=128, num_layers=2, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=5, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_04-02-23', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_04-02-23
+Total epochs: 0138, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_04-02-23, total improvement: 0.3229687590599062
+	age_group_categorical_accuracy: 1.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 23.608 age_group_loss: 3.344 gender_loss: 0.677 ext_loss: 0.689 ope_loss: 0.439 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.542 gender_recall: 1.000 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 1.0000, improvement of 0.4060)
+	Hparams: HyperParameters(batch_size=128, num_layers=5, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=3, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_04-09-30', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_04-09-30
+Total epochs: 0112, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_04-09-30, total improvement: -0.676973603248596
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 11.333 age_group_loss: 3.355 gender_loss: 0.677 ext_loss: 0.689 ope_loss: 0.440 agr_loss: 0.458 neu_loss: 0.665 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=3, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=4, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=50000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_04-15-02', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_04-15-02
+Total epochs: 0316, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_04-15-02, total improvement: -0.6765768151283262
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.829 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 11.498 age_group_loss: 3.344 gender_loss: 0.677 ext_loss: 0.688 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.541 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=4, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=50000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=8, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_04-38-51', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_04-38-51
+Total epochs: 0500, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_04-38-51, total improvement: -0.6769613246917723
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 10.646 age_group_loss: 3.344 gender_loss: 0.677 ext_loss: 0.689 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=8, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=4, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_04-58-06', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_04-58-06
+Total epochs: 0072, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_04-58-06, total improvement: -0.6771464567184446
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 17.046 age_group_loss: 3.345 gender_loss: 0.677 ext_loss: 0.687 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.663 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=4, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=4, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_05-01-20', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_05-01-20
+Total epochs: 0284, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_05-01-20, total improvement: -0.6772514204978941
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 9.123 age_group_loss: 3.351 gender_loss: 0.677 ext_loss: 0.688 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.543 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=4, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_05-08-26', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_05-08-26
+Total epochs: 0047, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_05-08-26, total improvement: -0.6838687077881767
+	age_group_categorical_accuracy: 0.002 gender_binary_accuracy: 0.583 ext_root_mean_squared_error: 0.829 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.816 con_root_mean_squared_error: 0.737 
+	loss: 13.626 age_group_loss: 3.352 gender_loss: 0.671 ext_loss: 0.687 ope_loss: 0.437 agr_loss: 0.459 neu_loss: 0.665 con_loss: 0.544 gender_recall: 0.899 
+	Hparams: HyperParameters(batch_size=128, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_05-10-13', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_05-10-13
+Total epochs: 0072, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_05-10-13, total improvement: 0.21460197162628192
+	age_group_categorical_accuracy: 0.889 gender_binary_accuracy: 0.592 ext_root_mean_squared_error: 0.827 ope_root_mean_squared_error: 0.660 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.818 con_root_mean_squared_error: 0.737 
+	loss: 10.187 age_group_loss: 3.346 gender_loss: 0.667 ext_loss: 0.683 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.670 con_loss: 0.543 gender_recall: 0.978 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.8895, improvement of 0.2955)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.5921, improvement of 0.0011)
+	Hparams: HyperParameters(batch_size=128, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=2, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_05-13-17', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_05-13-17
+Total epochs: 0170, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_05-13-17, total improvement: -0.6756817321777342
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.829 ope_root_mean_squared_error: 0.660 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 7.742 age_group_loss: 3.355 gender_loss: 0.673 ext_loss: 0.688 ope_loss: 0.435 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.543 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=2, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=8, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_05-18-28', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_05-18-28
+Total epochs: 0500, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_05-18-28, total improvement: -0.6769415359497069
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 14.438 age_group_loss: 3.344 gender_loss: 0.677 ext_loss: 0.689 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=8, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=6, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_05-45-08', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_05-45-08
+Total epochs: 0243, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_05-45-08, total improvement: 0.3233298439979555
+	age_group_categorical_accuracy: 1.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 8.046 age_group_loss: 3.346 gender_loss: 0.677 ext_loss: 0.688 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.665 con_loss: 0.541 gender_recall: 1.000 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 1.0000, improvement of 0.4060)
+	Hparams: HyperParameters(batch_size=128, num_layers=6, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=6, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_05-53-17', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_05-53-17
+Total epochs: 0122, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_05-53-17, total improvement: -0.6771650533676146
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 18.050 age_group_loss: 3.339 gender_loss: 0.678 ext_loss: 0.688 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.666 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=6, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=7, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_06-02-49', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_06-02-49
+Total epochs: 0217, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_06-02-49, total improvement: -0.676846764564514
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 8.063 age_group_loss: 3.349 gender_loss: 0.677 ext_loss: 0.688 ope_loss: 0.438 agr_loss: 0.457 neu_loss: 0.664 con_loss: 0.541 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=7, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=7, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=50000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_06-08-45', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_06-08-45
+Total epochs: 0287, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_06-08-45, total improvement: 0.323092736721039
+	age_group_categorical_accuracy: 1.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 9.205 age_group_loss: 3.349 gender_loss: 0.677 ext_loss: 0.687 ope_loss: 0.437 agr_loss: 0.459 neu_loss: 0.664 con_loss: 0.542 gender_recall: 1.000 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 1.0000, improvement of 0.4060)
+	Hparams: HyperParameters(batch_size=128, num_layers=7, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=50000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=7, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_06-25-07', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_06-25-07
+Total epochs: 0500, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_06-25-07, total improvement: -0.6771485428810118
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 14.497 age_group_loss: 3.339 gender_loss: 0.677 ext_loss: 0.688 ope_loss: 0.439 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=7, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=6, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_06-50-49', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_06-50-49
+Total epochs: 0243, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_06-50-49, total improvement: 0.32332704257965106
+	age_group_categorical_accuracy: 1.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 8.019 age_group_loss: 3.346 gender_loss: 0.677 ext_loss: 0.688 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.665 con_loss: 0.541 gender_recall: 1.000 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 1.0000, improvement of 0.4060)
+	Hparams: HyperParameters(batch_size=128, num_layers=6, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_06-56-30', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_06-56-30
+Total epochs: 0064, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_06-56-30, total improvement: -0.6586768846511839
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.610 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.659 agr_root_mean_squared_error: 0.679 neu_root_mean_squared_error: 0.816 con_root_mean_squared_error: 0.736 
+	loss: 18.411 age_group_loss: 3.352 gender_loss: 0.673 ext_loss: 0.688 ope_loss: 0.434 agr_loss: 0.461 neu_loss: 0.665 con_loss: 0.542 gender_recall: 0.916 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.6100, improvement of 0.0190)
+	Hparams: HyperParameters(batch_size=128, num_layers=1, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=8, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=50000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_06-59-02', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_06-59-02
+Total epochs: 0366, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_06-59-02, total improvement: -0.677187762737274
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 9.104 age_group_loss: 3.349 gender_loss: 0.677 ext_loss: 0.689 ope_loss: 0.439 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=8, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=50000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=8, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_07-17-26', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_07-17-26
+Total epochs: 0426, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_07-17-26, total improvement: -0.6768686990737913
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 8.917 age_group_loss: 3.345 gender_loss: 0.677 ext_loss: 0.688 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=8, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=6, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_07-30-36', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_07-30-36
+Total epochs: 0345, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_07-30-36, total improvement: -0.6767880539894102
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 8.953 age_group_loss: 3.353 gender_loss: 0.677 ext_loss: 0.687 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.665 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=6, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=3, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_07-38-38', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_07-38-38
+Total epochs: 0180, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_07-38-38, total improvement: -0.6768915276527403
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 7.998 age_group_loss: 3.361 gender_loss: 0.677 ext_loss: 0.688 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.665 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=3, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=2, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=50000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_07-42-11', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_07-42-11
+Total epochs: 0166, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_07-42-11, total improvement: 0.32003048849105853
+	age_group_categorical_accuracy: 1.000 gender_binary_accuracy: 0.587 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 7.831 age_group_loss: 3.355 gender_loss: 0.673 ext_loss: 0.687 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.543 gender_recall: 0.956 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 1.0000, improvement of 0.4060)
+	Hparams: HyperParameters(batch_size=128, num_layers=2, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=50000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_07-50-13', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_07-50-13
+Total epochs: 0476, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_07-50-13, total improvement: -0.6770783286094664
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 10.786 age_group_loss: 3.349 gender_loss: 0.677 ext_loss: 0.689 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.665 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=5, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_08-06-32', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_08-06-32
+Total epochs: 0137, log_dir: ./checkpoints/no_scaling_dense_likes/2019-11-10_08-06-32, total improvement: -0.676909647464752
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 14.918 age_group_loss: 3.344 gender_loss: 0.678 ext_loss: 0.688 ope_loss: 0.438 agr_loss: 0.457 neu_loss: 0.664 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=5, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: no_scaling_dense_likes
+Hyperparameters: HyperParameters(batch_size=128, num_layers=2, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=50000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='no_scaling_dense_likes', log_dir='./checkpoints/no_scaling_dense_likes/2019-11-10_08-10-11', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/no_scaling_dense_likes/2019-11-10_08-10-11

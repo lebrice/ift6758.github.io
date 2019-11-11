@@ -1,0 +1,631 @@
+Total epochs: 0055, log_dir: ./checkpoints/one_branch_each/2019-11-05_05-31-24, total improvement: 0.14537010383605975
+	age_group_categorical_accuracy: 0.609 gender_binary_accuracy: 0.803 ext_root_mean_squared_error: 0.829 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 29.403 age_group_loss: 3.345 gender_loss: 0.458 ext_loss: 0.687 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.665 con_loss: 0.542 gender_recall: 0.952 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.6095, improvement of 0.0155)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8032, improvement of 0.2122)
+	Hparams: HyperParameters(batch_size=128, num_layers=3, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0043, log_dir: ./checkpoints/one_branch_each/2019-11-05_05-33-03, total improvement: 0.2050573010444643
+	age_group_categorical_accuracy: 0.649 gender_binary_accuracy: 0.820 ext_root_mean_squared_error: 0.831 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.810 con_root_mean_squared_error: 0.736 
+	loss: 24.404 age_group_loss: 3.342 gender_loss: 0.440 ext_loss: 0.690 ope_loss: 0.437 agr_loss: 0.457 neu_loss: 0.658 con_loss: 0.542 gender_recall: 0.936 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.6489, improvement of 0.0549)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8200, improvement of 0.2290)
+	Hparams: HyperParameters(batch_size=64, num_layers=2, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0119, log_dir: ./checkpoints/one_branch_each/2019-11-05_05-34-42, total improvement: -0.4782041530609129
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.789 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 27.542 age_group_loss: 3.351 gender_loss: 0.465 ext_loss: 0.689 ope_loss: 0.435 agr_loss: 0.459 neu_loss: 0.664 con_loss: 0.539 gender_recall: 0.706 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7895, improvement of 0.1985)
+	Hparams: HyperParameters(batch_size=256, num_layers=8, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0062, log_dir: ./checkpoints/one_branch_each/2019-11-05_05-37-14, total improvement: -0.4745732411295174
+	age_group_categorical_accuracy: 0.031 gender_binary_accuracy: 0.764 ext_root_mean_squared_error: 0.827 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.676 neu_root_mean_squared_error: 0.811 con_root_mean_squared_error: 0.744 
+	loss: 28.807 age_group_loss: 3.339 gender_loss: 0.547 ext_loss: 0.684 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.659 con_loss: 0.553 gender_recall: 0.980 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7637, improvement of 0.1727)
+	Hparams: HyperParameters(batch_size=128, num_layers=1, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0148, log_dir: ./checkpoints/one_branch_each/2019-11-05_05-38-46, total improvement: -0.5457436661720274
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.704 ext_root_mean_squared_error: 0.828 ope_root_mean_squared_error: 0.660 agr_root_mean_squared_error: 0.673 neu_root_mean_squared_error: 0.809 con_root_mean_squared_error: 0.731 
+	loss: 26.299 age_group_loss: 3.310 gender_loss: 0.605 ext_loss: 0.681 ope_loss: 0.443 agr_loss: 0.455 neu_loss: 0.651 con_loss: 0.530 gender_recall: 0.524 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7037, improvement of 0.1127)
+	BEATING THE BASELINE AT 'con_root_mean_squared_error': (Baseline: 0.7340, Ours: 0.7313, improvement of 0.0027)
+	Hparams: HyperParameters(batch_size=256, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0096, log_dir: ./checkpoints/one_branch_each/2019-11-05_05-40-53, total improvement: -0.43942590761184674
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.829 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 24.487 age_group_loss: 3.349 gender_loss: 0.396 ext_loss: 0.690 ope_loss: 0.437 agr_loss: 0.457 neu_loss: 0.665 con_loss: 0.543 gender_recall: 0.813 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8289, improvement of 0.2379)
+	Hparams: HyperParameters(batch_size=128, num_layers=5, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0048, log_dir: ./checkpoints/one_branch_each/2019-11-05_05-43-14, total improvement: -0.44393964139930886
+	age_group_categorical_accuracy: 0.001 gender_binary_accuracy: 0.824 ext_root_mean_squared_error: 0.831 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 26.143 age_group_loss: 3.344 gender_loss: 0.401 ext_loss: 0.690 ope_loss: 0.438 agr_loss: 0.460 neu_loss: 0.665 con_loss: 0.542 gender_recall: 0.922 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8242, improvement of 0.2332)
+	Hparams: HyperParameters(batch_size=64, num_layers=6, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0045, log_dir: ./checkpoints/one_branch_each/2019-11-05_05-45-20, total improvement: 0.4356393594741823
+	age_group_categorical_accuracy: 0.958 gender_binary_accuracy: 0.746 ext_root_mean_squared_error: 0.831 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 30.138 age_group_loss: 3.344 gender_loss: 0.768 ext_loss: 0.692 ope_loss: 0.439 agr_loss: 0.456 neu_loss: 0.663 con_loss: 0.540 gender_recall: 0.981 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.9584, improvement of 0.3644)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7463, improvement of 0.1553)
+	Hparams: HyperParameters(batch_size=64, num_layers=2, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0099, log_dir: ./checkpoints/one_branch_each/2019-11-05_05-47-04, total improvement: -0.22464682865142804
+	age_group_categorical_accuracy: 0.274 gender_binary_accuracy: 0.811 ext_root_mean_squared_error: 0.878 ope_root_mean_squared_error: 0.660 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.813 con_root_mean_squared_error: 0.734 
+	loss: 26.098 age_group_loss: 3.355 gender_loss: 0.424 ext_loss: 0.772 ope_loss: 0.436 agr_loss: 0.459 neu_loss: 0.660 con_loss: 0.539 gender_recall: 0.927 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8111, improvement of 0.2201)
+	BEATING THE BASELINE AT 'con_root_mean_squared_error': (Baseline: 0.7340, Ours: 0.7340, improvement of 0.0000)
+	Hparams: HyperParameters(batch_size=128, num_layers=1, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0045, log_dir: ./checkpoints/one_branch_each/2019-11-05_05-49-05, total improvement: -0.37237733560800534
+	age_group_categorical_accuracy: 0.094 gender_binary_accuracy: 0.802 ext_root_mean_squared_error: 0.831 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 25.005 age_group_loss: 3.349 gender_loss: 0.513 ext_loss: 0.690 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.666 con_loss: 0.540 gender_recall: 0.955 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8021, improvement of 0.2111)
+	Hparams: HyperParameters(batch_size=64, num_layers=4, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0109, log_dir: ./checkpoints/one_branch_each/2019-11-05_05-50-54, total improvement: -0.43776991176605207
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.829 ext_root_mean_squared_error: 0.829 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 30.118 age_group_loss: 3.306 gender_loss: 0.407 ext_loss: 0.687 ope_loss: 0.449 agr_loss: 0.454 neu_loss: 0.658 con_loss: 0.543 gender_recall: 0.898 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8295, improvement of 0.2385)
+	Hparams: HyperParameters(batch_size=256, num_layers=7, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0182, log_dir: ./checkpoints/one_branch_each/2019-11-05_05-53-25, total improvement: -0.09219901967048627
+	age_group_categorical_accuracy: 0.377 gender_binary_accuracy: 0.797 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 27.817 age_group_loss: 3.302 gender_loss: 0.526 ext_loss: 0.693 ope_loss: 0.434 agr_loss: 0.456 neu_loss: 0.655 con_loss: 0.544 gender_recall: 0.728 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7974, improvement of 0.2064)
+	Hparams: HyperParameters(batch_size=256, num_layers=4, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0058, log_dir: ./checkpoints/one_branch_each/2019-11-05_05-56-10, total improvement: -0.4443570296764372
+	age_group_categorical_accuracy: 0.039 gender_binary_accuracy: 0.785 ext_root_mean_squared_error: 0.831 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 30.371 age_group_loss: 3.350 gender_loss: 0.587 ext_loss: 0.689 ope_loss: 0.438 agr_loss: 0.459 neu_loss: 0.665 con_loss: 0.541 gender_recall: 0.970 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7847, improvement of 0.1937)
+	Hparams: HyperParameters(batch_size=128, num_layers=4, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0100, log_dir: ./checkpoints/one_branch_each/2019-11-05_05-57-55, total improvement: -0.4450305323600767
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.817 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.811 con_root_mean_squared_error: 0.736 
+	loss: 25.308 age_group_loss: 3.351 gender_loss: 0.441 ext_loss: 0.692 ope_loss: 0.436 agr_loss: 0.459 neu_loss: 0.654 con_loss: 0.547 gender_recall: 0.771 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8174, improvement of 0.2264)
+	Hparams: HyperParameters(batch_size=256, num_layers=2, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0097, log_dir: ./checkpoints/one_branch_each/2019-11-05_05-59-34, total improvement: -0.4709433536529539
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.797 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 28.461 age_group_loss: 3.321 gender_loss: 0.491 ext_loss: 0.696 ope_loss: 0.442 agr_loss: 0.461 neu_loss: 0.661 con_loss: 0.538 gender_recall: 0.959 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7968, improvement of 0.2058)
+	Hparams: HyperParameters(batch_size=256, num_layers=4, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0148, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-01-25, total improvement: 0.050428547382354916
+	age_group_categorical_accuracy: 0.568 gender_binary_accuracy: 0.742 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.809 con_root_mean_squared_error: 0.734 
+	loss: 29.104 age_group_loss: 3.310 gender_loss: 0.442 ext_loss: 0.684 ope_loss: 0.445 agr_loss: 0.461 neu_loss: 0.651 con_loss: 0.534 gender_recall: 0.616 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7421, improvement of 0.1511)
+	Hparams: HyperParameters(batch_size=256, num_layers=1, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0046, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-03-35, total improvement: -0.38822340178489667
+	age_group_categorical_accuracy: 0.063 gender_binary_accuracy: 0.818 ext_root_mean_squared_error: 0.831 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 26.239 age_group_loss: 3.363 gender_loss: 0.443 ext_loss: 0.690 ope_loss: 0.438 agr_loss: 0.457 neu_loss: 0.663 con_loss: 0.542 gender_recall: 0.792 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8179, improvement of 0.2269)
+	Hparams: HyperParameters(batch_size=64, num_layers=4, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0081, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-05-29, total improvement: -0.2767101745605467
+	age_group_categorical_accuracy: 0.195 gender_binary_accuracy: 0.797 ext_root_mean_squared_error: 0.831 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 25.018 age_group_loss: 3.351 gender_loss: 0.544 ext_loss: 0.689 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.663 con_loss: 0.542 gender_recall: 0.957 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7974, improvement of 0.2064)
+	Hparams: HyperParameters(batch_size=128, num_layers=3, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0091, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-07-24, total improvement: -0.43717100429534894
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.830 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 26.261 age_group_loss: 3.347 gender_loss: 0.415 ext_loss: 0.686 ope_loss: 0.437 agr_loss: 0.457 neu_loss: 0.664 con_loss: 0.542 gender_recall: 0.871 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8300, improvement of 0.2390)
+	Hparams: HyperParameters(batch_size=128, num_layers=8, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0121, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-10-03, total improvement: -0.22174154925346357
+	age_group_categorical_accuracy: 0.238 gender_binary_accuracy: 0.808 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 26.193 age_group_loss: 3.340 gender_loss: 0.514 ext_loss: 0.689 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.542 gender_recall: 0.949 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8079, improvement of 0.2169)
+	Hparams: HyperParameters(batch_size=128, num_layers=2, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0064, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-12-32, total improvement: -0.33875784236192685
+	age_group_categorical_accuracy: 0.101 gender_binary_accuracy: 0.829 ext_root_mean_squared_error: 0.831 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 24.393 age_group_loss: 3.342 gender_loss: 0.418 ext_loss: 0.690 ope_loss: 0.438 agr_loss: 0.457 neu_loss: 0.663 con_loss: 0.540 gender_recall: 0.878 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8289, improvement of 0.2379)
+	Hparams: HyperParameters(batch_size=64, num_layers=5, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0046, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-14-57, total improvement: -0.45890244054794294
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.810 ext_root_mean_squared_error: 0.831 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 29.451 age_group_loss: 3.356 gender_loss: 0.456 ext_loss: 0.690 ope_loss: 0.437 agr_loss: 0.460 neu_loss: 0.664 con_loss: 0.545 gender_recall: 0.939 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8100, improvement of 0.2190)
+	Hparams: HyperParameters(batch_size=64, num_layers=8, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0240, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-17-23, total improvement: -0.4225064698159693
+	age_group_categorical_accuracy: 0.033 gender_binary_accuracy: 0.812 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 27.172 age_group_loss: 3.339 gender_loss: 0.496 ext_loss: 0.694 ope_loss: 0.436 agr_loss: 0.460 neu_loss: 0.672 con_loss: 0.542 gender_recall: 0.936 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8121, improvement of 0.2211)
+	Hparams: HyperParameters(batch_size=256, num_layers=7, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0075, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-21-11, total improvement: 0.4375435490608217
+	age_group_categorical_accuracy: 1.000 gender_binary_accuracy: 0.705 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 27.371 age_group_loss: 3.347 gender_loss: 0.603 ext_loss: 0.689 ope_loss: 0.438 agr_loss: 0.457 neu_loss: 0.663 con_loss: 0.542 gender_recall: 0.546 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 1.0000, improvement of 0.4060)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7053, improvement of 0.1143)
+	Hparams: HyperParameters(batch_size=128, num_layers=6, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0067, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-23-19, total improvement: 0.3303227205276491
+	age_group_categorical_accuracy: 0.777 gender_binary_accuracy: 0.822 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 26.354 age_group_loss: 3.344 gender_loss: 0.430 ext_loss: 0.690 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.665 con_loss: 0.543 gender_recall: 0.817 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.7768, improvement of 0.1828)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8216, improvement of 0.2306)
+	Hparams: HyperParameters(batch_size=128, num_layers=4, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0227, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-25-09, total improvement: -0.5087027361635117
+	age_group_categorical_accuracy: 0.003 gender_binary_accuracy: 0.755 ext_root_mean_squared_error: 0.829 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 28.472 age_group_loss: 3.391 gender_loss: 0.558 ext_loss: 0.699 ope_loss: 0.432 agr_loss: 0.459 neu_loss: 0.667 con_loss: 0.544 gender_recall: 0.648 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7553, improvement of 0.1643)
+	Hparams: HyperParameters(batch_size=256, num_layers=8, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0060, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-29-11, total improvement: -0.4669180135726927
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.801 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 29.057 age_group_loss: 3.342 gender_loss: 0.484 ext_loss: 0.688 ope_loss: 0.437 agr_loss: 0.457 neu_loss: 0.663 con_loss: 0.542 gender_recall: 0.947 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8011, improvement of 0.2101)
+	Hparams: HyperParameters(batch_size=64, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0187, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-31-51, total improvement: -0.4436286907196043
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.824 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 30.828 age_group_loss: 3.328 gender_loss: 0.447 ext_loss: 0.682 ope_loss: 0.442 agr_loss: 0.461 neu_loss: 0.666 con_loss: 0.545 gender_recall: 0.932 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8237, improvement of 0.2327)
+	Hparams: HyperParameters(batch_size=256, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0125, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-35-31, total improvement: -0.44700131523609143
+	age_group_categorical_accuracy: 0.082 gender_binary_accuracy: 0.738 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 26.902 age_group_loss: 3.299 gender_loss: 0.519 ext_loss: 0.694 ope_loss: 0.437 agr_loss: 0.457 neu_loss: 0.671 con_loss: 0.538 gender_recall: 0.604 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7384, improvement of 0.1474)
+	Hparams: HyperParameters(batch_size=256, num_layers=5, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0233, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-37-49, total improvement: -0.34922222751378995
+	age_group_categorical_accuracy: 0.114 gender_binary_accuracy: 0.804 ext_root_mean_squared_error: 0.829 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 27.167 age_group_loss: 3.328 gender_loss: 0.489 ext_loss: 0.685 ope_loss: 0.436 agr_loss: 0.452 neu_loss: 0.670 con_loss: 0.536 gender_recall: 0.759 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8037, improvement of 0.2127)
+	Hparams: HyperParameters(batch_size=256, num_layers=6, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0066, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-41-36, total improvement: 0.2408652682304384
+	age_group_categorical_accuracy: 0.689 gender_binary_accuracy: 0.819 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 26.345 age_group_loss: 3.347 gender_loss: 0.488 ext_loss: 0.691 ope_loss: 0.437 agr_loss: 0.457 neu_loss: 0.663 con_loss: 0.541 gender_recall: 0.826 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.6895, improvement of 0.0955)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8195, improvement of 0.2285)
+	Hparams: HyperParameters(batch_size=64, num_layers=3, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0144, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-43-51, total improvement: -0.4928766112327574
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.775 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 27.192 age_group_loss: 3.353 gender_loss: 0.551 ext_loss: 0.688 ope_loss: 0.438 agr_loss: 0.459 neu_loss: 0.664 con_loss: 0.542 gender_recall: 0.687 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7747, improvement of 0.1837)
+	Hparams: HyperParameters(batch_size=128, num_layers=8, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0182, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-47-34, total improvement: -0.36298450040817243
+	age_group_categorical_accuracy: 0.176 gender_binary_accuracy: 0.728 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 29.835 age_group_loss: 3.302 gender_loss: 0.611 ext_loss: 0.693 ope_loss: 0.434 agr_loss: 0.456 neu_loss: 0.655 con_loss: 0.544 gender_recall: 0.589 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7284, improvement of 0.1374)
+	Hparams: HyperParameters(batch_size=256, num_layers=4, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0085, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-50-24, total improvement: -0.44904132890701276
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.819 ext_root_mean_squared_error: 0.831 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 28.440 age_group_loss: 3.347 gender_loss: 0.413 ext_loss: 0.689 ope_loss: 0.437 agr_loss: 0.457 neu_loss: 0.665 con_loss: 0.542 gender_recall: 0.915 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8195, improvement of 0.2285)
+	Hparams: HyperParameters(batch_size=128, num_layers=2, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0097, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-52-25, total improvement: 0.1658329744338991
+	age_group_categorical_accuracy: 0.642 gender_binary_accuracy: 0.792 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 30.184 age_group_loss: 3.321 gender_loss: 0.498 ext_loss: 0.695 ope_loss: 0.442 agr_loss: 0.461 neu_loss: 0.661 con_loss: 0.538 gender_recall: 0.963 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.6421, improvement of 0.0481)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7916, improvement of 0.2006)
+	Hparams: HyperParameters(batch_size=256, num_layers=4, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0129, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-54-22, total improvement: 0.5563022871017458
+	age_group_categorical_accuracy: 0.999 gender_binary_accuracy: 0.824 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 26.565 age_group_loss: 3.317 gender_loss: 0.409 ext_loss: 0.682 ope_loss: 0.434 agr_loss: 0.464 neu_loss: 0.670 con_loss: 0.537 gender_recall: 0.824 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.9995, improvement of 0.4055)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8242, improvement of 0.2332)
+	Hparams: HyperParameters(batch_size=256, num_layers=6, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0070, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-56-50, total improvement: 0.0767664690017702
+	age_group_categorical_accuracy: 0.537 gender_binary_accuracy: 0.809 ext_root_mean_squared_error: 0.828 ope_root_mean_squared_error: 0.671 agr_root_mean_squared_error: 0.676 neu_root_mean_squared_error: 0.810 con_root_mean_squared_error: 0.736 
+	loss: 25.704 age_group_loss: 3.344 gender_loss: 0.440 ext_loss: 0.685 ope_loss: 0.450 agr_loss: 0.458 neu_loss: 0.660 con_loss: 0.543 gender_recall: 0.893 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8095, improvement of 0.2185)
+	Hparams: HyperParameters(batch_size=64, num_layers=1, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0066, log_dir: ./checkpoints/one_branch_each/2019-11-05_06-58-57, total improvement: 0.4831003327369692
+	age_group_categorical_accuracy: 0.999 gender_binary_accuracy: 0.752 ext_root_mean_squared_error: 0.831 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 27.280 age_group_loss: 3.357 gender_loss: 0.577 ext_loss: 0.690 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.663 con_loss: 0.543 gender_recall: 0.649 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.9995, improvement of 0.4055)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7521, improvement of 0.1611)
+	Hparams: HyperParameters(batch_size=64, num_layers=5, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0094, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-01-30, total improvement: 0.5205247778892519
+	age_group_categorical_accuracy: 0.974 gender_binary_accuracy: 0.815 ext_root_mean_squared_error: 0.831 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 24.591 age_group_loss: 3.346 gender_loss: 0.450 ext_loss: 0.690 ope_loss: 0.437 agr_loss: 0.457 neu_loss: 0.664 con_loss: 0.541 gender_recall: 0.936 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.9742, improvement of 0.3802)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8153, improvement of 0.2243)
+	Hparams: HyperParameters(batch_size=128, num_layers=4, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0123, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-03-40, total improvement: 0.17817310285568255
+	age_group_categorical_accuracy: 0.643 gender_binary_accuracy: 0.803 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 27.162 age_group_loss: 3.348 gender_loss: 0.545 ext_loss: 0.689 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.542 gender_recall: 0.942 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.6426, improvement of 0.0486)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8032, improvement of 0.2122)
+	Hparams: HyperParameters(batch_size=128, num_layers=5, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0065, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-06-36, total improvement: 0.07234356594085711
+	age_group_categorical_accuracy: 0.510 gender_binary_accuracy: 0.831 ext_root_mean_squared_error: 0.831 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 25.858 age_group_loss: 3.348 gender_loss: 0.441 ext_loss: 0.690 ope_loss: 0.437 agr_loss: 0.457 neu_loss: 0.663 con_loss: 0.543 gender_recall: 0.899 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8305, improvement of 0.2395)
+	Hparams: HyperParameters(batch_size=64, num_layers=2, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0066, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-08-45, total improvement: -0.21218400406837445
+	age_group_categorical_accuracy: 0.238 gender_binary_accuracy: 0.818 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 25.834 age_group_loss: 3.349 gender_loss: 0.429 ext_loss: 0.688 ope_loss: 0.437 agr_loss: 0.457 neu_loss: 0.663 con_loss: 0.542 gender_recall: 0.801 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8179, improvement of 0.2269)
+	Hparams: HyperParameters(batch_size=128, num_layers=2, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0130, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-10-24, total improvement: -0.1626616041660307
+	age_group_categorical_accuracy: 0.295 gender_binary_accuracy: 0.810 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 26.802 age_group_loss: 3.343 gender_loss: 0.544 ext_loss: 0.688 ope_loss: 0.437 agr_loss: 0.457 neu_loss: 0.664 con_loss: 0.542 gender_recall: 0.934 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8100, improvement of 0.2190)
+	Hparams: HyperParameters(batch_size=128, num_layers=4, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0060, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-13-16, total improvement: 0.543303586959839
+	age_group_categorical_accuracy: 1.000 gender_binary_accuracy: 0.812 ext_root_mean_squared_error: 0.831 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 25.047 age_group_loss: 3.352 gender_loss: 0.493 ext_loss: 0.691 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.541 gender_recall: 0.941 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 1.0000, improvement of 0.4060)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8121, improvement of 0.2211)
+	Hparams: HyperParameters(batch_size=64, num_layers=8, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0082, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-15-58, total improvement: 0.36819634628295916
+	age_group_categorical_accuracy: 0.820 gender_binary_accuracy: 0.816 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 26.509 age_group_loss: 3.347 gender_loss: 0.484 ext_loss: 0.691 ope_loss: 0.438 agr_loss: 0.459 neu_loss: 0.667 con_loss: 0.541 gender_recall: 0.904 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.8200, improvement of 0.2260)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8163, improvement of 0.2253)
+	Hparams: HyperParameters(batch_size=64, num_layers=6, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0070, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-19-03, total improvement: -0.4619226991683243
+	age_group_categorical_accuracy: 0.025 gender_binary_accuracy: 0.782 ext_root_mean_squared_error: 0.831 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 27.579 age_group_loss: 3.349 gender_loss: 0.639 ext_loss: 0.689 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.663 con_loss: 0.541 gender_recall: 0.971 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7816, improvement of 0.1906)
+	Hparams: HyperParameters(batch_size=128, num_layers=5, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0045, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-21-01, total improvement: -0.4568633116334675
+	age_group_categorical_accuracy: 0.027 gender_binary_accuracy: 0.784 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 28.937 age_group_loss: 3.351 gender_loss: 0.469 ext_loss: 0.689 ope_loss: 0.437 agr_loss: 0.459 neu_loss: 0.664 con_loss: 0.542 gender_recall: 0.694 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7842, improvement of 0.1932)
+	Hparams: HyperParameters(batch_size=64, num_layers=3, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0056, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-22-52, total improvement: 0.5473126549720766
+	age_group_categorical_accuracy: 1.000 gender_binary_accuracy: 0.817 ext_root_mean_squared_error: 0.832 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 24.825 age_group_loss: 3.352 gender_loss: 0.463 ext_loss: 0.693 ope_loss: 0.437 agr_loss: 0.457 neu_loss: 0.665 con_loss: 0.542 gender_recall: 0.939 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 1.0000, improvement of 0.4060)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8168, improvement of 0.2258)
+	Hparams: HyperParameters(batch_size=64, num_layers=6, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0097, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-25-10, total improvement: -0.3492446537613867
+	age_group_categorical_accuracy: 0.117 gender_binary_accuracy: 0.801 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 27.275 age_group_loss: 3.321 gender_loss: 0.485 ext_loss: 0.696 ope_loss: 0.442 agr_loss: 0.461 neu_loss: 0.661 con_loss: 0.538 gender_recall: 0.965 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8011, improvement of 0.2101)
+	Hparams: HyperParameters(batch_size=256, num_layers=4, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0085, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-27-00, total improvement: -0.34717486011981946
+	age_group_categorical_accuracy: 0.189 gender_binary_accuracy: 0.733 ext_root_mean_squared_error: 0.826 ope_root_mean_squared_error: 0.660 agr_root_mean_squared_error: 0.673 neu_root_mean_squared_error: 0.822 con_root_mean_squared_error: 0.740 
+	loss: 24.859 age_group_loss: 3.284 gender_loss: 0.455 ext_loss: 0.688 ope_loss: 0.433 agr_loss: 0.449 neu_loss: 0.678 con_loss: 0.548 gender_recall: 0.590 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7332, improvement of 0.1422)
+	Hparams: HyperParameters(batch_size=256, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0064, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-28-28, total improvement: -0.18785902070999128
+	age_group_categorical_accuracy: 0.323 gender_binary_accuracy: 0.772 ext_root_mean_squared_error: 0.832 ope_root_mean_squared_error: 0.675 agr_root_mean_squared_error: 0.681 neu_root_mean_squared_error: 0.810 con_root_mean_squared_error: 0.737 
+	loss: 26.396 age_group_loss: 3.347 gender_loss: 0.530 ext_loss: 0.692 ope_loss: 0.455 agr_loss: 0.463 neu_loss: 0.657 con_loss: 0.543 gender_recall: 0.966 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7716, improvement of 0.1806)
+	Hparams: HyperParameters(batch_size=128, num_layers=1, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0100, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-29-59, total improvement: -0.10824351716041547
+	age_group_categorical_accuracy: 0.369 gender_binary_accuracy: 0.791 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 29.068 age_group_loss: 3.351 gender_loss: 0.428 ext_loss: 0.691 ope_loss: 0.437 agr_loss: 0.459 neu_loss: 0.661 con_loss: 0.548 gender_recall: 0.709 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7905, improvement of 0.1995)
+	Hparams: HyperParameters(batch_size=256, num_layers=2, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0065, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-31-47, total improvement: 0.4893526811599733
+	age_group_categorical_accuracy: 1.000 gender_binary_accuracy: 0.757 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 31.758 age_group_loss: 3.355 gender_loss: 0.833 ext_loss: 0.690 ope_loss: 0.437 agr_loss: 0.457 neu_loss: 0.664 con_loss: 0.543 gender_recall: 0.980 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 1.0000, improvement of 0.4060)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7574, improvement of 0.1664)
+	Hparams: HyperParameters(batch_size=64, num_layers=8, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0107, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-34-53, total improvement: -0.18886332917213422
+	age_group_categorical_accuracy: 0.400 gender_binary_accuracy: 0.678 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 32.148 age_group_loss: 3.317 gender_loss: 0.789 ext_loss: 0.691 ope_loss: 0.438 agr_loss: 0.455 neu_loss: 0.654 con_loss: 0.542 gender_recall: 0.471 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.6784, improvement of 0.0874)
+	Hparams: HyperParameters(batch_size=256, num_layers=8, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0126, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-37-33, total improvement: -0.28427214133739453
+	age_group_categorical_accuracy: 0.232 gender_binary_accuracy: 0.751 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 26.838 age_group_loss: 3.343 gender_loss: 0.587 ext_loss: 0.688 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.543 gender_recall: 0.647 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7511, improvement of 0.1601)
+	Hparams: HyperParameters(batch_size=128, num_layers=3, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0090, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-40-10, total improvement: -0.4505925397872923
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.817 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 25.119 age_group_loss: 3.351 gender_loss: 0.465 ext_loss: 0.688 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.665 con_loss: 0.543 gender_recall: 0.766 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8174, improvement of 0.2264)
+	Hparams: HyperParameters(batch_size=128, num_layers=8, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0083, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-42-40, total improvement: 0.23821041774749774
+	age_group_categorical_accuracy: 0.696 gender_binary_accuracy: 0.810 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 29.083 age_group_loss: 3.342 gender_loss: 0.520 ext_loss: 0.689 ope_loss: 0.438 agr_loss: 0.459 neu_loss: 0.663 con_loss: 0.542 gender_recall: 0.770 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.6963, improvement of 0.1023)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8100, improvement of 0.2190)
+	Hparams: HyperParameters(batch_size=64, num_layers=3, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0093, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-45-24, total improvement: 0.045005627393722714
+	age_group_categorical_accuracy: 0.493 gender_binary_accuracy: 0.819 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 24.748 age_group_loss: 3.345 gender_loss: 0.439 ext_loss: 0.688 ope_loss: 0.438 agr_loss: 0.457 neu_loss: 0.664 con_loss: 0.541 gender_recall: 0.918 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8195, improvement of 0.2285)
+	Hparams: HyperParameters(batch_size=128, num_layers=6, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0114, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-47-46, total improvement: -0.37018948006629926
+	age_group_categorical_accuracy: 0.086 gender_binary_accuracy: 0.812 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 29.963 age_group_loss: 3.343 gender_loss: 0.479 ext_loss: 0.688 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.542 gender_recall: 0.787 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8116, improvement of 0.2206)
+	Hparams: HyperParameters(batch_size=128, num_layers=5, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0101, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-50-43, total improvement: -0.5849110703468321
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.683 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 30.797 age_group_loss: 3.336 gender_loss: 0.837 ext_loss: 0.688 ope_loss: 0.439 agr_loss: 0.457 neu_loss: 0.665 con_loss: 0.543 gender_recall: 0.506 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.6832, improvement of 0.0922)
+	Hparams: HyperParameters(batch_size=64, num_layers=7, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0061, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-54-45, total improvement: 0.5575018305778505
+	age_group_categorical_accuracy: 1.000 gender_binary_accuracy: 0.826 ext_root_mean_squared_error: 0.831 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 24.529 age_group_loss: 3.340 gender_loss: 0.422 ext_loss: 0.689 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.663 con_loss: 0.542 gender_recall: 0.932 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 1.0000, improvement of 0.4060)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8263, improvement of 0.2353)
+	Hparams: HyperParameters(batch_size=64, num_layers=7, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0099, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-57-16, total improvement: 0.5288399238586428
+	age_group_categorical_accuracy: 0.998 gender_binary_accuracy: 0.821 ext_root_mean_squared_error: 0.865 ope_root_mean_squared_error: 0.659 agr_root_mean_squared_error: 0.675 neu_root_mean_squared_error: 0.810 con_root_mean_squared_error: 0.733 
+	loss: 24.627 age_group_loss: 3.355 gender_loss: 0.415 ext_loss: 0.750 ope_loss: 0.435 agr_loss: 0.456 neu_loss: 0.656 con_loss: 0.537 gender_recall: 0.896 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.9984, improvement of 0.4044)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8211, improvement of 0.2301)
+	BEATING THE BASELINE AT 'con_root_mean_squared_error': (Baseline: 0.7340, Ours: 0.7329, improvement of 0.0011)
+	Hparams: HyperParameters(batch_size=128, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0121, log_dir: ./checkpoints/one_branch_each/2019-11-05_07-59-14, total improvement: 0.39817068767547625
+	age_group_categorical_accuracy: 0.850 gender_binary_accuracy: 0.816 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 29.559 age_group_loss: 3.358 gender_loss: 0.468 ext_loss: 0.690 ope_loss: 0.437 agr_loss: 0.457 neu_loss: 0.665 con_loss: 0.543 gender_recall: 0.820 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.8500, improvement of 0.2560)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8158, improvement of 0.2248)
+	Hparams: HyperParameters(batch_size=128, num_layers=4, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0059, log_dir: ./checkpoints/one_branch_each/2019-11-05_08-02-06, total improvement: 0.5212508220672609
+	age_group_categorical_accuracy: 1.000 gender_binary_accuracy: 0.789 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 26.763 age_group_loss: 3.353 gender_loss: 0.550 ext_loss: 0.690 ope_loss: 0.438 agr_loss: 0.456 neu_loss: 0.664 con_loss: 0.541 gender_recall: 0.877 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 1.0000, improvement of 0.4060)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7895, improvement of 0.1985)
+	Hparams: HyperParameters(batch_size=64, num_layers=7, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0182, log_dir: ./checkpoints/one_branch_each/2019-11-05_08-04-38, total improvement: -0.3045480619668959
+	age_group_categorical_accuracy: 0.147 gender_binary_accuracy: 0.816 ext_root_mean_squared_error: 0.829 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 29.517 age_group_loss: 3.287 gender_loss: 0.482 ext_loss: 0.688 ope_loss: 0.439 agr_loss: 0.458 neu_loss: 0.665 con_loss: 0.547 gender_recall: 0.937 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8158, improvement of 0.2248)
+	Hparams: HyperParameters(batch_size=256, num_layers=3, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0210, log_dir: ./checkpoints/one_branch_each/2019-11-05_08-07-36, total improvement: 0.5024605174064638
+	age_group_categorical_accuracy: 0.975 gender_binary_accuracy: 0.794 ext_root_mean_squared_error: 0.829 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 31.368 age_group_loss: 3.365 gender_loss: 0.600 ext_loss: 0.700 ope_loss: 0.443 agr_loss: 0.456 neu_loss: 0.658 con_loss: 0.542 gender_recall: 0.958 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.9753, improvement of 0.3813)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7942, improvement of 0.2032)
+	Hparams: HyperParameters(batch_size=256, num_layers=7, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0066, log_dir: ./checkpoints/one_branch_each/2019-11-05_08-11-44, total improvement: -0.4496682505607603
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.819 ext_root_mean_squared_error: 0.831 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 26.038 age_group_loss: 3.335 gender_loss: 0.441 ext_loss: 0.690 ope_loss: 0.439 agr_loss: 0.458 neu_loss: 0.665 con_loss: 0.542 gender_recall: 0.936 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8195, improvement of 0.2285)
+	Hparams: HyperParameters(batch_size=64, num_layers=8, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0066, log_dir: ./checkpoints/one_branch_each/2019-11-05_08-14-41, total improvement: -0.44985312740504724
+	age_group_categorical_accuracy: 0.011 gender_binary_accuracy: 0.808 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 26.644 age_group_loss: 3.332 gender_loss: 0.505 ext_loss: 0.690 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.665 con_loss: 0.543 gender_recall: 0.932 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8079, improvement of 0.2169)
+	Hparams: HyperParameters(batch_size=64, num_layers=4, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0090, log_dir: ./checkpoints/one_branch_each/2019-11-05_08-17-04, total improvement: -0.5897429208755491
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.723 ext_root_mean_squared_error: 0.827 ope_root_mean_squared_error: 0.660 agr_root_mean_squared_error: 0.679 neu_root_mean_squared_error: 0.838 con_root_mean_squared_error: 0.760 
+	loss: 29.036 age_group_loss: 3.351 gender_loss: 0.497 ext_loss: 0.684 ope_loss: 0.436 agr_loss: 0.463 neu_loss: 0.702 con_loss: 0.578 gender_recall: 0.581 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7232, improvement of 0.1322)
+	Hparams: HyperParameters(batch_size=128, num_layers=1, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0151, log_dir: ./checkpoints/one_branch_each/2019-11-05_08-19-02, total improvement: 0.5479220528602602
+	age_group_categorical_accuracy: 1.000 gender_binary_accuracy: 0.815 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 25.683 age_group_loss: 3.406 gender_loss: 0.466 ext_loss: 0.684 ope_loss: 0.444 agr_loss: 0.466 neu_loss: 0.661 con_loss: 0.535 gender_recall: 0.946 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 1.0000, improvement of 0.4060)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8153, improvement of 0.2243)
+	Hparams: HyperParameters(batch_size=256, num_layers=8, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0227, log_dir: ./checkpoints/one_branch_each/2019-11-05_08-21-45, total improvement: -0.48394861030578595
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.783 ext_root_mean_squared_error: 0.829 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 28.878 age_group_loss: 3.391 gender_loss: 0.533 ext_loss: 0.699 ope_loss: 0.432 agr_loss: 0.459 neu_loss: 0.667 con_loss: 0.544 gender_recall: 0.701 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7832, improvement of 0.1922)
+	Hparams: HyperParameters(batch_size=256, num_layers=8, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0070, log_dir: ./checkpoints/one_branch_each/2019-11-05_08-25-33, total improvement: -0.4892449449300764
+	age_group_categorical_accuracy: 0.034 gender_binary_accuracy: 0.745 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 31.388 age_group_loss: 3.347 gender_loss: 0.780 ext_loss: 0.689 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.541 gender_recall: 0.984 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7453, improvement of 0.1543)
+	Hparams: HyperParameters(batch_size=128, num_layers=7, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0065, log_dir: ./checkpoints/one_branch_each/2019-11-05_08-27-53, total improvement: -0.4536147865485398
+	age_group_categorical_accuracy: 0.001 gender_binary_accuracy: 0.814 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 28.885 age_group_loss: 3.348 gender_loss: 0.483 ext_loss: 0.690 ope_loss: 0.437 agr_loss: 0.457 neu_loss: 0.663 con_loss: 0.543 gender_recall: 0.783 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8142, improvement of 0.2232)
+	Hparams: HyperParameters(batch_size=64, num_layers=2, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0127, log_dir: ./checkpoints/one_branch_each/2019-11-05_08-30-09, total improvement: -0.45116212177276593
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.816 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 29.817 age_group_loss: 3.353 gender_loss: 0.459 ext_loss: 0.689 ope_loss: 0.437 agr_loss: 0.457 neu_loss: 0.663 con_loss: 0.542 gender_recall: 0.801 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8163, improvement of 0.2253)
+	Hparams: HyperParameters(batch_size=128, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0121, log_dir: ./checkpoints/one_branch_each/2019-11-05_08-33-32, total improvement: 0.11912784767150897
+	age_group_categorical_accuracy: 0.569 gender_binary_accuracy: 0.817 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 27.340 age_group_loss: 3.349 gender_loss: 0.499 ext_loss: 0.688 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.543 gender_recall: 0.785 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8174, improvement of 0.2264)
+	Hparams: HyperParameters(batch_size=128, num_layers=7, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0083, log_dir: ./checkpoints/one_branch_each/2019-11-05_08-36-41, total improvement: -0.09917636919021589
+	age_group_categorical_accuracy: 0.352 gender_binary_accuracy: 0.817 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 24.854 age_group_loss: 3.342 gender_loss: 0.477 ext_loss: 0.689 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.665 con_loss: 0.541 gender_recall: 0.807 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8168, improvement of 0.2258)
+	Hparams: HyperParameters(batch_size=64, num_layers=5, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0162, log_dir: ./checkpoints/one_branch_each/2019-11-05_08-39-42, total improvement: -0.4125295687019823
+	age_group_categorical_accuracy: 0.045 gender_binary_accuracy: 0.811 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 25.211 age_group_loss: 3.344 gender_loss: 0.533 ext_loss: 0.689 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.542 gender_recall: 0.928 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8105, improvement of 0.2195)
+	Hparams: HyperParameters(batch_size=128, num_layers=6, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0065, log_dir: ./checkpoints/one_branch_each/2019-11-05_08-43-16, total improvement: -0.371059134185314
+	age_group_categorical_accuracy: 0.103 gender_binary_accuracy: 0.795 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 30.303 age_group_loss: 3.342 gender_loss: 0.597 ext_loss: 0.691 ope_loss: 0.438 agr_loss: 0.459 neu_loss: 0.667 con_loss: 0.543 gender_recall: 0.955 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7947, improvement of 0.2037)
+	Hparams: HyperParameters(batch_size=64, num_layers=5, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0232, log_dir: ./checkpoints/one_branch_each/2019-11-05_08-46-00, total improvement: -0.36144964355230313
+	age_group_categorical_accuracy: 0.086 gender_binary_accuracy: 0.819 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 27.152 age_group_loss: 3.317 gender_loss: 0.453 ext_loss: 0.694 ope_loss: 0.431 agr_loss: 0.461 neu_loss: 0.662 con_loss: 0.541 gender_recall: 0.815 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8195, improvement of 0.2285)
+	Hparams: HyperParameters(batch_size=256, num_layers=7, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0104, log_dir: ./checkpoints/one_branch_each/2019-11-05_08-49-53, total improvement: -0.16488375473022443
+	age_group_categorical_accuracy: 0.297 gender_binary_accuracy: 0.806 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 29.742 age_group_loss: 3.341 gender_loss: 0.537 ext_loss: 0.688 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.665 con_loss: 0.543 gender_recall: 0.947 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8058, improvement of 0.2148)
+	Hparams: HyperParameters(batch_size=128, num_layers=3, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0045, log_dir: ./checkpoints/one_branch_each/2019-11-05_08-52-22, total improvement: 0.5476218242645265
+	age_group_categorical_accuracy: 0.998 gender_binary_accuracy: 0.818 ext_root_mean_squared_error: 0.831 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 29.037 age_group_loss: 3.349 gender_loss: 0.437 ext_loss: 0.690 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.666 con_loss: 0.540 gender_recall: 0.925 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.9984, improvement of 0.4044)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8179, improvement of 0.2269)
+	Hparams: HyperParameters(batch_size=64, num_layers=4, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0050, log_dir: ./checkpoints/one_branch_each/2019-11-05_08-54-22, total improvement: 0.3384272832870485
+	age_group_categorical_accuracy: 0.797 gender_binary_accuracy: 0.809 ext_root_mean_squared_error: 0.831 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 24.846 age_group_loss: 3.351 gender_loss: 0.506 ext_loss: 0.688 ope_loss: 0.437 agr_loss: 0.457 neu_loss: 0.663 con_loss: 0.542 gender_recall: 0.945 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.7974, improvement of 0.2034)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8095, improvement of 0.2185)
+	Hparams: HyperParameters(batch_size=64, num_layers=3, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0057, log_dir: ./checkpoints/one_branch_each/2019-11-05_08-56-14, total improvement: 0.1862739701271059
+	age_group_categorical_accuracy: 0.694 gender_binary_accuracy: 0.760 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 30.354 age_group_loss: 3.346 gender_loss: 0.455 ext_loss: 0.691 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.663 con_loss: 0.542 gender_recall: 0.646 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.6942, improvement of 0.1002)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7600, improvement of 0.1690)
+	Hparams: HyperParameters(batch_size=128, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0034, log_dir: ./checkpoints/one_branch_each/2019-11-05_08-58-12, total improvement: 0.0013501126766206628
+	age_group_categorical_accuracy: 0.442 gender_binary_accuracy: 0.815 ext_root_mean_squared_error: 0.827 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.675 neu_root_mean_squared_error: 0.809 con_root_mean_squared_error: 0.734 
+	loss: 24.320 age_group_loss: 3.342 gender_loss: 0.402 ext_loss: 0.683 ope_loss: 0.440 agr_loss: 0.455 neu_loss: 0.655 con_loss: 0.539 gender_recall: 0.843 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8153, improvement of 0.2243)
+	Hparams: HyperParameters(batch_size=64, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0120, log_dir: ./checkpoints/one_branch_each/2019-11-05_08-59-35, total improvement: 0.44608233165740985
+	age_group_categorical_accuracy: 0.894 gender_binary_accuracy: 0.819 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 30.095 age_group_loss: 3.348 gender_loss: 0.477 ext_loss: 0.688 ope_loss: 0.437 agr_loss: 0.459 neu_loss: 0.663 con_loss: 0.543 gender_recall: 0.925 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.8942, improvement of 0.3002)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8195, improvement of 0.2285)
+	Hparams: HyperParameters(batch_size=128, num_layers=8, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0092, log_dir: ./checkpoints/one_branch_each/2019-11-05_09-03-15, total improvement: -0.44829370784759504
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.820 ext_root_mean_squared_error: 0.831 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 26.428 age_group_loss: 3.348 gender_loss: 0.483 ext_loss: 0.690 ope_loss: 0.437 agr_loss: 0.459 neu_loss: 0.664 con_loss: 0.543 gender_recall: 0.895 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8200, improvement of 0.2290)
+	Hparams: HyperParameters(batch_size=64, num_layers=7, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0137, log_dir: ./checkpoints/one_branch_each/2019-11-05_09-06-51, total improvement: 0.16839698743820208
+	age_group_categorical_accuracy: 0.630 gender_binary_accuracy: 0.806 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 25.717 age_group_loss: 3.343 gender_loss: 0.558 ext_loss: 0.689 ope_loss: 0.439 agr_loss: 0.458 neu_loss: 0.665 con_loss: 0.542 gender_recall: 0.947 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.6300, improvement of 0.0360)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8063, improvement of 0.2153)
+	Hparams: HyperParameters(batch_size=128, num_layers=5, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0066, log_dir: ./checkpoints/one_branch_each/2019-11-05_09-09-53, total improvement: -0.45247872201912087
+	age_group_categorical_accuracy: 0.001 gender_binary_accuracy: 0.815 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 29.470 age_group_loss: 3.332 gender_loss: 0.494 ext_loss: 0.690 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.665 con_loss: 0.543 gender_recall: 0.928 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8153, improvement of 0.2243)
+	Hparams: HyperParameters(batch_size=64, num_layers=4, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0049, log_dir: ./checkpoints/one_branch_each/2019-11-05_09-12-27, total improvement: -0.05740680503845197
+	age_group_categorical_accuracy: 0.394 gender_binary_accuracy: 0.817 ext_root_mean_squared_error: 0.831 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 26.136 age_group_loss: 3.345 gender_loss: 0.432 ext_loss: 0.689 ope_loss: 0.438 agr_loss: 0.459 neu_loss: 0.664 con_loss: 0.543 gender_recall: 0.824 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8168, improvement of 0.2258)
+	Hparams: HyperParameters(batch_size=64, num_layers=5, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0098, log_dir: ./checkpoints/one_branch_each/2019-11-05_09-14-31, total improvement: 0.04261211347579974
+	age_group_categorical_accuracy: 0.506 gender_binary_accuracy: 0.804 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 30.776 age_group_loss: 3.354 gender_loss: 0.500 ext_loss: 0.691 ope_loss: 0.443 agr_loss: 0.463 neu_loss: 0.665 con_loss: 0.543 gender_recall: 0.963 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8037, improvement of 0.2127)
+	Hparams: HyperParameters(batch_size=256, num_layers=5, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0100, log_dir: ./checkpoints/one_branch_each/2019-11-05_09-16-41, total improvement: -0.45327695417404157
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.813 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.813 con_root_mean_squared_error: 0.736 
+	loss: 26.518 age_group_loss: 3.351 gender_loss: 0.433 ext_loss: 0.691 ope_loss: 0.437 agr_loss: 0.459 neu_loss: 0.658 con_loss: 0.548 gender_recall: 0.761 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8126, improvement of 0.2216)
+	Hparams: HyperParameters(batch_size=256, num_layers=2, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0067, log_dir: ./checkpoints/one_branch_each/2019-11-05_09-18-25, total improvement: -0.1866794447898863
+	age_group_categorical_accuracy: 0.269 gender_binary_accuracy: 0.812 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 29.719 age_group_loss: 3.353 gender_loss: 0.458 ext_loss: 0.688 ope_loss: 0.437 agr_loss: 0.457 neu_loss: 0.664 con_loss: 0.542 gender_recall: 0.946 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8116, improvement of 0.2206)
+	Hparams: HyperParameters(batch_size=128, num_layers=5, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0128, log_dir: ./checkpoints/one_branch_each/2019-11-05_09-20-29, total improvement: 0.07562682819366473
+	age_group_categorical_accuracy: 0.533 gender_binary_accuracy: 0.810 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 26.911 age_group_loss: 3.346 gender_loss: 0.479 ext_loss: 0.687 ope_loss: 0.439 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.542 gender_recall: 0.788 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8100, improvement of 0.2190)
+	Hparams: HyperParameters(batch_size=128, num_layers=6, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0170, log_dir: ./checkpoints/one_branch_each/2019-11-05_09-23-39, total improvement: -0.4244302693307398
+	age_group_categorical_accuracy: 0.014 gender_binary_accuracy: 0.820 ext_root_mean_squared_error: 0.829 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.676 neu_root_mean_squared_error: 0.811 con_root_mean_squared_error: 0.734 
+	loss: 26.023 age_group_loss: 3.358 gender_loss: 0.457 ext_loss: 0.690 ope_loss: 0.439 agr_loss: 0.463 neu_loss: 0.651 con_loss: 0.538 gender_recall: 0.824 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8200, improvement of 0.2290)
+	Hparams: HyperParameters(batch_size=256, num_layers=2, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0124, log_dir: ./checkpoints/one_branch_each/2019-11-05_09-26-04, total improvement: -0.09536536741256696
+	age_group_categorical_accuracy: 0.356 gender_binary_accuracy: 0.812 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.811 con_root_mean_squared_error: 0.736 
+	loss: 25.027 age_group_loss: 3.347 gender_loss: 0.527 ext_loss: 0.688 ope_loss: 0.438 agr_loss: 0.459 neu_loss: 0.659 con_loss: 0.541 gender_recall: 0.934 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8116, improvement of 0.2206)
+	Hparams: HyperParameters(batch_size=128, num_layers=2, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0098, log_dir: ./checkpoints/one_branch_each/2019-11-05_09-28-31, total improvement: -0.4653553027212618
+	age_group_categorical_accuracy: 0.051 gender_binary_accuracy: 0.801 ext_root_mean_squared_error: 0.839 ope_root_mean_squared_error: 0.672 agr_root_mean_squared_error: 0.697 neu_root_mean_squared_error: 0.819 con_root_mean_squared_error: 0.742 
+	loss: 28.391 age_group_loss: 3.332 gender_loss: 0.404 ext_loss: 0.710 ope_loss: 0.451 agr_loss: 0.487 neu_loss: 0.669 con_loss: 0.557 gender_recall: 0.961 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8005, improvement of 0.2095)
+	Hparams: HyperParameters(batch_size=256, num_layers=1, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0053, log_dir: ./checkpoints/one_branch_each/2019-11-05_09-30-11, total improvement: 0.5148184676170351
+	age_group_categorical_accuracy: 0.958 gender_binary_accuracy: 0.818 ext_root_mean_squared_error: 0.829 ope_root_mean_squared_error: 0.664 agr_root_mean_squared_error: 0.673 neu_root_mean_squared_error: 0.809 con_root_mean_squared_error: 0.740 
+	loss: 24.616 age_group_loss: 3.351 gender_loss: 0.435 ext_loss: 0.689 ope_loss: 0.440 agr_loss: 0.453 neu_loss: 0.656 con_loss: 0.547 gender_recall: 0.807 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 0.9584, improvement of 0.3644)
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8184, improvement of 0.2274)
+	Hparams: HyperParameters(batch_size=64, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0113, log_dir: ./checkpoints/one_branch_each/2019-11-05_09-31-58, total improvement: 0.013038285493850887
+	age_group_categorical_accuracy: 0.475 gender_binary_accuracy: 0.806 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 26.696 age_group_loss: 3.380 gender_loss: 0.456 ext_loss: 0.685 ope_loss: 0.441 agr_loss: 0.465 neu_loss: 0.669 con_loss: 0.539 gender_recall: 0.948 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8058, improvement of 0.2148)
+	Hparams: HyperParameters(batch_size=256, num_layers=3, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0138, log_dir: ./checkpoints/one_branch_each/2019-11-05_09-33-54, total improvement: 0.08372703981399554
+	age_group_categorical_accuracy: 0.523 gender_binary_accuracy: 0.829 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 25.211 age_group_loss: 3.313 gender_loss: 0.415 ext_loss: 0.687 ope_loss: 0.435 agr_loss: 0.461 neu_loss: 0.649 con_loss: 0.535 gender_recall: 0.889 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8289, improvement of 0.2379)
+	Hparams: HyperParameters(batch_size=256, num_layers=6, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+
+Total epochs: 0077, log_dir: ./checkpoints/one_branch_each/2019-11-05_09-36-23, total improvement: -0.4811546425819395
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.787 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 27.796 age_group_loss: 3.342 gender_loss: 0.697 ext_loss: 0.688 ope_loss: 0.436 agr_loss: 0.457 neu_loss: 0.664 con_loss: 0.540 gender_recall: 0.962 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7868, improvement of 0.1958)
+	Hparams: HyperParameters(batch_size=64, num_layers=8, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+

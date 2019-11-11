@@ -128,7 +128,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--trained_model_dir",
         type = str,
-        default = "checkpoints/best_model_01/2019-11-02_01:05:33",
+        default = "server_checkpoints/no_scaling_dense_likes/2019-11-09_23-47-45",
         help = "directory of the trained model to use for inference."
     )
     parser.add_argument(

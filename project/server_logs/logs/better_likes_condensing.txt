@@ -1,0 +1,130 @@
+DEBUGGING:  False
+Experiment name: better_likes_condensing
+Hyperparameters: HyperParameters(batch_size=128, num_layers=7, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=3, likes_condensed_vector_max_size=1024)
+Train_config: TrainConfig(experiment_name='better_likes_condensing', log_dir='./checkpoints/better_likes_condensing/2019-11-08_22-38-55', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/better_likes_condensing/2019-11-08_22-38-55
+Total epochs: 0256, log_dir: ./checkpoints/better_likes_condensing/2019-11-08_22-38-55, total improvement: -0.4605459194183348
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.807 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 7.974 age_group_loss: 3.342 gender_loss: 0.422 ext_loss: 0.688 ope_loss: 0.439 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.543 gender_recall: 0.809 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8068, improvement of 0.2158)
+	Hparams: HyperParameters(batch_size=128, num_layers=7, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=3, likes_condensed_vector_max_size=1024)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: better_likes_condensing
+Hyperparameters: HyperParameters(batch_size=128, num_layers=4, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=50000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=3, likes_condensed_vector_max_size=1024)
+Train_config: TrainConfig(experiment_name='better_likes_condensing', log_dir='./checkpoints/better_likes_condensing/2019-11-08_22-48-31', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/better_likes_condensing/2019-11-08_22-48-31
+Total epochs: 0293, log_dir: ./checkpoints/better_likes_condensing/2019-11-08_22-48-31, total improvement: 0.3231273074150087
+	age_group_categorical_accuracy: 1.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 11.193 age_group_loss: 3.349 gender_loss: 0.677 ext_loss: 0.689 ope_loss: 0.438 agr_loss: 0.459 neu_loss: 0.664 con_loss: 0.542 gender_recall: 1.000 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 1.0000, improvement of 0.4060)
+	Hparams: HyperParameters(batch_size=128, num_layers=4, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=50000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=3, likes_condensed_vector_max_size=1024)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: better_likes_condensing
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=4, likes_condensed_vector_max_size=1024)
+Train_config: TrainConfig(experiment_name='better_likes_condensing', log_dir='./checkpoints/better_likes_condensing/2019-11-08_23-11-50', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/better_likes_condensing/2019-11-08_23-11-50
+Total epochs: 0076, log_dir: ./checkpoints/better_likes_condensing/2019-11-08_23-11-50, total improvement: 0.3167624850273134
+	age_group_categorical_accuracy: 1.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.832 ope_root_mean_squared_error: 0.664 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.737 
+	loss: 7.139 age_group_loss: 3.346 gender_loss: 0.678 ext_loss: 0.692 ope_loss: 0.441 agr_loss: 0.459 neu_loss: 0.664 con_loss: 0.543 gender_recall: 1.000 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 1.0000, improvement of 0.4060)
+	Hparams: HyperParameters(batch_size=128, num_layers=1, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=4, likes_condensed_vector_max_size=1024)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: better_likes_condensing
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='better_likes_condensing', log_dir='./checkpoints/better_likes_condensing/2019-11-08_23-14-32', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/better_likes_condensing/2019-11-08_23-14-32
+Total epochs: 0085, log_dir: ./checkpoints/better_likes_condensing/2019-11-08_23-14-32, total improvement: -0.6870978693962095
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.839 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.679 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 7.092 age_group_loss: 3.343 gender_loss: 0.677 ext_loss: 0.704 ope_loss: 0.437 agr_loss: 0.460 neu_loss: 0.665 con_loss: 0.541 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=1, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=5, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: better_likes_condensing
+Hyperparameters: HyperParameters(batch_size=128, num_layers=8, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=4, likes_condensed_vector_max_size=1024)
+Train_config: TrainConfig(experiment_name='better_likes_condensing', log_dir='./checkpoints/better_likes_condensing/2019-11-08_23-18-27', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/better_likes_condensing/2019-11-08_23-18-27
+Total epochs: 0254, log_dir: ./checkpoints/better_likes_condensing/2019-11-08_23-18-27, total improvement: -0.6770069222450255
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 9.089 age_group_loss: 3.347 gender_loss: 0.677 ext_loss: 0.688 ope_loss: 0.438 agr_loss: 0.458 neu_loss: 0.665 con_loss: 0.541 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=8, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=4, likes_condensed_vector_max_size=1024)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: better_likes_condensing
+Hyperparameters: HyperParameters(batch_size=128, num_layers=7, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=2, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='better_likes_condensing', log_dir='./checkpoints/better_likes_condensing/2019-11-08_23-29-28', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/better_likes_condensing/2019-11-08_23-29-28
+Total epochs: 0500, log_dir: ./checkpoints/better_likes_condensing/2019-11-08_23-29-28, total improvement: -0.6769739012718199
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 14.293 age_group_loss: 3.346 gender_loss: 0.677 ext_loss: 0.688 ope_loss: 0.437 agr_loss: 0.457 neu_loss: 0.663 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=7, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=2, likes_condensed_vector_max_size=512)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: better_likes_condensing
+Hyperparameters: HyperParameters(batch_size=128, num_layers=8, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=3, likes_condensed_vector_max_size=128)
+Train_config: TrainConfig(experiment_name='better_likes_condensing', log_dir='./checkpoints/better_likes_condensing/2019-11-08_23-52-46', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/better_likes_condensing/2019-11-08_23-52-46
+Total epochs: 0293, log_dir: ./checkpoints/better_likes_condensing/2019-11-08_23-52-46, total improvement: -0.4734584908485411
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.794 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 7.947 age_group_loss: 3.358 gender_loss: 0.458 ext_loss: 0.689 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.665 con_loss: 0.542 gender_recall: 0.760 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7942, improvement of 0.2032)
+	Hparams: HyperParameters(batch_size=128, num_layers=8, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=10000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=3, likes_condensed_vector_max_size=128)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: better_likes_condensing
+Hyperparameters: HyperParameters(batch_size=128, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=4, likes_condensed_vector_max_size=1024)
+Train_config: TrainConfig(experiment_name='better_likes_condensing', log_dir='./checkpoints/better_likes_condensing/2019-11-09_00-03-57', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/better_likes_condensing/2019-11-09_00-03-57
+Total epochs: 0360, log_dir: ./checkpoints/better_likes_condensing/2019-11-09_00-03-57, total improvement: 0.3226269860267641
+	age_group_categorical_accuracy: 1.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 10.902 age_group_loss: 3.346 gender_loss: 0.677 ext_loss: 0.688 ope_loss: 0.440 agr_loss: 0.458 neu_loss: 0.663 con_loss: 0.542 gender_recall: 1.000 
+	BEATING THE BASELINE AT 'age_group_categorical_accuracy': (Baseline: 0.5940, Ours: 1.0000, improvement of 0.4060)
+	Hparams: HyperParameters(batch_size=128, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=20000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=4, likes_condensed_vector_max_size=1024)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: better_likes_condensing
+Hyperparameters: HyperParameters(batch_size=128, num_layers=6, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=4, likes_condensed_vector_max_size=256)
+Train_config: TrainConfig(experiment_name='better_likes_condensing', log_dir='./checkpoints/better_likes_condensing/2019-11-09_00-18-51', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/better_likes_condensing/2019-11-09_00-18-51
+Total epochs: 0245, log_dir: ./checkpoints/better_likes_condensing/2019-11-09_00-18-51, total improvement: -0.677234731197357
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.661 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 7.993 age_group_loss: 3.340 gender_loss: 0.677 ext_loss: 0.691 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.664 con_loss: 0.542 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=6, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=4, likes_condensed_vector_max_size=256)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: better_likes_condensing
+Hyperparameters: HyperParameters(batch_size=128, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=4, likes_condensed_vector_max_size=1024)
+Train_config: TrainConfig(experiment_name='better_likes_condensing', log_dir='./checkpoints/better_likes_condensing/2019-11-09_00-25-41', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/better_likes_condensing/2019-11-09_00-25-41
+Total epochs: 0439, log_dir: ./checkpoints/better_likes_condensing/2019-11-09_00-25-41, total improvement: -0.6771199922561644
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.591 ext_root_mean_squared_error: 0.830 ope_root_mean_squared_error: 0.662 agr_root_mean_squared_error: 0.677 neu_root_mean_squared_error: 0.815 con_root_mean_squared_error: 0.736 
+	loss: 10.709 age_group_loss: 3.337 gender_loss: 0.677 ext_loss: 0.687 ope_loss: 0.437 agr_loss: 0.458 neu_loss: 0.666 con_loss: 0.543 gender_recall: 1.000 
+	Hparams: HyperParameters(batch_size=128, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=4, likes_condensed_vector_max_size=1024)
+
+
+TRAINING COMPLETE
+DEBUGGING:  False
+Experiment name: better_likes_condensing
+Hyperparameters: HyperParameters(batch_size=128, num_layers=7, dense_units=256, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=50000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, likes_condensing_factor=2, likes_condensed_vector_max_size=512)
+Train_config: TrainConfig(experiment_name='better_likes_condensing', log_dir='./checkpoints/better_likes_condensing/2019-11-09_19-41-19', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/better_likes_condensing/2019-11-09_19-41-19
