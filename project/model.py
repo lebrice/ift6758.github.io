@@ -88,12 +88,6 @@ def likes_condensing(hparams: HyperParameters, use_conv = False) -> tf.keras.Seq
                 activation=hparams.activation,
                 kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
             ))
-            
-            if hparams.use_batchnorm:
-                block.add(tf.keras.layers.BatchNormalization())
-            
-            if hparams.use_dropout:
-                block.add(tf.keras.layers.Dropout(hparams.dropout_rate))
         return block
 
 
