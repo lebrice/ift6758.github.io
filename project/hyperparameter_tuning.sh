@@ -3,8 +3,8 @@
 pip install --quiet orion
 
 # TODO: change this to the maximum number of desired trials.
-MAX_TRIALS=100
-EXPERIMENT_NAME="no_scaling_dense_likes"
+MAX_TRIALS=10
+EXPERIMENT_NAME="best_model_02"
 
 latest_tag=`git --git-dir=ift6758.github.io/.git --work-tree=ift6758.github.io describe --tags`
 echo "latest tag is '$latest_tag'"
@@ -25,8 +25,10 @@ orion -v --debug hunt --max-trials $MAX_TRIALS -n $EXPERIMENT_NAME ./ift6758.git
         --experiment_name $EXPERIMENT_NAME \
         --epochs $MAX_EPOCHS_PER_EXPERIMENT \
         --batch_size 128 \
-        --num_layers~"randint(1, 10)" \
-        --dense_units~"choices(32, 64, 128, 256)" \
+        --num_layers~"randint(1, 5)" \
+        --dense_units~"choices(32, 64, 128)" \
         --learning_rate 0.005 \
-        --num_like_pages~"choices(50000, 20000, 10000, 5000)" \
+        --num_like_pages~"choices(10000, 5000)" \
+        --gender_loss_weight 5 \
+        --age_loss_weight 5 \
         >> "logs/$EXPERIMENT_NAME.txt"

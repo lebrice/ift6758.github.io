@@ -10,77 +10,6 @@ from typing import *
 
 # Best model so far:
 
-"""
-checkpoints/slim_models/2019-11-03_21:02:19
-Total epochs: 0133,
-val_loss: 7.832,
-log_dir: checkpoints/slim_models/2019-11-03_21:02:19,
-    age_group_loss: 3.2845
-    gender_loss: 0.6823
-    ext_loss: 0.6500
-    ope_loss: 0.3907
-    agr_loss: 0.4342
-    neu_loss: 0.6248
-    con_loss: 0.5157
-    age_group_categorical_accuracy: 0.2895
-    gender_binary_accuracy: 0.5738
-    gender_recall: 1.0000
-    ext_root_mean_squared_error: 0.8064
-    ope_root_mean_squared_error: 0.6251
-    agr_root_mean_squared_error: 0.6590
-    neu_root_mean_squared_error: 0.7904
-    con_root_mean_squared_error: 0.7181
-    val_loss: 7.8410
-    val_age_group_loss: 3.3402
-    val_gender_loss: 0.6772
-    val_ext_loss: 0.6843
-    val_ope_loss: 0.4380
-    val_agr_loss: 0.4615
-    val_neu_loss: 0.6744
-    val_con_loss: 0.5460
-    val_age_group_categorical_accuracy: 0.0058
-    val_gender_binary_accuracy: 0.5905
-    val_gender_recall: 1.0000
-    val_ext_root_mean_squared_error: 0.8277
-    val_ope_root_mean_squared_error: 0.6621
-    val_agr_root_mean_squared_error: 0.6797
-    val_neu_root_mean_squared_error: 0.8223
-    val_con_root_mean_squared_error: 0.7408
-    BEST VALIDATION LOSS: 7.831837256749471
-hparams: HyperParameters(
-    batch_size=64,
-    num_layers=1,
-    dense_units=32,
-    activation='tanh',
-    optimizer='sgd',
-    learning_rate=0.01,
-    l1_reg=0.005,
-    l2_reg=0.005,
-    num_like_pages=5000,
-    use_dropout=True,
-    dropout_rate=0.1,
-    use_batchnorm=False
-)
-
-Total epochs: 0125,
-val_loss: 7.970,
-log_dir: checkpoints/slim_models/2019-11-03_21:06:43,
-hparams: HyperParameters(
-    batch_size=64,
-    num_layers=1,
-    dense_units=32,
-    activation='tanh',
-    optimizer='sgd',
-    learning_rate=0.005,
-    l1_reg=0.005,
-    l2_reg=0.005,
-    num_like_pages=5000,
-    use_dropout=True,
-    dropout_rate=0.1,
-    use_batchnorm=False
-)
-"""
-
 @dataclass
 class HyperParameters():
     """Hyperparameters of our model."""
@@ -105,7 +34,7 @@ class HyperParameters():
 
     # number of individual 'pages' that were kept during preprocessing of the 'likes'.
     # This corresponds to the number of entries in the multi-hot like vector.
-    num_like_pages: int = 10_000
+    num_like_pages: int = 5_000
     # wether or not Dropout layers should be used
     use_dropout: bool = True
     # the dropout rate
@@ -124,7 +53,7 @@ class HyperParameters():
     num_text_features: ClassVar[int] = 91
     num_image_features: ClassVar[int] = 63
 
-best_model_hparams = HyperParameters(batch_size=64, num_layers=8, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+best_model_hparams = HyperParameters(batch_size=128, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
 
 
 def likes_condensing(hparams: HyperParameters, use_conv = False) -> tf.keras.Sequential:
@@ -153,7 +82,18 @@ def likes_condensing(hparams: HyperParameters, use_conv = False) -> tf.keras.Seq
         block.add(tf.keras.layers.Flatten())
         return block
     else:
-        block.add(sequential_block("likes_condensing_dense", hparams))
+        for units in [256, 128, 64]:
+            block.add(tf.keras.layers.Dense(
+                units=units,
+                activation=hparams.activation,
+                kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
+            ))
+            
+            if hparams.use_batchnorm:
+                block.add(tf.keras.layers.BatchNormalization())
+            
+            if hparams.use_dropout:
+                block.add(tf.keras.layers.Dropout(hparams.dropout_rate))
         return block
 
 
