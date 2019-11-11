@@ -86,7 +86,7 @@ def likes_condensing(hparams: HyperParameters, use_conv = False) -> tf.keras.Seq
             block.add(tf.keras.layers.Dense(
                 units=units,
                 activation=hparams.activation,
-                # kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
+                kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
             ))
         return block
 
