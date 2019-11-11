@@ -128,7 +128,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--trained_model_dir",
         type = str,
-        default = "server_checkpoints/one_branch_each/2019-11-05_07-57-16",
+        default = ("server_" if DEBUG else "") + "checkpoints/one_branch_each/2019-11-05_07-57-16",
         help = "directory of the trained model to use for inference."
     )
     parser.add_argument(
