@@ -51,7 +51,42 @@ def age_group_string(age_group_id: int) -> str:
     return age_group_strings[age_group_id]
 
 
-def get_gender_from_facial_hair(data_dir: str, threshold: float = 0.25) -> pd.DataFrame:
+def create_unique_user_id_df(data_dir: str):
+    #Define data paths
+    liwc_path = os.path.join(data_dir, "Text", "liwc.csv")
+    nrc_path = os.path.join(data_dir, "Text", "nrc.csv")
+    likes_path = os.path.join(data_dir, "Relation", "Relation.csv")
+    oxford_path = os.path.join(data_dir, "Image", "oxford.csv")
+
+    #Load data
+    liwc = pd.read_csv(liwc_path)
+    nrc = pd.read_csv(nrc_path)
+    likes = pd.read_csv(likes_path)
+    oxford = pd.read_csv(oxford_path)
+
+    #Tidy
+    liwc = liwc.rename(columns={"userId": "userid"})
+    oxford = oxford.rename(columns={"userId": "userid"})
+    nrc = nrc.rename(columns={"userId": "userid"})
+    likes = likes.rename(columns={"userId": "userid"})
+
+    #Remove duplicates
+    oxford.drop_duplicates(subset="userid", keep="first", inplace=True)
+
+    #Combine all datasets
+    user_ids=oxford["userid"]
+    user_ids = user_ids.merge(liwc["userid"], on="userid", how='outer')
+    user_ids = user_ids.merge(nrc["userid"], on="userid", how='outer')
+    user_ids = user_ids.merge(likes["userid"], on="userid", how='outer')
+    # user_ids=user_ids.loc[:,'userid'].unique()
+    #user_ids.drop_duplicates(subset="userid", keep="first", inplace=True)
+
+
+    user_ids = user_ids['userid'].unique()
+    return pd.DataFrame(user_ids, columns=["userid"])
+
+
+def get_gender_from_facial_hair(data_dir: str, threshold: float = 0.05) -> pd.DataFrame:
     """Simple baseline that uses the facial hair features to determine gender.
     
     Arguments:
@@ -63,37 +98,12 @@ def get_gender_from_facial_hair(data_dir: str, threshold: float = 0.25) -> pd.Da
     Returns:
         pd.DataFrame -- dataframe with userids and their associated gender, as a boolean (True for Female, False for Male)
     """
-    liwc_path = os.path.join(data_dir, "Text", "liwc.csv")
-    nrc_path = os.path.join(data_dir, "Text", "nrc.csv")
-    likes_path = os.path.join(data_dir, "Relation", "Relation.csv")
-    oxford_path = os.path.join(data_dir, "Image", "oxford.csv")
-    
-    #TODO PATH_IMAGE + PATH_PROFILES
-    #profiles = pd.read_csv(PATH_PROFILES)
-    
-    #profiles = pd.read_csv(PATH_PROFILES)
-    liwc = pd.read_csv(liwc_path)
-    nrc = pd.read_csv(nrc_path)
-    likes = pd.read_csv(likes_path)
-    oxford = pd.read_csv(oxford_path)
 
-    liwc = liwc.rename(columns={"userId":"userid"})
-    oxford = oxford.rename(columns={"userId":"userid"})
-    nrc = nrc.rename(columns={"userId":"userid"})
-    likes = likes.rename(columns={"userId":"userid"})        
-    
-    oxford.drop_duplicates(subset ="userid",keep = "first", inplace=True)
-    
-    user_ids = oxford.merge(liwc["userid"], on="userid", how='outer')
-    user_ids = user_ids.merge(nrc["userid"], on="userid", how='outer')
-    user_ids = user_ids.merge(likes["userid"], on="userid", how='outer')
-    #user_ids=user_ids.loc[:,'userid'].unique()
+    facial_hair = create_unique_user_id_df(data_dir)
 
     def get_amount_of_hair(oxford: pd.DataFrame) -> pd.Series:
         return oxford.facialHair_mustache + oxford.facialHair_beard
-    
-    user_ids = user_ids['userid'].unique()
-    facial_hair = pd.DataFrame(user_ids, columns=["userid"])
+
     facial_hair['hair'] = get_amount_of_hair(oxford)
     
     women = facial_hair.loc[:,['userid']]
