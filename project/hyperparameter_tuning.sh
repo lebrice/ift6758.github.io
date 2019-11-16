@@ -21,7 +21,7 @@ orion -v --debug hunt --max-trials $MAX_TRIALS -n $EXPERIMENT_NAME ./ift6758.git
         --num_like_pages 5000 \
         --use_dropout True \
         --use_batchnorm False \
-        --optimizer sgd \
+        --optimizer "choices(Adam,sgd)" \
         --l1_reg 0.005 \
         --l2_reg 0.005 \
         --gender_loss_weight 5 \
