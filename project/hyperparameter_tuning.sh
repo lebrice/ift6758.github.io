@@ -6,7 +6,7 @@ pip install --quiet orion
 MAX_TRIALS=20
 EXPERIMENT_NAME="Isa_trying_stuff_temp_model"
 
-mkdir -f logs
+mkdir -p logs
 
 MAX_EPOCHS_PER_EXPERIMENT=500
 
