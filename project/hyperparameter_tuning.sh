@@ -4,7 +4,7 @@ pip install --quiet orion
 
 # TODO: change this to the maximum number of desired trials.
 MAX_TRIALS=20
-EXPERIMENT_NAME="best_model_with_5x_loss"
+EXPERIMENT_NAME="Isa_trying_stuff_temp_model"
 
 mkdir -f logs
 
