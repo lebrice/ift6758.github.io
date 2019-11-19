@@ -94,7 +94,7 @@ class HyperParameters():
     # the activation function used after each dense layer
     activation: str = "tanh"
     # Which optimizer to use during training.
-    optimizer: str = 'Adam'
+    optimizer: str = 'sgd'
     # Learning Rate
     learning_rate: float = 0.005
 
