@@ -165,7 +165,7 @@ def get_relations(data_dir: str, sub_ids: List[str], like_ids_to_keep: List[str]
     total_num_pages = len(like_ids_to_keep)
     # Create a multihot likes matrix of booleans (rows = userids, cols = likes), by batch
     batch_size = 1000
-    
+
     # Create empty DataFrame with sub_ids as index list
     relation_data = pd.DataFrame(sub_ids, columns = ['userid'])
     relation_data.set_index('userid', inplace=True)
@@ -173,7 +173,7 @@ def get_relations(data_dir: str, sub_ids: List[str], like_ids_to_keep: List[str]
     for start_index in range(0, total_num_pages, batch_size):
         end_index = min(start_index + batch_size, total_num_pages)
 
-        # sets are better for membership testing than lists. 
+        # sets are better for membership testing than lists.
         like_ids_for_this_batch = set(like_ids_to_keep[start_index:end_index])
 
         filtered_table = relation[relation['like_id'].isin(like_ids_for_this_batch)]
@@ -181,21 +181,21 @@ def get_relations(data_dir: str, sub_ids: List[str], like_ids_to_keep: List[str]
         relHot = pd.get_dummies(filtered_table, columns=['like_id'], prefix="", prefix_sep="")
         ##
         relHot = relHot.groupby(['userid']).sum().astype(float) # this makes userid the index
-        
+
         relation_data = pd.concat([relation_data, relHot], axis=1, sort=True)
-    
+
     relation_data = relation_data.reindex(like_ids_to_keep, axis=1)
     relation_data.fillna(0.0, inplace=True)
     relation_data = relation_data.astype("bool")
-    
+
     # will be different if users in relation.csv are not in sub_ids
     if not np.array_equal(relation_data.index, sub_ids):
         raise Exception(f"""userIds do not match between relation file and id list:
     {relation_data.index}
     {sub_ids}
-    
+
     """)
-      
+
     return relation_data
 
 
@@ -248,10 +248,10 @@ def preprocess_labels(data_dir, sub_ids):
 
     def age_group_id(age_str: str) -> int:
         """Returns the age group category ID (an integer from 0 to 3) for the given age (string)
-        
+
         Arguments:
             age_str {str} -- the age
-        
+
         Returns:
             int -- the ID of the age group: 0 for xx-24, 1 for 25-34, 2 for 35-49 and 3 for 50-xx.
         """
@@ -288,7 +288,7 @@ def preprocess_train(data_dir, num_likes=10_000):
         train_features {pandas DataFrame}: vectorized features scaled between 0 and 1
                 for each user id in the training set, concatenated for all modalities
                 (order = text + image + relation), with userid as DataFrame index.
-        features_min_max {tupple of 2 pandas Series}: series of min and max values of
+        **(updated:)features_q10_q90 {tupple of 2 pandas Series}: series of 10th and 90th quantile values of
                 text + image features from train dataset, to be used to scale test data.
                 Note that the multihot relation features do not necessitate scaling.
         image_means {list of float}: means from oxford dataset to replace missing entries in oxford test set
@@ -310,13 +310,18 @@ def preprocess_train(data_dir, num_likes=10_000):
 
     '''
     Note: Scale the text and image data BEFORE concatenating with relations
+    Update: scaling w RobustScaler rather than MinMaxScaler algo, due to outliers
     '''
-    features_to_scale = pd.concat([text_data, image_data], axis=1, sort=False)
-    feat_min = features_to_scale.min()
-    feat_max = features_to_scale.max()
+    features_to_scale = pd.concat([text_data, image_data.iloc[:, :-2]], axis=1, sort=False)
+    #feat_min = features_to_scale.min()
+    #feat_max = features_to_scale.max()
+    feat_q10 = features_to_scale.quantile(q = 0.10)
+    feat_q90 = features_to_scale.quantile(q = 0.90)
 
-    feat_scaled = (features_to_scale - feat_min) / (feat_max - feat_min)
-    features_min_max = (feat_min, feat_max)
+    #feat_scaled = (features_to_scale - feat_min) / (feat_max - feat_min)
+    #features_min_max = (feat_min, feat_max)
+    feat_scaled = (features_to_scale - feat_q10) / (feat_q90 - feat_q10)
+    features_q10_q90 = (feat_q10, feat_q90)
 
     if DEBUG:
         likes_kept = [str(v) for v in range(num_likes)]
@@ -327,20 +332,22 @@ def preprocess_train(data_dir, num_likes=10_000):
     likes_data = get_relations(data_dir, sub_ids, likes_kept)
 
     # concatenate all scaled features into a single DataFrame
-    train_features = pd.concat([feat_scaled, likes_data], axis=1, sort=False)
+    train_features = pd.concat([feat_scaled, image_data.iloc[:, -2:], likes_data], axis=1, sort=False)
 
     # DataFrame of training set labels
     train_labels = preprocess_labels(data_dir, sub_ids)
 
-    return train_features, features_min_max, image_means, likes_kept, train_labels
+    #return train_features, features_min_max, image_means, likes_kept, train_labels
+    return train_features, features_q10_q90, image_means, likes_kept, train_labels
 
 
-def preprocess_test(data_dir, min_max_train, image_means_train, likes_kept_train):
+#def preprocess_test(data_dir, min_max_train, image_means_train, likes_kept_train):
+def preprocess_test(data_dir, q10_q90_train, image_means_train, likes_kept_train):
     '''
     Purpose: preprocesses test dataset (no labels)
     Input:
         datadir {string}: path to Test data directory
-        min_max_train {tupple of two numpy arrays}: min and max values for
+        (**updated)q10_q90_train {tupple of two numpy arrays}: 10th and 90th quantile values for
                 concatenated text and image features (from train set)
         image_means_train {list of float}: means from oxford training dataset to replace
                 missing entries in oxford test set
@@ -361,17 +368,20 @@ def preprocess_test(data_dir, min_max_train, image_means_train, likes_kept_train
     '''
     Note: Scale the text and image data BEFORE concatenating with relations
     '''
-    features_to_scale = pd.concat([text_data, image_data], axis=1, sort=False)
-    feat_min = min_max_train[0]
-    feat_max = min_max_train[1]
+    features_to_scale = pd.concat([text_data, image_data.iloc[:, :-2]], axis=1, sort=False)
+    #feat_min = min_max_train[0]
+    #feat_max = min_max_train[1]
+    feat_q10 = q10_q90_train[0]
+    feat_q90 = q10_q90_train[1]
 
-    feat_scaled = (features_to_scale - feat_min) / (feat_max - feat_min)
+    #feat_scaled = (features_to_scale - feat_min) / (feat_max - feat_min)
+    feat_scaled = (features_to_scale - feat_q10) / (feat_q90 - feat_q10)
 
     # multi-hot matrix of likes from train data
     likes_data = get_relations(data_dir, sub_ids, likes_kept_train)
-    
+
     # concatenate all scaled features into a single DataFrame
-    test_features = pd.concat([feat_scaled, likes_data], axis=1, sort=False)
+    test_features = pd.concat([feat_scaled, image_data.iloc[:, -2:], likes_data], axis=1, sort=False)
 
     return test_features
 
