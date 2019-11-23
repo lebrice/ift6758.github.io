@@ -109,7 +109,7 @@ def get_image_raw(data_dir):
     # userids with 1+ face on image: 7174 out of 9500 (train set)
     # duplicated entries (userids with > 1 face on same image): 741 in train set
     oxford = pd.read_csv(os.path.join(data_dir, "Image", "oxford.csv"), sep = ',')
-    oxford = oxford.sort_values(by=['userId'])
+    #oxford = oxford.sort_values(by=['userId'])
     '''
     NOTE: headPose_pitch has NO RANGE, drop that feature
     '''
@@ -241,10 +241,6 @@ def preprocess_labels(data_dir, sub_ids):
 
     '''
     labels = pd.read_csv(os.path.join(data_dir, "Profile", "Profile.csv"))
-    labels = labels.sort_values(by=['userid'])
-    # check if same subject ids in labels and sub_ids
-    if not np.array_equal(labels['userid'].to_numpy(), sub_ids):
-        raise Exception('userIds do not match between profiles labels and id list')
 
     def age_group_id(age_str: str) -> int:
         """Returns the age group category ID (an integer from 0 to 3) for the given age (string)
@@ -270,6 +266,11 @@ def preprocess_labels(data_dir, sub_ids):
     # labels = labels.assign(age_25_34 = lambda dt: pd.Series([25 <= int(age) <= 34 for age in dt["age"]]))
     # labels = labels.assign(age_35_49 = lambda dt: pd.Series([35 <= int(age) <= 49 for age in dt["age"]]))
     # labels = labels.assign(age_50_xx = lambda dt: pd.Series([50 <= int(age) for age in dt["age"]]))
+
+    labels = labels.sort_values(by=['userid'])
+    # check if same subject ids in labels and sub_ids
+    if not np.array_equal(labels['userid'].to_numpy(), sub_ids):
+        raise Exception('userIds do not match between profiles labels and id list')
 
     labels = labels.drop(['Unnamed: 0'], axis=1)
     labels.set_index('userid', inplace=True)
