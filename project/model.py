@@ -81,46 +81,8 @@ class HyperParameters():
     personality_likes_condensing_units: int = 0
 
 
-
-
-
 best_model_hparams = HyperParameters(batch_size=128, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
 best_model_so_far = "checkpoints/one_branch_each/2019-11-05_07-57-16"
-
-def likes_condensing(hparams: HyperParameters, use_conv = False) -> tf.keras.Sequential:
-    """Condenses a `hparams.num_like_pages`-long vector down to something more manageable.
-    The transformation itself will be trained by backpropagation from all the outputs.
-    
-    Arguments:
-        hparams {HyperParameters} -- the model hyperparameters
-    
-    Returns:
-        tf.keras.Sequential -- A Sequential block that takes in a like multi-hot binary (bool) tensor, and returns a condensed float tensor.
-    """
-    block = tf.keras.Sequential(name="likes_condensing_block")
-    block.add(tf.keras.layers.Lambda(lambda likes_onehot: tf.cast(likes_onehot, tf.bfloat16), input_shape=[hparams.num_like_pages]))
-
-    if use_conv:
-        block.add(tf.keras.layers.Reshape((hparams.num_like_pages, 1)))
-        # while the output tensor is greater than the maximum size:
-        while block.output_shape[-2] > hparams.likes_condensed_vector_max_size:
-            print("adding output to reduce dimension of like vector:", block.output_shape)
-            block.add(tf.keras.layers.Conv1D(
-                filters=1,
-                strides=hparams.likes_condensing_factor,
-                kernel_size=hparams.likes_condensing_factor,
-            ))
-        block.add(tf.keras.layers.Flatten())
-        return block
-    else:
-        for units in [256, 128, 64]:
-            block.add(tf.keras.layers.Dense(
-                units=units,
-                activation=hparams.activation,
-                kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
-            ))
-        return block
-
 
 def sequential_block(name: str, hparams: HyperParameters) -> tf.keras.Sequential:
     """Series of dense layers
@@ -147,13 +109,10 @@ def sequential_block(name: str, hparams: HyperParameters) -> tf.keras.Sequential
             dense_layers.add(tf.keras.layers.Dropout(hparams.dropout_rate))
     return dense_layers
 
-
-
-
 def gender_model(hparams: HyperParameters, image_features: tf.Tensor, text_features: tf.Tensor, likes_features: tf.Tensor) -> tf.keras.Sequential:
     # Likes Condensing, if required:
     if hparams.gender_use_likes:
-        likes_condensing = tf.keras.Sequential("gender_likes_condensing")
+        likes_condensing = tf.keras.Sequential(name="gender_likes_condensing")
         for i in range(hparams.gender_likes_condensing_layers):
             likes_condensing.add(tf.keras.layers.Dense(
                 units=hparams.gender_likes_condensing_units,
@@ -162,8 +121,8 @@ def gender_model(hparams: HyperParameters, image_features: tf.Tensor, text_featu
         likes_features = likes_condensing(likes_features)
 
     # Model:
-    model = tf.keras.Sequential(name="gender_dense")
-    model.add(tf.keras.layers.Concatenate)
+    model = tf.keras.Sequential(name="gender")
+    model.add(tf.keras.layers.Concatenate())
     for i in range(hparams.gender_num_layers):
         model.add(tf.keras.layers.Dense(
             units=hparams.gender_num_units,
@@ -188,7 +147,7 @@ def gender_model(hparams: HyperParameters, image_features: tf.Tensor, text_featu
 def age_group_model(hparams: HyperParameters, image_features: tf.Tensor, text_features: tf.Tensor, likes_features: tf.Tensor) -> tf.keras.Sequential:
     # Likes Condensing, if required:
     if hparams.age_group_use_likes:
-        likes_condensing = tf.keras.Sequential("age_group_likes_condensing")
+        likes_condensing = tf.keras.Sequential(name="age_group_likes_condensing")
         for i in range(hparams.age_group_likes_condensing_layers):
             likes_condensing.add(tf.keras.layers.Dense(
                 units=hparams.age_group_likes_condensing_units,
@@ -197,8 +156,8 @@ def age_group_model(hparams: HyperParameters, image_features: tf.Tensor, text_fe
         likes_features = likes_condensing(likes_features)
 
     # Model:
-    model = tf.keras.Sequential(name="age_group_dense")
-    model.add(tf.keras.layers.Concatenate)
+    model = tf.keras.Sequential(name="age_group")
+    model.add(tf.keras.layers.Concatenate())
     for i in range(hparams.age_group_num_layers):
         model.add(tf.keras.layers.Dense(
             units=hparams.age_group_num_units,
@@ -210,7 +169,7 @@ def age_group_model(hparams: HyperParameters, image_features: tf.Tensor, text_fe
 
         if hparams.age_group_use_dropout:
             model.add(tf.keras.layers.Dropout(hparams.age_group_dropout_rate))
-    model.add(tf.keras.layers.Dense(units=1, activation="sigmoid", name="age_group_out"))
+    model.add(tf.keras.layers.Dense(units=4, activation="softmax", name="age_group_out"))
 
     # Calling the model to create the outputs:
     model_inputs = [text_features, image_features]
@@ -225,7 +184,7 @@ def age_group_model(hparams: HyperParameters, image_features: tf.Tensor, text_fe
 def personality_model(personality_trait: str, hparams: HyperParameters, image_features: tf.Tensor, text_features: tf.Tensor, likes_features: tf.Tensor) -> tf.keras.Sequential:
     # Likes Condensing, if required:
     if hparams.personality_use_likes:
-        likes_condensing = tf.keras.Sequential(f"{personality_trait}_likes_condensing")
+        likes_condensing = tf.keras.Sequential(name=f"{personality_trait}_likes_condensing")
         for i in range(hparams.personality_likes_condensing_layers):
             likes_condensing.add(tf.keras.layers.Dense(
                 units=hparams.personality_likes_condensing_units,
@@ -234,8 +193,8 @@ def personality_model(personality_trait: str, hparams: HyperParameters, image_fe
         likes_features = likes_condensing(likes_features)
 
     # Model:
-    model = tf.keras.Sequential(name=f"{personality_trait}_dense")
-    model.add(tf.keras.layers.Concatenate)
+    model = tf.keras.Sequential(name=f"{personality_trait}")
+    model.add(tf.keras.layers.Concatenate())
     for i in range(hparams.personality_num_layers):
         model.add(tf.keras.layers.Dense(
             units=hparams.personality_num_units,
@@ -247,7 +206,8 @@ def personality_model(personality_trait: str, hparams: HyperParameters, image_fe
 
         if hparams.personality_use_dropout:
             model.add(tf.keras.layers.Dropout(hparams.personality_dropout_rate))
-    model.add(tf.keras.layers.Dense(units=1, activation="sigmoid", name=f"{personality_trait}_out"))
+    model.add(tf.keras.layers.Dense(units=1, activation="sigmoid", name=f"{personality_trait}_sigmoid"))
+    model.add(personality_scaling(f"{personality_trait}_out"))
 
     # Calling the model to create the outputs:
     model_inputs = [text_features, image_features]
@@ -284,7 +244,7 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
     
     # MODEL OUTPUTS:
     gender = gender_model(hparams, image_features, text_features, likes_features)
-    age_group = gender_model(hparams, image_features, text_features, likes_features)
+    age_group = age_group_model(hparams, image_features, text_features, likes_features)
    
     personality_outputs: List[tf.Tensor] = []
     for personality_trait in ["ext", "ope", "agr", "neu", "con"]:
