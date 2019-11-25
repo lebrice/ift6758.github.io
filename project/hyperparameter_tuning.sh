@@ -4,7 +4,7 @@ pip install --quiet orion
 
 # TODO: change this to the maximum number of desired trials.
 MAX_TRIALS=50
-EXPERIMENT_NAME="one-model-each-marie"
+EXPERIMENT_NAME="one-model-each-marie-2"
 
 latest_tag=`git --git-dir=ift6758.github.io/.git --work-tree=ift6758.github.io describe --tags`
 echo "latest tag is '$latest_tag'"
