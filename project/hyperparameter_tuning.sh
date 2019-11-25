@@ -2,9 +2,7 @@
 
 pip install --quiet orion
 
-# TODO: change this to the maximum number of desired trials.
-MAX_TRIALS=50
-EXPERIMENT_NAME="one-model-each-marie-2"
+EXPERIMENT_NAME="one-model-each-marie-3"
 
 latest_tag=`git --git-dir=ift6758.github.io/.git --work-tree=ift6758.github.io describe --tags`
 echo "latest tag is '$latest_tag'"
@@ -19,17 +17,19 @@ fi
 
 mkdir -p logs
 
+# TODO: change this to the maximum number of desired trials.
+MAX_TRIALS=100
 MAX_EPOCHS_PER_EXPERIMENT=500
 orion -v --debug hunt --max-trials $MAX_TRIALS -n $EXPERIMENT_NAME ./ift6758.github.io/project/train.py \
         --experiment_name $EXPERIMENT_NAME \
         --epochs $MAX_EPOCHS_PER_EXPERIMENT \
         --batch_size~"choices(64, 128, 256)" \
         --activation tanh \
-        --learning_rate~"choices(0.01, 0.005, 0.001)" \
+        --learning_rate~"choices(0.005, 0.001, 0.0001, 0.00005)" \
         --optimizer~"choices('ADAM', 'SGD')" \
         --num_like_pages~"choices(5000, 10000)" \
         --use_dropout~"choices('True', 'False')" \
         --use_batchnorm False \
-        --l1_reg~"choices(0, 0.005)" \
-        --l2_reg~"choices(0, 0.005)" \
+        --l1_reg~"choices(0, 0.005, 0.001)" \
+        --l2_reg~"choices(0, 0.005, 0.001)" \
         >> "logs/$EXPERIMENT_NAME.txt"

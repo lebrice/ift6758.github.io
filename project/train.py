@@ -116,7 +116,7 @@ def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: 
     features, labels = shuffle(features, labels)
 
     # TODO: re-add these features when they work
-    features.drop(["noface", "multiface"], axis=1, inplace=True)
+    # features.drop(["noface", "multiface"], axis=1, inplace=True)
     
     mins, maxes = train_data.features_min_max
     with open(os.path.join(train_config.log_dir, "train_features_max.csv"), "w") as f:    

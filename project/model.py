@@ -15,17 +15,13 @@ class HyperParameters():
     """Hyperparameters of our model."""
     # the batch size
     batch_size: int = 128
-    # the number of dense layers in our model.
-    num_layers: int = 1
-    # the number of units in each dense layer.
-    dense_units: int = 32
     
     # the activation function used after each dense layer
     activation: str = "tanh"
     # Which optimizer to use during training.
     optimizer: str = "sgd"
     # Learning Rate
-    learning_rate: float = 0.005
+    learning_rate: float = 0.001
 
     # L1 regularization coefficient
     l1_reg: float = 0.005
@@ -34,7 +30,7 @@ class HyperParameters():
 
     # number of individual 'pages' that were kept during preprocessing of the 'likes'.
     # This corresponds to the number of entries in the multi-hot like vector.
-    num_like_pages: int = 5_000
+    num_like_pages: int = 10_000
     # wether or not Dropout layers should be used
     use_dropout: bool = True
     # the dropout rate
@@ -45,36 +41,35 @@ class HyperParameters():
     gender_loss_weight: float = 1.0
     age_loss_weight: float = 1.0
 
-
     num_text_features: ClassVar[int] = 91
-    num_image_features: ClassVar[int] = 63
+    num_image_features: ClassVar[int] = 65
 
 
     # Gender model settings:
     gender_num_layers: int = 1
     gender_num_units: int = 32
     gender_use_batchnorm: bool = False
-    gender_use_dropout: bool = False
+    gender_use_dropout: bool = True
     gender_dropout_rate: float = 0.1
-    gender_use_likes: bool = False
-    gender_likes_condensing_layers: int = 0
-    gender_likes_condensing_units: int = 0
+    gender_use_likes: bool = True
+    gender_likes_condensing_layers: int = 3
+    gender_likes_condensing_units: int = -1 # hard-coded below.
 
     # Age Group Model settings:
     age_group_num_layers: int = 2
     age_group_num_units: int = 64
     age_group_use_batchnorm: bool = False
-    age_group_use_dropout: bool = False
+    age_group_use_dropout: bool = True
     age_group_dropout_rate: float = 0.1
     age_group_use_likes: bool = True
     age_group_likes_condensing_layers: int = 1
-    age_group_likes_condensing_units: int = 16
+    age_group_likes_condensing_units: int = 32
 
     # Personality Model(s) settings:
     personality_num_layers: int = 1
     personality_num_units: int = 8
     personality_use_batchnorm: bool = False
-    personality_use_dropout: bool = False
+    personality_use_dropout: bool = True
     personality_dropout_rate: float = 0.1
     personality_use_likes: bool = False
     personality_likes_condensing_layers: int = 0
@@ -113,10 +108,11 @@ def gender_model(hparams: HyperParameters, image_features: tf.Tensor, text_featu
     # Likes Condensing, if required:
     if hparams.gender_use_likes:
         likes_condensing = tf.keras.Sequential(name="gender_likes_condensing")
-        for i in range(hparams.gender_likes_condensing_layers):
+        for units in [256, 128, 64]:
             likes_condensing.add(tf.keras.layers.Dense(
                 units=hparams.gender_likes_condensing_units,
                 activation=hparams.activation,
+                kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
             ))
         likes_features = likes_condensing(likes_features)
 
@@ -127,6 +123,7 @@ def gender_model(hparams: HyperParameters, image_features: tf.Tensor, text_featu
         model.add(tf.keras.layers.Dense(
             units=hparams.gender_num_units,
             activation=hparams.activation,
+            kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
         ))
 
         if hparams.gender_use_batchnorm:
@@ -152,6 +149,7 @@ def age_group_model(hparams: HyperParameters, image_features: tf.Tensor, text_fe
             likes_condensing.add(tf.keras.layers.Dense(
                 units=hparams.age_group_likes_condensing_units,
                 activation=hparams.activation,
+                kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
             ))
         likes_features = likes_condensing(likes_features)
 
@@ -162,6 +160,7 @@ def age_group_model(hparams: HyperParameters, image_features: tf.Tensor, text_fe
         model.add(tf.keras.layers.Dense(
             units=hparams.age_group_num_units,
             activation=hparams.activation,
+            kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
         ))
 
         if hparams.age_group_use_batchnorm:
@@ -189,6 +188,7 @@ def personality_model(personality_trait: str, hparams: HyperParameters, image_fe
             likes_condensing.add(tf.keras.layers.Dense(
                 units=hparams.personality_likes_condensing_units,
                 activation=hparams.activation,
+                kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
             ))
         likes_features = likes_condensing(likes_features)
 
@@ -199,6 +199,7 @@ def personality_model(personality_trait: str, hparams: HyperParameters, image_fe
         model.add(tf.keras.layers.Dense(
             units=hparams.personality_num_units,
             activation=hparams.activation,
+            kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
         ))
 
         if hparams.personality_use_batchnorm:
