@@ -172,6 +172,8 @@ def personality_model(personality_trait: str, hparams: HyperParameters, image_fe
     # Model:
     model = tf.keras.Sequential(name=f"{personality_trait}")
     if not hparams.personality_use_image_features and not hparams.personality_use_likes:
+        pass
+    else:
         model.add(tf.keras.layers.Concatenate())
 
     for i in range(hparams.personality_num_layers):
