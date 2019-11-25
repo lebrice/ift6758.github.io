@@ -79,38 +79,13 @@ class HyperParameters():
 # best_model_hparams = HyperParameters(batch_size=128, num_layers=1, dense_units=32, activation='tanh', optimizer='ADAM', learning_rate=0.01, l1_reg=0.0, l2_reg=0.005, num_like_pages=10000, use_dropout=False, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, gender_num_layers=1, gender_num_units=32, gender_use_batchnorm=False, gender_use_dropout=False, gender_dropout_rate=0.1, gender_use_likes=False, gender_likes_condensing_layers=0, gender_likes_condensing_units=0, age_group_num_layers=2, age_group_num_units=64, age_group_use_batchnorm=False, age_group_use_dropout=False, age_group_dropout_rate=0.1, age_group_use_likes=True, age_group_likes_condensing_layers=1, age_group_likes_condensing_units=16, personality_num_layers=1, personality_num_units=8, personality_use_batchnorm=False, personality_use_dropout=False, personality_dropout_rate=0.1, personality_use_likes=False, personality_likes_condensing_layers=0, personality_likes_condensing_units=0)
 best_model_so_far = "checkpoints/one-model-each-marie-2/2019-11-25_21-14-40"
 
-def sequential_block(name: str, hparams: HyperParameters) -> tf.keras.Sequential:
-    """Series of dense layers
-    
-    Arguments:
-        name {str} -- The name to give to this series of layers.
-        hparams {HyperParameters} -- Hyperparameters
-    
-    Returns:
-        tf.keras.Sequential -- a Sequential model
-    """
-    dense_layers = tf.keras.Sequential(name=name)
-    for i in range(hparams.num_layers):
-        dense_layers.add(tf.keras.layers.Dense(
-            units=hparams.dense_units,
-            activation=hparams.activation,
-            kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
-        ))
-        
-        if hparams.use_batchnorm:
-            dense_layers.add(tf.keras.layers.BatchNormalization())
-        
-        if hparams.use_dropout:
-            dense_layers.add(tf.keras.layers.Dropout(hparams.dropout_rate))
-    return dense_layers
-
 def gender_model(hparams: HyperParameters, image_features: tf.Tensor, text_features: tf.Tensor, likes_features: tf.Tensor) -> tf.keras.Sequential:
     # Likes Condensing, if required:
     if hparams.gender_use_likes:
         likes_condensing = tf.keras.Sequential(name="gender_likes_condensing")
         for units in [256, 128, 64]:
             likes_condensing.add(tf.keras.layers.Dense(
-                units=hparams.gender_likes_condensing_units,
+                units=units,
                 activation=hparams.activation,
                 kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
             ))
