@@ -71,6 +71,8 @@ class HyperParameters():
     personality_use_batchnorm: bool = False
     personality_use_dropout: bool = True
     personality_dropout_rate: float = 0.1
+
+    personality_use_image_features: bool = False
     personality_use_likes: bool = False
     personality_likes_condensing_layers: int = 0
     personality_likes_condensing_units: int = 0
@@ -169,7 +171,9 @@ def personality_model(personality_trait: str, hparams: HyperParameters, image_fe
 
     # Model:
     model = tf.keras.Sequential(name=f"{personality_trait}")
-    model.add(tf.keras.layers.Concatenate())
+    if not hparams.personality_use_image_features and not hparams.personality_use_likes:
+        model.add(tf.keras.layers.Concatenate())
+
     for i in range(hparams.personality_num_layers):
         model.add(tf.keras.layers.Dense(
             units=hparams.personality_num_units,
@@ -182,14 +186,23 @@ def personality_model(personality_trait: str, hparams: HyperParameters, image_fe
 
         if hparams.personality_use_dropout:
             model.add(tf.keras.layers.Dropout(hparams.personality_dropout_rate))
+    
+    
     model.add(tf.keras.layers.Dense(units=1, activation="sigmoid", name=f"{personality_trait}_sigmoid"))
     model.add(personality_scaling(f"{personality_trait}_out"))
 
     # Calling the model to create the outputs:
-    model_inputs = [text_features, image_features]
+    model_inputs = [text_features]
+
+    if hparams.personality_use_image_features:
+        model_inputs.append(image_features)
     if hparams.personality_use_likes:
         model_inputs.append(likes_features)
-    model_output = model(model_inputs)
+    
+    if len(model_inputs) == 1:
+        model_output = model(model_inputs[0])
+    else:
+        model_output = model(model_inputs)
     return model_output
 
 
