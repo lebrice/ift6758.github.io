@@ -333,10 +333,12 @@ def preprocess_train(data_dir, num_likes=10_000):
     likes_data = get_relations(data_dir, sub_ids, likes_kept)
 
     # concatenate all scaled features into a single DataFrame
-    train_features = pd.concat([feat_scaled, image_data.iloc[:, -2:], likes_data], axis=1, sort=False)
+    additional_weird_features = image_data.iloc[:, -2:]
+    train_features = pd.concat([feat_scaled, additional_weird_features, likes_data], axis=1, sort=False)
 
     # DataFrame of training set labels
     train_labels = preprocess_labels(data_dir, sub_ids)
+
 
     #return train_features, features_min_max, image_means, likes_kept, train_labels
     return train_features, features_q10_q90, image_means, likes_kept, train_labels

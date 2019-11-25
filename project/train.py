@@ -112,6 +112,10 @@ def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: 
     features = train_data.train_features
     labels = train_data.train_labels
 
+    # shuffle the features and labels
+    features, labels = shuffle(features, labels)
+
+    # TODO: re-add these features when they work
     features.drop(["noface", "multiface"], axis=1, inplace=True)
     
     mins, maxes = train_data.features_min_max
@@ -150,6 +154,7 @@ def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: 
         print("USING NO VALIDATION SET.")
         
     cutoff = int(all_features.shape[0] * validation_data_percentage)
+
 
     valid_features, valid_labels = features.values[:cutoff], labels[:cutoff]
     train_features, train_labels = features.values[cutoff:], labels[cutoff:]
@@ -195,6 +200,38 @@ def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: 
         return train_dataset, valid_dataset, train_samples, valid_samples
     else:
         return train_dataset, None, train_samples, 0
+
+
+def shuffle(features: pd.DataFrame, labels: pd.DataFrame) -> Tuple[pd.DataFrame, pd.DataFrame]:
+    """Shuffles the features and labels (in the same exact way.)
+    
+    Args:
+        features (pd.DataFrame): [description]
+        labels (pd.DataFrame): [description]
+    
+    Returns:
+        Tuple[pd.DataFrame, pd.DataFrame]: [description]
+    """
+    import random
+    random_state = random.randint(0, 1000)
+    return (
+        features.sample(frac=1, random_state=random_state),
+        labels.sample(frac=1, random_state=random_state)
+    )
+
+# if __name__ == "__main__":
+#     p1 = pd.DataFrame(np.arange(10), index=[f"user_{v}" for v in np.arange(10)])
+#     p2 = pd.DataFrame(np.arange(10)+100, index=[f"user_{v}" for v in np.arange(10)])
+#     print(p1)
+#     print(p2)
+#     features, labels = shuffle(p1, p2)
+#     print(features)
+#     print(labels)
+#     # for feat, label in zip(features.values, labels.values):
+#     #     print(f"feat: '{feat}', label: '{label}'")
+#     exit()
+
+
 
 
 def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConfig) -> TrainingResults:
@@ -246,9 +283,8 @@ def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConf
     ]
     history = None
     try:
-
         history = model.fit(
-            train_dataset if DEBUG else train_dataset,
+            train_dataset,
             validation_data=valid_dataset if using_validation_set else None,
             epochs=train_config.epochs,
             callbacks=training_callbacks,
