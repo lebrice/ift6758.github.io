@@ -2,37 +2,64 @@
 
 
 import argparse
+import json
 import os
 from collections import namedtuple
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import *
 
 import numpy as np
 import pandas as pd
 import tensorflow as tf
 
-from model import HyperParameters, get_model
+from model import HyperParameters, get_model, best_model_so_far
 from preprocessing_pipeline import preprocess_test
 from train import TrainConfig
+from utils import DEBUG
 
 
-def test_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: TrainConfig):
-    with open(os.path.join(train_config.log_dir, "train_features_max.csv")) as f:
-        maxes = np.asarray([float(v)
-                           for v in f.readline().split(",") if v.strip() != ""])
-    with open(os.path.join(train_config.log_dir, "train_features_min.csv")) as f:
-        mins = np.asarray([float(v)
-                          for v in f.readline().split(",") if v.strip() != ""])
-    with open(os.path.join(train_config.log_dir, "train_features_likes.csv")) as f:
-        likes_kept_train = [int(like) for like in f.readline().split(",") if like.strip() != ""]
-    with open(os.path.join(train_config.log_dir, "train_features_image_means.csv")) as f:
-        parts = [float(v) for v in f.readline().split(",") if v.strip() != ""]
-        image_means_train = parts
-    min_max_train = (mins, maxes)
+@dataclass
+class TestConfig:
+    i: str # Input directory
+    o: str # Output directory
+    trained_model_dir: str # Directory containing the best trained model to use
 
-    test_features = preprocess_test(
-        data_dir, min_max_train, image_means_train, likes_kept_train)
-    test_features.drop(["noface", "multiface"], axis=1, inplace=True)
+    min_max_train: Tuple[np.ndarray, np.ndarray] = field(init=False, repr=False)
+    likes_kept_train: List[int] = field(init=False, repr=False)
+    image_means_train: np.ndarray = field(init=False, repr=False)
+
+    test_features: pd.DataFrame = field(init=False)
+    training_config: TrainConfig = field(init=False)
+
+    def __post_init__(self):
+        trained_model_config_path=os.path.join(trained_model_dir, "train_config.json")
+        with open(trained_model_config_path) as f:
+            self.training_config = TrainConfig(**json.load(f))
+
+        def to_np_float_array(csv_file_line: str) -> np.ndarray:
+            return np.asarray([float(v) for v in csv_file_line.split(",") if v.strip() != ""])
+
+        with open(os.path.join(self.trained_model_dir, "train_features_max.csv")) as f:
+            maxes = to_np_float_array(f.readline())
+        with open(os.path.join(self.trained_model_dir, "train_features_min.csv")) as f:
+            mins = to_np_float_array(f.readline())
+        self.min_max_train = (mins, maxes)
+
+        with open(os.path.join(self.trained_model_dir, "train_features_likes.csv")) as f:
+            self.likes_kept_train = [int(like) for like in f.readline().split(",") if like.strip() != ""]
+        with open(os.path.join(self.trained_model_dir, "train_features_image_means.csv")) as f:
+            self.image_means_train = to_np_float_array(f.readline())
+        
+        self.test_features = preprocess_test(self.i, self.min_max_train, self.image_means_train, self.likes_kept_train)
+        self.test_features.drop(["noface", "multiface"], axis=1, inplace=True)
+
+
+
+
+
+
+def test_input_pipeline(data_dir: str, test_config: TestConfig):
+    test_features = test_config.test_features
 
     # TODO: save the information that will be used in the testing phase to a file or something.
     column_names = list(test_features.columns)
@@ -70,7 +97,7 @@ def test_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: T
     assert "faceID" not in column_names
     assert "userId" not in column_names
     assert "userid" not in column_names
-    expected_num_columns= hparams.num_text_features + hparams.num_image_features + hparams.num_like_pages
+    # expected_num_columns= hparams.num_text_features + hparams.num_image_features + hparams.num_like_pages
 
     # message = f"columnds present in train set but not in test set: {set(train_columns) ^ set(column_names)}"
     # assert len(column_names) == expected_num_columns, message
@@ -101,7 +128,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--trained_model_dir",
         type = str,
-        default = "checkpoints/best_model_01/2019-11-02_01:05:33",
+        default = ("server_" if DEBUG else "") + best_model_so_far,
         help = "directory of the trained model to use for inference."
     )
     parser.add_argument(
@@ -110,16 +137,21 @@ if __name__ == "__main__":
         "-o", type = str, default = "./debug_output", help = "Output directory")
     args=parser.parse_args()
 
-
     input_dir:  str=args.i
     output_dir: str=args.o
-
     trained_model_dir: str=args.trained_model_dir
+    
+    print("Args given:", args)
+    test_config = TestConfig(
+        i=args.i,
+        o=args.o,
+        trained_model_dir = args.trained_model_dir,
+    )
+
     trained_model_weights_path=os.path.join(trained_model_dir, "model.h5")
     trained_model_hparams_path=os.path.join(
         trained_model_dir, "hyperparameters.json")
-    trained_model_config_path=os.path.join(
-        trained_model_dir, "train_config.json")
+    trained_model_config_path=os.path.join(trained_model_dir, "train_config.json")
     
     import json
     import os
@@ -132,8 +164,7 @@ if __name__ == "__main__":
 
     model=get_model(hparams)
     model.load_weights(trained_model_weights_path)
-
-    test_dataset=test_input_pipeline(input_dir, hparams, train_config)
+    test_dataset=test_input_pipeline(input_dir, test_config)
 
     pred_labels = ["age_group", "gender", "ext", "ope", "agr", "neu", "con"]
 
@@ -146,7 +177,7 @@ if __name__ == "__main__":
         userid = user["userid"].numpy().decode("utf-8")
         pred_dict["userid"] = userid
         pred_dict["age_group_id"] = np.argmax(pred_dict.pop("age_group"))
-        pred_dict["gender"] = int(np.round(pred_dict["gender"]))
+        pred_dict["is_female"] = np.round(pred_dict.pop("gender")) == 1
         
         user = User(**pred_dict)
         print(user)

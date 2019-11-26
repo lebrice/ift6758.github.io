@@ -1,0 +1,15 @@
+DEBUGGING:  False
+Experiment name: best_model_with_5x_loss
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='best_model_with_5x_loss', log_dir='checkpoints/best_model_with_5x_loss/2019-11-03_22:52:52', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/best_model_with_5x_loss/2019-11-03_22:52:52
+DEBUGGING:  False
+Experiment name: best_model_with_5x_loss
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='best_model_with_5x_loss', log_dir='checkpoints/best_model_with_5x_loss/2019-11-03_22:55:06', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/best_model_with_5x_loss/2019-11-03_22:55:06
+DEBUGGING:  False
+Experiment name: best_model_with_5x_loss
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='best_model_with_5x_loss', log_dir='checkpoints/best_model_with_5x_loss/2019-11-03_22:56:43', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/best_model_with_5x_loss/2019-11-03_22:56:43

@@ -21,10 +21,10 @@ def get_text_data(input_dir):
         text_data {pandas DataFrame of float}: unscaled text data (liwc and nrc combined)
     """
     # Load and sort text data
-    liwc = pd.read_csv(os.path.join(input_dir, 'Text/liwc.csv'), sep = ',')
+    liwc = pd.read_csv(os.path.join(input_dir, "Text", "liwc.csv"), sep = ',')
     liwc = liwc.sort_values(by=['userId'])
 
-    nrc = pd.read_csv(os.path.join(input_dir, 'Text/nrc.csv'), sep = ',')
+    nrc = pd.read_csv(os.path.join(input_dir, "Text", "nrc.csv"), sep = ',')
     nrc = nrc.sort_values(by=['userId'])
 
     # Build list of subject ids ordered alphabetically
@@ -333,10 +333,12 @@ def preprocess_train(data_dir, num_likes=10_000):
     likes_data = get_relations(data_dir, sub_ids, likes_kept)
 
     # concatenate all scaled features into a single DataFrame
-    train_features = pd.concat([feat_scaled, image_data.iloc[:, -2:], likes_data], axis=1, sort=False)
+    additional_weird_features = image_data.iloc[:, -2:]
+    train_features = pd.concat([feat_scaled, additional_weird_features, likes_data], axis=1, sort=False)
 
     # DataFrame of training set labels
     train_labels = preprocess_labels(data_dir, sub_ids)
+
 
     #return train_features, features_min_max, image_means, likes_kept, train_labels
     return train_features, features_q10_q90, image_means, likes_kept, train_labels

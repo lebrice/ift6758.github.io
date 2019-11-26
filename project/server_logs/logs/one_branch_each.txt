@@ -1,0 +1,2115 @@
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=2, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_05-28-24', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_05-28-24
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=7, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_05-28-27', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_05-28-27
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_05-28-32', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_05-28-32
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=3, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_05-31-24', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_05-31-24
+OrderedDict([('loss', 29.403143564860027),
+             ('age_group_loss', 3.3452952),
+             ('gender_loss', 0.45838812),
+             ('ext_loss', 0.6871449),
+             ('ope_loss', 0.43808845),
+             ('agr_loss', 0.45785427),
+             ('neu_loss', 0.6648775),
+             ('con_loss', 0.54179054),
+             ('age_group_categorical_accuracy', 0.6094737),
+             ('gender_binary_accuracy', 0.80315787),
+             ('gender_recall', 0.95187163),
+             ('ext_root_mean_squared_error', 0.82936674),
+             ('ope_root_mean_squared_error', 0.6615431),
+             ('agr_root_mean_squared_error', 0.6768543),
+             ('neu_root_mean_squared_error', 0.81515396),
+             ('con_root_mean_squared_error', 0.7363434)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=2, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_05-33-03', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_05-33-03
+OrderedDict([('loss', 24.40422331492106),
+             ('age_group_loss', 3.3415468),
+             ('gender_loss', 0.44031385),
+             ('ext_loss', 0.6899364),
+             ('ope_loss', 0.43712085),
+             ('agr_loss', 0.45689532),
+             ('neu_loss', 0.65819615),
+             ('con_loss', 0.5422274),
+             ('age_group_categorical_accuracy', 0.64894736),
+             ('gender_binary_accuracy', 0.82),
+             ('gender_recall', 0.93582886),
+             ('ext_root_mean_squared_error', 0.8307623),
+             ('ope_root_mean_squared_error', 0.66181004),
+             ('agr_root_mean_squared_error', 0.67666626),
+             ('neu_root_mean_squared_error', 0.8102868),
+             ('con_root_mean_squared_error', 0.7363646)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=8, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_05-34-42', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_05-34-42
+OrderedDict([('loss', 27.542486429214478),
+             ('age_group_loss', 3.3505125),
+             ('gender_loss', 0.46548998),
+             ('ext_loss', 0.68918014),
+             ('ope_loss', 0.4353706),
+             ('agr_loss', 0.4588642),
+             ('neu_loss', 0.6641019),
+             ('con_loss', 0.53907573),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.7894737),
+             ('gender_recall', 0.7058824),
+             ('ext_root_mean_squared_error', 0.8298786),
+             ('ope_root_mean_squared_error', 0.6615505),
+             ('agr_root_mean_squared_error', 0.6767161),
+             ('neu_root_mean_squared_error', 0.8152013),
+             ('con_root_mean_squared_error', 0.73633134)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_05-37-14', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_05-37-14
+OrderedDict([('loss', 28.8071413675944),
+             ('age_group_loss', 3.338875),
+             ('gender_loss', 0.5465543),
+             ('ext_loss', 0.68370396),
+             ('ope_loss', 0.4378518),
+             ('agr_loss', 0.4576224),
+             ('neu_loss', 0.65925395),
+             ('con_loss', 0.5526393),
+             ('age_group_categorical_accuracy', 0.030526316),
+             ('gender_binary_accuracy', 0.7636842),
+             ('gender_recall', 0.98039216),
+             ('ext_root_mean_squared_error', 0.8270336),
+             ('ope_root_mean_squared_error', 0.6624232),
+             ('agr_root_mean_squared_error', 0.67644805),
+             ('neu_root_mean_squared_error', 0.8106193),
+             ('con_root_mean_squared_error', 0.74425966)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_05-38-46', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_05-38-46
+OrderedDict([('loss', 26.298568964004517),
+             ('age_group_loss', 3.3096979),
+             ('gender_loss', 0.6046034),
+             ('ext_loss', 0.68128234),
+             ('ope_loss', 0.442829),
+             ('agr_loss', 0.45521122),
+             ('neu_loss', 0.6511593),
+             ('con_loss', 0.52972215),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.7036842),
+             ('gender_recall', 0.5240642),
+             ('ext_root_mean_squared_error', 0.8280265),
+             ('ope_root_mean_squared_error', 0.66012466),
+             ('agr_root_mean_squared_error', 0.6729628),
+             ('neu_root_mean_squared_error', 0.809038),
+             ('con_root_mean_squared_error', 0.731276)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=5, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_05-40-53', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_05-40-53
+OrderedDict([('loss', 24.486868794759115),
+             ('age_group_loss', 3.3485),
+             ('gender_loss', 0.39586788),
+             ('ext_loss', 0.6901295),
+             ('ope_loss', 0.4370437),
+             ('agr_loss', 0.457198),
+             ('neu_loss', 0.66478163),
+             ('con_loss', 0.5428051),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.82894737),
+             ('gender_recall', 0.8128342),
+             ('ext_root_mean_squared_error', 0.83047277),
+             ('ope_root_mean_squared_error', 0.6616446),
+             ('agr_root_mean_squared_error', 0.6766958),
+             ('neu_root_mean_squared_error', 0.8152024),
+             ('con_root_mean_squared_error', 0.7363577)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=6, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_05-43-14', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_05-43-14
+OrderedDict([('loss', 26.142702611287437),
+             ('age_group_loss', 3.3441732),
+             ('gender_loss', 0.40059268),
+             ('ext_loss', 0.6896881),
+             ('ope_loss', 0.43760318),
+             ('agr_loss', 0.45955497),
+             ('neu_loss', 0.6650703),
+             ('con_loss', 0.5415468),
+             ('age_group_categorical_accuracy', 0.00052631577),
+             ('gender_binary_accuracy', 0.8242105),
+             ('gender_recall', 0.92156863),
+             ('ext_root_mean_squared_error', 0.8308455),
+             ('ope_root_mean_squared_error', 0.66160464),
+             ('agr_root_mean_squared_error', 0.676728),
+             ('neu_root_mean_squared_error', 0.81515074),
+             ('con_root_mean_squared_error', 0.7363476)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=2, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_05-45-20', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_05-45-20
+OrderedDict([('loss', 30.13763147989909),
+             ('age_group_loss', 3.344175),
+             ('gender_loss', 0.7678535),
+             ('ext_loss', 0.6919137),
+             ('ope_loss', 0.43878824),
+             ('agr_loss', 0.4562488),
+             ('neu_loss', 0.6628324),
+             ('con_loss', 0.53999436),
+             ('age_group_categorical_accuracy', 0.95842105),
+             ('gender_binary_accuracy', 0.7463158),
+             ('gender_recall', 0.9812834),
+             ('ext_root_mean_squared_error', 0.83138674),
+             ('ope_root_mean_squared_error', 0.6615494),
+             ('agr_root_mean_squared_error', 0.67667073),
+             ('neu_root_mean_squared_error', 0.81516963),
+             ('con_root_mean_squared_error', 0.736321)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_05-47-04', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_05-47-04
+OrderedDict([('loss', 26.09807612101237),
+             ('age_group_loss', 3.355453),
+             ('gender_loss', 0.42414704),
+             ('ext_loss', 0.77230793),
+             ('ope_loss', 0.43604183),
+             ('agr_loss', 0.4585769),
+             ('neu_loss', 0.6595871),
+             ('con_loss', 0.53901494),
+             ('age_group_categorical_accuracy', 0.2736842),
+             ('gender_binary_accuracy', 0.8110526),
+             ('gender_recall', 0.92691624),
+             ('ext_root_mean_squared_error', 0.8777558),
+             ('ope_root_mean_squared_error', 0.66024953),
+             ('agr_root_mean_squared_error', 0.6768198),
+             ('neu_root_mean_squared_error', 0.8125624),
+             ('con_root_mean_squared_error', 0.7339961)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=4, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_05-49-05', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_05-49-05
+OrderedDict([('loss', 25.004600524902344),
+             ('age_group_loss', 3.3494236),
+             ('gender_loss', 0.5129493),
+             ('ext_loss', 0.6899364),
+             ('ope_loss', 0.4382591),
+             ('agr_loss', 0.45771843),
+             ('neu_loss', 0.66569275),
+             ('con_loss', 0.540426),
+             ('age_group_categorical_accuracy', 0.09421053),
+             ('gender_binary_accuracy', 0.80210525),
+             ('gender_recall', 0.95454544),
+             ('ext_root_mean_squared_error', 0.8308312),
+             ('ope_root_mean_squared_error', 0.66166776),
+             ('agr_root_mean_squared_error', 0.6766664),
+             ('neu_root_mean_squared_error', 0.8151735),
+             ('con_root_mean_squared_error', 0.73635423)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=7, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_05-50-54', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_05-50-54
+OrderedDict([('loss', 30.118372917175293),
+             ('age_group_loss', 3.3059895),
+             ('gender_loss', 0.40710014),
+             ('ext_loss', 0.6872292),
+             ('ope_loss', 0.4485474),
+             ('agr_loss', 0.45383334),
+             ('neu_loss', 0.6579359),
+             ('con_loss', 0.54251564),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.8294737),
+             ('gender_recall', 0.89750445),
+             ('ext_root_mean_squared_error', 0.8294517),
+             ('ope_root_mean_squared_error', 0.66150206),
+             ('agr_root_mean_squared_error', 0.6767869),
+             ('neu_root_mean_squared_error', 0.8151479),
+             ('con_root_mean_squared_error', 0.73635507)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=4, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_05-53-25', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_05-53-25
+OrderedDict([('loss', 27.81663203239441),
+             ('age_group_loss', 3.302277),
+             ('gender_loss', 0.52593035),
+             ('ext_loss', 0.69292116),
+             ('ope_loss', 0.434244),
+             ('agr_loss', 0.45550314),
+             ('neu_loss', 0.65461606),
+             ('con_loss', 0.54401255),
+             ('age_group_categorical_accuracy', 0.37736842),
+             ('gender_binary_accuracy', 0.7973684),
+             ('gender_recall', 0.728164),
+             ('ext_root_mean_squared_error', 0.82959086),
+             ('ope_root_mean_squared_error', 0.66138256),
+             ('agr_root_mean_squared_error', 0.6767323),
+             ('neu_root_mean_squared_error', 0.8149181),
+             ('con_root_mean_squared_error', 0.73631203)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=4, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_05-56-10', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_05-56-10
+OrderedDict([('loss', 30.370524470011393),
+             ('age_group_loss', 3.3501058),
+             ('gender_loss', 0.58686465),
+             ('ext_loss', 0.6894858),
+             ('ope_loss', 0.4375145),
+             ('agr_loss', 0.459102),
+             ('neu_loss', 0.6647018),
+             ('con_loss', 0.5412579),
+             ('age_group_categorical_accuracy', 0.039473683),
+             ('gender_binary_accuracy', 0.7847369),
+             ('gender_recall', 0.969697),
+             ('ext_root_mean_squared_error', 0.8306736),
+             ('ope_root_mean_squared_error', 0.66163343),
+             ('agr_root_mean_squared_error', 0.67674863),
+             ('neu_root_mean_squared_error', 0.8151882),
+             ('con_root_mean_squared_error', 0.7363237)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=2, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_05-57-55', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_05-57-55
+OrderedDict([('loss', 25.307953357696533),
+             ('age_group_loss', 3.3505125),
+             ('gender_loss', 0.4408603),
+             ('ext_loss', 0.69160795),
+             ('ope_loss', 0.43627393),
+             ('agr_loss', 0.4589271),
+             ('neu_loss', 0.6539878),
+             ('con_loss', 0.54737824),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.81736845),
+             ('gender_recall', 0.7709447),
+             ('ext_root_mean_squared_error', 0.830331),
+             ('ope_root_mean_squared_error', 0.6611606),
+             ('agr_root_mean_squared_error', 0.6765102),
+             ('neu_root_mean_squared_error', 0.8106792),
+             ('con_root_mean_squared_error', 0.73571795)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=4, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_05-59-34', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_05-59-34
+OrderedDict([('loss', 28.461175441741943),
+             ('age_group_loss', 3.3208294),
+             ('gender_loss', 0.4910866),
+             ('ext_loss', 0.6955047),
+             ('ope_loss', 0.44165972),
+             ('agr_loss', 0.46065164),
+             ('neu_loss', 0.66100526),
+             ('con_loss', 0.5376943),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.7968421),
+             ('gender_recall', 0.9590018),
+             ('ext_root_mean_squared_error', 0.83013415),
+             ('ope_root_mean_squared_error', 0.6614207),
+             ('agr_root_mean_squared_error', 0.6767477),
+             ('neu_root_mean_squared_error', 0.8151595),
+             ('con_root_mean_squared_error', 0.7363234)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=1, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-01-25', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-01-25
+OrderedDict([('loss', 29.104031085968018),
+             ('age_group_loss', 3.3096995),
+             ('gender_loss', 0.44158137),
+             ('ext_loss', 0.6838268),
+             ('ope_loss', 0.44502503),
+             ('agr_loss', 0.4612167),
+             ('neu_loss', 0.6512991),
+             ('con_loss', 0.53447187),
+             ('age_group_categorical_accuracy', 0.56842107),
+             ('gender_binary_accuracy', 0.74210525),
+             ('gender_recall', 0.6158645),
+             ('ext_root_mean_squared_error', 0.829535),
+             ('ope_root_mean_squared_error', 0.6616956),
+             ('agr_root_mean_squared_error', 0.6774981),
+             ('neu_root_mean_squared_error', 0.8091066),
+             ('con_root_mean_squared_error', 0.73426247)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=4, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-03-35', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-03-35
+OrderedDict([('loss', 26.239484723409017),
+             ('age_group_loss', 3.362552),
+             ('gender_loss', 0.443029),
+             ('ext_loss', 0.6895439),
+             ('ope_loss', 0.43830645),
+             ('agr_loss', 0.4569129),
+             ('neu_loss', 0.6634961),
+             ('con_loss', 0.541978),
+             ('age_group_categorical_accuracy', 0.06263158),
+             ('gender_binary_accuracy', 0.81789476),
+             ('gender_recall', 0.7923351),
+             ('ext_root_mean_squared_error', 0.8309984),
+             ('ope_root_mean_squared_error', 0.6615483),
+             ('agr_root_mean_squared_error', 0.6767025),
+             ('neu_root_mean_squared_error', 0.81516635),
+             ('con_root_mean_squared_error', 0.73633415)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=3, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-05-29', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-05-29
+OrderedDict([('loss', 25.017506663004557),
+             ('age_group_loss', 3.350639),
+             ('gender_loss', 0.54411733),
+             ('ext_loss', 0.6893484),
+             ('ope_loss', 0.4375821),
+             ('agr_loss', 0.45777637),
+             ('neu_loss', 0.6634446),
+             ('con_loss', 0.5420759),
+             ('age_group_categorical_accuracy', 0.19473684),
+             ('gender_binary_accuracy', 0.7973684),
+             ('gender_recall', 0.95721924),
+             ('ext_root_mean_squared_error', 0.8306614),
+             ('ope_root_mean_squared_error', 0.66196793),
+             ('agr_root_mean_squared_error', 0.6766894),
+             ('neu_root_mean_squared_error', 0.8151708),
+             ('con_root_mean_squared_error', 0.73632586)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=8, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-07-24', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-07-24
+OrderedDict([('loss', 26.26114133199056),
+             ('age_group_loss', 3.3474307),
+             ('gender_loss', 0.41457063),
+             ('ext_loss', 0.6857843),
+             ('ope_loss', 0.4374504),
+             ('agr_loss', 0.456899),
+             ('neu_loss', 0.66380435),
+             ('con_loss', 0.5423968),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.83),
+             ('gender_recall', 0.87076646),
+             ('ext_root_mean_squared_error', 0.8295141),
+             ('ope_root_mean_squared_error', 0.6613644),
+             ('agr_root_mean_squared_error', 0.67671007),
+             ('neu_root_mean_squared_error', 0.8152457),
+             ('con_root_mean_squared_error', 0.73633677)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=2, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-10-03', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-10-03
+OrderedDict([('loss', 26.19257837931315),
+             ('age_group_loss', 3.3404775),
+             ('gender_loss', 0.5135935),
+             ('ext_loss', 0.68866265),
+             ('ope_loss', 0.4371514),
+             ('agr_loss', 0.45764965),
+             ('neu_loss', 0.6637208),
+             ('con_loss', 0.5418797),
+             ('age_group_categorical_accuracy', 0.23789474),
+             ('gender_binary_accuracy', 0.80789477),
+             ('gender_recall', 0.9491979),
+             ('ext_root_mean_squared_error', 0.83017915),
+             ('ope_root_mean_squared_error', 0.6616452),
+             ('agr_root_mean_squared_error', 0.67674905),
+             ('neu_root_mean_squared_error', 0.814629),
+             ('con_root_mean_squared_error', 0.73632866)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=5, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-12-32', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-12-32
+OrderedDict([('loss', 24.39299592971802),
+             ('age_group_loss', 3.3415468),
+             ('gender_loss', 0.41759235),
+             ('ext_loss', 0.6902687),
+             ('ope_loss', 0.4375098),
+             ('agr_loss', 0.45739222),
+             ('neu_loss', 0.6629814),
+             ('con_loss', 0.5399927),
+             ('age_group_categorical_accuracy', 0.101052634),
+             ('gender_binary_accuracy', 0.82894737),
+             ('gender_recall', 0.8778966),
+             ('ext_root_mean_squared_error', 0.8312097),
+             ('ope_root_mean_squared_error', 0.6613322),
+             ('agr_root_mean_squared_error', 0.67669994),
+             ('neu_root_mean_squared_error', 0.81517684),
+             ('con_root_mean_squared_error', 0.73633915)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=8, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-14-57', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-14-57
+OrderedDict([('loss', 29.45090980529785),
+             ('age_group_loss', 3.3559918),
+             ('gender_loss', 0.45561376),
+             ('ext_loss', 0.68995005),
+             ('ope_loss', 0.4374722),
+             ('agr_loss', 0.45976934),
+             ('neu_loss', 0.6644271),
+             ('con_loss', 0.54484946),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.81),
+             ('gender_recall', 0.93850267),
+             ('ext_root_mean_squared_error', 0.83097863),
+             ('ope_root_mean_squared_error', 0.6617044),
+             ('agr_root_mean_squared_error', 0.6766778),
+             ('neu_root_mean_squared_error', 0.81521386),
+             ('con_root_mean_squared_error', 0.7363277)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=7, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-17-23', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-17-23
+OrderedDict([('loss', 27.172126293182373),
+             ('age_group_loss', 3.3393812),
+             ('gender_loss', 0.49564928),
+             ('ext_loss', 0.6940057),
+             ('ope_loss', 0.43587196),
+             ('agr_loss', 0.46016887),
+             ('neu_loss', 0.67158544),
+             ('con_loss', 0.5419301),
+             ('age_group_categorical_accuracy', 0.03263158),
+             ('gender_binary_accuracy', 0.81210524),
+             ('gender_recall', 0.93582886),
+             ('ext_root_mean_squared_error', 0.82957774),
+             ('ope_root_mean_squared_error', 0.66143316),
+             ('agr_root_mean_squared_error', 0.676738),
+             ('neu_root_mean_squared_error', 0.81515974),
+             ('con_root_mean_squared_error', 0.7363346)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=6, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-21-11', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-21-11
+OrderedDict([('loss', 27.370852025349937),
+             ('age_group_loss', 3.3474302),
+             ('gender_loss', 0.60256684),
+             ('ext_loss', 0.6893014),
+             ('ope_loss', 0.43797475),
+             ('agr_loss', 0.45728606),
+             ('neu_loss', 0.66293925),
+             ('con_loss', 0.54199666),
+             ('age_group_categorical_accuracy', 1.0),
+             ('gender_binary_accuracy', 0.70526314),
+             ('gender_recall', 0.54634583),
+             ('ext_root_mean_squared_error', 0.8299686),
+             ('ope_root_mean_squared_error', 0.66145474),
+             ('agr_root_mean_squared_error', 0.6767609),
+             ('neu_root_mean_squared_error', 0.81518173),
+             ('con_root_mean_squared_error', 0.73635364)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=4, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-23-19', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-23-19
+OrderedDict([('loss', 26.353556187947593),
+             ('age_group_loss', 3.3442216),
+             ('gender_loss', 0.42964),
+             ('ext_loss', 0.68999106),
+             ('ope_loss', 0.4380197),
+             ('agr_loss', 0.45826477),
+             ('neu_loss', 0.6654116),
+             ('con_loss', 0.54300976),
+             ('age_group_categorical_accuracy', 0.7768421),
+             ('gender_binary_accuracy', 0.8215789),
+             ('gender_recall', 0.81729054),
+             ('ext_root_mean_squared_error', 0.8303446),
+             ('ope_root_mean_squared_error', 0.6615278),
+             ('agr_root_mean_squared_error', 0.6767175),
+             ('neu_root_mean_squared_error', 0.8151865),
+             ('con_root_mean_squared_error', 0.73632187)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=8, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-25-09', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-25-09
+OrderedDict([('loss', 28.471785068511963),
+             ('age_group_loss', 3.3913274),
+             ('gender_loss', 0.557568),
+             ('ext_loss', 0.69914234),
+             ('ope_loss', 0.4324642),
+             ('agr_loss', 0.45904303),
+             ('neu_loss', 0.6674929),
+             ('con_loss', 0.5442047),
+             ('age_group_categorical_accuracy', 0.0031578948),
+             ('gender_binary_accuracy', 0.75526315),
+             ('gender_recall', 0.6479501),
+             ('ext_root_mean_squared_error', 0.8293906),
+             ('ope_root_mean_squared_error', 0.6614834),
+             ('agr_root_mean_squared_error', 0.67676157),
+             ('neu_root_mean_squared_error', 0.8151522),
+             ('con_root_mean_squared_error', 0.736336)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-29-11', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-29-11
+OrderedDict([('loss', 29.05658156077067),
+             ('age_group_loss', 3.341564),
+             ('gender_loss', 0.48364872),
+             ('ext_loss', 0.6880634),
+             ('ope_loss', 0.43711475),
+             ('agr_loss', 0.4565872),
+             ('neu_loss', 0.6631924),
+             ('con_loss', 0.5417858),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.80105263),
+             ('gender_recall', 0.9465241),
+             ('ext_root_mean_squared_error', 0.83029497),
+             ('ope_root_mean_squared_error', 0.6614867),
+             ('agr_root_mean_squared_error', 0.67670065),
+             ('neu_root_mean_squared_error', 0.8151471),
+             ('con_root_mean_squared_error', 0.73634124)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-31-51', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-31-51
+OrderedDict([('loss', 30.82817244529724),
+             ('age_group_loss', 3.3282516),
+             ('gender_loss', 0.44723013),
+             ('ext_loss', 0.6819949),
+             ('ope_loss', 0.44194946),
+             ('agr_loss', 0.46050388),
+             ('neu_loss', 0.6659597),
+             ('con_loss', 0.5445355),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.8236842),
+             ('gender_recall', 0.9322638),
+             ('ext_root_mean_squared_error', 0.82956034),
+             ('ope_root_mean_squared_error', 0.66149217),
+             ('agr_root_mean_squared_error', 0.6767772),
+             ('neu_root_mean_squared_error', 0.81514907),
+             ('con_root_mean_squared_error', 0.73633415)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=5, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-35-31', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-35-31
+OrderedDict([('loss', 26.90185260772705),
+             ('age_group_loss', 3.2985666),
+             ('gender_loss', 0.51934785),
+             ('ext_loss', 0.693988),
+             ('ope_loss', 0.4370068),
+             ('agr_loss', 0.45749566),
+             ('neu_loss', 0.6705451),
+             ('con_loss', 0.53774005),
+             ('age_group_categorical_accuracy', 0.082105264),
+             ('gender_binary_accuracy', 0.738421),
+             ('gender_recall', 0.6042781),
+             ('ext_root_mean_squared_error', 0.82979697),
+             ('ope_root_mean_squared_error', 0.6614687),
+             ('agr_root_mean_squared_error', 0.67677736),
+             ('neu_root_mean_squared_error', 0.8151483),
+             ('con_root_mean_squared_error', 0.7363363)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=6, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-37-49', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-37-49
+OrderedDict([('loss', 27.167114734649658),
+             ('age_group_loss', 3.3282502),
+             ('gender_loss', 0.48896784),
+             ('ext_loss', 0.6854694),
+             ('ope_loss', 0.43619022),
+             ('agr_loss', 0.45171484),
+             ('neu_loss', 0.6704786),
+             ('con_loss', 0.5355201),
+             ('age_group_categorical_accuracy', 0.11421052),
+             ('gender_binary_accuracy', 0.80368423),
+             ('gender_recall', 0.7593583),
+             ('ext_root_mean_squared_error', 0.8294129),
+             ('ope_root_mean_squared_error', 0.6614531),
+             ('agr_root_mean_squared_error', 0.6767534),
+             ('neu_root_mean_squared_error', 0.81515676),
+             ('con_root_mean_squared_error', 0.7363408)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=3, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-41-36', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-41-36
+OrderedDict([('loss', 26.345395596822105),
+             ('age_group_loss', 3.3467982),
+             ('gender_loss', 0.48819014),
+             ('ext_loss', 0.69119513),
+             ('ope_loss', 0.4366363),
+             ('agr_loss', 0.45660213),
+             ('neu_loss', 0.66327417),
+             ('con_loss', 0.5413244),
+             ('age_group_categorical_accuracy', 0.6894737),
+             ('gender_binary_accuracy', 0.8194737),
+             ('gender_recall', 0.8262032),
+             ('ext_root_mean_squared_error', 0.8301579),
+             ('ope_root_mean_squared_error', 0.6617021),
+             ('agr_root_mean_squared_error', 0.676709),
+             ('neu_root_mean_squared_error', 0.8151827),
+             ('con_root_mean_squared_error', 0.73633045)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=8, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-43-51', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-43-51
+OrderedDict([('loss', 27.19202575683594),
+             ('age_group_loss', 3.3533137),
+             ('gender_loss', 0.55063903),
+             ('ext_loss', 0.68824077),
+             ('ope_loss', 0.43764454),
+             ('agr_loss', 0.45881826),
+             ('neu_loss', 0.6643427),
+             ('con_loss', 0.54183733),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.7747368),
+             ('gender_recall', 0.6871658),
+             ('ext_root_mean_squared_error', 0.82980746),
+             ('ope_root_mean_squared_error', 0.66155183),
+             ('agr_root_mean_squared_error', 0.67673177),
+             ('neu_root_mean_squared_error', 0.8151601),
+             ('con_root_mean_squared_error', 0.7363623)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=4, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-47-34', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-47-34
+OrderedDict([('loss', 29.834877014160156),
+             ('age_group_loss', 3.302277),
+             ('gender_loss', 0.61140263),
+             ('ext_loss', 0.6928234),
+             ('ope_loss', 0.4342675),
+             ('agr_loss', 0.45553187),
+             ('neu_loss', 0.65502316),
+             ('con_loss', 0.54405975),
+             ('age_group_categorical_accuracy', 0.17578948),
+             ('gender_binary_accuracy', 0.72842103),
+             ('gender_recall', 0.5891266),
+             ('ext_root_mean_squared_error', 0.8295345),
+             ('ope_root_mean_squared_error', 0.6614014),
+             ('agr_root_mean_squared_error', 0.6767553),
+             ('neu_root_mean_squared_error', 0.815163),
+             ('con_root_mean_squared_error', 0.7363408)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=2, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-50-24', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-50-24
+OrderedDict([('loss', 28.439551671346027),
+             ('age_group_loss', 3.3474333),
+             ('gender_loss', 0.4126671),
+             ('ext_loss', 0.6891728),
+             ('ope_loss', 0.43688938),
+             ('agr_loss', 0.45717347),
+             ('neu_loss', 0.66463524),
+             ('con_loss', 0.54179794),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.8194737),
+             ('gender_recall', 0.91532975),
+             ('ext_root_mean_squared_error', 0.83066434),
+             ('ope_root_mean_squared_error', 0.66155934),
+             ('agr_root_mean_squared_error', 0.6766981),
+             ('neu_root_mean_squared_error', 0.81522864),
+             ('con_root_mean_squared_error', 0.7363646)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=4, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-52-25', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-52-25
+OrderedDict([('loss', 30.183650255203247),
+             ('age_group_loss', 3.3208318),
+             ('gender_loss', 0.49785638),
+             ('ext_loss', 0.6954601),
+             ('ope_loss', 0.44177884),
+             ('agr_loss', 0.46066633),
+             ('neu_loss', 0.6610049),
+             ('con_loss', 0.5376991),
+             ('age_group_categorical_accuracy', 0.6421053),
+             ('gender_binary_accuracy', 0.79157895),
+             ('gender_recall', 0.96256685),
+             ('ext_root_mean_squared_error', 0.830104),
+             ('ope_root_mean_squared_error', 0.66150063),
+             ('agr_root_mean_squared_error', 0.6767636),
+             ('neu_root_mean_squared_error', 0.8151585),
+             ('con_root_mean_squared_error', 0.73632455)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=6, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-54-22', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-54-22
+OrderedDict([('loss', 26.564608335494995),
+             ('age_group_loss', 3.3171184),
+             ('gender_loss', 0.40948462),
+             ('ext_loss', 0.681677),
+             ('ope_loss', 0.43413907),
+             ('agr_loss', 0.46354967),
+             ('neu_loss', 0.6701469),
+             ('con_loss', 0.5369033),
+             ('age_group_categorical_accuracy', 0.9994737),
+             ('gender_binary_accuracy', 0.8242105),
+             ('gender_recall', 0.8235294),
+             ('ext_root_mean_squared_error', 0.8295945),
+             ('ope_root_mean_squared_error', 0.6615227),
+             ('agr_root_mean_squared_error', 0.67676497),
+             ('neu_root_mean_squared_error', 0.81517136),
+             ('con_root_mean_squared_error', 0.7363284)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=1, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-56-50', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-56-50
+OrderedDict([('loss', 25.70386339823405),
+             ('age_group_loss', 3.344173),
+             ('gender_loss', 0.43996426),
+             ('ext_loss', 0.68472636),
+             ('ope_loss', 0.45043436),
+             ('agr_loss', 0.45805353),
+             ('neu_loss', 0.65965086),
+             ('con_loss', 0.54303294),
+             ('age_group_categorical_accuracy', 0.5368421),
+             ('gender_binary_accuracy', 0.8094737),
+             ('gender_recall', 0.8930481),
+             ('ext_root_mean_squared_error', 0.82764983),
+             ('ope_root_mean_squared_error', 0.67122227),
+             ('agr_root_mean_squared_error', 0.6764488),
+             ('neu_root_mean_squared_error', 0.8104489),
+             ('con_root_mean_squared_error', 0.7357795)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=5, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_06-58-57', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_06-58-57
+OrderedDict([('loss', 27.280474026997883),
+             ('age_group_loss', 3.3573003),
+             ('gender_loss', 0.5771998),
+             ('ext_loss', 0.69016427),
+             ('ope_loss', 0.43741468),
+             ('agr_loss', 0.45764053),
+             ('neu_loss', 0.66334873),
+             ('con_loss', 0.5427965),
+             ('age_group_categorical_accuracy', 0.9994737),
+             ('gender_binary_accuracy', 0.75210524),
+             ('gender_recall', 0.6488414),
+             ('ext_root_mean_squared_error', 0.8306034),
+             ('ope_root_mean_squared_error', 0.66164374),
+             ('agr_root_mean_squared_error', 0.67671436),
+             ('neu_root_mean_squared_error', 0.8151942),
+             ('con_root_mean_squared_error', 0.7363229)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=4, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-01-30', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-01-30
+OrderedDict([('loss', 24.590589014689126),
+             ('age_group_loss', 3.3463607),
+             ('gender_loss', 0.4502165),
+             ('ext_loss', 0.69020325),
+             ('ope_loss', 0.43653202),
+             ('agr_loss', 0.4570718),
+             ('neu_loss', 0.6640561),
+             ('con_loss', 0.54147965),
+             ('age_group_categorical_accuracy', 0.9742105),
+             ('gender_binary_accuracy', 0.81526315),
+             ('gender_recall', 0.93582886),
+             ('ext_root_mean_squared_error', 0.83109546),
+             ('ope_root_mean_squared_error', 0.6616235),
+             ('agr_root_mean_squared_error', 0.6767069),
+             ('neu_root_mean_squared_error', 0.81516165),
+             ('con_root_mean_squared_error', 0.7363614)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=5, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-03-40', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-03-40
+OrderedDict([('loss', 27.161516189575195),
+             ('age_group_loss', 3.3479652),
+             ('gender_loss', 0.54497445),
+             ('ext_loss', 0.6885044),
+             ('ope_loss', 0.43825543),
+             ('agr_loss', 0.45759985),
+             ('neu_loss', 0.6639364),
+             ('con_loss', 0.54183936),
+             ('age_group_categorical_accuracy', 0.6426316),
+             ('gender_binary_accuracy', 0.80315787),
+             ('gender_recall', 0.94206774),
+             ('ext_root_mean_squared_error', 0.82992834),
+             ('ope_root_mean_squared_error', 0.66145855),
+             ('agr_root_mean_squared_error', 0.67671245),
+             ('neu_root_mean_squared_error', 0.81519246),
+             ('con_root_mean_squared_error', 0.73632455)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=2, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-06-36', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-06-36
+OrderedDict([('loss', 25.857535552978515),
+             ('age_group_loss', 3.348111),
+             ('gender_loss', 0.44066507),
+             ('ext_loss', 0.6898323),
+             ('ope_loss', 0.4368978),
+             ('agr_loss', 0.45677993),
+             ('neu_loss', 0.6627367),
+             ('con_loss', 0.54253155),
+             ('age_group_categorical_accuracy', 0.51),
+             ('gender_binary_accuracy', 0.8305263),
+             ('gender_recall', 0.899287),
+             ('ext_root_mean_squared_error', 0.8305038),
+             ('ope_root_mean_squared_error', 0.6615844),
+             ('agr_root_mean_squared_error', 0.6767253),
+             ('neu_root_mean_squared_error', 0.8150486),
+             ('con_root_mean_squared_error', 0.7363206)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=2, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-08-45', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-08-45
+OrderedDict([('loss', 25.83368860880534),
+             ('age_group_loss', 3.3485003),
+             ('gender_loss', 0.4287276),
+             ('ext_loss', 0.68780637),
+             ('ope_loss', 0.43721542),
+             ('agr_loss', 0.45725423),
+             ('neu_loss', 0.66250813),
+             ('con_loss', 0.5422157),
+             ('age_group_categorical_accuracy', 0.23789474),
+             ('gender_binary_accuracy', 0.81789476),
+             ('gender_recall', 0.8012478),
+             ('ext_root_mean_squared_error', 0.83021146),
+             ('ope_root_mean_squared_error', 0.66167444),
+             ('agr_root_mean_squared_error', 0.67673784),
+             ('neu_root_mean_squared_error', 0.81502026),
+             ('con_root_mean_squared_error', 0.7363295)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=4, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-10-24', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-10-24
+OrderedDict([('loss', 26.802354431152345),
+             ('age_group_loss', 3.342617),
+             ('gender_loss', 0.543725),
+             ('ext_loss', 0.6875851),
+             ('ope_loss', 0.43653777),
+             ('agr_loss', 0.4574801),
+             ('neu_loss', 0.6641731),
+             ('con_loss', 0.54176605),
+             ('age_group_categorical_accuracy', 0.29473683),
+             ('gender_binary_accuracy', 0.81),
+             ('gender_recall', 0.9340463),
+             ('ext_root_mean_squared_error', 0.8297945),
+             ('ope_root_mean_squared_error', 0.6614219),
+             ('agr_root_mean_squared_error', 0.676711),
+             ('neu_root_mean_squared_error', 0.81515014),
+             ('con_root_mean_squared_error', 0.73632085)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=8, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-13-16', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-13-16
+OrderedDict([('loss', 25.047403653462727),
+             ('age_group_loss', 3.3520496),
+             ('gender_loss', 0.49278173),
+             ('ext_loss', 0.6905879),
+             ('ope_loss', 0.43735015),
+             ('agr_loss', 0.45768234),
+             ('neu_loss', 0.6638042),
+             ('con_loss', 0.54093784),
+             ('age_group_categorical_accuracy', 1.0),
+             ('gender_binary_accuracy', 0.81210524),
+             ('gender_recall', 0.9411765),
+             ('ext_root_mean_squared_error', 0.8310031),
+             ('ope_root_mean_squared_error', 0.66158473),
+             ('agr_root_mean_squared_error', 0.6767159),
+             ('neu_root_mean_squared_error', 0.81516874),
+             ('con_root_mean_squared_error', 0.73632914)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=6, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-15-58', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-15-58
+OrderedDict([('loss', 26.509011522928873),
+             ('age_group_loss', 3.3467984),
+             ('gender_loss', 0.4842138),
+             ('ext_loss', 0.6910912),
+             ('ope_loss', 0.43843156),
+             ('agr_loss', 0.45887676),
+             ('neu_loss', 0.66731274),
+             ('con_loss', 0.54082614),
+             ('age_group_categorical_accuracy', 0.82),
+             ('gender_binary_accuracy', 0.81631577),
+             ('gender_recall', 0.9037433),
+             ('ext_root_mean_squared_error', 0.83018714),
+             ('ope_root_mean_squared_error', 0.6617253),
+             ('agr_root_mean_squared_error', 0.6767026),
+             ('neu_root_mean_squared_error', 0.81517833),
+             ('con_root_mean_squared_error', 0.73632604)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=5, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-19-03', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-19-03
+OrderedDict([('loss', 27.57941640218099),
+             ('age_group_loss', 3.3485),
+             ('gender_loss', 0.6387569),
+             ('ext_loss', 0.6893958),
+             ('ope_loss', 0.4381968),
+             ('agr_loss', 0.4580721),
+             ('neu_loss', 0.6631517),
+             ('con_loss', 0.541295),
+             ('age_group_categorical_accuracy', 0.025263159),
+             ('gender_binary_accuracy', 0.78157896),
+             ('gender_recall', 0.9705882),
+             ('ext_root_mean_squared_error', 0.83079904),
+             ('ope_root_mean_squared_error', 0.6616224),
+             ('agr_root_mean_squared_error', 0.676738),
+             ('neu_root_mean_squared_error', 0.8151646),
+             ('con_root_mean_squared_error', 0.7364407)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=3, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-21-01', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-21-01
+OrderedDict([('loss', 28.937448501586914),
+             ('age_group_loss', 3.3507435),
+             ('gender_loss', 0.46916133),
+             ('ext_loss', 0.6887318),
+             ('ope_loss', 0.43686616),
+             ('agr_loss', 0.45946378),
+             ('neu_loss', 0.663558),
+             ('con_loss', 0.5415646),
+             ('age_group_categorical_accuracy', 0.02736842),
+             ('gender_binary_accuracy', 0.7842105),
+             ('gender_recall', 0.6942959),
+             ('ext_root_mean_squared_error', 0.8303098),
+             ('ope_root_mean_squared_error', 0.66178817),
+             ('agr_root_mean_squared_error', 0.67673874),
+             ('neu_root_mean_squared_error', 0.8152589),
+             ('con_root_mean_squared_error', 0.7363466)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=6, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-22-52', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-22-52
+OrderedDict([('loss', 24.82490692138672),
+             ('age_group_loss', 3.3520486),
+             ('gender_loss', 0.4626595),
+             ('ext_loss', 0.69279057),
+             ('ope_loss', 0.43668345),
+             ('agr_loss', 0.4567879),
+             ('neu_loss', 0.6653742),
+             ('con_loss', 0.541766),
+             ('age_group_categorical_accuracy', 1.0),
+             ('gender_binary_accuracy', 0.8168421),
+             ('gender_recall', 0.93850267),
+             ('ext_root_mean_squared_error', 0.83169985),
+             ('ope_root_mean_squared_error', 0.6615951),
+             ('agr_root_mean_squared_error', 0.6766819),
+             ('neu_root_mean_squared_error', 0.8152291),
+             ('con_root_mean_squared_error', 0.7363235)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=4, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-25-10', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-25-10
+OrderedDict([('loss', 27.275076389312744),
+             ('age_group_loss', 3.3208292),
+             ('gender_loss', 0.48484164),
+             ('ext_loss', 0.6955159),
+             ('ope_loss', 0.44161958),
+             ('agr_loss', 0.46064052),
+             ('neu_loss', 0.66086054),
+             ('con_loss', 0.5376876),
+             ('age_group_categorical_accuracy', 0.11736842),
+             ('gender_binary_accuracy', 0.80105263),
+             ('gender_recall', 0.96524066),
+             ('ext_root_mean_squared_error', 0.8301417),
+             ('ope_root_mean_squared_error', 0.6613939),
+             ('agr_root_mean_squared_error', 0.6767355),
+             ('neu_root_mean_squared_error', 0.8150761),
+             ('con_root_mean_squared_error', 0.73631847)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-27-00', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-27-00
+OrderedDict([('loss', 24.8589928150177),
+             ('age_group_loss', 3.2837248),
+             ('gender_loss', 0.4550584),
+             ('ext_loss', 0.6882253),
+             ('ope_loss', 0.4334656),
+             ('agr_loss', 0.44925615),
+             ('neu_loss', 0.67779803),
+             ('con_loss', 0.5477225),
+             ('age_group_categorical_accuracy', 0.18894736),
+             ('gender_binary_accuracy', 0.7331579),
+             ('gender_recall', 0.5900178),
+             ('ext_root_mean_squared_error', 0.8263781),
+             ('ope_root_mean_squared_error', 0.66037554),
+             ('agr_root_mean_squared_error', 0.6727018),
+             ('neu_root_mean_squared_error', 0.82210344),
+             ('con_root_mean_squared_error', 0.73972124)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-28-28', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-28-28
+OrderedDict([('loss', 26.39594243367513),
+             ('age_group_loss', 3.3474307),
+             ('gender_loss', 0.52966076),
+             ('ext_loss', 0.6922986),
+             ('ope_loss', 0.45452875),
+             ('agr_loss', 0.46342525),
+             ('neu_loss', 0.6566429),
+             ('con_loss', 0.5430173),
+             ('age_group_categorical_accuracy', 0.3231579),
+             ('gender_binary_accuracy', 0.77157897),
+             ('gender_recall', 0.9661319),
+             ('ext_root_mean_squared_error', 0.8319719),
+             ('ope_root_mean_squared_error', 0.67466474),
+             ('agr_root_mean_squared_error', 0.68104064),
+             ('neu_root_mean_squared_error', 0.8103781),
+             ('con_root_mean_squared_error', 0.73654056)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=2, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-29-59', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-29-59
+OrderedDict([('loss', 29.067814350128174),
+             ('age_group_loss', 3.350514),
+             ('gender_loss', 0.42821574),
+             ('ext_loss', 0.69102615),
+             ('ope_loss', 0.43662146),
+             ('agr_loss', 0.4592204),
+             ('neu_loss', 0.6614529),
+             ('con_loss', 0.5482876),
+             ('age_group_categorical_accuracy', 0.36894736),
+             ('gender_binary_accuracy', 0.79052633),
+             ('gender_recall', 0.70944744),
+             ('ext_root_mean_squared_error', 0.82999235),
+             ('ope_root_mean_squared_error', 0.66148615),
+             ('agr_root_mean_squared_error', 0.6767265),
+             ('neu_root_mean_squared_error', 0.81515646),
+             ('con_root_mean_squared_error', 0.7363557)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=8, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-31-47', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-31-47
+OrderedDict([('loss', 31.758357747395834),
+             ('age_group_loss', 3.354682),
+             ('gender_loss', 0.83339053),
+             ('ext_loss', 0.689638),
+             ('ope_loss', 0.43659484),
+             ('agr_loss', 0.45662394),
+             ('neu_loss', 0.66430634),
+             ('con_loss', 0.5429201),
+             ('age_group_categorical_accuracy', 1.0),
+             ('gender_binary_accuracy', 0.75736845),
+             ('gender_recall', 0.98039216),
+             ('ext_root_mean_squared_error', 0.8301215),
+             ('ope_root_mean_squared_error', 0.66165197),
+             ('agr_root_mean_squared_error', 0.6767198),
+             ('neu_root_mean_squared_error', 0.8151666),
+             ('con_root_mean_squared_error', 0.7363559)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=8, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-34-53', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-34-53
+OrderedDict([('loss', 32.147533893585205),
+             ('age_group_loss', 3.3171198),
+             ('gender_loss', 0.78884584),
+             ('ext_loss', 0.69086343),
+             ('ope_loss', 0.43827698),
+             ('agr_loss', 0.4549169),
+             ('neu_loss', 0.6539886),
+             ('con_loss', 0.54241323),
+             ('age_group_categorical_accuracy', 0.4),
+             ('gender_binary_accuracy', 0.6784211),
+             ('gender_recall', 0.4714795),
+             ('ext_root_mean_squared_error', 0.8296812),
+             ('ope_root_mean_squared_error', 0.6613672),
+             ('agr_root_mean_squared_error', 0.6767252),
+             ('neu_root_mean_squared_error', 0.81517565),
+             ('con_root_mean_squared_error', 0.73633516)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=3, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-37-33', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-37-33
+OrderedDict([('loss', 26.837500254313152),
+             ('age_group_loss', 3.3431513),
+             ('gender_loss', 0.5865795),
+             ('ext_loss', 0.68824124),
+             ('ope_loss', 0.43766543),
+             ('agr_loss', 0.45838505),
+             ('neu_loss', 0.664252),
+             ('con_loss', 0.5431086),
+             ('age_group_categorical_accuracy', 0.23210527),
+             ('gender_binary_accuracy', 0.7510526),
+             ('gender_recall', 0.64705884),
+             ('ext_root_mean_squared_error', 0.82954574),
+             ('ope_root_mean_squared_error', 0.66162837),
+             ('agr_root_mean_squared_error', 0.67673844),
+             ('neu_root_mean_squared_error', 0.81517786),
+             ('con_root_mean_squared_error', 0.7363396)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=8, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-40-10', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-40-10
+OrderedDict([('loss', 25.11948127746582),
+             ('age_group_loss', 3.350639),
+             ('gender_loss', 0.46546993),
+             ('ext_loss', 0.68829703),
+             ('ope_loss', 0.43786824),
+             ('agr_loss', 0.4580942),
+             ('neu_loss', 0.6647416),
+             ('con_loss', 0.5429933),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.81736845),
+             ('gender_recall', 0.76648843),
+             ('ext_root_mean_squared_error', 0.8300114),
+             ('ope_root_mean_squared_error', 0.66172904),
+             ('agr_root_mean_squared_error', 0.6767354),
+             ('neu_root_mean_squared_error', 0.8151469),
+             ('con_root_mean_squared_error', 0.7363382)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=3, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-42-40', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-42-40
+OrderedDict([('loss', 29.083477274576822),
+             ('age_group_loss', 3.3415487),
+             ('gender_loss', 0.51971984),
+             ('ext_loss', 0.68940395),
+             ('ope_loss', 0.43778536),
+             ('agr_loss', 0.45872203),
+             ('neu_loss', 0.6627637),
+             ('con_loss', 0.5415192),
+             ('age_group_categorical_accuracy', 0.69631577),
+             ('gender_binary_accuracy', 0.81),
+             ('gender_recall', 0.77005345),
+             ('ext_root_mean_squared_error', 0.8302834),
+             ('ope_root_mean_squared_error', 0.66161793),
+             ('agr_root_mean_squared_error', 0.6767127),
+             ('neu_root_mean_squared_error', 0.8151674),
+             ('con_root_mean_squared_error', 0.7363239)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=6, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-45-24', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-45-24
+OrderedDict([('loss', 24.747991053263345),
+             ('age_group_loss', 3.344756),
+             ('gender_loss', 0.43943036),
+             ('ext_loss', 0.68809617),
+             ('ope_loss', 0.43766135),
+             ('agr_loss', 0.45745727),
+             ('neu_loss', 0.6642619),
+             ('con_loss', 0.5414231),
+             ('age_group_categorical_accuracy', 0.4931579),
+             ('gender_binary_accuracy', 0.8194737),
+             ('gender_recall', 0.91800356),
+             ('ext_root_mean_squared_error', 0.830063),
+             ('ope_root_mean_squared_error', 0.66137147),
+             ('agr_root_mean_squared_error', 0.67671263),
+             ('neu_root_mean_squared_error', 0.81514984),
+             ('con_root_mean_squared_error', 0.736329)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=5, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-47-46', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-47-46
+OrderedDict([('loss', 29.96331532796224),
+             ('age_group_loss', 3.3426204),
+             ('gender_loss', 0.47905257),
+             ('ext_loss', 0.68801516),
+             ('ope_loss', 0.4374209),
+             ('agr_loss', 0.45795453),
+             ('neu_loss', 0.6642686),
+             ('con_loss', 0.541643),
+             ('age_group_categorical_accuracy', 0.08578947),
+             ('gender_binary_accuracy', 0.8115789),
+             ('gender_recall', 0.78698754),
+             ('ext_root_mean_squared_error', 0.82982755),
+             ('ope_root_mean_squared_error', 0.6614551),
+             ('agr_root_mean_squared_error', 0.67671436),
+             ('neu_root_mean_squared_error', 0.8152326),
+             ('con_root_mean_squared_error', 0.7363283)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=7, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-50-43', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-50-43
+OrderedDict([('loss', 30.79742565155029),
+             ('age_group_loss', 3.3363006),
+             ('gender_loss', 0.8366591),
+             ('ext_loss', 0.68754727),
+             ('ope_loss', 0.43854466),
+             ('agr_loss', 0.4574792),
+             ('neu_loss', 0.66526),
+             ('con_loss', 0.54335314),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.6831579),
+             ('gender_recall', 0.5062389),
+             ('ext_root_mean_squared_error', 0.83028823),
+             ('ope_root_mean_squared_error', 0.66154766),
+             ('agr_root_mean_squared_error', 0.67670673),
+             ('neu_root_mean_squared_error', 0.815182),
+             ('con_root_mean_squared_error', 0.7363444)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=7, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-54-45', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-54-45
+OrderedDict([('loss', 24.528522300720216),
+             ('age_group_loss', 3.3402343),
+             ('gender_loss', 0.42170832),
+             ('ext_loss', 0.6889731),
+             ('ope_loss', 0.4373297),
+             ('agr_loss', 0.45756254),
+             ('neu_loss', 0.66318214),
+             ('con_loss', 0.5420351),
+             ('age_group_categorical_accuracy', 1.0),
+             ('gender_binary_accuracy', 0.82631576),
+             ('gender_recall', 0.9322638),
+             ('ext_root_mean_squared_error', 0.83092237),
+             ('ope_root_mean_squared_error', 0.661632),
+             ('agr_root_mean_squared_error', 0.6766777),
+             ('neu_root_mean_squared_error', 0.8152589),
+             ('con_root_mean_squared_error', 0.73632294)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-57-16', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-57-16
+OrderedDict([('loss', 24.62694409688314),
+             ('age_group_loss', 3.355453),
+             ('gender_loss', 0.41534004),
+             ('ext_loss', 0.75027126),
+             ('ope_loss', 0.43493903),
+             ('agr_loss', 0.4559327),
+             ('neu_loss', 0.65587616),
+             ('con_loss', 0.53745234),
+             ('age_group_categorical_accuracy', 0.9984211),
+             ('gender_binary_accuracy', 0.8210526),
+             ('gender_recall', 0.8957219),
+             ('ext_root_mean_squared_error', 0.86515033),
+             ('ope_root_mean_squared_error', 0.6594254),
+             ('agr_root_mean_squared_error', 0.674868),
+             ('neu_root_mean_squared_error', 0.8102668),
+             ('con_root_mean_squared_error', 0.73292327)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=4, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_07-59-14', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_07-59-14
+OrderedDict([('loss', 29.559029006958006),
+             ('age_group_loss', 3.3575926),
+             ('gender_loss', 0.46768725),
+             ('ext_loss', 0.69025487),
+             ('ope_loss', 0.4374495),
+             ('agr_loss', 0.4572214),
+             ('neu_loss', 0.66479784),
+             ('con_loss', 0.54285526),
+             ('age_group_categorical_accuracy', 0.85),
+             ('gender_binary_accuracy', 0.81578946),
+             ('gender_recall', 0.81996435),
+             ('ext_root_mean_squared_error', 0.8297023),
+             ('ope_root_mean_squared_error', 0.6616509),
+             ('agr_root_mean_squared_error', 0.67675877),
+             ('neu_root_mean_squared_error', 0.81515867),
+             ('con_root_mean_squared_error', 0.73634815)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=7, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_08-02-06', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_08-02-06
+OrderedDict([('loss', 26.762870025634765),
+             ('age_group_loss', 3.3533614),
+             ('gender_loss', 0.54977876),
+             ('ext_loss', 0.6901452),
+             ('ope_loss', 0.4376224),
+             ('agr_loss', 0.45586157),
+             ('neu_loss', 0.66387886),
+             ('con_loss', 0.54098284),
+             ('age_group_categorical_accuracy', 1.0),
+             ('gender_binary_accuracy', 0.7894737),
+             ('gender_recall', 0.87700534),
+             ('ext_root_mean_squared_error', 0.83036685),
+             ('ope_root_mean_squared_error', 0.6616455),
+             ('agr_root_mean_squared_error', 0.6766719),
+             ('neu_root_mean_squared_error', 0.8151596),
+             ('con_root_mean_squared_error', 0.736379)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=3, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_08-04-38', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_08-04-38
+OrderedDict([('loss', 29.516797065734863),
+             ('age_group_loss', 3.2874358),
+             ('gender_loss', 0.48150194),
+             ('ext_loss', 0.6883747),
+             ('ope_loss', 0.4389047),
+             ('agr_loss', 0.4577127),
+             ('neu_loss', 0.66540635),
+             ('con_loss', 0.5468289),
+             ('age_group_categorical_accuracy', 0.1468421),
+             ('gender_binary_accuracy', 0.81578946),
+             ('gender_recall', 0.93672013),
+             ('ext_root_mean_squared_error', 0.8294012),
+             ('ope_root_mean_squared_error', 0.6614943),
+             ('agr_root_mean_squared_error', 0.6767894),
+             ('neu_root_mean_squared_error', 0.8151484),
+             ('con_root_mean_squared_error', 0.7363463)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=7, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_08-07-36', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_08-07-36
+OrderedDict([('loss', 31.36811327934265),
+             ('age_group_loss', 3.3653555),
+             ('gender_loss', 0.6001976),
+             ('ext_loss', 0.70044726),
+             ('ope_loss', 0.44333506),
+             ('agr_loss', 0.45628625),
+             ('neu_loss', 0.65804976),
+             ('con_loss', 0.54177886),
+             ('age_group_categorical_accuracy', 0.9752632),
+             ('gender_binary_accuracy', 0.79421055),
+             ('gender_recall', 0.9581105),
+             ('ext_root_mean_squared_error', 0.82936746),
+             ('ope_root_mean_squared_error', 0.66140467),
+             ('agr_root_mean_squared_error', 0.6767508),
+             ('neu_root_mean_squared_error', 0.8151529),
+             ('con_root_mean_squared_error', 0.7363374)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=8, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_08-11-44', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_08-11-44
+OrderedDict([('loss', 26.038114674886067),
+             ('age_group_loss', 3.3349838),
+             ('gender_loss', 0.44115576),
+             ('ext_loss', 0.6896729),
+             ('ope_loss', 0.43869835),
+             ('agr_loss', 0.45806676),
+             ('neu_loss', 0.6646586),
+             ('con_loss', 0.5419103),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.8194737),
+             ('gender_recall', 0.93582886),
+             ('ext_root_mean_squared_error', 0.83103323),
+             ('ope_root_mean_squared_error', 0.6619245),
+             ('agr_root_mean_squared_error', 0.6766676),
+             ('neu_root_mean_squared_error', 0.8151839),
+             ('con_root_mean_squared_error', 0.7363328)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=4, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_08-14-41', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_08-14-41
+OrderedDict([('loss', 26.643583043416342),
+             ('age_group_loss', 3.3323584),
+             ('gender_loss', 0.50465375),
+             ('ext_loss', 0.69013464),
+             ('ope_loss', 0.4371776),
+             ('agr_loss', 0.45778114),
+             ('neu_loss', 0.66480315),
+             ('con_loss', 0.5430543),
+             ('age_group_categorical_accuracy', 0.010526316),
+             ('gender_binary_accuracy', 0.80789477),
+             ('gender_recall', 0.9322638),
+             ('ext_root_mean_squared_error', 0.83040017),
+             ('ope_root_mean_squared_error', 0.66167897),
+             ('agr_root_mean_squared_error', 0.6767012),
+             ('neu_root_mean_squared_error', 0.8151704),
+             ('con_root_mean_squared_error', 0.7363235)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_08-17-04', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_08-17-04
+OrderedDict([('loss', 29.03635139465332),
+             ('age_group_loss', 3.3511848),
+             ('gender_loss', 0.49651375),
+             ('ext_loss', 0.68383104),
+             ('ope_loss', 0.43585208),
+             ('agr_loss', 0.46264505),
+             ('neu_loss', 0.7016521),
+             ('con_loss', 0.578166),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.7231579),
+             ('gender_recall', 0.5811052),
+             ('ext_root_mean_squared_error', 0.8270817),
+             ('ope_root_mean_squared_error', 0.6602073),
+             ('agr_root_mean_squared_error', 0.6794535),
+             ('neu_root_mean_squared_error', 0.8380666),
+             ('con_root_mean_squared_error', 0.7600918)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=8, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_08-19-02', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_08-19-02
+OrderedDict([('loss', 25.682694911956787),
+             ('age_group_loss', 3.406169),
+             ('gender_loss', 0.4662045),
+             ('ext_loss', 0.68408954),
+             ('ope_loss', 0.44390494),
+             ('agr_loss', 0.4657798),
+             ('neu_loss', 0.6613722),
+             ('con_loss', 0.5349569),
+             ('age_group_categorical_accuracy', 1.0),
+             ('gender_binary_accuracy', 0.81526315),
+             ('gender_recall', 0.9456328),
+             ('ext_root_mean_squared_error', 0.82966834),
+             ('ope_root_mean_squared_error', 0.6614602),
+             ('agr_root_mean_squared_error', 0.6767121),
+             ('neu_root_mean_squared_error', 0.8151709),
+             ('con_root_mean_squared_error', 0.73632956)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=8, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_08-21-45', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_08-21-45
+OrderedDict([('loss', 28.877917051315308),
+             ('age_group_loss', 3.3913274),
+             ('gender_loss', 0.5331031),
+             ('ext_loss', 0.69926476),
+             ('ope_loss', 0.43238315),
+             ('agr_loss', 0.45902967),
+             ('neu_loss', 0.6674738),
+             ('con_loss', 0.544194),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.7831579),
+             ('gender_recall', 0.70053476),
+             ('ext_root_mean_squared_error', 0.8294574),
+             ('ope_root_mean_squared_error', 0.6614172),
+             ('agr_root_mean_squared_error', 0.67675114),
+             ('neu_root_mean_squared_error', 0.81514996),
+             ('con_root_mean_squared_error', 0.7363308)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=7, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_08-25-33', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_08-25-33
+OrderedDict([('loss', 31.38829714457194),
+             ('age_group_loss', 3.3468983),
+             ('gender_loss', 0.780495),
+             ('ext_loss', 0.6890746),
+             ('ope_loss', 0.43843427),
+             ('agr_loss', 0.45793957),
+             ('neu_loss', 0.66421264),
+             ('con_loss', 0.5413788),
+             ('age_group_categorical_accuracy', 0.03368421),
+             ('gender_binary_accuracy', 0.74526316),
+             ('gender_recall', 0.98395723),
+             ('ext_root_mean_squared_error', 0.830328),
+             ('ope_root_mean_squared_error', 0.66170365),
+             ('agr_root_mean_squared_error', 0.67668617),
+             ('neu_root_mean_squared_error', 0.81514996),
+             ('con_root_mean_squared_error', 0.73632455)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=2, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_08-27-53', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_08-27-53
+OrderedDict([('loss', 28.88484312693278),
+             ('age_group_loss', 3.3481143),
+             ('gender_loss', 0.48310053),
+             ('ext_loss', 0.68975484),
+             ('ope_loss', 0.43698156),
+             ('agr_loss', 0.4567876),
+             ('neu_loss', 0.66297925),
+             ('con_loss', 0.54253185),
+             ('age_group_categorical_accuracy', 0.00052631577),
+             ('gender_binary_accuracy', 0.81421053),
+             ('gender_recall', 0.7825312),
+             ('ext_root_mean_squared_error', 0.8304559),
+             ('ope_root_mean_squared_error', 0.66164654),
+             ('agr_root_mean_squared_error', 0.6767309),
+             ('neu_root_mean_squared_error', 0.8151977),
+             ('con_root_mean_squared_error', 0.7363206)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_08-30-09', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_08-30-09
+OrderedDict([('loss', 29.817495600382486),
+             ('age_group_loss', 3.3533165),
+             ('gender_loss', 0.45908493),
+             ('ext_loss', 0.6890352),
+             ('ope_loss', 0.43741953),
+             ('agr_loss', 0.45740286),
+             ('neu_loss', 0.663253),
+             ('con_loss', 0.5422553),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.81631577),
+             ('gender_recall', 0.8012478),
+             ('ext_root_mean_squared_error', 0.82970643),
+             ('ope_root_mean_squared_error', 0.6615751),
+             ('agr_root_mean_squared_error', 0.6766864),
+             ('neu_root_mean_squared_error', 0.8151871),
+             ('con_root_mean_squared_error', 0.7363229)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=7, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_08-33-32', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_08-33-32
+OrderedDict([('loss', 27.340168635050457),
+             ('age_group_loss', 3.3490348),
+             ('gender_loss', 0.4986394),
+             ('ext_loss', 0.6877797),
+             ('ope_loss', 0.43816635),
+             ('agr_loss', 0.45803902),
+             ('neu_loss', 0.6644529),
+             ('con_loss', 0.5425998),
+             ('age_group_categorical_accuracy', 0.5694737),
+             ('gender_binary_accuracy', 0.81736845),
+             ('gender_recall', 0.785205),
+             ('ext_root_mean_squared_error', 0.8298774),
+             ('ope_root_mean_squared_error', 0.6616069),
+             ('agr_root_mean_squared_error', 0.676712),
+             ('neu_root_mean_squared_error', 0.8151694),
+             ('con_root_mean_squared_error', 0.7363486)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=5, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_08-36-41', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_08-36-41
+OrderedDict([('loss', 24.85389607747396),
+             ('age_group_loss', 3.3415465),
+             ('gender_loss', 0.47668752),
+             ('ext_loss', 0.68927926),
+             ('ope_loss', 0.43757573),
+             ('agr_loss', 0.45807725),
+             ('neu_loss', 0.6654388),
+             ('con_loss', 0.54083616),
+             ('age_group_categorical_accuracy', 0.35210526),
+             ('gender_binary_accuracy', 0.8168421),
+             ('gender_recall', 0.80748665),
+             ('ext_root_mean_squared_error', 0.8301425),
+             ('ope_root_mean_squared_error', 0.6617619),
+             ('agr_root_mean_squared_error', 0.67673445),
+             ('neu_root_mean_squared_error', 0.81516093),
+             ('con_root_mean_squared_error', 0.73632395)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=6, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_08-39-42', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_08-39-42
+OrderedDict([('loss', 25.21112976074219),
+             ('age_group_loss', 3.3436863),
+             ('gender_loss', 0.53334504),
+             ('ext_loss', 0.6893133),
+             ('ope_loss', 0.43683514),
+             ('agr_loss', 0.45839566),
+             ('neu_loss', 0.6638189),
+             ('con_loss', 0.54241914),
+             ('age_group_categorical_accuracy', 0.044736844),
+             ('gender_binary_accuracy', 0.8105263),
+             ('gender_recall', 0.9278075),
+             ('ext_root_mean_squared_error', 0.83009225),
+             ('ope_root_mean_squared_error', 0.6614781),
+             ('agr_root_mean_squared_error', 0.6767127),
+             ('neu_root_mean_squared_error', 0.81517947),
+             ('con_root_mean_squared_error', 0.7363302)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=5, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_08-43-16', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_08-43-16
+OrderedDict([('loss', 30.303102175394695),
+             ('age_group_loss', 3.3415477),
+             ('gender_loss', 0.5966193),
+             ('ext_loss', 0.6907764),
+             ('ope_loss', 0.43785095),
+             ('agr_loss', 0.45896104),
+             ('neu_loss', 0.6667722),
+             ('con_loss', 0.5432082),
+             ('age_group_categorical_accuracy', 0.10263158),
+             ('gender_binary_accuracy', 0.79473686),
+             ('gender_recall', 0.9554367),
+             ('ext_root_mean_squared_error', 0.83047235),
+             ('ope_root_mean_squared_error', 0.6617366),
+             ('agr_root_mean_squared_error', 0.67671484),
+             ('neu_root_mean_squared_error', 0.815163),
+             ('con_root_mean_squared_error', 0.73634076)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=7, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_08-46-00', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_08-46-00
+OrderedDict([('loss', 27.152426958084106),
+             ('age_group_loss', 3.3171186),
+             ('gender_loss', 0.4534627),
+             ('ext_loss', 0.6939002),
+             ('ope_loss', 0.4308017),
+             ('agr_loss', 0.4607334),
+             ('neu_loss', 0.6621028),
+             ('con_loss', 0.5407858),
+             ('age_group_categorical_accuracy', 0.08631579),
+             ('gender_binary_accuracy', 0.8194737),
+             ('gender_recall', 0.81461674),
+             ('ext_root_mean_squared_error', 0.8295213),
+             ('ope_root_mean_squared_error', 0.66146165),
+             ('agr_root_mean_squared_error', 0.6767615),
+             ('neu_root_mean_squared_error', 0.8151534),
+             ('con_root_mean_squared_error', 0.73634124)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=3, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_08-49-53', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_08-49-53
+OrderedDict([('loss', 29.7421017964681),
+             ('age_group_loss', 3.3410132),
+             ('gender_loss', 0.5371017),
+             ('ext_loss', 0.6876001),
+             ('ope_loss', 0.43737033),
+             ('agr_loss', 0.4580407),
+             ('neu_loss', 0.6651203),
+             ('con_loss', 0.5425055),
+             ('age_group_categorical_accuracy', 0.2968421),
+             ('gender_binary_accuracy', 0.8057895),
+             ('gender_recall', 0.94741535),
+             ('ext_root_mean_squared_error', 0.8297682),
+             ('ope_root_mean_squared_error', 0.66153026),
+             ('agr_root_mean_squared_error', 0.6767295),
+             ('neu_root_mean_squared_error', 0.8151589),
+             ('con_root_mean_squared_error', 0.7363285)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=4, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_08-52-22', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_08-52-22
+OrderedDict([('loss', 29.037285359700522),
+             ('age_group_loss', 3.3494258),
+             ('gender_loss', 0.43704882),
+             ('ext_loss', 0.6899463),
+             ('ope_loss', 0.43827978),
+             ('agr_loss', 0.45771733),
+             ('neu_loss', 0.6656838),
+             ('con_loss', 0.5404066),
+             ('age_group_categorical_accuracy', 0.9984211),
+             ('gender_binary_accuracy', 0.81789476),
+             ('gender_recall', 0.9251337),
+             ('ext_root_mean_squared_error', 0.83083725),
+             ('ope_root_mean_squared_error', 0.6616834),
+             ('agr_root_mean_squared_error', 0.67666477),
+             ('neu_root_mean_squared_error', 0.81516546),
+             ('con_root_mean_squared_error', 0.73634315)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=3, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_08-54-22', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_08-54-22
+OrderedDict([('loss', 24.8455405553182),
+             ('age_group_loss', 3.3507373),
+             ('gender_loss', 0.5058761),
+             ('ext_loss', 0.6876671),
+             ('ope_loss', 0.43717197),
+             ('agr_loss', 0.4571616),
+             ('neu_loss', 0.66264653),
+             ('con_loss', 0.5422588),
+             ('age_group_categorical_accuracy', 0.7973684),
+             ('gender_binary_accuracy', 0.8094737),
+             ('gender_recall', 0.94474155),
+             ('ext_root_mean_squared_error', 0.8305841),
+             ('ope_root_mean_squared_error', 0.66163254),
+             ('agr_root_mean_squared_error', 0.67667705),
+             ('neu_root_mean_squared_error', 0.8151649),
+             ('con_root_mean_squared_error', 0.7363562)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_08-56-14', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_08-56-14
+OrderedDict([('loss', 30.354146830240886),
+             ('age_group_loss', 3.3458257),
+             ('gender_loss', 0.45540142),
+             ('ext_loss', 0.6913291),
+             ('ope_loss', 0.43719825),
+             ('agr_loss', 0.45839435),
+             ('neu_loss', 0.6632614),
+             ('con_loss', 0.54182446),
+             ('age_group_categorical_accuracy', 0.6942105),
+             ('gender_binary_accuracy', 0.76),
+             ('gender_recall', 0.6461676),
+             ('ext_root_mean_squared_error', 0.8304187),
+             ('ope_root_mean_squared_error', 0.6613406),
+             ('agr_root_mean_squared_error', 0.67669284),
+             ('neu_root_mean_squared_error', 0.815163),
+             ('con_root_mean_squared_error', 0.7363214)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_08-58-12', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_08-58-12
+OrderedDict([('loss', 24.32049706776937),
+             ('age_group_loss', 3.3415473),
+             ('gender_loss', 0.4017574),
+             ('ext_loss', 0.6831772),
+             ('ope_loss', 0.43960318),
+             ('agr_loss', 0.4549607),
+             ('neu_loss', 0.6550418),
+             ('con_loss', 0.5389963),
+             ('age_group_categorical_accuracy', 0.44210526),
+             ('gender_binary_accuracy', 0.81526315),
+             ('gender_recall', 0.84313726),
+             ('ext_root_mean_squared_error', 0.82745886),
+             ('ope_root_mean_squared_error', 0.66196185),
+             ('agr_root_mean_squared_error', 0.6752986),
+             ('neu_root_mean_squared_error', 0.808882),
+             ('con_root_mean_squared_error', 0.734417)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=8, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_08-59-35', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_08-59-35
+OrderedDict([('loss', 30.094522603352864),
+             ('age_group_loss', 3.3479662),
+             ('gender_loss', 0.4772645),
+             ('ext_loss', 0.68808365),
+             ('ope_loss', 0.43675038),
+             ('agr_loss', 0.45865232),
+             ('neu_loss', 0.66342163),
+             ('con_loss', 0.5428269),
+             ('age_group_categorical_accuracy', 0.8942105),
+             ('gender_binary_accuracy', 0.8194737),
+             ('gender_recall', 0.9251337),
+             ('ext_root_mean_squared_error', 0.82966316),
+             ('ope_root_mean_squared_error', 0.66167414),
+             ('agr_root_mean_squared_error', 0.67677426),
+             ('neu_root_mean_squared_error', 0.81515807),
+             ('con_root_mean_squared_error', 0.73633224)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=7, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_09-03-15', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_09-03-15
+OrderedDict([('loss', 26.42818438212077),
+             ('age_group_loss', 3.3481114),
+             ('gender_loss', 0.4830861),
+             ('ext_loss', 0.6900772),
+             ('ope_loss', 0.4367778),
+             ('agr_loss', 0.45896378),
+             ('neu_loss', 0.66381896),
+             ('con_loss', 0.5428356),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.82),
+             ('gender_recall', 0.89483064),
+             ('ext_root_mean_squared_error', 0.83055913),
+             ('ope_root_mean_squared_error', 0.66150916),
+             ('agr_root_mean_squared_error', 0.67671233),
+             ('neu_root_mean_squared_error', 0.815183),
+             ('con_root_mean_squared_error', 0.7363301)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=5, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_09-06-51', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_09-06-51
+OrderedDict([('loss', 25.717357762654622),
+             ('age_group_loss', 3.342617),
+             ('gender_loss', 0.55813766),
+             ('ext_loss', 0.68912756),
+             ('ope_loss', 0.43936667),
+             ('agr_loss', 0.45779026),
+             ('neu_loss', 0.6653812),
+             ('con_loss', 0.5420585),
+             ('age_group_categorical_accuracy', 0.63),
+             ('gender_binary_accuracy', 0.8063158),
+             ('gender_recall', 0.94741535),
+             ('ext_root_mean_squared_error', 0.8301788),
+             ('ope_root_mean_squared_error', 0.6614987),
+             ('agr_root_mean_squared_error', 0.6767471),
+             ('neu_root_mean_squared_error', 0.81517273),
+             ('con_root_mean_squared_error', 0.73632145)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=4, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_09-09-53', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_09-09-53
+OrderedDict([('loss', 29.469648996988933),
+             ('age_group_loss', 3.3323605),
+             ('gender_loss', 0.49370512),
+             ('ext_loss', 0.6900445),
+             ('ope_loss', 0.43722537),
+             ('agr_loss', 0.45778587),
+             ('neu_loss', 0.66481453),
+             ('con_loss', 0.5430537),
+             ('age_group_categorical_accuracy', 0.00052631577),
+             ('gender_binary_accuracy', 0.81526315),
+             ('gender_recall', 0.9278075),
+             ('ext_root_mean_squared_error', 0.83034587),
+             ('ope_root_mean_squared_error', 0.66171676),
+             ('agr_root_mean_squared_error', 0.67670596),
+             ('neu_root_mean_squared_error', 0.8151766),
+             ('con_root_mean_squared_error', 0.736323)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=5, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_09-12-27', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_09-12-27
+OrderedDict([('loss', 26.13575528462728),
+             ('age_group_loss', 3.3454854),
+             ('gender_loss', 0.43244734),
+             ('ext_loss', 0.688929),
+             ('ope_loss', 0.43788928),
+             ('agr_loss', 0.4590897),
+             ('neu_loss', 0.66392833),
+             ('con_loss', 0.54283214),
+             ('age_group_categorical_accuracy', 0.39421052),
+             ('gender_binary_accuracy', 0.8168421),
+             ('gender_recall', 0.8235294),
+             ('ext_root_mean_squared_error', 0.8305793),
+             ('ope_root_mean_squared_error', 0.6616724),
+             ('agr_root_mean_squared_error', 0.67667234),
+             ('neu_root_mean_squared_error', 0.81514883),
+             ('con_root_mean_squared_error', 0.73638654)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=5, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_09-14-31', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_09-14-31
+OrderedDict([('loss', 30.776124477386475),
+             ('age_group_loss', 3.3542242),
+             ('gender_loss', 0.500467),
+             ('ext_loss', 0.6905249),
+             ('ope_loss', 0.44282606),
+             ('agr_loss', 0.46338582),
+             ('neu_loss', 0.6647256),
+             ('con_loss', 0.5429502),
+             ('age_group_categorical_accuracy', 0.50631577),
+             ('gender_binary_accuracy', 0.80368423),
+             ('gender_recall', 0.9634581),
+             ('ext_root_mean_squared_error', 0.82962936),
+             ('ope_root_mean_squared_error', 0.6615467),
+             ('agr_root_mean_squared_error', 0.67671335),
+             ('neu_root_mean_squared_error', 0.8151772),
+             ('con_root_mean_squared_error', 0.7363213)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=2, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_09-16-41', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_09-16-41
+OrderedDict([('loss', 26.517817735671997),
+             ('age_group_loss', 3.3505125),
+             ('gender_loss', 0.43250012),
+             ('ext_loss', 0.6913866),
+             ('ope_loss', 0.43655437),
+             ('agr_loss', 0.45918986),
+             ('neu_loss', 0.6584069),
+             ('con_loss', 0.54813856),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.8126316),
+             ('gender_recall', 0.7611408),
+             ('ext_root_mean_squared_error', 0.83020353),
+             ('ope_root_mean_squared_error', 0.66141784),
+             ('agr_root_mean_squared_error', 0.67670256),
+             ('neu_root_mean_squared_error', 0.8133246),
+             ('con_root_mean_squared_error', 0.73626006)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=5, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_09-18-25', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_09-18-25
+OrderedDict([('loss', 29.719356791178384),
+             ('age_group_loss', 3.3527794),
+             ('gender_loss', 0.4577908),
+             ('ext_loss', 0.6879584),
+             ('ope_loss', 0.43708965),
+             ('agr_loss', 0.45728585),
+             ('neu_loss', 0.66426927),
+             ('con_loss', 0.542201),
+             ('age_group_categorical_accuracy', 0.26947367),
+             ('gender_binary_accuracy', 0.8115789),
+             ('gender_recall', 0.9456328),
+             ('ext_root_mean_squared_error', 0.82996166),
+             ('ope_root_mean_squared_error', 0.66158175),
+             ('agr_root_mean_squared_error', 0.67669415),
+             ('neu_root_mean_squared_error', 0.8151641),
+             ('con_root_mean_squared_error', 0.7363304)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=6, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_09-20-29', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_09-20-29
+OrderedDict([('loss', 26.91134376525879),
+             ('age_group_loss', 3.3458254),
+             ('gender_loss', 0.47877535),
+             ('ext_loss', 0.6871035),
+             ('ope_loss', 0.4387699),
+             ('agr_loss', 0.45789328),
+             ('neu_loss', 0.6637279),
+             ('con_loss', 0.5415876),
+             ('age_group_categorical_accuracy', 0.5331579),
+             ('gender_binary_accuracy', 0.81),
+             ('gender_recall', 0.7878788),
+             ('ext_root_mean_squared_error', 0.829739),
+             ('ope_root_mean_squared_error', 0.66157836),
+             ('agr_root_mean_squared_error', 0.6767119),
+             ('neu_root_mean_squared_error', 0.815165),
+             ('con_root_mean_squared_error', 0.7363368)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=2, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_09-23-39', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_09-23-39
+OrderedDict([('loss', 26.023336172103882),
+             ('age_group_loss', 3.3579333),
+             ('gender_loss', 0.4574301),
+             ('ext_loss', 0.68996143),
+             ('ope_loss', 0.43898624),
+             ('agr_loss', 0.46309602),
+             ('neu_loss', 0.65053636),
+             ('con_loss', 0.53791964),
+             ('age_group_categorical_accuracy', 0.014210526),
+             ('gender_binary_accuracy', 0.82),
+             ('gender_recall', 0.8235294),
+             ('ext_root_mean_squared_error', 0.82908857),
+             ('ope_root_mean_squared_error', 0.6608514),
+             ('agr_root_mean_squared_error', 0.67564696),
+             ('neu_root_mean_squared_error', 0.810566),
+             ('con_root_mean_squared_error', 0.73448783)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=128, num_layers=2, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_09-26-04', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_09-26-04
+OrderedDict([('loss', 25.027097956339517),
+             ('age_group_loss', 3.3468957),
+             ('gender_loss', 0.5265581),
+             ('ext_loss', 0.6877969),
+             ('ope_loss', 0.43773177),
+             ('agr_loss', 0.45855382),
+             ('neu_loss', 0.65850824),
+             ('con_loss', 0.5411462),
+             ('age_group_categorical_accuracy', 0.3563158),
+             ('gender_binary_accuracy', 0.8115789),
+             ('gender_recall', 0.9340463),
+             ('ext_root_mean_squared_error', 0.82957083),
+             ('ope_root_mean_squared_error', 0.6615368),
+             ('agr_root_mean_squared_error', 0.67670614),
+             ('neu_root_mean_squared_error', 0.81127983),
+             ('con_root_mean_squared_error', 0.7361665)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=1, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_09-28-31', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_09-28-31
+OrderedDict([('loss', 28.390831232070923),
+             ('age_group_loss', 3.331962),
+             ('gender_loss', 0.40385365),
+             ('ext_loss', 0.70976937),
+             ('ope_loss', 0.45149386),
+             ('agr_loss', 0.48707584),
+             ('neu_loss', 0.66880053),
+             ('con_loss', 0.55662423),
+             ('age_group_categorical_accuracy', 0.050526317),
+             ('gender_binary_accuracy', 0.8005263),
+             ('gender_recall', 0.9607843),
+             ('ext_root_mean_squared_error', 0.8387535),
+             ('ope_root_mean_squared_error', 0.67153054),
+             ('agr_root_mean_squared_error', 0.69655687),
+             ('neu_root_mean_squared_error', 0.8190736),
+             ('con_root_mean_squared_error', 0.7424934)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_09-30-11', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_09-30-11
+OrderedDict([('loss', 24.615769831339517),
+             ('age_group_loss', 3.3507361),
+             ('gender_loss', 0.4349779),
+             ('ext_loss', 0.689296),
+             ('ope_loss', 0.4396316),
+             ('agr_loss', 0.45303836),
+             ('neu_loss', 0.6559923),
+             ('con_loss', 0.5472531),
+             ('age_group_categorical_accuracy', 0.95842105),
+             ('gender_binary_accuracy', 0.81842107),
+             ('gender_recall', 0.8065954),
+             ('ext_root_mean_squared_error', 0.8291228),
+             ('ope_root_mean_squared_error', 0.6636833),
+             ('agr_root_mean_squared_error', 0.67293686),
+             ('neu_root_mean_squared_error', 0.8086574),
+             ('con_root_mean_squared_error', 0.7396233)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=3, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_09-31-58', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_09-31-58
+OrderedDict([('loss', 26.695652723312378),
+             ('age_group_loss', 3.3801959),
+             ('gender_loss', 0.45570213),
+             ('ext_loss', 0.6853102),
+             ('ope_loss', 0.44081298),
+             ('agr_loss', 0.46529135),
+             ('neu_loss', 0.6687006),
+             ('con_loss', 0.53941697),
+             ('age_group_categorical_accuracy', 0.47473684),
+             ('gender_binary_accuracy', 0.8057895),
+             ('gender_recall', 0.9483066),
+             ('ext_root_mean_squared_error', 0.829751),
+             ('ope_root_mean_squared_error', 0.6614743),
+             ('agr_root_mean_squared_error', 0.67671895),
+             ('neu_root_mean_squared_error', 0.81518334),
+             ('con_root_mean_squared_error', 0.73636043)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=256, num_layers=6, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_09-33-54', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_09-33-54
+OrderedDict([('loss', 25.210883855819702),
+             ('age_group_loss', 3.3134081),
+             ('gender_loss', 0.41456202),
+             ('ext_loss', 0.6868854),
+             ('ope_loss', 0.43532443),
+             ('agr_loss', 0.46105126),
+             ('neu_loss', 0.64941376),
+             ('con_loss', 0.5352798),
+             ('age_group_categorical_accuracy', 0.5226316),
+             ('gender_binary_accuracy', 0.82894737),
+             ('gender_recall', 0.8885918),
+             ('ext_root_mean_squared_error', 0.8300715),
+             ('ope_root_mean_squared_error', 0.6615169),
+             ('agr_root_mean_squared_error', 0.676747),
+             ('neu_root_mean_squared_error', 0.8151862),
+             ('con_root_mean_squared_error', 0.7363303)])
+DEBUGGING:  False
+Experiment name: one_branch_each
+Hyperparameters: HyperParameters(batch_size=64, num_layers=8, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='one_branch_each', log_dir='./checkpoints/one_branch_each/2019-11-05_09-36-23', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: ./checkpoints/one_branch_each/2019-11-05_09-36-23
+OrderedDict([('loss', 27.796190198262533),
+             ('age_group_loss', 3.3415473),
+             ('gender_loss', 0.69714504),
+             ('ext_loss', 0.68844545),
+             ('ope_loss', 0.43630657),
+             ('agr_loss', 0.45731887),
+             ('neu_loss', 0.6641437),
+             ('con_loss', 0.5402118),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.7868421),
+             ('gender_recall', 0.9616756),
+             ('ext_root_mean_squared_error', 0.83026916),
+             ('ope_root_mean_squared_error', 0.6615167),
+             ('agr_root_mean_squared_error', 0.6767065),
+             ('neu_root_mean_squared_error', 0.8151646),
+             ('con_root_mean_squared_error', 0.73633975)])

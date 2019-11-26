@@ -1,0 +1,582 @@
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=256, num_layers=1, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:05:55', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:05:55
+OrderedDict([('loss', 26.614586353302002),
+             ('age_group_loss', 3.2688866),
+             ('gender_loss', 0.67622995),
+             ('ext_loss', 0.70726204),
+             ('ope_loss', 0.43235406),
+             ('agr_loss', 0.4553466),
+             ('neu_loss', 0.6710311),
+             ('con_loss', 0.536762),
+             ('age_group_categorical_accuracy', 1.0),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8377491),
+             ('ope_root_mean_squared_error', 0.66183096),
+             ('agr_root_mean_squared_error', 0.67666674),
+             ('neu_root_mean_squared_error', 0.81527996),
+             ('con_root_mean_squared_error', 0.7364666)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:07:12', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:07:12
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=64, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:10:43', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:10:43
+OrderedDict([('loss', 24.74962018330892),
+             ('age_group_loss', 3.3402343),
+             ('gender_loss', 0.67666525),
+             ('ext_loss', 0.6869143),
+             ('ope_loss', 0.43747786),
+             ('agr_loss', 0.45897788),
+             ('neu_loss', 0.66493046),
+             ('con_loss', 0.5491113),
+             ('age_group_categorical_accuracy', 0.085263155),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8291383),
+             ('ope_root_mean_squared_error', 0.6614404),
+             ('agr_root_mean_squared_error', 0.6768448),
+             ('neu_root_mean_squared_error', 0.8158074),
+             ('con_root_mean_squared_error', 0.74055916)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=64, num_layers=1, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:12:43', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:12:43
+OrderedDict([('loss', 26.222351010640462),
+             ('age_group_loss', 3.3520494),
+             ('gender_loss', 0.6949685),
+             ('ext_loss', 0.7496957),
+             ('ope_loss', 0.4421873),
+             ('agr_loss', 0.4699168),
+             ('neu_loss', 0.6761792),
+             ('con_loss', 0.5413949),
+             ('age_group_categorical_accuracy', 0.04157895),
+             ('gender_binary_accuracy', 0.4094737),
+             ('gender_recall', 0.0),
+             ('ext_root_mean_squared_error', 0.86649096),
+             ('ope_root_mean_squared_error', 0.6646959),
+             ('agr_root_mean_squared_error', 0.683904),
+             ('neu_root_mean_squared_error', 0.8225807),
+             ('con_root_mean_squared_error', 0.7363232)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=64, num_layers=1, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:14:12', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:14:12
+OrderedDict([('loss', 26.0468568166097),
+             ('age_group_loss', 3.3467987),
+             ('gender_loss', 0.67685825),
+             ('ext_loss', 0.6891781),
+             ('ope_loss', 0.44153848),
+             ('agr_loss', 0.45929545),
+             ('neu_loss', 0.67048746),
+             ('con_loss', 0.5490837),
+             ('age_group_categorical_accuracy', 0.038421053),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8310656),
+             ('ope_root_mean_squared_error', 0.6627487),
+             ('agr_root_mean_squared_error', 0.6782962),
+             ('neu_root_mean_squared_error', 0.81832683),
+             ('con_root_mean_squared_error', 0.7395059)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=64, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:09:23', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:09:23
+OrderedDict([('loss', 24.740252431233724),
+             ('age_group_loss', 3.3376086),
+             ('gender_loss', 0.6763651),
+             ('ext_loss', 0.71753824),
+             ('ope_loss', 0.43474674),
+             ('agr_loss', 0.46605656),
+             ('neu_loss', 0.66469795),
+             ('con_loss', 0.5454781),
+             ('age_group_categorical_accuracy', 0.56578946),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.84689546),
+             ('ope_root_mean_squared_error', 0.6605306),
+             ('agr_root_mean_squared_error', 0.6816991),
+             ('neu_root_mean_squared_error', 0.815625),
+             ('con_root_mean_squared_error', 0.73754525)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:16:17', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:16:17
+OrderedDict([('loss', 24.94024658203125),
+             ('age_group_loss', 3.3458257),
+             ('gender_loss', 0.6764935),
+             ('ext_loss', 0.6936486),
+             ('ope_loss', 0.43934903),
+             ('agr_loss', 0.45822993),
+             ('neu_loss', 0.66378057),
+             ('con_loss', 0.54358286),
+             ('age_group_categorical_accuracy', 0.26947367),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.833452),
+             ('ope_root_mean_squared_error', 0.6625958),
+             ('agr_root_mean_squared_error', 0.6775081),
+             ('neu_root_mean_squared_error', 0.81527483),
+             ('con_root_mean_squared_error', 0.736914)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:18:30', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:18:30
+OrderedDict([('loss', 26.115116755167644),
+             ('age_group_loss', 3.3538485),
+             ('gender_loss', 0.68176264),
+             ('ext_loss', 0.71007633),
+             ('ope_loss', 0.4413124),
+             ('agr_loss', 0.46484867),
+             ('neu_loss', 0.66443324),
+             ('con_loss', 0.5474166),
+             ('age_group_categorical_accuracy', 0.10263158),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.84268814),
+             ('ope_root_mean_squared_error', 0.66402245),
+             ('agr_root_mean_squared_error', 0.6819011),
+             ('neu_root_mean_squared_error', 0.81529796),
+             ('con_root_mean_squared_error', 0.73965347)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=256, num_layers=1, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:20:11', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:20:11
+OrderedDict([('loss', 27.733858346939087),
+             ('age_group_loss', 3.324541),
+             ('gender_loss', 0.6766155),
+             ('ext_loss', 0.69866693),
+             ('ope_loss', 0.43254954),
+             ('agr_loss', 0.46463746),
+             ('neu_loss', 0.67054486),
+             ('con_loss', 0.5444914),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.839713),
+             ('ope_root_mean_squared_error', 0.66076654),
+             ('agr_root_mean_squared_error', 0.6766758),
+             ('neu_root_mean_squared_error', 0.82071257),
+             ('con_root_mean_squared_error', 0.7367227)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=256, num_layers=1, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:21:53', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:21:53
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=256, num_layers=2, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:24:04', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:24:04
+OrderedDict([('loss', 25.098196029663086),
+             ('age_group_loss', 3.2948565),
+             ('gender_loss', 0.6761481),
+             ('ext_loss', 0.7017739),
+             ('ope_loss', 0.44264984),
+             ('agr_loss', 0.46021008),
+             ('neu_loss', 0.67272437),
+             ('con_loss', 0.5368865),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8315502),
+             ('ope_root_mean_squared_error', 0.6607915),
+             ('agr_root_mean_squared_error', 0.67667276),
+             ('neu_root_mean_squared_error', 0.8151604),
+             ('con_root_mean_squared_error', 0.73634976)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=256, num_layers=1, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:25:18', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:25:18
+OrderedDict([('loss', 27.138280153274536),
+             ('age_group_loss', 3.3913274),
+             ('gender_loss', 0.6772032),
+             ('ext_loss', 0.69272834),
+             ('ope_loss', 0.4376959),
+             ('agr_loss', 0.45270672),
+             ('neu_loss', 0.6750071),
+             ('con_loss', 0.54465014),
+             ('age_group_categorical_accuracy', 0.048947368),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8278815),
+             ('ope_root_mean_squared_error', 0.6613275),
+             ('agr_root_mean_squared_error', 0.6769325),
+             ('neu_root_mean_squared_error', 0.8152534),
+             ('con_root_mean_squared_error', 0.7363265)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=128, num_layers=6, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:27:12', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:27:12
+OrderedDict([('loss', 26.300925572713215),
+             ('age_group_loss', 3.3452911),
+             ('gender_loss', 0.67861277),
+             ('ext_loss', 0.726277),
+             ('ope_loss', 0.44752222),
+             ('agr_loss', 0.45734724),
+             ('neu_loss', 0.668481),
+             ('con_loss', 0.563808),
+             ('age_group_categorical_accuracy', 0.008421052),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.85182965),
+             ('ope_root_mean_squared_error', 0.6686045),
+             ('agr_root_mean_squared_error', 0.67686725),
+             ('neu_root_mean_squared_error', 0.81837416),
+             ('con_root_mean_squared_error', 0.7516096)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=64, num_layers=5, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:29:13', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:29:13
+OrderedDict([('loss', 30.359772300720216),
+             ('age_group_loss', 3.3454897),
+             ('gender_loss', 0.6868138),
+             ('ext_loss', 0.8775399),
+             ('ope_loss', 0.44530284),
+             ('agr_loss', 0.5787457),
+             ('neu_loss', 1.1783503),
+             ('con_loss', 0.7845451),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.9333369),
+             ('ope_root_mean_squared_error', 0.66570526),
+             ('agr_root_mean_squared_error', 0.76181275),
+             ('neu_root_mean_squared_error', 1.0865748),
+             ('con_root_mean_squared_error', 0.8848959)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=64, num_layers=3, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:30:50', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:30:50
+OrderedDict([('loss', 26.51638189951579),
+             ('age_group_loss', 3.3612387),
+             ('gender_loss', 0.70809734),
+             ('ext_loss', 0.68662745),
+             ('ope_loss', 0.43762416),
+             ('agr_loss', 0.45759588),
+             ('neu_loss', 0.6659181),
+             ('con_loss', 0.5431523),
+             ('age_group_categorical_accuracy', 0.3336842),
+             ('gender_binary_accuracy', 0.4094737),
+             ('gender_recall', 0.0),
+             ('ext_root_mean_squared_error', 0.82788247),
+             ('ope_root_mean_squared_error', 0.66127956),
+             ('agr_root_mean_squared_error', 0.67672145),
+             ('neu_root_mean_squared_error', 0.81523967),
+             ('con_root_mean_squared_error', 0.73653215)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=256, num_layers=2, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:32:11', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:32:11
+OrderedDict([('loss', 30.629414319992065),
+             ('age_group_loss', 3.3690724),
+             ('gender_loss', 0.677386),
+             ('ext_loss', 0.8663781),
+             ('ope_loss', 0.44639608),
+             ('agr_loss', 0.49868876),
+             ('neu_loss', 0.91070044),
+             ('con_loss', 0.7898746),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.92806345),
+             ('ope_root_mean_squared_error', 0.6672987),
+             ('agr_root_mean_squared_error', 0.7012923),
+             ('neu_root_mean_squared_error', 0.949765),
+             ('con_root_mean_squared_error', 0.8795486)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=64, num_layers=3, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:33:32', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:33:32
+OrderedDict([('loss', 25.905835978190105),
+             ('age_group_loss', 3.3402357),
+             ('gender_loss', 0.6769248),
+             ('ext_loss', 0.72439307),
+             ('ope_loss', 0.4504942),
+             ('agr_loss', 0.45772335),
+             ('neu_loss', 0.6667697),
+             ('con_loss', 0.545072),
+             ('age_group_categorical_accuracy', 0.002105263),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.85182184),
+             ('ope_root_mean_squared_error', 0.670303),
+             ('agr_root_mean_squared_error', 0.6773503),
+             ('neu_root_mean_squared_error', 0.81518966),
+             ('con_root_mean_squared_error', 0.7364205)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=64, num_layers=7, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:36:39', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:36:39
+OrderedDict([('loss', 29.16723772684733),
+             ('age_group_loss', 3.3428626),
+             ('gender_loss', 0.7197619),
+             ('ext_loss', 0.6860643),
+             ('ope_loss', 0.45028174),
+             ('agr_loss', 0.46726516),
+             ('neu_loss', 0.6760436),
+             ('con_loss', 0.54414904),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.82747036),
+             ('ope_root_mean_squared_error', 0.671095),
+             ('agr_root_mean_squared_error', 0.68407375),
+             ('neu_root_mean_squared_error', 0.8229488),
+             ('con_root_mean_squared_error', 0.73974293)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=128, num_layers=7, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:39:43', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:39:43
+OrderedDict([('loss', 26.24870923360189),
+             ('age_group_loss', 3.3420825),
+             ('gender_loss', 0.67668515),
+             ('ext_loss', 0.69586617),
+             ('ope_loss', 0.43609306),
+             ('agr_loss', 0.47019252),
+             ('neu_loss', 0.66699487),
+             ('con_loss', 0.54706496),
+             ('age_group_categorical_accuracy', 0.27684212),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.83421165),
+             ('ope_root_mean_squared_error', 0.66045296),
+             ('agr_root_mean_squared_error', 0.6856073),
+             ('neu_root_mean_squared_error', 0.8164405),
+             ('con_root_mean_squared_error', 0.7399076)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=64, num_layers=8, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:42:58', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:42:58
+OrderedDict([('loss', 29.082164192199706),
+             ('age_group_loss', 3.355988),
+             ('gender_loss', 0.69367874),
+             ('ext_loss', 0.6847026),
+             ('ope_loss', 0.43547875),
+             ('agr_loss', 0.4630776),
+             ('neu_loss', 0.68450314),
+             ('con_loss', 0.54233015),
+             ('age_group_categorical_accuracy', 1.0),
+             ('gender_binary_accuracy', 0.4094737),
+             ('gender_recall', 0.0),
+             ('ext_root_mean_squared_error', 0.8276553),
+             ('ope_root_mean_squared_error', 0.6603749),
+             ('agr_root_mean_squared_error', 0.680472),
+             ('neu_root_mean_squared_error', 0.8280224),
+             ('con_root_mean_squared_error', 0.7373241)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=128, num_layers=1, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:46:04', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:46:04
+OrderedDict([('loss', 26.11950963338216),
+             ('age_group_loss', 3.355453),
+             ('gender_loss', 0.6799592),
+             ('ext_loss', 0.7045719),
+             ('ope_loss', 0.4358462),
+             ('agr_loss', 0.45801792),
+             ('neu_loss', 0.6648334),
+             ('con_loss', 0.5422057),
+             ('age_group_categorical_accuracy', 0.5326316),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.84043914),
+             ('ope_root_mean_squared_error', 0.6603747),
+             ('agr_root_mean_squared_error', 0.6767146),
+             ('neu_root_mean_squared_error', 0.8152934),
+             ('con_root_mean_squared_error', 0.7363241)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=64, num_layers=6, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:48:28', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:48:28
+OrderedDict([('loss', 24.594857915242514),
+             ('age_group_loss', 3.3402338),
+             ('gender_loss', 0.6768278),
+             ('ext_loss', 0.6836612),
+             ('ope_loss', 0.43756875),
+             ('agr_loss', 0.45872086),
+             ('neu_loss', 0.6668608),
+             ('con_loss', 0.54183203),
+             ('age_group_categorical_accuracy', 0.029473685),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.82821405),
+             ('ope_root_mean_squared_error', 0.6614405),
+             ('agr_root_mean_squared_error', 0.67720747),
+             ('neu_root_mean_squared_error', 0.818146),
+             ('con_root_mean_squared_error', 0.7369473)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=256, num_layers=7, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:51:14', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:51:14
+OrderedDict([('loss', 30.849329948425293),
+             ('age_group_loss', 3.298569),
+             ('gender_loss', 0.6812303),
+             ('ext_loss', 0.68362707),
+             ('ope_loss', 0.44595844),
+             ('agr_loss', 0.4504809),
+             ('neu_loss', 0.66264033),
+             ('con_loss', 0.5435457),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.82850206),
+             ('ope_root_mean_squared_error', 0.66209596),
+             ('agr_root_mean_squared_error', 0.6769554),
+             ('neu_root_mean_squared_error', 0.81746197),
+             ('con_root_mean_squared_error', 0.7411414)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=128, num_layers=5, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:53:51', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:53:51
+OrderedDict([('loss', 24.920981470743815),
+             ('age_group_loss', 3.3468957),
+             ('gender_loss', 0.6770772),
+             ('ext_loss', 0.70420396),
+             ('ope_loss', 0.4366284),
+             ('agr_loss', 0.45833656),
+             ('neu_loss', 0.66394955),
+             ('con_loss', 0.5411475),
+             ('age_group_categorical_accuracy', 0.9726316),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8394384),
+             ('ope_root_mean_squared_error', 0.66065633),
+             ('agr_root_mean_squared_error', 0.67688596),
+             ('neu_root_mean_squared_error', 0.8155152),
+             ('con_root_mean_squared_error', 0.7366866)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=256, num_layers=3, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:56:08', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:56:08
+OrderedDict([('loss', 26.44548988342285),
+             ('age_group_loss', 3.3319602),
+             ('gender_loss', 0.6753791),
+             ('ext_loss', 0.68286073),
+             ('ope_loss', 0.43998307),
+             ('agr_loss', 0.4531719),
+             ('neu_loss', 0.6605917),
+             ('con_loss', 0.54121673),
+             ('age_group_categorical_accuracy', 0.38157895),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8309331),
+             ('ope_root_mean_squared_error', 0.66305804),
+             ('agr_root_mean_squared_error', 0.6767753),
+             ('neu_root_mean_squared_error', 0.8162106),
+             ('con_root_mean_squared_error', 0.7364487)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=64, num_layers=2, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:58:24', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_00:58:24
+OrderedDict([('loss', 24.508061281840007),
+             ('age_group_loss', 3.3415477),
+             ('gender_loss', 0.67688555),
+             ('ext_loss', 0.686266),
+             ('ope_loss', 0.43588084),
+             ('agr_loss', 0.45694372),
+             ('neu_loss', 0.6726417),
+             ('con_loss', 0.54134005),
+             ('age_group_categorical_accuracy', 0.2505263),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.829621),
+             ('ope_root_mean_squared_error', 0.6604136),
+             ('agr_root_mean_squared_error', 0.6768834),
+             ('neu_root_mean_squared_error', 0.820497),
+             ('con_root_mean_squared_error', 0.73671854)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=256, num_layers=5, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_01:00:44', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_01:00:44
+OrderedDict([('loss', 27.040874004364014),
+             ('age_group_loss', 3.3542233),
+             ('gender_loss', 0.68146527),
+             ('ext_loss', 0.69270295),
+             ('ope_loss', 0.44172204),
+             ('agr_loss', 0.45704043),
+             ('neu_loss', 0.6684189),
+             ('con_loss', 0.5326867),
+             ('age_group_categorical_accuracy', 0.14842105),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.8315756),
+             ('ope_root_mean_squared_error', 0.6622407),
+             ('agr_root_mean_squared_error', 0.679877),
+             ('neu_root_mean_squared_error', 0.8169078),
+             ('con_root_mean_squared_error', 0.73634183)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=64, num_layers=4, dense_units=32, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_01:02:20', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_01:02:20
+OrderedDict([('loss', 24.764385732014976),
+             ('age_group_loss', 3.3441722),
+             ('gender_loss', 0.679174),
+             ('ext_loss', 0.7079169),
+             ('ope_loss', 0.44519478),
+             ('agr_loss', 0.45940572),
+             ('neu_loss', 0.6789017),
+             ('con_loss', 0.549612),
+             ('age_group_categorical_accuracy', 0.028421052),
+             ('gender_binary_accuracy', 0.59052634),
+             ('gender_recall', 1.0),
+             ('ext_root_mean_squared_error', 0.84123415),
+             ('ope_root_mean_squared_error', 0.667997),
+             ('agr_root_mean_squared_error', 0.67693937),
+             ('neu_root_mean_squared_error', 0.8245944),
+             ('con_root_mean_squared_error', 0.7415092)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=64, num_layers=6, dense_units=128, activation='tanh', optimizer='sgd', learning_rate=0.01, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_01:03:57', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_01:03:57
+OrderedDict([('loss', 29.6087797164917),
+             ('age_group_loss', 3.3349879),
+             ('gender_loss', 0.7175371),
+             ('ext_loss', 1.0136877),
+             ('ope_loss', 0.44258043),
+             ('agr_loss', 0.5184501),
+             ('neu_loss', 0.8860181),
+             ('con_loss', 0.6347277),
+             ('age_group_categorical_accuracy', 0.0),
+             ('gender_binary_accuracy', 0.4094737),
+             ('gender_recall', 0.0),
+             ('ext_root_mean_squared_error', 1.0075636),
+             ('ope_root_mean_squared_error', 0.6656725),
+             ('agr_root_mean_squared_error', 0.7222447),
+             ('neu_root_mean_squared_error', 0.9407491),
+             ('con_root_mean_squared_error', 0.79822147)])
+DEBUGGING:  False
+Experiment name: scaled_loss_fixed_metrics
+Hyperparameters: HyperParameters(batch_size=64, num_layers=7, dense_units=64, activation='tanh', optimizer='sgd', learning_rate=0.005, l1_reg=0.005, l2_reg=0.005, num_like_pages=5000, use_dropout=True, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=5.0, age_loss_weight=5.0)
+Train_config: TrainConfig(experiment_name='scaled_loss_fixed_metrics', log_dir='checkpoints/scaled_loss_fixed_metrics/2019-11-05_01:06:06', validation_data_fraction=0.2, epochs=500, early_stopping_patience=5)
+Training directory: checkpoints/scaled_loss_fixed_metrics/2019-11-05_01:06:06
