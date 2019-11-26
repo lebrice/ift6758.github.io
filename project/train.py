@@ -74,6 +74,8 @@ class TrainConfig():
         os.makedirs(self.log_dir, exist_ok=True)
 
 
+
+
 @dataclass
 class TrainingResults:
     total_epochs: int = -1
@@ -106,100 +108,123 @@ class TrainData():
     for the training set, with userids as index.
     """
 
-def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: TrainConfig) -> Tuple[tf.data.Dataset, tf.data.Dataset, int, int]:
+
+    def write_training_data_config(self, log_dir: str):
+        mins, maxes = self.features_min_max
+        image_means = self.image_means
+        likes = self.likes_kept
+        with open(os.path.join(log_dir, "train_features_max.csv"), "w") as f:    
+            f.write(",".join(str(v) for v in maxes))
+        with open(os.path.join(log_dir, "train_features_min.csv"), "w") as f:
+            f.write(",".join(str(v) for v in mins))
+        with open(os.path.join(log_dir, "train_features_image_means.csv"), "w") as f:
+            f.write(",".join(str(v) for v in image_means))
+        with open(os.path.join(log_dir, "train_features_likes.csv"), "w") as f:
+            f.write(",".join(likes))
+
+def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: TrainConfig) -> Tuple[tf.data.Dataset, tf.data.Dataset]:
     train_data = TrainData(*preprocess_train(data_dir, hparams.num_like_pages))
 
     features = train_data.train_features
     labels = train_data.train_labels
+    if DEBUG:
+        train_data.likes_kept = [str(i) for i in range(hparams.num_like_pages)]
 
     # shuffle the features and labels
     features, labels = shuffle(features, labels)
 
-    # TODO: re-add these features when they work
-    # features.drop(["noface", "multiface"], axis=1, inplace=True)
-    
-    mins, maxes = train_data.features_min_max
-    with open(os.path.join(train_config.log_dir, "train_features_max.csv"), "w") as f:    
-        # maxes.to_csv(f, header=True)
-        f.write(",".join(str(v) for v in maxes))
-    with open(os.path.join(train_config.log_dir, "train_features_min.csv"), "w") as f:
-        # mins.to_csv(f, header=True)
-        f.write(",".join(str(v) for v in mins))
-    with open(os.path.join(train_config.log_dir, "train_features_image_means.csv"), "w") as f:
-        image_means = train_data.image_means
-        f.write(",".join(str(v) for v in image_means))
-    
-
-    if DEBUG:
-        # writing some dummy 'kept' likes.
-        with open(os.path.join(train_config.log_dir, "train_features_likes.csv"), "w") as f:
-            f.write(",".join(str(v) for v in range(hparams.num_like_pages)))
-    else:
-        with open(os.path.join(train_config.log_dir, "train_features_likes.csv"), "w") as f:
-            likes = train_data.likes_kept
-            f.write(",".join(likes))
-    
     column_names = list(features.columns)
-    # print("number of columns:", len(column_names))
+    print("Total number of columns:", len(column_names))
     
     assert "faceID" not in column_names
     assert "userId" not in column_names
     assert "userid" not in column_names
+    column_names = features.columns
+    # The names of each column for each type of feature. Could be useful for debugging.
+    text_columns_names, image_columns_names, likes_columns_names = split_features(column_names, hparams)
+
     expected_num_columns = hparams.num_text_features + hparams.num_image_features + hparams.num_like_pages
-    # assert len(column_names) == expected_num_columns, column_names
-    
+    assert features.shape[1] == expected_num_columns
+
+
+    train_data.write_training_data_config(train_config.log_dir)
+    (train_features, train_labels), (valid_features, valid_labels) = train_valid_split(features, labels, train_config)
+
+    train_dataset = make_dataset(train_features, train_labels, hparams)
+    if train_config.validation_data_fraction != 0:
+        valid_dataset = make_dataset(valid_features, valid_labels, hparams)
+        return train_dataset, valid_dataset
+    else:
+        return train_dataset, None
+
+def train_valid_split(features: pd.DataFrame, labels: pd.DataFrame, train_config: TrainConfig) -> Tuple[Tuple[np.ndarray, np.ndarray], Tuple[np.ndarray, np.ndarray]]:
     all_features = features.values
-    validation_data_percentage = train_config.validation_data_fraction
-    if validation_data_percentage == 0:
+    validation_data_fraction = train_config.validation_data_fraction
+    if validation_data_fraction == 0:
         print("USING NO VALIDATION SET.")
         
-    cutoff = int(all_features.shape[0] * validation_data_percentage)
+    cutoff = int(all_features.shape[0] * validation_data_fraction)
 
-
+    # perform the train-valid split.
     valid_features, valid_labels = features.values[:cutoff], labels[:cutoff]
     train_features, train_labels = features.values[cutoff:], labels[cutoff:]
+    return (train_features, train_labels), (valid_features, valid_labels)
 
-    image_features_start_index = column_names.index("faceRectangle_width")
-    likes_features_start_index = column_names.index("headPose_yaw")  + 1   
 
-    def make_dataset(features: np.ndarray, labels: np.ndarray):
-        text_features   = features[..., :image_features_start_index]
-        image_features  = features[..., image_features_start_index:likes_features_start_index]
-        likes_features  = features[..., likes_features_start_index:]
+def make_dataset(features: np.ndarray, labels: np.ndarray, hparams: HyperParameters) -> tf.data.Dataset:
+    text_features, image_features, likes_features = split_features(features, hparams)
 
-        # print(text_features.shape)
-        # print(image_features.shape)
-        # print(likes_features.shape)
-        features_dataset = tf.data.Dataset.from_tensor_slices(
-            {
-                "text_features": text_features.astype("float32"),
-                "image_features": image_features.astype("float32"),
-                "likes_features": likes_features.astype("bool"),
-            }
-        )
-        labels_dataset = tf.data.Dataset.from_tensor_slices({
-            "userid": labels.index,
-            "gender": labels.gender.astype("bool"),
-            "age_group": labels.age_group,
-            "ope": labels['ope'].astype("float32"),
-            "con": labels['con'].astype("float32"),
-            "ext": labels['ext'].astype("float32"),
-            "agr": labels['agr'].astype("float32"),
-            "neu": labels['neu'].astype("float32"),
-        })
-        num_entries = text_features.shape[0]
-        return (tf.data.Dataset.zip((features_dataset, labels_dataset))
-            .cache()
-            .shuffle(5 * hparams.batch_size)
-            .batch(hparams.batch_size)
-        ), num_entries
+    # print(text_features.shape)
+    # print(image_features.shape)
+    # print(likes_features.shape)
+    features_dataset = tf.data.Dataset.from_tensor_slices(
+        {
+            "text_features": text_features.astype("float32"),
+            "image_features": image_features.astype("float32"),
+            "likes_features": likes_features.astype("bool"),
+        }
+    )
+    labels_dataset = tf.data.Dataset.from_tensor_slices({
+        "userid": labels.index,
+        "gender": labels.gender.astype("bool"),
+        "age_group": labels.age_group,
+        "ope": labels['ope'].astype("float32"),
+        "con": labels['con'].astype("float32"),
+        "ext": labels['ext'].astype("float32"),
+        "agr": labels['agr'].astype("float32"),
+        "neu": labels['neu'].astype("float32"),
+    })
+    return (tf.data.Dataset.zip((features_dataset, labels_dataset))
+        .cache()
+        .shuffle(5 * hparams.batch_size)
+        .batch(hparams.batch_size)
+    )
+
+
+def split_features(features: np.ndarray, hparams: HyperParameters) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Split the ndarray with the three types of features into three ndarrays.
     
-    train_dataset, train_samples = make_dataset(train_features, train_labels)
-    if cutoff != 0:
-        valid_dataset, valid_samples = make_dataset(valid_features, valid_labels)
-        return train_dataset, valid_dataset, train_samples, valid_samples
-    else:
-        return train_dataset, None, train_samples, 0
+    Args:
+        features (np.ndarray): [description]
+    
+    Returns:
+        Tuple[np.ndarray, np.ndarray, np.ndarray]: [description]
+    """
+    
+    text_features_start_index = 0
+    text_features_end_index = text_features_start_index + hparams.num_text_features
+
+    image_features_start_index = text_features_end_index
+    image_features_end_index = image_features_start_index + hparams.num_image_features
+    
+    likes_features_start_index = image_features_end_index
+    likes_features_end_index = likes_features_start_index + hparams.num_like_pages 
+
+    text_features   = features[..., text_features_start_index:text_features_end_index]
+    image_features  = features[..., image_features_start_index:image_features_end_index]
+    likes_features  = features[..., likes_features_start_index:likes_features_end_index]
+
+    return text_features, image_features, likes_features
 
 
 def shuffle(features: pd.DataFrame, labels: pd.DataFrame) -> Tuple[pd.DataFrame, pd.DataFrame]:
@@ -252,18 +277,14 @@ def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConf
     model = get_model(hparams)
     model.summary()
 
-    train_dataset, valid_dataset, train_samples, valid_samples = train_input_pipeline(train_data_dir, hparams, train_config)
+    train_dataset, valid_dataset = train_input_pipeline(train_data_dir, hparams, train_config)
     if DEBUG:
         train_dataset = train_dataset.repeat(100)
-        train_samples *= 100
         if valid_dataset:
             valid_dataset = valid_dataset.repeat(100)
-            valid_samples *= 100
 
-    print("num training examples:", train_samples)
-    print("num validation examples:", valid_samples)
+    using_validation_set = valid_dataset is not None
 
-    using_validation_set = valid_samples != 0
     training_callbacks = [
         tf.keras.callbacks.TensorBoard(log_dir = train_config.log_dir, profile_batch=0),
         hp.KerasCallback(train_config.log_dir, asdict(hparams)),
@@ -410,7 +431,7 @@ def main(hparams: HyperParameters, train_config: TrainConfig):
         report_results([dict(
             name='validation_loss',
             type='objective',
-            value=results.metrics_dict["loss"],
+            value=results.metrics_dict.get("loss", np.Inf),
         )])
 
     print("TRAINING COMPLETE")
