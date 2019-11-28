@@ -4,7 +4,8 @@ Fabrice Normandin
 Computer Vision [30 points]
 
 This assignment will give you experience with an image corpus.
-For most of the questions in this assingment, you need to write a python script.
+For most of the questions in this assingment,
+you need to write a python script.
 
 """
 from typing import *
@@ -23,7 +24,8 @@ def load_bgr(path: str) -> np.ndarray:
 image = load_bgr(image_path)
 """
 2- Pre-processing: data augmentation:
-Write a python code to resize the image and make it 20% smaller, and save the image as greyscale image.
+Write a python code to resize the image and make it 20% smaller,
+and save the image as greyscale image.
 """
 
 def rescale(image: np.ndarray, scale: float) -> np.ndarray:
@@ -76,10 +78,11 @@ darker = darkening_filter(image)
 cv2.imshow("Darker", darker)
 cv2.waitKey()
 """
-5- Write two python functions that apply a 3 x 3 median and 3 x 3 mean filter on the image.
-Mean filter is a simple sliding window that replace the center value with the average of all pixel
-values in the window.
-While median filter is a simple sliding window that replace the center value with the Median of all pixel values in the window.
+5- Write two python functions that apply a 3 x 3 median and 3 x 3 mean filter
+on the image. Mean filter is a simple sliding window that replace the center 
+value with the average of all pixel values in the window.
+While median filter is a simple sliding window that replace the center value
+with the Median of all pixel values in the window.
 Note that the border pixels remain unchanged.
 """
 
@@ -124,5 +127,17 @@ cv2.waitKey()
 """
 6- A mean filter is a linear filter, but a median filter is not. Why?
 
-Because 
+Because the filter operation doesn't satisfy the linearity condition.
+For example, considering a filter F and two images A and B, the filter is considered
+linear iff F(A + B) = F(A) + F(B). In the case of the mean filter,
+it can easily be shown that this is the case, as the mean of a sum is equal
+to the sum of the means.
+However, this does not hold true for the median operation.
+for instance:
+A = [1, 2, 3]
+B = [4, 2, 4]
+F(A) = 2
+F(B) = 4
+F(A + B) = F([5,4,7]) = 5
+F(A) + F(B) = 6 != F(A + B)
 """

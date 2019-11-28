@@ -36,21 +36,21 @@ def find_word_counts(reviews: Iterable[Review]) -> collections.Counter:
 
 def without_stopwords(reviews: Iterable[Review]) -> Iterable[Review]:
     for words, rating in reviews:
-        yield filter(lambda w: w not in stopwords_english, words), rating
+        yield list(filter(lambda w: w not in stopwords_english, words)), rating
 
 """
 a) (Data processing): First create a list of all reviews and their categories.
 You can create a list of tuples where the first item is the review and the second
 item is the sentiment, i.e., '0' or '1'.
 """
-reviews = list(review_words_iterator(train_path))
-
+all_reviews = list(review_sentence_iterator(train_path))
+all_review_words = list(review_words_iterator(train_path)) 
 """
 b) (Tokenization): Extract all the words from the reviews.
 You can either use the string split() method directly or use the following method from NLTK.
 """
 
-word_counts = find_word_counts(reviews)
+word_counts = find_word_counts(all_review_words)
 all_words = list(word_counts.keys())
 # print(all_words)
 
@@ -64,9 +64,10 @@ print(word_counts.most_common(10))
 c) (Stop words removal): Remove all the stop words from the reviews
 and re-calculate the number of occurence of each word in the entire corpus.
 """
-
-word_counts_without_stopwords = find_word_counts(without_stopwords(reviews))
+reviews_without_stopwords = list(without_stopwords(all_review_words))
+word_counts_without_stopwords = find_word_counts(reviews_without_stopwords)
 print(word_counts_without_stopwords.most_common(10))
+
 
 """
 d) (Stemmization): Normalize the reviews by stemming and re-calculate the number
@@ -79,14 +80,18 @@ stemmer = EnglishStemmer()
 def stemmed(reviews: Iterable[Review]) -> Iterable[Review]:
     for words, rating in reviews:
         yield [stemmer.stem(word) for word in words], rating
-import functools
 
-stemmed_word_counts = find_word_counts(stemmed(without_stopwords(reviews)))
+stemmed_reviews = list(stemmed(reviews_without_stopwords))
+stemmed_word_counts = find_word_counts(stemmed_reviews)
 print(stemmed_word_counts.most_common(10))
 
 """
 e) (BOW): Create 1-hot encoding and represent each review as Bag of Words (BOW). 
 """
+
+# First, defining some types to make things easier to read:
+ReviewBagOfWords = Tuple[Dict[int, int], int]
+ReviewNGram = Tuple[List[Tuple[str, ...]], int]
 
 def vocabulary(reviews: Iterable, size=None) -> Dict[str, int]:
     word_counts = find_word_counts(reviews)
@@ -95,10 +100,7 @@ def vocabulary(reviews: Iterable, size=None) -> Dict[str, int]:
         for i, (word, count) in enumerate(word_counts.most_common(n=size))
     }
 
-
-ReviewBagOfWords = Tuple[Dict[int, int], int]
-
-def bag_of_words(reviews: Iterable[Any], vocab: Dict[Any, int]) -> Iterable[ReviewBagOfWords]:
+def bag_of_words(reviews: Iterable[ReviewNGram], vocab: Dict[Any, int]) -> Iterable[ReviewBagOfWords]:
     for words, rating in reviews:
         word_ids = [vocab[word] for word in words if word in vocab]
         counts = Counter(word_ids)
@@ -114,12 +116,15 @@ from nltk import NaiveBayesClassifier
 from nltk import classify
 from nltk.util import ngrams as nltk_ngrams
 
-ReviewNGram = Tuple[List[Tuple[str, ...]], int]
 
 def review_ngrams(path: str, n: int) -> Iterable[ReviewNGram]:
-    for words, rating in stemmed(without_stopwords(review_words_iterator(path))):
+    reviews = review_words_iterator(path)
+    reviews_nostopwords = without_stopwords(reviews)
+    stemmed_reviews = stemmed(reviews_nostopwords)
+    for words, rating in stemmed_reviews:
         yield list(nltk_ngrams(words, n)), rating
 
+# finally, here is the representation for part e)
 bow_reviews = review_ngrams(train_path, 1)
 
 """f) (Train a Classifier): Use reviews in the train folder as "train-set" and use reviews in the test folder as "test-set".
