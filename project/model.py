@@ -38,8 +38,8 @@ class HyperParameters():
     # wether or not Batch Normalization should be applied after each dense layer.
     use_batchnorm: bool = False
 
-    gender_loss_weight: float = 1.0
-    age_loss_weight: float = 1.0
+    gender_loss_weight: float   = 1.0
+    age_loss_weight: float      = 10.0
 
     num_text_features: ClassVar[int] = 91
     num_image_features: ClassVar[int] = 65
