@@ -2,7 +2,7 @@
 
 pip install --quiet orion
 
-EXPERIMENT_NAME="one-model-each-marie-3"
+EXPERIMENT_NAME="embedding"
 
 latest_tag=`git --git-dir=ift6758.github.io/.git --work-tree=ift6758.github.io describe --tags`
 echo "latest tag is '$latest_tag'"
@@ -18,7 +18,7 @@ fi
 mkdir -p logs
 
 # TODO: change this to the maximum number of desired trials.
-MAX_TRIALS=300
+MAX_TRIALS=45
 MAX_EPOCHS_PER_EXPERIMENT=50
 orion -v --debug hunt --max-trials $MAX_TRIALS -n $EXPERIMENT_NAME ./ift6758.github.io/project/train.py \
         --experiment_name $EXPERIMENT_NAME \
@@ -32,4 +32,5 @@ orion -v --debug hunt --max-trials $MAX_TRIALS -n $EXPERIMENT_NAME ./ift6758.git
         --use_batchnorm False \
         --l1_reg~"choices(0.005, 0.0025)" \
         --l2_reg 0.005 \
+        --personality_use_likes~"choices('True', 'False')"\
         >> "logs/$EXPERIMENT_NAME.txt"

@@ -215,8 +215,13 @@ def get_likes_lists(likes_data, max_num_likes):
         index_lists.append(likes_indices)
 
     # pad each list of indices with 0s to set lenght = max_num_likes
-    lists_of_likes = tf.keras.preprocessing.sequence.pad_sequences(index_lists,
+    lists_padded = tf.keras.preprocessing.sequence.pad_sequences(index_lists,
     padding='post', maxlen=max_num_likes)
+
+    lists_of_likes = pd.DataFrame(lists_padded)
+
+    lists_of_likes.insert(loc=lists_of_likes.shape[1], column='userid', value=likes_data.index, allow_duplicates=True)
+    lists_of_likes.set_index('userid', inplace=True)
 
     return lists_of_likes
 
@@ -311,8 +316,6 @@ def preprocess_train(data_dir, num_likes=10_000, max_num_likes=2145):
         train_features {pandas DataFrame}: vectorized features scaled between 0 and 1
                 for each user id in the training set, concatenated for all modalities
                 (order = text + image + relation), with userid as DataFrame index.
-        train_likes_lists {list of lists of int}: indices of pages liked by a user,
-                padded with zeros to lenght = max_num_likes
         **(updated:)features_q10_q90 {tupple of 2 pandas Series}: series of 10th and 90th quantile values of
                 text + image features from train dataset, to be used to scale test data.
                 Note that the multihot relation features do not necessitate scaling.
@@ -360,14 +363,14 @@ def preprocess_train(data_dir, num_likes=10_000, max_num_likes=2145):
 
     # concatenate all scaled features into a single DataFrame
     additional_weird_features = image_data.iloc[:, -2:]
-    train_features = pd.concat([feat_scaled, additional_weird_features, likes_data], axis=1, sort=False)
+    train_features = pd.concat([feat_scaled, additional_weird_features, train_likes_lists], axis=1, sort=False)
 
     # DataFrame of training set labels
     train_labels = preprocess_labels(data_dir, sub_ids)
 
 
     #return train_features, features_min_max, image_means, likes_kept, train_labels
-    return train_features, train_likes_lists, features_q10_q90, image_means, likes_kept, train_labels
+    return train_features, features_q10_q90, image_means, likes_kept, train_labels
 
 
 #def preprocess_test(data_dir, min_max_train, image_means_train, likes_kept_train):
@@ -385,8 +388,6 @@ def preprocess_test(data_dir, q10_q90_train, image_means_train, likes_kept_train
         max_num_likes {int}: maximum number of pages liked by a single user (from train set)
     Output:
         test_features {pandas DataFrame}: vectorized features of test set
-        test_likes_lists {list of lists of int}: indices of pages liked by a user,
-                padded with zeros to lenght = max_num_likes
 
     '''
     # sub_ids: a numpy array of subject ids ordered alphabetically.
@@ -418,9 +419,9 @@ def preprocess_test(data_dir, q10_q90_train, image_means_train, likes_kept_train
     test_likes_lists = get_likes_lists(likes_data, max_num_likes)
 
     # concatenate all scaled features into a single DataFrame
-    test_features = pd.concat([feat_scaled, image_data.iloc[:, -2:], likes_data], axis=1, sort=False)
+    test_features = pd.concat([feat_scaled, image_data.iloc[:, -2:], test_likes_lists], axis=1, sort=False)
 
-    return test_features, test_likes_lists
+    return test_features
 
 
 def get_train_val_sets(features, labels, val_prop):
