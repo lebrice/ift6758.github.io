@@ -162,7 +162,7 @@ def get_image_raw(data_dir):
                                        x.underLipBottom_y)) / x.faceRectangle_width)
 
     oxford_modified = oxford[
-        ['faceRectangle_width', 'facialHair_mustache', 'facialHair_beard', 'facialHair_sideburns', 'eyebrow_length',
+        ['userId','faceRectangle_width', 'facialHair_mustache', 'facialHair_beard', 'facialHair_sideburns', 'eyebrow_length',
          'vert_eye', 'hori_eye', 'width_nose_root',
          'nose_root_to_tip', 'width_nose', 'length_mouth', 'bottomEye_to_mouth',
          'width_lips', 'headPose_yaw']]
