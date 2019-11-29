@@ -18,18 +18,18 @@ fi
 mkdir -p logs
 
 # TODO: change this to the maximum number of desired trials.
-MAX_TRIALS=100
-MAX_EPOCHS_PER_EXPERIMENT=500
+MAX_TRIALS=300
+MAX_EPOCHS_PER_EXPERIMENT=50
 orion -v --debug hunt --max-trials $MAX_TRIALS -n $EXPERIMENT_NAME ./ift6758.github.io/project/train.py \
         --experiment_name $EXPERIMENT_NAME \
         --epochs $MAX_EPOCHS_PER_EXPERIMENT \
-        --batch_size~"choices(64, 128, 256)" \
+        --batch_size~"choices(64, 128)" \
         --activation tanh \
-        --learning_rate~"choices(0.005, 0.001, 0.0001, 0.00005)" \
+        --learning_rate~"choices(0.005, 0.001, 0.0001)" \
         --optimizer~"choices('ADAM', 'SGD')" \
-        --num_like_pages~"choices(5000, 10000)" \
-        --use_dropout~"choices('True', 'False')" \
+        --num_like_pages 10000 \
+        --use_dropout 'True' \
         --use_batchnorm False \
-        --l1_reg~"choices(0, 0.005, 0.001)" \
-        --l2_reg~"choices(0, 0.005, 0.001)" \
+        --l1_reg~"choices(0.005, 0.0025)" \
+        --l2_reg 0.005 \
         >> "logs/$EXPERIMENT_NAME.txt"
