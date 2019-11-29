@@ -109,11 +109,18 @@ def get_image_raw(data_dir):
     # userids with 1+ face on image: 7174 out of 9500 (train set)
     # duplicated entries (userids with > 1 face on same image): 741 in train set
     oxford = pd.read_csv(os.path.join(data_dir, "Image", "oxford.csv"), sep = ',')
+
+    """
+    New Oxford Features based on facial distances
+    """
+
+
+
     oxford = oxford.sort_values(by=['userId'])
     '''
     NOTE: headPose_pitch has NO RANGE, drop that feature
+     oxford.drop(['headPose_pitch'], axis=1, inplace=True)
     '''
-    oxford.drop(['headPose_pitch'], axis=1, inplace=True)
 
     return oxford
 
