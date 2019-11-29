@@ -113,16 +113,63 @@ def get_image_raw(data_dir):
     """
     New Oxford Features based on facial distances
     """
+    def distance(x1, y1, x2, y2):
+        return np.sqrt(np.square(x1 - x2) + np.square(y1 - y2))
 
+    oxford = oxford.assign(eyebrow_length=lambda x: (distance(x.eyebrowRightInner_x, x.eyebrowRightInner_y,
+                                                                          x.eyebrowRightOuter_x, x.eyebrowRightOuter_y)
+                                                                 + distance(x.eyebrowLeftInner_x, x.eyebrowLeftInner_y,
+                                                                            x.eyebrowLeftOuter_x, x.eyebrowLeftOuter_y)
+                                                                 ) / 2 / x.faceRectangle_width
+                                       )
 
+    oxford = oxford.assign(vert_eye=lambda x: (distance(x.eyeRightInner_x, x.eyeRightInner_y,
+                                                                    x.eyeRightOuter_x, x.eyeRightOuter_y)
+                                                           + distance(x.eyeLeftInner_x, x.eyeLeftInner_y,
+                                                                      x.eyeLeftOuter_x, x.eyeLeftOuter_y)
+                                                           ) / 2 / x.faceRectangle_width)
 
-    oxford = oxford.sort_values(by=['userId'])
-    '''
-    NOTE: headPose_pitch has NO RANGE, drop that feature
-     oxford.drop(['headPose_pitch'], axis=1, inplace=True)
-    '''
+    oxford = oxford.assign(hori_eye=lambda x: (distance(x.eyeRightTop_x, x.eyeRightTop_y,
+                                                                    x.eyeRightBottom_x, x.eyeRightBottom_y)
+                                                           + distance(x.eyeLeftTop_x, x.eyeLeftTop_y,
+                                                                      x.eyeLeftBottom_x, x.eyeLeftBottom_y)
+                                                           ) / 2 / x.faceRectangle_width)
 
-    return oxford
+    oxford = oxford.assign(width_nose_root=lambda x: distance(x.noseRootLeft_x, x.noseRootLeft_y,
+                                                                          x.noseRootRight_x,
+                                                                          x.noseRootRight_y) / x.faceRectangle_width)
+
+    oxford = oxford.assign(
+        nose_root_to_tip=lambda x: distance(np.abs(x.noseRootLeft_x - x.noseRootRight_x) / 2,
+                                            np.abs(x.noseRootLeft_y - x.noseRootRight_y) / 2,
+                                            x.noseTip_x, x.noseTip_y) / x.faceRectangle_width)
+
+    oxford = oxford.assign(width_nose=lambda x: distance(x.noseRightAlarOutTip_x, x.noseRightAlarOutTip_y,
+                                                                     x.noseLeftAlarOutTip_x,
+                                                                     x.noseLeftAlarOutTip_y) / x.faceRectangle_width)
+
+    oxford = oxford.assign(length_mouth=lambda x: distance(x.mouthRight_x, x.mouthRight_y, x.mouthLeft_x,
+                                                                       x.mouthLeft_y) / x.faceRectangle_width)
+
+    oxford = oxford.assign(
+        bottomEye_to_mouth=lambda x: (distance(x.mouthRight_x, x.mouthRight_y, x.eyeRightBottom_x, x.eyeRightBottom_y)
+                                      + distance(x.mouthLeft_x, x.mouthLeft_y, x.eyeLeftBottom_x,
+                                                 x.eyeLeftBottom_y)) / 2 / x.faceRectangle_width)
+
+    oxford = oxford.assign(
+        width_lips=lambda x: (distance(x.upperLipTop_x, x.upperLipTop_y, x.upperLipBottom_x, x.upperLipBottom_y) +
+                              distance(x.underLipTop_x, x.underLipTop_y, x.underLipBottom_x,
+                                       x.underLipBottom_y)) / x.faceRectangle_width)
+
+    oxford_modified = oxford[
+        ['faceRectangle_width', 'facialHair_mustache', 'facialHair_beard', 'facialHair_sideburns', 'eyebrow_length',
+         'vert_eye', 'hori_eye', 'width_nose_root',
+         'nose_root_to_tip', 'width_nose', 'length_mouth', 'bottomEye_to_mouth',
+         'width_lips', 'headPose_yaw', 'noface', 'multiface']]
+
+    oxford_modified = oxford_modified.sort_values(by=['userId'])
+
+    return oxford_modified
 
 
 def get_likes_kept(data_dir, num_features) -> List[str]:
