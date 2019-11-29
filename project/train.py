@@ -91,6 +91,13 @@ class TrainData():
     for each user id in the training set, concatenated for all modalities
     (order = text + image + relation), with userid as DataFrame index.
     """
+    
+    train_likes_list: np.ndarray
+    """
+    For each user, a list of the index of the corresponding liked page id in `likes_kept` 
+    """
+
+
     features_min_max: Tuple[pd.DataFrame, pd.DataFrame]
     """series of min and max values of
     text + image features from train dataset, to be used to scale test data.
@@ -109,6 +116,7 @@ class TrainData():
     """
 
 
+
     def write_training_data_config(self, log_dir: str):
         mins, maxes = self.features_min_max
         image_means = self.image_means
@@ -123,7 +131,7 @@ class TrainData():
             f.write(",".join(likes))
 
 def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: TrainConfig) -> Tuple[tf.data.Dataset, tf.data.Dataset]:
-    train_data = TrainData(*preprocess_train(data_dir, hparams.num_like_pages))
+    train_data = TrainData(*preprocess_train(data_dir, hparams.num_like_pages, max_num_likes=hparams.max_number_of_likes))
 
     features = train_data.train_features
     labels = train_data.train_labels

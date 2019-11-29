@@ -218,7 +218,7 @@ def get_likes_lists(likes_data, max_num_likes):
     lists_of_likes = tf.keras.preprocessing.sequence.pad_sequences(index_lists,
     padding='post', maxlen=max_num_likes)
 
-     return lists_of_likes
+    return lists_of_likes
 
 def make_label_dict(labels):
     '''
