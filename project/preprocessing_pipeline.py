@@ -363,14 +363,14 @@ def preprocess_train(data_dir, num_likes=10_000, max_num_likes=2145):
 
     # concatenate all scaled features into a single DataFrame
     additional_weird_features = image_data.iloc[:, -2:]
-    train_features = pd.concat([feat_scaled, additional_weird_features, train_likes_lists], axis=1, sort=False)
+    train_features = pd.concat([feat_scaled, additional_weird_features, likes_data], axis=1, sort=False)
 
     # DataFrame of training set labels
     train_labels = preprocess_labels(data_dir, sub_ids)
 
 
     #return train_features, features_min_max, image_means, likes_kept, train_labels
-    return train_features, features_q10_q90, image_means, likes_kept, train_labels
+    return train_features, features_q10_q90, image_means, likes_kept, train_labels, train_likes_lists
 
 
 #def preprocess_test(data_dir, min_max_train, image_means_train, likes_kept_train):
@@ -419,9 +419,9 @@ def preprocess_test(data_dir, q10_q90_train, image_means_train, likes_kept_train
     test_likes_lists = get_likes_lists(likes_data, max_num_likes)
 
     # concatenate all scaled features into a single DataFrame
-    test_features = pd.concat([feat_scaled, image_data.iloc[:, -2:], test_likes_lists], axis=1, sort=False)
+    test_features = pd.concat([feat_scaled, image_data.iloc[:, -2:], likes_data], axis=1, sort=False)
 
-    return test_features
+    return test_features, test_likes_lists
 
 
 def get_train_val_sets(features, labels, val_prop):
