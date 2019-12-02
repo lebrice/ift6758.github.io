@@ -386,10 +386,6 @@ def preprocess_test(data_dir, q10_q90_train, image_means_train, likes_kept_train
         likes_kept_train {list of strings}: most frequent likes_ids from train set
                 (ordered by frequency) to serve as columns in relation features matrix
         max_num_likes {int}: maximum number of pages liked by a single user (from train set)
-<<<<<<< HEAD
-=======
-        output_mhot {bool}: if True, outputs multihot and likes lists as features
->>>>>>> 9a793285867aa8b2467bc95f484d2100874d88e6
     Output:
         test_features {pandas DataFrame}: vectorized features of test set
 

@@ -2,17 +2,17 @@
 
 import tensorflow as tf
 
-def get_age_model() -> tf.keras.Model:
-    age_model_path = '/saved_models/age_model_embedding_2000.h5'
+def get_gender_model():
+    gender_model_path = '/saved_models/gender_model_embedding_2000.h5'
 
-    num_layers=2
-    dense_units=64
-    learning_rate=0.00005
-    l1_reg=0.0025
+    num_layers=1
+    dense_units=32
+    learning_rate=0.0005
+    l1_reg=0.005
     l2_reg=0.005
     dropout_rate=0.1
     num_text_features = 91
-    num_image_features = 65
+    num_image_features = 65 # added back noface and multiface
     max_len = 2000
 
     image_features = tf.keras.Input([num_image_features], dtype=tf.float32, name="image_features")
@@ -38,20 +38,22 @@ def get_age_model() -> tf.keras.Model:
 
     features = dense_layers([text_features, image_features, condensed_likes])
 
-    age_group = tf.keras.layers.Dense(units=4, activation="softmax", name="age_group")(features)
+    gender = tf.keras.layers.Dense(units=1, activation="sigmoid", name="gender")(features)
 
-    model_age = tf.keras.Model(
+    model_gender = tf.keras.Model(
         inputs=[text_features, image_features, likes_features],
-        outputs= age_group
+        #outputs=[age_group, gender, ext, ope, agr, neu, con]
+        outputs= gender
     )
 
-    model_age.compile(
+    model_gender.compile(
         optimizer = tf.keras.optimizers.get({"class_name": 'ADAM',
                                    "config": {"learning_rate": 0.0005}}),
-        loss = 'categorical_crossentropy',
-        metrics = ['acc', 'categorical_accuracy']
+        loss = 'binary_crossentropy',
+        #loss_weights = 1.0, #needs to be a dictionnary... check doc for format
+        metrics = [tf.keras.metrics.BinaryAccuracy(), tf.keras.metrics.Recall()]
     )
+    
+    model_gender.load_weights(gender_model_path)
 
-    model_age.load_weights(age_model_path)
-
-    return model_age
+    return model_gender
