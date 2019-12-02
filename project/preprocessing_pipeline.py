@@ -304,11 +304,7 @@ def preprocess_labels(data_dir, sub_ids):
     return labels
 
 
-<<<<<<< HEAD
 def preprocess_train(data_dir, num_likes=10_000, max_num_likes=2145):
-=======
-def preprocess_train(data_dir, num_likes=10_000, max_num_likes=2145, output_mhot=False):
->>>>>>> 9a793285867aa8b2467bc95f484d2100874d88e6
     '''
     Purpose: preprocesses training dataset (with labels) and returns scaled features,
     labels and parameters to scale the test data set
@@ -316,10 +312,6 @@ def preprocess_train(data_dir, num_likes=10_000, max_num_likes=2145, output_mhot
         data_dir {string}: path to ~/Train data directory
         num_likes {int}: number of like_ids to keep as features
         max_num_likes {int}: maximum number of pages liked by a single user
-<<<<<<< HEAD
-=======
-        output_mhot {bool}: if True, outputs multihot and likes lists as features
->>>>>>> 9a793285867aa8b2467bc95f484d2100874d88e6
     Output:
         train_features {pandas DataFrame}: vectorized features scaled between 0 and 1
                 for each user id in the training set, concatenated for all modalities
@@ -376,7 +368,6 @@ def preprocess_train(data_dir, num_likes=10_000, max_num_likes=2145, output_mhot
     # DataFrame of training set labels
     train_labels = preprocess_labels(data_dir, sub_ids)
 
-<<<<<<< HEAD
 
     #return train_features, features_min_max, image_means, likes_kept, train_labels
     return train_features, features_q10_q90, image_means, likes_kept, train_labels, train_likes_lists
@@ -384,17 +375,6 @@ def preprocess_train(data_dir, num_likes=10_000, max_num_likes=2145, output_mhot
 
 #def preprocess_test(data_dir, min_max_train, image_means_train, likes_kept_train):
 def preprocess_test(data_dir, q10_q90_train, image_means_train, likes_kept_train, max_num_likes=2145):
-=======
-    if output_mhot:
-        return train_features, likes_data, features_q10_q90, image_means, likes_kept, train_labels
-    else:
-        #return train_features, features_min_max, image_means, likes_kept, train_labels
-        return train_features, features_q10_q90, image_means, likes_kept, train_labels
-
-
-#def preprocess_test(data_dir, min_max_train, image_means_train, likes_kept_train):
-def preprocess_test(data_dir, q10_q90_train, image_means_train, likes_kept_train, max_num_likes=2145, output_mhot=False):
->>>>>>> 9a793285867aa8b2467bc95f484d2100874d88e6
     '''
     Purpose: preprocesses test dataset (no labels)
     Input:
@@ -441,21 +421,11 @@ def preprocess_test(data_dir, q10_q90_train, image_means_train, likes_kept_train
     # list of lists of indices corresponding to pages liked
     # each padded with 0s (list's max length = max_num_likes)
     test_likes_lists = get_likes_lists(likes_data, max_num_likes)
-<<<<<<< HEAD
 
     # concatenate all scaled features into a single DataFrame
     test_features = pd.concat([feat_scaled, image_data.iloc[:, -2:], likes_data], axis=1, sort=False)
 
     return test_features, test_likes_lists
-=======
-
-    # concatenate all scaled features into a single DataFrame
-    test_features = pd.concat([feat_scaled, image_data.iloc[:, -2:], test_likes_lists], axis=1, sort=False)
-    if output_mhot:
-        return test_features, likes_data
-    else:
-        return test_features
->>>>>>> 9a793285867aa8b2467bc95f484d2100874d88e6
 
 
 def get_train_val_sets(features, labels, val_prop):
