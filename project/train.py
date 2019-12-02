@@ -91,12 +91,6 @@ class TrainData():
     for each user id in the training set, concatenated for all modalities
     (order = text + image + relation), with userid as DataFrame index.
     """
-    
-    train_likes_list: np.ndarray
-    """
-    For each user, a list of the index of the corresponding liked page id in `likes_kept` 
-    """
-
 
     features_min_max: Tuple[pd.DataFrame, pd.DataFrame]
     """series of min and max values of
@@ -135,6 +129,7 @@ def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: 
 
     features = train_data.train_features
     labels = train_data.train_labels
+
     if DEBUG:
         train_data.likes_kept = [str(i) for i in range(hparams.num_like_pages)]
 
@@ -151,7 +146,7 @@ def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: 
     # The names of each column for each type of feature. Could be useful for debugging.
     text_columns_names, image_columns_names, likes_columns_names = split_features(column_names, hparams)
 
-    expected_num_columns = hparams.num_text_features + hparams.num_image_features + hparams.num_like_pages
+    expected_num_columns = hparams.num_text_features + hparams.num_image_features + hparams.max_number_of_likes
     assert features.shape[1] == expected_num_columns
 
 

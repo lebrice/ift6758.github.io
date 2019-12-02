@@ -38,8 +38,8 @@ class HyperParameters():
     # wether or not Batch Normalization should be applied after each dense layer.
     use_batchnorm: bool = False
 
-    gender_loss_weight: float = 1.0
-    age_loss_weight: float = 1.0
+    gender_loss_weight: float   = 1.0
+    age_loss_weight: float      = 10.0
 
     num_text_features: ClassVar[int] = 91
     num_image_features: ClassVar[int] = 65
@@ -77,7 +77,7 @@ class HyperParameters():
     embedding_dim: int = 8 # the output size of the like embedding layer
 
 
-best_model_so_far = "checkpoints/one-model-each-marie-3/2019-11-26_19-03-50"
+best_model_so_far = "checkpoints/embedding/2019-11-29_15-45-36"
 
 
 @dataclass
@@ -256,7 +256,7 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
     # userid         =    tf.keras.Input([], dtype=tf.string, name="userid")
     image_features =    tf.keras.Input([hparams.num_image_features], dtype=tf.float32, name="image_features")
     text_features  =    tf.keras.Input([hparams.num_text_features], dtype=tf.float32, name="text_features")
-    likes_features =    tf.keras.Input([hparams.num_like_pages], dtype=tf.int32, name="likes_features")
+    likes_features =    tf.keras.Input([hparams.max_number_of_likes], dtype=tf.int32, name="likes_features")
     
     # MODEL OUTPUTS:
     gender = gender_model(hparams, image_features, text_features, likes_features)

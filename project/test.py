@@ -27,8 +27,6 @@ class TestConfig:
     min_max_train: Tuple[np.ndarray, np.ndarray] = field(init=False, repr=False)
     likes_kept_train: List[int] = field(init=False, repr=False)
     image_means_train: np.ndarray = field(init=False, repr=False)
-
-    test_features: pd.DataFrame = field(init=False)
     training_config: TrainConfig = field(init=False)
 
     def __post_init__(self):
@@ -49,16 +47,19 @@ class TestConfig:
             self.likes_kept_train = [int(like) for like in f.readline().split(",") if like.strip() != ""]
         with open(os.path.join(self.trained_model_dir, "train_features_image_means.csv")) as f:
             self.image_means_train = to_np_float_array(f.readline())
-        
-        self.test_features = preprocess_test(self.i, self.min_max_train, self.image_means_train, self.likes_kept_train)
-
-
-
-
+    
+    def get_test_features(self, train_hparams: HyperParameters) -> pd.DataFrame:
+        return preprocess_test(
+            self.i,
+            self.min_max_train,
+            self.image_means_train,
+            self.likes_kept_train,
+            train_hparams.max_number_of_likes,
+        )
 
 
 def test_input_pipeline(data_dir: str, test_config: TestConfig, hparams: HyperParameters):
-    test_features = test_config.test_features
+    test_features = test_config.get_test_features(hparams)
 
     # TODO: save the information that will be used in the testing phase to a file or something.
     column_names = list(test_features.columns)
@@ -83,7 +84,8 @@ def test_input_pipeline(data_dir: str, test_config: TestConfig, hparams: HyperPa
             "userid": test_features.index.astype(str),
             "text_features": text_features.astype(float),
             "image_features": image_features.astype(float),
-            "likes_features": likes_features.astype(bool),
+            # "likes_features": likes_features.astype(bool),
+            "likes_features": likes_features,
         }
     )
     return features_dataset.batch(hparams.batch_size)
