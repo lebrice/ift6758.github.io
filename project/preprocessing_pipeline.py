@@ -152,7 +152,7 @@ def get_relations(data_dir: str, sub_ids: List[str], like_ids_to_keep: List[str]
     Returns:
         relations_data -- multihot matrix of the like_id. Rows are indexed with userid, entries are boolean.
     '''
-    relation = pd.read_csv(os.path.join(data_dir, "Relation", "Relation.csv")) #, index_col=1)
+    relation = pd.read_csv(os.path.join(data_dir, "Relation", "new_rel.csv")) #, index_col=1)
     relation = relation.drop(['Unnamed: 0'], axis=1)
 
     ## One HUGE step:
