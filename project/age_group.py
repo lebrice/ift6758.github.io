@@ -3,7 +3,7 @@
 import tensorflow as tf
 
 def get_age_model() -> tf.keras.Model:
-    age_model_path = '/saved_models/age_model_embedding_2000.h5'
+    age_model_path = 'saved_models/age_model_embedding_2000.h5'
 
     num_layers=2
     dense_units=64
