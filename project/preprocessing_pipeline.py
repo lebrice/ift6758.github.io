@@ -198,6 +198,32 @@ def get_relations(data_dir: str, sub_ids: List[str], like_ids_to_keep: List[str]
 
     return relation_data
 
+def get_likes_lists(likes_data, max_num_likes):
+    '''
+    Purpose: make list of lists of indices of liked pages per user
+    Input:
+        likes_data {pandas DataFrame}: multihot matrix of the like_id. Rows are indexed with userid, entries are boolean
+    Output:
+        lists_of_likes {list of lists of int}: indices of pages liked by each user,
+                padded with zeros to lenght = max_num_likes
+
+    '''
+    # create list of lists of indices (one per user) corresponding to liked pages in one-hot matrix
+    index_lists = []
+    for index in likes_data.index:
+        likes_indices = np.nonzero(likes_data.loc[index].to_numpy())[0].tolist()
+        index_lists.append(likes_indices)
+
+    # pad each list of indices with 0s to set lenght = max_num_likes
+    lists_padded = tf.keras.preprocessing.sequence.pad_sequences(index_lists,
+    padding='post', maxlen=max_num_likes)
+
+    lists_of_likes = pd.DataFrame(lists_padded)
+
+    lists_of_likes.insert(loc=lists_of_likes.shape[1], column='userid', value=likes_data.index, allow_duplicates=True)
+    lists_of_likes.set_index('userid', inplace=True)
+
+    return lists_of_likes
 
 def make_label_dict(labels):
     '''
@@ -278,13 +304,15 @@ def preprocess_labels(data_dir, sub_ids):
     return labels
 
 
-def preprocess_train(data_dir, num_likes=10_000):
+def preprocess_train(data_dir, num_likes=10_000, max_num_likes=2145, output_mhot=False):
     '''
     Purpose: preprocesses training dataset (with labels) and returns scaled features,
     labels and parameters to scale the test data set
     Input
         data_dir {string}: path to ~/Train data directory
         num_likes {int}: number of like_ids to keep as features
+        max_num_likes {int}: maximum number of pages liked by a single user
+        output_mhot {bool}: if True, outputs multihot and likes lists as features
     Output:
         train_features {pandas DataFrame}: vectorized features scaled between 0 and 1
                 for each user id in the training set, concatenated for all modalities
@@ -332,20 +360,24 @@ def preprocess_train(data_dir, num_likes=10_000):
     # multi-hot matrix of likes from train data
     likes_data = get_relations(data_dir, sub_ids, likes_kept)
 
+    train_likes_lists = get_likes_lists(likes_data, max_num_likes)
+
     # concatenate all scaled features into a single DataFrame
     additional_weird_features = image_data.iloc[:, -2:]
-    train_features = pd.concat([feat_scaled, additional_weird_features, likes_data], axis=1, sort=False)
+    train_features = pd.concat([feat_scaled, additional_weird_features, train_likes_lists], axis=1, sort=False)
 
     # DataFrame of training set labels
     train_labels = preprocess_labels(data_dir, sub_ids)
 
-
-    #return train_features, features_min_max, image_means, likes_kept, train_labels
-    return train_features, features_q10_q90, image_means, likes_kept, train_labels
+    if output_mhot:
+        return train_features, likes_data, features_q10_q90, image_means, likes_kept, train_labels
+    else:
+        #return train_features, features_min_max, image_means, likes_kept, train_labels
+        return train_features, features_q10_q90, image_means, likes_kept, train_labels
 
 
 #def preprocess_test(data_dir, min_max_train, image_means_train, likes_kept_train):
-def preprocess_test(data_dir, q10_q90_train, image_means_train, likes_kept_train):
+def preprocess_test(data_dir, q10_q90_train, image_means_train, likes_kept_train, max_num_likes=2145, output_mhot=False):
     '''
     Purpose: preprocesses test dataset (no labels)
     Input:
@@ -356,8 +388,11 @@ def preprocess_test(data_dir, q10_q90_train, image_means_train, likes_kept_train
                 missing entries in oxford test set
         likes_kept_train {list of strings}: most frequent likes_ids from train set
                 (ordered by frequency) to serve as columns in relation features matrix
+        max_num_likes {int}: maximum number of pages liked by a single user (from train set)
+        output_mhot {bool}: if True, outputs multihot and likes lists as features
     Output:
         test_features {pandas DataFrame}: vectorized features of test set
+
     '''
     # sub_ids: a numpy array of subject ids ordered alphabetically.
     # text_data: a pandas DataFrame of unscaled text data (liwc and nrc)
@@ -383,10 +418,16 @@ def preprocess_test(data_dir, q10_q90_train, image_means_train, likes_kept_train
     # multi-hot matrix of likes from train data
     likes_data = get_relations(data_dir, sub_ids, likes_kept_train)
 
-    # concatenate all scaled features into a single DataFrame
-    test_features = pd.concat([feat_scaled, image_data.iloc[:, -2:], likes_data], axis=1, sort=False)
+    # list of lists of indices corresponding to pages liked
+    # each padded with 0s (list's max length = max_num_likes)
+    test_likes_lists = get_likes_lists(likes_data, max_num_likes)
 
-    return test_features
+    # concatenate all scaled features into a single DataFrame
+    test_features = pd.concat([feat_scaled, image_data.iloc[:, -2:], test_likes_lists], axis=1, sort=False)
+    if output_mhot:
+        return test_features, likes_data
+    else:
+        return test_features
 
 
 def get_train_val_sets(features, labels, val_prop):
