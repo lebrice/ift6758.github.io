@@ -330,8 +330,8 @@ def preprocess_train(data_dir, num_likes=10_000):
         if False:
             likes_kept = get_likes_kept(data_dir, num_likes)
         else:
-            likes_kept=np.load('unique_without_overlap.npy')
-            #likes_kept=np.load('unique_w_overlap.npy')
+            likes_kept=np.load(os.path.join(input_dir, "Relation", "unique_without_overlap.npy"))
+            #likes_kept=np.load(os.path.join(input_dir, "Relation", 'unique_w_overlap.npy'))
 
     # multi-hot matrix of likes from train data
     likes_data = get_relations(data_dir, sub_ids, likes_kept)
