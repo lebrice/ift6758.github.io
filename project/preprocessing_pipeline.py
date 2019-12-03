@@ -327,7 +327,7 @@ def preprocess_train(data_dir, num_likes=10_000):
     if DEBUG:
         likes_kept = [str(v) for v in range(num_likes)]
     else:
-        if FALSE:
+        if False:
             likes_kept = get_likes_kept(data_dir, num_likes)
         else:
             likes_kept=np.load('unique_without_overlap.npy')
