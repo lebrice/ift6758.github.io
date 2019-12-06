@@ -41,7 +41,7 @@ class TaskHyperParameters:
     l2_reg: float = 0.005
     # Wether or not a task-specific Embedding layer should be used on the 'likes' features.
     # When set to 'True', it is expected that there no shared embedding is used.
-    embed_likes: bool = True
+    embed_likes: bool = False
 
 @dataclass
 class HyperParameters():
@@ -58,7 +58,7 @@ class HyperParameters():
     num_like_pages: int = 10_000
 
     gender_loss_weight: float   = 1.0
-    age_loss_weight: float      = 10.0
+    age_loss_weight: float      = 1.0
 
     num_text_features: ClassVar[int] = 91
     num_image_features: ClassVar[int] = 65
@@ -66,7 +66,7 @@ class HyperParameters():
     max_number_of_likes: int = 2000
     embedding_dim: int = 8
 
-    shared_likes_embedding: bool = False
+    shared_likes_embedding: bool = True
 
     # Gender model settings:
     gender: TaskHyperParameters = TaskHyperParameters(
@@ -123,6 +123,10 @@ Model = Callable[[tf.Tensor, tf.Tensor, tf.Tensor], tf.Tensor]
 def task_model(task_params: TaskHyperParameters, name: str = None) -> tf.keras.Sequential:
     # Model:
     model = tf.keras.Sequential(name=task_params.name if name is None else name)
+
+    if task_params.use_image_features or task_params.use_likes:
+        model.add(tf.keras.layers.Concatenate())
+
     for i in range(task_params.num_layers):
         model.add(tf.keras.layers.Dense(
             units=task_params.num_units,
@@ -151,22 +155,30 @@ def apply_model(model: tf.keras.Sequential, hparams: HyperParameters, task_param
     Returns:
         Model: A Callable which accepts the Text, Image and Relation tensors and returns an output Tensor.
     """
+
+    
     def apply(text_features: tf.Tensor, image_features: tf.Tensor, likes_features: tf.Tensor) -> tf.Tensor:
         model_inputs = [text_features]
         if task_params.use_image_features:
             model_inputs.append(image_features)
-        if task_params.use_likes:    
-            likes_embedding_model = likes_embedding(
-                name                = task_params.name if name is None else name,
-                num_page_likes      = hparams.num_like_pages,
-                max_number_of_likes = hparams.max_number_of_likes,
-            )
-            likes_embeddings = likes_embedding_model(likes_features)
-            model_inputs.append(likes_embeddings)
-        if len(model_inputs) > 1:
-            model_output = model(tf.keras.layers.Concatenate()(model_inputs))
-        else:
+        if task_params.use_likes:
+            if task_params.embed_likes:
+                assert not hparams.shared_likes_embedding
+                likes_embedding_model = likes_embedding(
+                    name                = task_params.name if name is None else name,
+                    num_page_likes      = hparams.num_like_pages,
+                    max_number_of_likes = hparams.max_number_of_likes,
+                )
+                likes_embeddings = likes_embedding_model(likes_features)
+                model_inputs.append(likes_embeddings)
+            else:
+                assert hparams.shared_likes_embedding
+                model_inputs.append(likes_features)
+
+        if len(model_inputs) == 1:
             model_output = model(model_inputs[0])
+        else:
+            model_output = model(model_inputs)
         return model_output 
     return apply
 
@@ -176,7 +188,6 @@ def gender_model(hparams: HyperParameters) -> Model:
     model.add(tf.keras.layers.Dense(units=1, activation="sigmoid", name="gender_out"))
     model = apply_model(model, hparams, hparams.gender)
     return model
-
 
 def age_group_model(hparams: HyperParameters) -> Model:
     model = task_model(hparams.age_group)
@@ -188,7 +199,7 @@ def personality_model(personality_trait: str, hparams: HyperParameters) -> Model
     model = task_model(hparams.personality, name=personality_trait)
     model.add(tf.keras.layers.Dense(units=1, activation="sigmoid", name=f"{personality_trait}_out"))
     model.add(personality_scaling(f"{personality_trait}_out"))
-    model = apply_model(model, hparams, hparams.age_group, name=personality_trait)
+    model = apply_model(model, hparams, hparams.personality, name=personality_trait)
     return model
 
 
@@ -215,20 +226,25 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
             num_page_likes      = hparams.num_like_pages,
             max_number_of_likes = hparams.max_number_of_likes,
         )
-        likes_features = likes_embedding_model(likes_features)
-
+        likes_embeddings = likes_embedding_model(likes_features)
+        likes_embedding_model.summary()
+    
     input_features = [text_features, image_features, likes_features]
+    if hparams.shared_likes_embedding:
+        task_model_inputs = [text_features, image_features, likes_embeddings]
+    else:
+        task_model_inputs = input_features
 
     gender_predictor = gender_model(hparams)
-    gender = gender_predictor(*input_features)
+    gender = gender_predictor(*task_model_inputs)
 
     age_group_predictor = age_group_model(hparams)
-    age_group = age_group_predictor(*input_features)
-   
+    age_group = age_group_predictor(*task_model_inputs)
+
     personality_outputs: List[tf.Tensor] = []
     for personality_trait in ["ext", "ope", "agr", "neu", "con"]:
         personality_trait_predictor = personality_model(personality_trait, hparams)
-        output_tensor = personality_trait_predictor(*input_features)
+        output_tensor = personality_trait_predictor(*task_model_inputs)
         personality_outputs.append(output_tensor)
 
     # MODEL OUTPUTS:

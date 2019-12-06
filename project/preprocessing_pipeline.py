@@ -304,7 +304,7 @@ def preprocess_labels(data_dir, sub_ids):
     return labels
 
 
-def preprocess_train(data_dir, num_likes=10_000, use_custom_likes = True, output_mhot=False):
+def preprocess_train(data_dir, num_likes=10_000, use_custom_likes = True, output_mhot=False, max_num_likes: int = 2000):
     '''
     Purpose: preprocesses training dataset (with labels) and returns scaled features,
     labels and parameters to scale the test data set

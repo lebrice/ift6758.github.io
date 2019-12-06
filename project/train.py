@@ -126,7 +126,6 @@ class TrainData():
 
 def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: TrainConfig) -> Tuple[tf.data.Dataset, tf.data.Dataset]:
     train_data = TrainData(*preprocess_train(data_dir, hparams.num_like_pages, max_num_likes=hparams.max_number_of_likes))
-
     features = train_data.train_features
     labels = train_data.train_labels
 
