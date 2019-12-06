@@ -152,7 +152,7 @@ def get_relations(data_dir: str, sub_ids: List[str], like_ids_to_keep: List[str]
     Returns:
         relations_data -- multihot matrix of the like_id. Rows are indexed with userid, entries are boolean.
     '''
-    relation = pd.read_csv(os.path.join(data_dir, "Relation", "new_rel.csv")) #, index_col=1)
+    relation = pd.read_csv(os.path.join(data_dir, "Relation", "Relation.csv")) #, index_col=1)
     relation = relation.drop(['Unnamed: 0'], axis=1)
 
     ## One HUGE step:
@@ -278,7 +278,7 @@ def preprocess_labels(data_dir, sub_ids):
     return labels
 
 
-def preprocess_train(data_dir, num_likes=10_000):
+def preprocess_train(data_dir, num_likes=10_000, use_custom_likes = True):
     '''
     Purpose: preprocesses training dataset (with labels) and returns scaled features,
     labels and parameters to scale the test data set
@@ -325,12 +325,19 @@ def preprocess_train(data_dir, num_likes=10_000):
     features_q10_q90 = (feat_q10, feat_q90)
 
     if DEBUG:
-        likes_kept = [str(v) for v in range(num_likes)]
-    else:
-        if False:
-            likes_kept = get_likes_kept(data_dir, num_likes)
+        if use_custom_likes:
+            path = os.path.join(data_dir, "Relation", "unique_without_overlap.npy")
+            assert os.path.exists(path)
+            likes_kept=np.load(path)
         else:
-            likes_kept=np.load(os.path.join(data_dir, "Relation", "unique_without_overlap.npy"))
+            likes_kept = [str(v) for v in range(num_likes)]
+    else:
+        if use_custom_likes:
+            path = os.path.join(data_dir, "Relation", "unique_without_overlap.npy")
+            assert os.path.exists(path)
+            likes_kept=np.load(path)
+        else:
+            likes_kept = get_likes_kept(data_dir, num_likes)
             #likes_kept=np.load(os.path.join(data_dir, "Relation", 'unique_w_overlap.npy'))
 
     # multi-hot matrix of likes from train data
