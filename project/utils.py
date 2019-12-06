@@ -70,3 +70,14 @@ class EarlyStoppingWhenValueExplodes(tf.keras.callbacks.Callback):
                 print(f"\n\n{'Batch' if self.check_every_batch else 'Epoch'} {t}: Early stopping because loss is greater than max value ({self.monitor} = {current})\n\n")
             self.model.stop_training = True
 
+def flatten_dict(nested_dict: Dict[str, Union[Dict, Any]]) -> Dict[str, Any]:
+    flattened = {}
+    for key, value in nested_dict.items():
+        if not isinstance(value, dict):
+            flattened[key] = value
+        else:
+            flattened_child = flatten_dict(value)
+            for child_key, child_value in flattened_child.items():
+                flattened[key + "." + child_key] = child_value
+    return flattened
+    

@@ -287,10 +287,17 @@ def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConf
             valid_dataset = valid_dataset.repeat(100)
 
     using_validation_set = valid_dataset is not None
+    hparams_dict = asdict(hparams)
+    import pprint
+    pprint.pprint(hparams_dict, indent=4)
+    flattened_dict = utils.flatten_dict(hparams_dict)
 
     training_callbacks = [
         tf.keras.callbacks.TensorBoard(log_dir = train_config.log_dir, profile_batch=0),
-        hp.KerasCallback(train_config.log_dir, asdict(hparams)),
+        hp.KerasCallback(train_config.log_dir, flattened_dict),
+
+
+
         tf.keras.callbacks.TerminateOnNaN(),
         utils.EarlyStoppingWhenValueExplodes(monitor="loss", check_every_batch=True),
         tf.keras.callbacks.ModelCheckpoint(
