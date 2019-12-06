@@ -304,7 +304,7 @@ def preprocess_labels(data_dir, sub_ids):
     return labels
 
 
-def preprocess_train(data_dir, num_likes=10_000, max_num_likes=2145, output_mhot=False):
+def preprocess_train(data_dir, num_likes=10_000, use_custom_likes = True, output_mhot=False):
     '''
     Purpose: preprocesses training dataset (with labels) and returns scaled features,
     labels and parameters to scale the test data set
@@ -353,9 +353,20 @@ def preprocess_train(data_dir, num_likes=10_000, max_num_likes=2145, output_mhot
     features_q10_q90 = (feat_q10, feat_q90)
 
     if DEBUG:
-        likes_kept = [str(v) for v in range(num_likes)]
+        if use_custom_likes:
+            path = os.path.join(data_dir, "Relation", "unique_without_overlap.npy")
+            assert os.path.exists(path)
+            likes_kept=np.load(path)
+        else:
+            likes_kept = [str(v) for v in range(num_likes)]
     else:
-        likes_kept = get_likes_kept(data_dir, num_likes)
+        if use_custom_likes:
+            path = os.path.join(data_dir, "Relation", "unique_without_overlap.npy")
+            assert os.path.exists(path)
+            likes_kept=np.load(path)
+        else:
+            likes_kept = get_likes_kept(data_dir, num_likes)
+            #likes_kept=np.load(os.path.join(data_dir, "Relation", 'unique_w_overlap.npy'))
 
     # multi-hot matrix of likes from train data
     likes_data = get_relations(data_dir, sub_ids, likes_kept)
