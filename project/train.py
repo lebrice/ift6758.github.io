@@ -407,7 +407,7 @@ def main(hparams: HyperParameters, train_config: TrainConfig):
     print("Hyperparameters:", hparams)
     print("Train_config:", train_config)
 
-    # create the results path so its directly possible to call the "tail" progam to stream the results as they come in.
+    # create the results path so its directly possible to call the "tail" program to stream the results as they come in.
     experiment_results_file = os.path.join("logs", train_config.experiment_name +"-results.txt")
     with open(experiment_results_file, "a") as runs_results_file:
         pass
