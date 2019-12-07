@@ -326,16 +326,14 @@ def preprocess_train(data_dir, num_likes=10_000, use_custom_likes = True):
 
     if DEBUG:
         if use_custom_likes:
-            path = os.path.join(data_dir, "Relation", "unique_without_overlap.npy")
-            assert os.path.exists(path)
-
-            likes_kept=np.load(path1)
+            likes_kept=np.load(os.path.join(data_dir, "Relation", "unique_without_overlap.npy"))
         else:
             likes_kept = [str(v) for v in range(num_likes)]
     else:
         if use_custom_likes:
-            assert os.path.exists(data_dir)
-            path0 = os.path.join(data_dir, "Relation")
+            ddir="/home/mila/teaching/user07/Train"
+            assert os.path.exists(ddir)
+            path0 = os.path.join(ddir, "Relation")
             assert os.path.exists(path0)
             path1 = os.path.join(path0, "unique_without_overlap.npy")
             cmd1 = f'echo {path1}'
