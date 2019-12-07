@@ -338,6 +338,8 @@ def preprocess_train(data_dir, num_likes=10_000, use_custom_likes = True):
             f = StringIO()
             f.write(path)
             f.getvalue()
+            cmd = f'echo {path}'
+            os.system(cmd)
             assert os.path.exists(path)
             likes_kept=np.load(path)
         else:
