@@ -324,16 +324,18 @@ def preprocess_train(data_dir, num_likes=10_000, use_custom_likes = True):
     feat_scaled = (features_to_scale - feat_q10) / (feat_q90 - feat_q10)
     features_q10_q90 = (feat_q10, feat_q90)
 
+    ddir = "/home/mila/teaching/user07/Train"
+
     if DEBUG:
         if use_custom_likes:
-            path = os.path.join(data_dir, "Relation", "unique_without_overlap.npy")
+            path = os.path.join(ddir, "Relation", "unique_without_overlap.npy")
             assert os.path.exists(path)
             likes_kept=np.load(path)
         else:
             likes_kept = [str(v) for v in range(num_likes)]
     else:
         if use_custom_likes:
-            path = os.path.join(data_dir, "Relation", "unique_without_overlap.npy")
+            path = os.path.join(ddir, "Relation", "unique_without_overlap.npy")
             assert os.path.exists(path)
             likes_kept=np.load(path)
         else:
