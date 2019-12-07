@@ -304,7 +304,7 @@ def preprocess_train(data_dir, num_likes=10_000, use_custom_likes = True):
     # text_data: a pandas DataFrame of unscaled text data (liwc and nrc)
     sub_ids, text_data = get_text_data(data_dir)
     # image_data: pandas dataframe of oxford data
-    # image_min_max: a tupple of 2 pandas series, the min and max values from oxford training features
+    # image_min_max: a tuple of 2 pandas series, the min and max values from oxford training features
     image_data_raw = get_image_raw(data_dir)
     image_means = image_data_raw.iloc[:, 2:].mean().tolist()
     image_data = get_image_clean(sub_ids, image_data_raw, image_means)
