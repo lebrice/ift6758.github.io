@@ -103,8 +103,8 @@ class HyperParameters():
         use_batchnorm=False,
         use_dropout=True,
         dropout_rate=0.1,
-        use_image_features=True,
-        use_likes=True,
+        use_image_features=False,
+        use_likes=False,
     )
 
 def likes_embedding(name: str, num_page_likes: int, max_number_of_likes: int, embedding_dim: int = 8) -> tf.keras.Sequential:

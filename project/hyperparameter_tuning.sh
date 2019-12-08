@@ -2,7 +2,7 @@
 
 pip install --quiet orion
 
-EXPERIMENT_NAME="shared-embedding"
+EXPERIMENT_NAME="shared-embedding-01"
 
 latest_tag=`git --git-dir=ift6758.github.io/.git --work-tree=ift6758.github.io describe --tags`
 echo "latest tag is '$latest_tag'"
@@ -23,8 +23,8 @@ MAX_EPOCHS_PER_EXPERIMENT=500
 orion -v --debug hunt --max-trials $MAX_TRIALS -n $EXPERIMENT_NAME ./ift6758.github.io/project/train.py \
         --experiment_name $EXPERIMENT_NAME \
         --epochs $MAX_EPOCHS_PER_EXPERIMENT \
-        --batch_size~"choices(64, 128)" \
-        --learning_rate~"choices(0.005, 0.001, 0.0001)" \
+        --batch_size~"choices(64, 128, 256, 512)" \
+        --learning_rate~"choices(0.001, 0.0001, 0.00001)" \
         --optimizer~"choices('ADAM', 'SGD')" \
         --num_like_pages 10000 \
         >> "logs/$EXPERIMENT_NAME.txt"
