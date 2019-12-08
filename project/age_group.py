@@ -3,11 +3,10 @@
 import tensorflow as tf
 
 def get_age_model() -> tf.keras.Model:
-    age_model_path = 'saved_models/age_model_embedding_2000.h5'
+    age_model_path = 'saved_models/age_model_embedding_2000_fullset.h5'
 
     num_layers=2
-    dense_units=64
-    learning_rate=0.00005
+    dense_units=62
     l1_reg=0.0025
     l2_reg=0.005
     dropout_rate=0.1
@@ -20,7 +19,7 @@ def get_age_model() -> tf.keras.Model:
     likes_features = tf.keras.Input([max_len], dtype=tf.int32, name="likes_features")
 
     likes_embedding_block = tf.keras.Sequential(name="likes_embedding_block")
-    likes_embedding_block.add(tf.keras.layers.Embedding(10000, 8, input_length=max_len))
+    likes_embedding_block.add(tf.keras.layers.Embedding(10000, 8, input_length=max_len, mask_zero=True))
     likes_embedding_block.add(tf.keras.layers.Flatten())
 
     condensed_likes = likes_embedding_block(likes_features)
@@ -47,7 +46,7 @@ def get_age_model() -> tf.keras.Model:
 
     model_age.compile(
         optimizer = tf.keras.optimizers.get({"class_name": 'ADAM',
-                                   "config": {"learning_rate": 0.0005}}),
+                                   "config": {"learning_rate": 0.0001}}),
         loss = 'categorical_crossentropy',
         metrics = ['acc', 'categorical_accuracy']
     )
