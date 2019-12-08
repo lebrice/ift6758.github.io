@@ -68,6 +68,9 @@ class HyperParameters():
 
     shared_likes_embedding: bool = True
 
+    # Wether or not to use Rémi's better kept like pages
+    use_custom_likes: bool = True
+
     # Gender model settings:
     gender: TaskHyperParameters = TaskHyperParameters(
         "gender",

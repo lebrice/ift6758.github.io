@@ -3,6 +3,7 @@ import glob
 
 import numpy as np
 import pandas as pd
+import logging
 
 import tensorflow as tf
 
@@ -352,21 +353,22 @@ def preprocess_train(data_dir, num_likes=10_000, use_custom_likes = True, output
     feat_scaled = (features_to_scale - feat_q10) / (feat_q90 - feat_q10)
     features_q10_q90 = (feat_q10, feat_q90)
 
-    if DEBUG:
-        if use_custom_likes:
+    if use_custom_likes:
+        try:
             path = os.path.join(data_dir, "Relation", "unique_without_overlap.npy")
-            assert os.path.exists(path)
             likes_kept=np.load(path)
-        else:
-            likes_kept = [str(v) for v in range(num_likes)]
+        except IOError as e:
+            logging.error(f"ERROR: unable to open the filtered likes file, using the {num_likes} most popular pages instead...")
+            if DEBUG:
+                likes_kept = [str(v) for v in range(num_likes)]
+            else:
+                likes_kept = get_likes_kept(data_dir, num_likes)
     else:
-        if use_custom_likes:
-            path = os.path.join(data_dir, "Relation", "unique_without_overlap.npy")
-            assert os.path.exists(path)
-            likes_kept=np.load(path)
+        if DEBUG:
+            likes_kept = [str(v) for v in range(num_likes)]
         else:
             likes_kept = get_likes_kept(data_dir, num_likes)
-            #likes_kept=np.load(os.path.join(data_dir, "Relation", 'unique_w_overlap.npy'))
+                #likes_kept=np.load(os.path.join(data_dir, "Relation", 'unique_w_overlap.npy'))
 
     # multi-hot matrix of likes from train data
     likes_data = get_relations(data_dir, sub_ids, likes_kept)
