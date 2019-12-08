@@ -27,10 +27,4 @@ orion -v --debug hunt --max-trials $MAX_TRIALS -n $EXPERIMENT_NAME ./ift6758.git
         --learning_rate~"choices(0.005, 0.001, 0.0001)" \
         --optimizer~"choices('ADAM', 'SGD')" \
         --num_like_pages 10000 \
-        --gender.use_likes~"choices('True', 'False')" \
-        --gender.use_image_features~"choices('True', 'False')" \
-        --age_group.use_likes~"choices('True', 'False')" \
-        --age_group.use_image_features~"choices('True', 'False')" \
-        --personality.use_likes~"choices('True', 'False')" \
-        --personality.use_image_features~"choices('True', 'False')" \
         >> "logs/$EXPERIMENT_NAME.txt"
