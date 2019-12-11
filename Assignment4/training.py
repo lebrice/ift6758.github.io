@@ -67,7 +67,7 @@ from datetime import datetime
 
 def train(model: tf.keras.Model, save_path: str) -> Tuple[tf.keras.Model, tf.keras.callbacks.History]:
     callbacks = [
-        tf.keras.callbacks.TensorBoard(log_dir=os.path.join("logs"), profile_batch=0),
+        # tf.keras.callbacks.TensorBoard(log_dir=os.path.join("logs"), profile_batch=0),
         tf.keras.callbacks.EarlyStopping(),
         tf.keras.callbacks.ModelCheckpoint(save_path),
     ]
@@ -83,9 +83,13 @@ def train(model: tf.keras.Model, save_path: str) -> Tuple[tf.keras.Model, tf.ker
 
 def make_plot(history: tf.keras.callbacks.History, model_name="default"):
     import matplotlib.pyplot as plt
+
+    epochs = range(1, len(history.epoch) + 1)
     plt.title(f"Training and Validation Accuracy of the {model_name} model over {len(history.epoch)} epochs.")
-    plt.plot(history.history["accuracy"], label="train acc")
-    plt.plot(history.history["val_accuracy"], label="valid acc")
+    plt.plot(epochs, history.history["accuracy"], label="train acc")
+    plt.plot(epochs, history.history["val_accuracy"], label="valid acc")
+    plt.xlabel('Epochs')
+    plt.ylabel('Loss')
     plt.legend()
     plt.savefig(f"{model_name}_model_loss.png")
     plt.show()
@@ -137,25 +141,34 @@ def most_confused_classes(confusion_matrix: np.ndarray):
     assert confusion_matrix.shape[0] == confusion_matrix.shape[1]
     num_classes = confusion_matrix.shape[0]
 
-    # sum the non-diagonal entries in the confusion matrix:
-    # (as the diagonal entries are classified correctly)
-    classified_correctly = np.identity(num_classes, dtype=bool)
-    misclassified = confusion_matrix ^ ~classified_correctly
-    misclassifications = np.sum(confusion_matrix, axis=0)
-    misclassifications_dict = dict(enumerate(misclassifications))
+    # sum the non-diagonal entries in the confusion matrix accross rows and columns:
+    diagonal = np.diag_indices(num_classes)
+    correctly_classified = confusion_matrix[diagonal]
+    
+    misclassified = np.copy(confusion_matrix)
+    misclassified[diagonal] = 0
+    misclassified_rows = np.sum(misclassified, axis=0)
+    misclassified_cols = np.sum(misclassified, axis=1)
+
+    precisions = misclassified_rows / correctly_classified
+    recalls = misclassified_cols / correctly_classified
+    print("precisions:", precisions)
+    print("recalls:", recalls)
+    
+    misclassifications_dict = dict(enumerate(misclassified_rows))
     most_misclassified = sorted(misclassifications_dict.items(), key=lambda kv: kv[1], reverse=True)
     return list(most_misclassified)
 
-# print(confusion_matrix)
+print(confusion_matrix)
 
 most_misclassified = most_confused_classes(confusion_matrix)
-print(most_misclassified)
+print(f"The 3 most_misclassified classes are: {most_misclassified[:3]}")
 
 
 # Bonus point (10 points)
 # Can you suggest an improvement to the model? Implement it and compare to the one above. How to do robust comparison of the performance?
 
-# - Use Dropout after the first dense layer to further reduce overfitting:
+# - Use Dropout after the first dense layer to improve generalization and test performance:
 from tensorflow.keras.layers import Dropout
 
 
@@ -196,7 +209,8 @@ else:
     # improved_model.summary()
 
 predictions = improved_model.predict(x=test_x, verbose=0)
-improved_accuracy, confusion_matrix = compute_confusion_matrix(predictions, test_y)
+improved_accuracy, improved_confusion_matrix = compute_confusion_matrix(predictions, test_y)
 print(f"(improved) Test accuracy: {improved_accuracy:.3%}")
-most_misclassified = most_confused_classes(confusion_matrix)
-print(most_misclassified)
+
+improvement = improved_accuracy - accuracy
+print(f"Overall improvement from adding Dropout: {improvement:.3%}")
