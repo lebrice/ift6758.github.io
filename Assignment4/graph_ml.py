@@ -16,9 +16,33 @@ from typing import *
 
 
 def randadjmat(n: int, p: float) -> np.ndarray:
-    """Returns an adjacency matrix for a "random graph" on n vertices.
+    return adjacency_matrix_without_disconnected_nodes(n, p)
 
-    # TODO: must the graph be necessarily connected?
+
+def adjacency_matrix_without_disconnected_nodes(n: int, p: float, max_attempts=1000) -> np.ndarray:
+    """Attempts to return an adjacency matrix for a random graph of n vertices where all nodes have degree >= 1.
+    If we are unable to produce such a graph after `max_attempts` iterations, a RuntimeError is raised.
+    
+    Args:
+        n (int): The number of vertices in the graph.
+        p (float): The probability of having an edge between any pair of vertices.
+
+    Returns:
+        np.ndarray: The resulting adjacency matrix. (an ndarray of shape [n,n] and dtype bool)
+    """
+    assert 0 < p < 1
+    adjacency_matrix = random_adjacancy_matrix(n, p)
+    for i in range(max_attempts):
+        if np.all(node_degrees(adjacency_matrix) != 0):
+            # print(f"succeded after {i} attempts")
+            return adjacency_matrix
+        adjacency_matrix = random_adjacancy_matrix(n, p)
+    raise RuntimeError(
+        f"Unable to create an adjacency matrix for n={n} and p={p} without any disconnected nodes after {max_attempts} attempts.")
+
+
+def random_adjacancy_matrix(n: int, p: float) -> np.ndarray:
+    """Returns an adjacency matrix for a "random graph" on n vertices.
 
     Args:
         n (int): The number of vertices in the graph.
@@ -34,18 +58,9 @@ def randadjmat(n: int, p: float) -> np.ndarray:
     return adjacency_matrix
 
 
+
 def node_degrees(adjacency_matrix: np.ndarray) -> np.ndarray:
     return np.sum(adjacency_matrix, axis=1)
-
-def adjacency_matrix_without_disconnected_nodes(n: int, p: float, max_attempts=100) -> np.ndarray:
-    adjacency_matrix = randadjmat(n, p)
-    for i in range(max_attempts):
-        if np.all(node_degrees(adjacency_matrix) != 0):
-            # print(f"succeded after {i} attempts")
-            return adjacency_matrix
-        adjacency_matrix = randadjmat(n, p)
-    raise RuntimeError(
-        f"Unable to create an adjacency matrix without any disconnected nodes after {max_attempts} attempts.")
 
 # 2- (5 points) Write a function transionmat(A) which, given an adjacency matrix A,
 # generate a transition matrix T where probability of each edge (u,v) is calculated as 1/degree(u).
@@ -86,7 +101,7 @@ def hotembd(A: np.ndarray) -> np.ndarray:
 def one_hot_embedding_matrix(adjacency_matrix: np.ndarray) -> np.ndarray:
     # TODO: not sure I understand.
     # each node becomes a one-hot vector? How is that different than just the identity?
-    return np.identity(adjacency_matrix.shape[0], dtype=bool)
+    return np.identity(adjacency_matrix.shape[0], dtype=int)
 
 # 4- (5 points) Write a function randwalkemb(A,k) which, given an adjacency matrix A, a transition matrix T, and one-hot encoding H,
 # performs random walks on the graph from each node w times with lenght equal to l and generate an embedding matrix for each node based
@@ -128,7 +143,7 @@ def random_walk_embedding(adjacency_matrix: np.ndarray, transition_matrix: np.nd
             for i in range(n):
                 state[i] = np.random.choice(n, p=transition_matrix[state[i]])
             # store the visited node.
-            visited_nodes[walk * num_walks + step, :] = state
+            visited_nodes[walk * walk_length + step, :] = state
     
     # print(visited_nodes)
     sum_of_embeddings = np.sum(embedding_matrix[visited_nodes], axis=0)
@@ -235,31 +250,87 @@ def k_hop_neighbours_embeddings(adjacency_matrix: np.ndarray, embedding_matrix: 
     # assert np.array_equal(k_hop_neighbours, k_hop_neighbours_2), "wtf"
     return embeddings
 
-adjacency_matrix = adjacency_matrix_without_disconnected_nodes(100, 0.2)
-# print(adjacency_matrix)
+
+# 6- (5 points) Write a function similarnodes(Z) which, given an node embedding matrix, find the most similar nodes in the graph. 
+
+
+def similarnodes(Z: np.ndarray) -> np.ndarray:
+    return similar_nodes(node_embeddings=Z, similarity_func=cosine_similarity)
+
+def cosine_similarity(v1: np.ndarray, v2: np.ndarray) -> float:
+    """Calculates the cosine similarity (dot product) between the two (assumed unit) vectors.
+    
+    Args:
+        v1 (np.ndarray): a vector
+        v2 (np.ndarray): another vector
+    
+    Returns:
+        float: the cosine similarity between the vectors.
+    """
+    assert len(v1.shape) == len(v2.shape) == 1
+    return v1.dot(v2)
+
+def l2_distance(v1: np.ndarray, v2: np.ndarray) -> float:
+    diff = v1 - v2
+    return diff.dot(diff)
+
+def similar_nodes(node_embeddings: np.ndarray, similarity_func: Callable[[np.ndarray, np.ndarray], float]) -> np.ndarray:
+    """given an node embedding matrix, find the most similar nodes in the graph.
+    
+    Args:
+        node_embeddings (np.ndarray): The node embeddings (will be normalized, such that each row will sum to 1)
+    
+    Returns:
+        np.ndarray: For each node, another node of the graph which is most similar to it.
+    """
+    n = node_embeddings.shape[0]
+    row_mag = np.sum(node_embeddings ** 2, axis=1, keepdims=True)
+
+    # take care of zero embeddings.
+    if np.any(np.isclose(row_mag, 0)):
+        zero_embedding_indices = np.nonzero(np.isclose(row_mag, 0))[0]
+        row_mag[zero_embedding_indices] = 1
+
+    node_embeddings = node_embeddings / row_mag
+        
+    similarities = np.zeros([n,n], dtype=float)
+    for (i, emb_i), (j, emb_j) in itertools.permutations(enumerate(node_embeddings), 2):    
+        similarities[i,j] = similarities[j,i] = similarity_func(emb_i, emb_j)
+        # print(f"the similarities between {i} and {j}'s embeddings is equal to {similarities[i,j]}'")
+    # print("similarities:\n", similarities)
+    return np.argmax(similarities, axis=0)
+
+# 7- (10 points) generate a random graph where n=20, and p=0.6, and compare the most similar nodes
+# in the graph using randwalkembd (l=4, w=10), hopeneighbormbd (k=1) and hopeneighbormbd (k=2).
+# Justify why similar nodes are different using different node embeddings?
+
+adjacency_matrix = adjacency_matrix_without_disconnected_nodes(20, 0.6)
+print(adjacency_matrix.astype(int))
 transition_matrix = transionmat(adjacency_matrix)
-# print(transition_matrix)
 embedding_matrix = one_hot_embedding_matrix(adjacency_matrix)
 
-walk_times = 2
-walk_length = 2
-
-embeddings = random_walk_embedding(
+random_embeddings = randwalkembd(
     adjacency_matrix,
     transition_matrix,
     embedding_matrix,
-    walk_times,
-    walk_length
+    w=10,
+    l=4,
 )
-# print(embeddings)
-# adjacency_matrix = np.array([
-#     [0, 0, 1],
-#     [0, 0, 1],
-#     [1, 1, 0],
-# ]).astype(bool)
-# embedding_matrix = np.identity(3, dtype=bool)
+print(random_embeddings)
 
-k = 2
-k_hop_embeddings = k_hop_neighbours_embeddings(adjacency_matrix, embedding_matrix, k=k)
-print(k_hop_embeddings)
+one_hop_embeddings = hopeneighbormbd(adjacency_matrix, embedding_matrix, k=1)
+print(one_hop_embeddings)
 
+two_hop_embeddings = hopeneighbormbd(adjacency_matrix, embedding_matrix, k=2)
+print(two_hop_embeddings)
+
+print(similar_nodes(random_embeddings,  cosine_similarity))
+print(similar_nodes(one_hop_embeddings, cosine_similarity))
+print(similar_nodes(two_hop_embeddings, cosine_similarity))
+
+print(similar_nodes(random_embeddings,  l2_distance))
+print(similar_nodes(one_hop_embeddings, l2_distance))
+print(similar_nodes(two_hop_embeddings, l2_distance))
+
+# because the different embedding method capture different scales of structure of the input graph.
+# Therefore, under different embedding schemes, nodes can have different closest relatives in the embedding space.
