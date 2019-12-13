@@ -137,21 +137,19 @@ def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: 
 
     column_names = list(features.columns)
     print("Total number of columns:", len(column_names))
-    
     assert "faceID" not in column_names
     assert "userId" not in column_names
     assert "userid" not in column_names
+
     column_names = features.columns
     # The names of each column for each type of feature. Could be useful for debugging.
     text_columns_names, image_columns_names, likes_columns_names = split_features(column_names, hparams)
-
     expected_num_columns = hparams.num_text_features + hparams.num_image_features + hparams.max_number_of_likes
     assert features.shape[1] == expected_num_columns
 
-
     train_data.write_training_data_config(train_config.log_dir)
     (train_features, train_labels), (valid_features, valid_labels) = train_valid_split(features, labels, train_config)
-
+    
     train_dataset = make_dataset(train_features, train_labels, hparams)
     if train_config.validation_data_fraction != 0:
         valid_dataset = make_dataset(valid_features, valid_labels, hparams)
@@ -168,13 +166,26 @@ def train_valid_split(features: pd.DataFrame, labels: pd.DataFrame, train_config
     cutoff = int(all_features.shape[0] * validation_data_fraction)
 
     # perform the train-valid split.
-    valid_features, valid_labels = features.values[:cutoff], labels[:cutoff]
-    train_features, train_labels = features.values[cutoff:], labels[cutoff:]
+    # valid_features, valid_labels = features.values[:cutoff], labels[:cutoff]
+    # train_features, train_labels = features.values[cutoff:], labels[cutoff:]
+
+    from sklearn import model_selection
+    train_features, valid_features, train_labels, valid_labels = model_selection.train_test_split(
+        # training features to split
+        features,
+        # training labels to split
+        labels,
+        # between 0 and 1, proportion of sample in validation set (e.g., 0.2)
+        test_size = validation_data_fraction,
+        shuffle = True,
+        stratify = labels["age_group"],
+        # random_state = 42  # can use to always obtain the same train/validation split
+    )
     return (train_features, train_labels), (valid_features, valid_labels)
 
 
 def make_dataset(features: np.ndarray, labels: np.ndarray, hparams: HyperParameters) -> tf.data.Dataset:
-    text_features, image_features, likes_features = split_features(features, hparams)
+    text_features, image_features, likes_features = split_features(features.values, hparams)
 
     # print(text_features.shape)
     # print(image_features.shape)
@@ -222,7 +233,12 @@ def split_features(features: np.ndarray, hparams: HyperParameters) -> Tuple[np.n
     likes_features_start_index = image_features_end_index
     likes_features_end_index = likes_features_start_index + hparams.num_like_pages 
 
-    text_features   = features[..., text_features_start_index:text_features_end_index]
+    print(features.shape)
+    print(text_features_start_index,   text_features_end_index)
+    print(image_features_start_index, image_features_end_index)
+    print(likes_features_start_index, likes_features_end_index)
+
+    text_features   = features[..., text_features_start_index: text_features_end_index]
     image_features  = features[..., image_features_start_index:image_features_end_index]
     likes_features  = features[..., likes_features_start_index:likes_features_end_index]
 

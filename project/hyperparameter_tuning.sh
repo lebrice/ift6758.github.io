@@ -2,7 +2,7 @@
 
 pip install --quiet orion
 
-EXPERIMENT_NAME="shared-embedding-01"
+EXPERIMENT_NAME="shared-embedding-02"
 
 latest_tag=`git --git-dir=ift6758.github.io/.git --work-tree=ift6758.github.io describe --tags`
 echo "latest tag is '$latest_tag'"
