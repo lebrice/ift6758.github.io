@@ -335,7 +335,7 @@ def preprocess_train(data_dir, num_likes=10_000, use_custom_likes = True):
             likes_kept = [str(v) for v in range(num_likes)]
     else:
         if use_custom_likes:
-            path = os.path.join(ddir, "Relation", "unique_without_overlap.npy")
+            path = os.path.join(ddir, "Relation", "unique_w_overlap.npy")
             assert os.path.exists(path)
             likes_kept=np.load(path)
         else:
