@@ -154,6 +154,7 @@ def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: 
     troubleshoot('text feat size',hparams.num_text_features)
     troubleshoot('image feat size',hparams.num_image_features)
     troubleshoot('like feat size',hparams.num_like_pages)
+    troubleshoot('total feat size', features.shape[1])
 
     assert features.shape[1] == expected_num_columns
 
