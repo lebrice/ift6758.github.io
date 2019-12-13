@@ -1,0 +1,7 @@
+{
+    "experiment_name": "Isa_trying_stuff_temp_model",
+    "log_dir": "checkpoints/Isa_trying_stuff_temp_model/2019-11-19_21:00:53",
+    "validation_data_fraction": 0.2,
+    "epochs": 500,
+    "early_stopping_patience": 5
+}
