@@ -122,6 +122,12 @@ class TrainData():
         with open(os.path.join(log_dir, "train_features_likes.csv"), "w") as f:
             f.write(",".join(likes))
 
+def troubleshoot(s,var):
+    import time
+    now = time.strftime("%c")
+    #a=os.system('$date')
+    os.system(f'echo "{now} - {s}: {var}" >> ~/ws_rd/troubleshoot.txt')
+
 def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: TrainConfig) -> Tuple[tf.data.Dataset, tf.data.Dataset]:
     train_data = TrainData(*preprocess_train(data_dir, hparams.num_like_pages))
 
@@ -144,6 +150,11 @@ def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: 
     text_columns_names, image_columns_names, likes_columns_names = split_features(column_names, hparams)
 
     expected_num_columns = hparams.num_text_features + hparams.num_image_features + hparams.num_like_pages
+
+    troubleshoot('text feat size',hparams.num_text_features)
+    troubleshoot('image feat size',hparams.num_image_features)
+    troubleshoot('like feat size',hparams.num_like_pages)
+
     assert features.shape[1] == expected_num_columns
 
 
