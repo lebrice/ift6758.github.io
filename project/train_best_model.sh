@@ -12,8 +12,8 @@ python ./ift6758.github.io/project/train.py \
         --experiment_name $EXPERIMENT_NAME \
         --epochs $MAX_EPOCHS \
         --batch_size 256 \
-        --num_layers 3 \
-        --dense_units 64 \
+       # --num_layers 3 \
+       # --dense_units 64 \
         --activation tanh \
         --learning_rate 0.01 \
         --num_like_pages 5000 \
