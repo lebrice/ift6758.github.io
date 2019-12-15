@@ -2,8 +2,7 @@
 
 pip install --quiet orion
 
-EXPERIMENT_NAME="new_rel2"
-#"one-model-each-marie-3"
+EXPERIMENT_NAME="one-model-each-marie-3"
 
 latest_tag=`git --git-dir=ift6758.github.io/.git --work-tree=ift6758.github.io describe --tags`
 echo "latest tag is '$latest_tag'"
