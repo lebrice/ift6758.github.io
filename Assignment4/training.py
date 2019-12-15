@@ -1,35 +1,39 @@
 """Datascience assignment 4, Fabrice Normandin. ID 20142128
+
+
+Training.
+Use Keras (https://keras.io/) to create a neural network model. Use a sequential layer to combine following layers in this order:
+    Convolution with 6 feature maps 5x5
+    Rectified linear unit activation
+    Max-pooling by factor of 2 each spacial dimension
+    Convolution with 16 feature maps 5x5
+    Rectified linear unit activation
+    Max-pooling by factor of 2 each spacial dimension
+    Flatten layer
+    Dense layer with 128 output units
+    Rectified linear unit activation
+    Dense layer. Same size as the target.
+    Softmax activation
 """
-
-# Training.
-# Use Keras (https://keras.io/) to create a neural network model. Use a sequential layer to combine following layers in this order:
-
-#     Convolution with 6 feature maps 5x5
-#     Rectified linear unit activation
-#     Max-pooling by factor of 2 each spacial dimension
-#     Convolution with 16 feature maps 5x5
-#     Rectified linear unit activation
-#     Max-pooling by factor of 2 each spacial dimension
-#     Flatten layer
-#     Dense layer with 128 output units
-#     Rectified linear unit activation
-#     Dense layer. Same size as the target.
-#     Softmax activation
-
+import os
 from typing import *
 
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras.layers import (Conv2D, Dense, Flatten, MaxPool2D, ReLU,
-                                     Softmax)
+from tensorflow.keras.layers import (Conv2D, Dense, Dropout, Flatten,
+                                     MaxPool2D, ReLU, Softmax)
 
+# import the preprocessed dataset from the previous part of the assignment.
 from mnist import test_x, test_y, train_x, train_y, valid_x, valid_y
 
-# 1. (10 points) Complete the following template.
 
-# 2. (5 point) Create a stochastic gradient optimizer optimizer with learning rate of 10−4.
-# Compile the model with the categorical crossentropy loss.
-# Set the model to report accuracy metric. Complete the template.
+"""
+1. (10 points) Complete the following template.
+
+2. (5 point) Create a stochastic gradient optimizer optimizer with learning
+    rate of 10−4. Compile the model with the categorical crossentropy loss.
+    Set the model to report accuracy metric. Complete the template.
+"""
 
 def get_model(num_classes: int) -> tf.keras.Sequential:
     model = tf.keras.Sequential([
@@ -55,26 +59,29 @@ def get_model(num_classes: int) -> tf.keras.Sequential:
     return model
 
  
-# 3. (15 points) Train the model on the training set for at least 5 epochs. Perform validation after every epoch.
-# HINT Find a method that performs training in the Keras documentation.
-# Study the documentation paying attention to all arguments and the return value of the method.
-# The model should have at least 95% accuracy on the training set.
-# It might happen that the training gets stuck. In this case, go to the step before prevoious, recreate and rerun the model.
-# WARNING This step might take several minutes to compute on a laptop.
-import os
-from datetime import datetime
+""" 3. (15 points) Train the model on the training set for at least 5 epochs.
+    Perform validation after every epoch.
+    HINT Find a method that performs training in the Keras documentation.
+    Study the documentation paying attention to all arguments and the return value of the method.
+    The model should have at least 95% accuracy on the training set.
+    It might happen that the training gets stuck.
+    In this case, go to the step before prevoious, recreate and rerun the model.
+    WARNING This step might take several minutes to compute on a laptop.
+"""
 
 
-def train(model: tf.keras.Model, save_path: str) -> Tuple[tf.keras.Model, tf.keras.callbacks.History]:
+def train(model: tf.keras.Model, save_path: str):
+    tf.random.set_seed(123)
     callbacks = [
         # tf.keras.callbacks.TensorBoard(log_dir=os.path.join("logs"), profile_batch=0),
-        tf.keras.callbacks.EarlyStopping(),
+        tf.keras.callbacks.EarlyStopping(patience=3),
         tf.keras.callbacks.ModelCheckpoint(save_path),
     ]
     history = model.fit(
         x=train_x,
         y=train_y,
         validation_data=(valid_x, valid_y),
+        shuffle=True,
         epochs=100,
         callbacks=callbacks,
     )
@@ -85,7 +92,10 @@ def make_plot(history: tf.keras.callbacks.History, model_name="default"):
     import matplotlib.pyplot as plt
 
     epochs = range(1, len(history.epoch) + 1)
-    plt.title(f"Training and Validation Accuracy of the {model_name} model over {len(history.epoch)} epochs.")
+    plt.title(
+        f"Training and Validation Accuracy of the {model_name} model"
+        f"over {len(history.epoch)} epochs."
+    )
     plt.plot(epochs, history.history["accuracy"], label="train acc")
     plt.plot(epochs, history.history["val_accuracy"], label="valid acc")
     plt.xlabel('Epochs')
@@ -105,9 +115,13 @@ else:
     print("Loading a previously trained Model.")
     model = tf.keras.models.load_model(weights_path)
 
-# Evaluation (5 points)
 
-# 1. (1 point) Make prediction of the model on the test set
+
+
+"""
+Evaluation (5 points)
+1. (1 point) Make prediction of the model on the test set
+"""
 
 if isinstance(test_x, tf.Tensor):
     test_x = test_x.numpy().astype(float)
@@ -116,10 +130,13 @@ predictions = model.predict(x=test_x, verbose=0)
 
 
 
-# 2. (4 points) Compute the confusion matrix and the accuracy. Which classes confused most often?
-# The model should have at least 90% accuracy.
+"""
+2. (4 points) Compute the confusion matrix and the accuracy. Which classes confused most often?
+The model should have at least 90% accuracy.
+"""
 
-def compute_confusion_matrix(predictions: np.ndarray, onehot_targets: np.ndarray) -> Tuple[float, np.ndarray]:
+def compute_confusion_matrix(predictions: np.ndarray,
+                             onehot_targets: np.ndarray) -> Tuple[float, np.ndarray]:
     assert predictions.shape == onehot_targets.shape
     num_classes = predictions.shape[-1]
 
@@ -137,7 +154,10 @@ def compute_confusion_matrix(predictions: np.ndarray, onehot_targets: np.ndarray
 accuracy, confusion_matrix = compute_confusion_matrix(predictions, test_y)
 print(f"Test accuracy: {accuracy:.3%}")
 
-def most_confused_classes(confusion_matrix: np.ndarray):
+def most_confused_classes(confusion_matrix: np.ndarray) -> List[Tuple[int, int]]:
+    """
+    Returns a list of the highest confused classes in the confusion matrix
+    """
     assert confusion_matrix.shape[0] == confusion_matrix.shape[1]
     num_classes = confusion_matrix.shape[0]
 
@@ -156,7 +176,11 @@ def most_confused_classes(confusion_matrix: np.ndarray):
     print("recalls:", recalls)
     
     misclassifications_dict = dict(enumerate(misclassified_rows))
-    most_misclassified = sorted(misclassifications_dict.items(), key=lambda kv: kv[1], reverse=True)
+    most_misclassified = sorted(
+        misclassifications_dict.items(),
+        key=lambda kv: kv[1],
+        reverse=True
+    )
     return list(most_misclassified)
 
 print(confusion_matrix)
@@ -165,13 +189,11 @@ most_misclassified = most_confused_classes(confusion_matrix)
 print(f"The 3 most_misclassified classes are: {most_misclassified[:3]}")
 
 
-# Bonus point (10 points)
-# Can you suggest an improvement to the model? Implement it and compare to the one above. How to do robust comparison of the performance?
-
-# - Use Dropout after the first dense layer to improve generalization and test performance:
-from tensorflow.keras.layers import Dropout
-
-
+"""
+Bonus point (10 points)
+Can you suggest an improvement to the model? Implement it and compare to the one above. How to do robust comparison of the performance?
+"""
+# Yes: Use Dropout after the first dense layer to improve generalization and test performance:
 def get_improved_model(num_classes: int) -> tf.keras.Sequential:
     model = tf.keras.Sequential([
         tf.keras.layers.InputLayer(input_shape=[28, 28, 1]),
