@@ -15,7 +15,7 @@ class HyperParameters():
     """Hyperparameters of our model."""
     # the batch size
     batch_size: int = 128
-    
+
     # the activation function used after each dense layer
     activation: str = "tanh"
     # Which optimizer to use during training.
@@ -77,9 +77,12 @@ class HyperParameters():
     personality_likes_condensing_layers: int = 0
     personality_likes_condensing_units: int = 0
 
+    max_number_of_likes: int = 2000
+
+
 
 # best_model_hparams = HyperParameters(batch_size=128, num_layers=1, dense_units=32, activation='tanh', optimizer='ADAM', learning_rate=0.01, l1_reg=0.0, l2_reg=0.005, num_like_pages=10000, use_dropout=False, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, gender_num_layers=1, gender_num_units=32, gender_use_batchnorm=False, gender_use_dropout=False, gender_dropout_rate=0.1, gender_use_likes=False, gender_likes_condensing_layers=0, gender_likes_condensing_units=0, age_group_num_layers=2, age_group_num_units=64, age_group_use_batchnorm=False, age_group_use_dropout=False, age_group_dropout_rate=0.1, age_group_use_likes=True, age_group_likes_condensing_layers=1, age_group_likes_condensing_units=16, personality_num_layers=1, personality_num_units=8, personality_use_batchnorm=False, personality_use_dropout=False, personality_dropout_rate=0.1, personality_use_likes=False, personality_likes_condensing_layers=0, personality_likes_condensing_units=0)
-best_model_so_far = "checkpoints/one-model-each-marie-3/2019-11-26_19-03-50"
+best_model_so_far = "checkpoints/one-model-each-marie-3/2019-11-26_17-57-56"
 
 def gender_model(hparams: HyperParameters, image_features: tf.Tensor, text_features: tf.Tensor, likes_features: tf.Tensor) -> tf.keras.Sequential:
     # Likes Condensing, if required:
@@ -188,8 +191,8 @@ def personality_model(personality_trait: str, hparams: HyperParameters, image_fe
 
         if hparams.personality_use_dropout:
             model.add(tf.keras.layers.Dropout(hparams.personality_dropout_rate))
-    
-    
+
+
     model.add(tf.keras.layers.Dense(units=1, activation="sigmoid", name=f"{personality_trait}_sigmoid"))
     model.add(personality_scaling(f"{personality_trait}_out"))
 
@@ -200,7 +203,7 @@ def personality_model(personality_trait: str, hparams: HyperParameters, image_fe
         model_inputs.append(image_features)
     if hparams.personality_use_likes:
         model_inputs.append(likes_features)
-    
+
     if len(model_inputs) == 1:
         model_output = model(model_inputs[0])
     else:
@@ -210,10 +213,10 @@ def personality_model(personality_trait: str, hparams: HyperParameters, image_fe
 
 def personality_scaling(name: str) -> tf.keras.layers.Layer:
     """Returns a layer that scales a sigmoid output [0, 1) output to the desired 'personality' range of [1, 5)
-    
+
     Arguments:
         name {str} -- the name to give to the layer.
-    
+
     Returns:
         tf.keras.layers.Layer -- the layer to use.
     """
@@ -222,21 +225,21 @@ def personality_scaling(name: str) -> tf.keras.layers.Layer:
 
 def get_model(hparams: HyperParameters) -> tf.keras.Model:
     # INPUTS: genderate content: (e.g., text, image and relations)
-    # Inputs: user id (str), text + image info (157 floats), 
+    # Inputs: user id (str), text + image info (157 floats),
     # OUTPUTS:  Gender (ACC), Age (ACC), EXT (RMSE), ope (RMSE), AGR (RMSE), NEU (RMSE), CON (RMSE)
     # Texte: 82 (LIWC) + 11 (NRC)
     # Image
-    
+
     # defining the inputs:
     # userid         =    tf.keras.Input([], dtype=tf.string, name="userid")
     image_features =    tf.keras.Input([hparams.num_image_features], dtype=tf.float32, name="image_features")
     text_features  =    tf.keras.Input([hparams.num_text_features], dtype=tf.float32, name="text_features")
     likes_features =    tf.keras.Input([hparams.num_like_pages], dtype=tf.bool, name="likes_features")
-    
+
     # MODEL OUTPUTS:
     gender = gender_model(hparams, image_features, text_features, likes_features)
     age_group = age_group_model(hparams, image_features, text_features, likes_features)
-   
+
     personality_outputs: List[tf.Tensor] = []
     for personality_trait in ["ext", "ope", "agr", "neu", "con"]:
         output_tensor = personality_model(personality_trait, hparams, text_features, image_features, likes_features)
