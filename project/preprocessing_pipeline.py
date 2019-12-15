@@ -389,7 +389,6 @@ def preprocess_train(data_dir, num_likes=10_000, use_custom_likes = True, output
         return train_features, features_q10_q90, image_means, likes_kept, train_labels
 
 
-#def preprocess_test(data_dir, min_max_train, image_means_train, likes_kept_train):
 def preprocess_test(data_dir, q10_q90_train, image_means_train, likes_kept_train, max_num_likes=2145, output_mhot=False):
     '''
     Purpose: preprocesses test dataset (no labels)

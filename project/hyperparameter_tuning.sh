@@ -18,8 +18,8 @@ fi
 mkdir -p logs
 
 # TODO: change this to the maximum number of desired trials.
-MAX_TRIALS=100
-MAX_EPOCHS_PER_EXPERIMENT=500
+MAX_TRIALS=45
+MAX_EPOCHS_PER_EXPERIMENT=50
 orion -v --debug hunt --max-trials $MAX_TRIALS -n $EXPERIMENT_NAME ./ift6758.github.io/project/train.py \
         --experiment_name $EXPERIMENT_NAME \
         --epochs $MAX_EPOCHS_PER_EXPERIMENT \

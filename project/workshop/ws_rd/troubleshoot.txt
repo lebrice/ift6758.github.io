@@ -1,0 +1,45 @@
+Troubleshooting begins...
+0 - 10: 10
+0 - 10s: 10
+Fri Dec 13 20:32:56 2019 - 10s: 10
+Fri Dec 13 20:36:55 2019 - text feat size: 91
+Fri Dec 13 20:36:55 2019 - image feat size: 65
+Fri Dec 13 20:36:55 2019 - like feat size: 10000
+Fri Dec 13 20:42:11 2019 - text feat size: 91
+Fri Dec 13 20:42:11 2019 - image feat size: 65
+Fri Dec 13 20:42:11 2019 - like feat size: 10000
+Fri Dec 13 20:49:43 2019 - text feat size: 91
+Fri Dec 13 20:49:43 2019 - image feat size: 65
+Fri Dec 13 20:49:43 2019 - like feat size: 10000
+Fri Dec 13 20:56:38 2019 - text feat size: 91
+Fri Dec 13 20:56:38 2019 - image feat size: 65
+Fri Dec 13 20:56:38 2019 - like feat size: 5000
+Fri Dec 13 20:56:38 2019 - total feat size: 10156
+Fri Dec 13 20:57:02 2019 - text feat size: 91
+Fri Dec 13 20:57:02 2019 - image feat size: 65
+Fri Dec 13 20:57:02 2019 - like feat size: 5000
+Fri Dec 13 20:57:02 2019 - total feat size: 10156
+Fri Dec 13 20:57:27 2019 - text feat size: 91
+Fri Dec 13 20:57:27 2019 - image feat size: 65
+Fri Dec 13 20:57:27 2019 - like feat size: 5000
+Fri Dec 13 20:57:27 2019 - total feat size: 10156
+Fri Dec 13 21:01:56 2019 - text feat size: 91
+Fri Dec 13 21:01:56 2019 - image feat size: 65
+Fri Dec 13 21:01:56 2019 - like feat size: 5000
+Fri Dec 13 21:01:56 2019 - total feat size: 10156
+Fri Dec 13 21:02:32 2019 - text feat size: 91
+Fri Dec 13 21:02:32 2019 - image feat size: 65
+Fri Dec 13 21:02:32 2019 - like feat size: 5000
+Fri Dec 13 21:02:32 2019 - total feat size: 10156
+Fri Dec 13 21:03:09 2019 - text feat size: 91
+Fri Dec 13 21:03:09 2019 - image feat size: 65
+Fri Dec 13 21:03:09 2019 - like feat size: 10000
+Fri Dec 13 21:03:09 2019 - total feat size: 10156
+Fri Dec 13 21:06:28 2019 - text feat size: 91
+Fri Dec 13 21:06:28 2019 - image feat size: 65
+Fri Dec 13 21:06:28 2019 - like feat size: 10000
+Fri Dec 13 21:06:28 2019 - total feat size: 10156
+Fri Dec 13 21:08:06 2019 - text feat size: 91
+Fri Dec 13 21:08:06 2019 - image feat size: 65
+Fri Dec 13 21:08:07 2019 - like feat size: 5000
+Fri Dec 13 21:08:07 2019 - total feat size: 10156

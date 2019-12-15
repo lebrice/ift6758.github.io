@@ -109,6 +109,10 @@ class TrainData():
     for the training set, with userids as index.
     """
 
+    train_likes_list: np.ndarray
+    """Bag-Of-words of liked pages, as a numpy array, padded with zeros.
+    """
+
 
 
     def write_training_data_config(self, log_dir: str):

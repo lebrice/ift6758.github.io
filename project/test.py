@@ -88,7 +88,15 @@ def test_input_pipeline(data_dir: str, test_config: TestConfig, hparams: HyperPa
             "likes_features": likes_features,
         }
     )
-    return features_dataset.batch(hparams.batch_size)
+    age_group_model_dataset = tf.data.Dataset.from_tensor_slices(
+        {
+            "userid": np.copy(test_features.index.astype(str)),
+            "text_features": np.copy(text_features.astype(float)),
+            "image_features": np.copy(image_features.astype(float)),
+            "likes_features": likes_features,
+        }
+    )
+    return features_dataset.batch(hparams.batch_size), age_group_model_dataset.batch(hparams.batch_size)
 
 def split_features(features: np.ndarray, hparams: HyperParameters) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     """Split the ndarray with the three types of features into three ndarrays.
@@ -142,7 +150,7 @@ if __name__ == "__main__":
 
     trained_model_weights_path=os.path.join(trained_model_dir, "model.h5")
     trained_model_hparams_path=os.path.join(trained_model_dir, "hyperparameters.json")
-    trained_model_config_path=os.path.join(trained_model_dir, "train_config.json")
+    trained_model_config_path= os.path.join(trained_model_dir, "train_config.json")
     
     import json
     import os
@@ -159,19 +167,38 @@ if __name__ == "__main__":
 
     model=get_model(hparams)
     model.load_weights(trained_model_weights_path)
-    test_dataset=test_input_pipeline(input_dir, test_config, hparams)
+    test_dataset, age_group_dataset = test_input_pipeline(input_dir, test_config, hparams)
 
     pred_labels = ["age_group", "gender", "ext", "ope", "agr", "neu", "con"]
+
 
     predictions=model.predict(test_dataset)
     print(len(predictions), "predictions")
     from user import User
     
+    from age_group import get_age_model
+    age_group_model = get_age_model()
+    age_group_predictions = age_group_model.predict(age_group_dataset)
+    
+    
+    age_group_ids = np.argmax(predictions[0], axis=-1)
+    # print("previous age group ids (older model)", age_group_ids)
+    age_group_ids = np.argmax(age_group_predictions, axis=-1)
+    # print("New age group ids (specific model)", age_group_ids)
+
     for i, user in enumerate(test_dataset.unbatch()):
-        pred_dict = dict(zip(pred_labels, [p[i] for p in predictions]))
+        
+        pred_dict = {
+            "age_group_id" : np.asscalar(age_group_ids[i]),
+            "gender": np.asscalar(predictions[1][i]),
+            "ext": np.asscalar(predictions[2][i]),
+            "ope": np.asscalar(predictions[3][i]),
+            "agr": np.asscalar(predictions[4][i]),
+            "neu": np.asscalar(predictions[5][i]),
+            "con": np.asscalar(predictions[6][i]),
+        }
         userid = user["userid"].numpy().decode("utf-8")
         pred_dict["userid"] = userid
-        pred_dict["age_group_id"] = np.argmax(pred_dict.pop("age_group"))
         pred_dict["is_female"] = np.round(pred_dict.pop("gender")) == 1
         
         user = User(**pred_dict)

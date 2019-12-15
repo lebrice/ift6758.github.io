@@ -10,7 +10,7 @@ from typing import Callable
 from typing import *
 
 # Best model so far:
-best_model_so_far = "checkpoints/embedding/2019-11-29_15-45-36"
+best_model_so_far = "checkpoints/one-model-each-marie-3/2019-11-26_17-57-56"
 
 @dataclass
 class TaskHyperParameters:
@@ -48,6 +48,9 @@ class HyperParameters():
     """Hyperparameters of our model."""
     # the batch size
     batch_size: int = 128
+
+    # the activation function used after each dense layer
+    activation: str = "tanh"
     # Which optimizer to use during training.
     optimizer: str = "sgd"
     # Learning Rate
@@ -70,6 +73,8 @@ class HyperParameters():
 
     # Wether or not to use Rémi's better kept like pages
     use_custom_likes: bool = True
+
+    max_number_of_likes: int = 2000
 
     # Gender model settings:
     gender: TaskHyperParameters = TaskHyperParameters(
@@ -107,6 +112,7 @@ class HyperParameters():
         use_likes=False,
     )
 
+
 def likes_embedding(name: str, num_page_likes: int, max_number_of_likes: int, embedding_dim: int = 8) -> tf.keras.Sequential:
     likes_condensing = tf.keras.Sequential(name=f"{name}_likes_condensing")
     embedding_layer = tf.keras.layers.Embedding(
@@ -119,6 +125,7 @@ def likes_embedding(name: str, num_page_likes: int, max_number_of_likes: int, em
     likes_condensing.add(embedding_layer)
     likes_condensing.add(tf.keras.layers.Flatten())
     return likes_condensing
+
 
 # define a Model type, for simplicity
 Model = Callable[[tf.Tensor, tf.Tensor, tf.Tensor], tf.Tensor]
@@ -220,7 +227,6 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
     text_features  =    tf.keras.Input([hparams.num_text_features], dtype=tf.float32, name="text_features")
     image_features =    tf.keras.Input([hparams.num_image_features], dtype=tf.float32, name="image_features")
     likes_features =    tf.keras.Input([hparams.max_number_of_likes], dtype=tf.int32, name="likes_features")
-    
 
     if hparams.shared_likes_embedding:
         # single (shared) embedding model:
