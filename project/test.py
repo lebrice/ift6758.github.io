@@ -155,15 +155,13 @@ if __name__ == "__main__":
     import json
     import os
 
-    with open(trained_model_hparams_path) as f:
-        hparams=HyperParameters(**json.load(f))
-        print("Hyperparameters:", hparams)
-        print("number of text features:", hparams.num_text_features)
-        print("number of image features:", hparams.num_image_features)
-        print("number of like features:", hparams.num_like_pages)
+    hparams = HyperParameters.load_json(trained_model_hparams_path) 
+    print("Hyperparameters:", hparams)
+    print("number of text features:", hparams.num_text_features)
+    print("number of image features:", hparams.num_image_features)
+    print("number of like features:", hparams.num_like_pages)
 
-    with open(trained_model_config_path) as f:
-        train_config=TrainConfig(**json.load(f))
+    train_config = TrainConfig.load_json(trained_model_config_path)
 
     model=get_model(hparams)
     model.load_weights(trained_model_weights_path)

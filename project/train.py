@@ -26,7 +26,7 @@ import utils
 from preprocessing_pipeline import preprocess_train
 
 today_str = (datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
-from utils import DEBUG
+from utils import DEBUG, JsonSerializable
 
 print("DEBUGGING: ", DEBUG)
 
@@ -44,8 +44,8 @@ baseline_metrics = {
 
 
 
-@dataclass()
-class TrainConfig():
+@dataclass
+class TrainConfig(JsonSerializable):
     experiment_name: str = "debug" if DEBUG else "default_experiment"
     """
     Name of the experiment
@@ -109,8 +109,9 @@ class TrainData():
     for the training set, with userids as index.
     """
 
-    train_likes_list: np.ndarray
-    """Bag-Of-words of liked pages, as a numpy array, padded with zeros.
+    train_onehot: Optional[np.ndarray] = None
+    """One-Hot matrix of Liked pages. Optionally returned by the preprocess_train 
+    function when passed the `output_mhot=True` argument.
     """
 
 

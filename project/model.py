@@ -8,12 +8,13 @@ from dataclasses import dataclass, field
 from tensorboard.plugins.hparams import api as hp
 from typing import Callable
 from typing import *
+from utils import JsonSerializable
 
 # Best model so far:
 best_model_so_far = "checkpoints/one-model-each-marie-3/2019-11-26_17-57-56"
 
 @dataclass
-class TaskHyperParameters:
+class TaskHyperParameters(JsonSerializable):
     """
     HyperParameters for a task-specific model
     """
@@ -44,7 +45,7 @@ class TaskHyperParameters:
     embed_likes: bool = False
 
 @dataclass
-class HyperParameters():
+class HyperParameters(JsonSerializable):
     """Hyperparameters of our model."""
     # the batch size
     batch_size: int = 128
