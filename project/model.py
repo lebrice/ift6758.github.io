@@ -75,8 +75,6 @@ class HyperParameters(JsonSerializable):
     # Wether or not to use Rémi's better kept like pages
     use_custom_likes: bool = True
 
-    max_number_of_likes: int = 2000
-
     # Gender model settings:
     gender: TaskHyperParameters = TaskHyperParameters(
         "gender",
