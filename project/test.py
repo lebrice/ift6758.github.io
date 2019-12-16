@@ -13,7 +13,7 @@ import pandas as pd
 import tensorflow as tf
 
 from model import HyperParameters, get_model, best_model_so_far
-from old_model import HyperParameters as OldHyperParameters, get_model as old_get_model
+from model_old import HyperParameters as OldHyperParameters, get_model as old_get_model
 
 from preprocessing_pipeline import preprocess_test
 from train import TrainConfig
@@ -50,14 +50,12 @@ class TestConfig:
         trained_model_config_path=os.path.join(self.trained_model_dir, "train_config.json")
         self.training_config = TrainConfig.load_json(trained_model_config_path)
 
-
         def read_floats(file_name: str) -> np.ndarray:
             with open(os.path.join(self.trained_model_dir, file_name)) as f:
                 line = f.readline()
                 line_parts = line.split(",")
                 array = np.array([float(v) for v in line_parts], dtype=float)
                 return array
-
 
         maxes = read_floats("train_features_max.csv")
         mins = read_floats("train_features_min.csv")
@@ -91,8 +89,6 @@ class TestConfig:
 
 def test_input_pipeline(data_dir: str, test_config: TestConfig):
     test_features = test_config.get_test_features()
-
-
 
     likes_multihot =  test_config.likes_multihot_matrix
     # TODO: save the information that will be used in the testing phase to a file or something.
@@ -207,14 +203,14 @@ if __name__ == "__main__":
     predictions=model.predict(test_dataset)
     print(len(predictions), "predictions")
     from user import User
-    
+       
+    age_group_ids = np.argmax(predictions[0], axis=-1)
+    print("previous age group ids (general model)", age_group_ids)
+
     from task_specific_models.age_group import get_age_model
     age_group_model = get_age_model()
     age_group_predictions = age_group_model.predict(age_group_dataset)
-    
-    
-    age_group_ids = np.argmax(predictions[0], axis=-1)
-    print("previous age group ids (general model)", age_group_ids)
+
     age_group_ids = np.argmax(age_group_predictions, axis=-1)
     print("New age group ids (specific model)", age_group_ids)
 

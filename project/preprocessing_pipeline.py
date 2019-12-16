@@ -427,15 +427,15 @@ def preprocess_test(data_dir, q10_q90_train, image_means_train, likes_kept_train
     feat_scaled = (features_to_scale - feat_q10) / (feat_q90 - feat_q10)
 
     # multi-hot matrix of likes from train data
-    likes_data = get_relations(data_dir, sub_ids, likes_kept_train)
+    likes_multihot = get_relations(data_dir, sub_ids, likes_kept_train)
 
     # list of lists of indices corresponding to pages liked
     # each padded with 0s (list's max length = max_num_likes)
-    test_likes_lists = get_likes_lists(likes_data, max_num_likes)
+    test_likes_lists = get_likes_lists(likes_multihot, max_num_likes)
 
     # concatenate all scaled features into a single DataFrame
     test_features = pd.concat([feat_scaled, image_data.iloc[:, -2:], test_likes_lists], axis=1, sort=False)
-    return test_features, likes_data
+    return test_features, likes_multihot
 
 
 
