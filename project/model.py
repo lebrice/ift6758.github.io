@@ -10,10 +10,37 @@ from typing import Callable
 from typing import *
 from utils import JsonSerializable
 
-## NEW model:
-# best_model_so_far = "checkpoints/shared-embedding-02/2019-12-14_03-59-18"
-# OLD model:
-best_model_so_far = "checkpoints/one-model-each-marie-2/2019-11-25_21-14-40"
+best_model_so_far = "checkpoints/shared-embedding-02/2019-12-14_03-59-18"
+""" New Model:
+
+Total epochs: 0064, log_dir: ./checkpoints/shared-embedding-02/2019-12-14_03-59-18, total improvement: -0.299338481903076
+	age_group_categorical_accuracy: 0.000 gender_binary_accuracy: 0.800 ext_root_mean_squared_error: 0.785 ope_root_mean_squared_error: 0.612 agr_root_mean_squared_error: 0.654 neu_root_mean_squared_error: 0.794 con_root_mean_squared_error: 0.706 
+	loss: 7.232 age_group_loss: 3.312 gender_loss: 0.440 ext_loss: 0.615 ope_loss: 0.373 agr_loss: 0.428 neu_loss: 0.632 con_loss: 0.499 gender_recall: 0.898 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.8000, improvement of 0.2090)
+	BEATING THE BASELINE AT 'ext_root_mean_squared_error': (Baseline: 0.7880, Ours: 0.7850, improvement of 0.0030)
+	BEATING THE BASELINE AT 'ope_root_mean_squared_error': (Baseline: 0.6520, Ours: 0.6120, improvement of 0.0400)
+	BEATING THE BASELINE AT 'agr_root_mean_squared_error': (Baseline: 0.6650, Ours: 0.6538, improvement of 0.0112)
+	BEATING THE BASELINE AT 'neu_root_mean_squared_error': (Baseline: 0.7980, Ours: 0.7944, improvement of 0.0036)
+	BEATING THE BASELINE AT 'con_root_mean_squared_error': (Baseline: 0.7340, Ours: 0.7062, improvement of 0.0278)
+	Hparams: HyperParameters(batch_size=64, optimizer='ADAM', learning_rate=0.001, num_like_pages=10000, gender_loss_weight=1.0, age_loss_weight=1.0, max_number_of_likes=2000, embedding_dim=8, shared_likes_embedding=True, use_custom_likes=True, gender=TaskHyperParameters(name='gender', num_layers=1, num_units=32, activation='tanh', use_batchnorm=False, use_dropout=True, dropout_rate=0.1, use_image_features=True, use_likes=True, l1_reg=0.005, l2_reg=0.005, embed_likes=False), age_group=TaskHyperParameters(name='age_group', num_layers=2, num_units=64, activation='tanh', use_batchnorm=False, use_dropout=True, dropout_rate=0.1, use_image_features=True, use_likes=True, l1_reg=0.005, l2_reg=0.005, embed_likes=False), personality=TaskHyperParameters(name='personality', num_layers=1, num_units=8, activation='tanh', use_batchnorm=False, use_dropout=True, dropout_rate=0.1, use_image_features=False, use_likes=False, l1_reg=0.005, l2_reg=0.005, embed_likes=False))
+
+"""
+
+# best_model_so_far = "checkpoints/one-model-each-marie-2/2019-11-25_21-14-40"
+"""
+
+Total epochs: 0012, log_dir: ./checkpoints/one-model-each-marie-2/2019-11-25_21-14-40, total improvement: -0.3390645436495541
+	age_group_categorical_accuracy: 0.011 gender_binary_accuracy: 0.783 ext_root_mean_squared_error: 0.795 ope_root_mean_squared_error: 0.617 agr_root_mean_squared_error: 0.656 neu_root_mean_squared_error: 0.790 con_root_mean_squared_error: 0.726 
+	loss: 6.400 age_group_loss: 3.323 gender_loss: 0.478 ext_loss: 0.631 ope_loss: 0.382 agr_loss: 0.432 neu_loss: 0.626 con_loss: 0.527 gender_recall: 0.937 
+	BEATING THE BASELINE AT 'gender_binary_accuracy': (Baseline: 0.5910, Ours: 0.7832, improvement of 0.1922)
+	BEATING THE BASELINE AT 'ope_root_mean_squared_error': (Baseline: 0.6520, Ours: 0.6174, improvement of 0.0346)
+	BEATING THE BASELINE AT 'agr_root_mean_squared_error': (Baseline: 0.6650, Ours: 0.6564, improvement of 0.0086)
+	BEATING THE BASELINE AT 'neu_root_mean_squared_error': (Baseline: 0.7980, Ours: 0.7902, improvement of 0.0078)
+	BEATING THE BASELINE AT 'con_root_mean_squared_error': (Baseline: 0.7340, Ours: 0.7259, improvement of 0.0081)
+	Hparams: HyperParameters(batch_size=128, num_layers=1, dense_units=32, activation='tanh', optimizer='ADAM', learning_rate=0.01, l1_reg=0.0, l2_reg=0.005, num_like_pages=10000, use_dropout=False, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, gender_num_layers=1, gender_num_units=32, gender_use_batchnorm=False, gender_use_dropout=False, gender_dropout_rate=0.1, gender_use_likes=False, gender_likes_condensing_layers=0, gender_likes_condensing_units=0, age_group_num_layers=2, age_group_num_units=64, age_group_use_batchnorm=False, age_group_use_dropout=False, age_group_dropout_rate=0.1, age_group_use_likes=True, age_group_likes_condensing_layers=1, age_group_likes_condensing_units=16, personality_num_layers=1, personality_num_units=8, personality_use_batchnorm=False, personality_use_dropout=False, personality_dropout_rate=0.1, personality_use_likes=False, personality_likes_condensing_layers=0, personality_likes_condensing_units=0)
+
+"""
+
 
 @dataclass
 class TaskHyperParameters(JsonSerializable):
