@@ -70,3 +70,40 @@ class EarlyStoppingWhenValueExplodes(tf.keras.callbacks.Callback):
                 print(f"\n\n{'Batch' if self.check_every_batch else 'Epoch'} {t}: Early stopping because loss is greater than max value ({self.monitor} = {current})\n\n")
             self.model.stop_training = True
 
+def flatten_dict(nested_dict: Dict[str, Union[Dict, Any]]) -> Dict[str, Any]:
+    flattened = {}
+    for key, value in nested_dict.items():
+        if not isinstance(value, dict):
+            flattened[key] = value
+        else:
+            flattened_child = flatten_dict(value)
+            for child_key, child_value in flattened_child.items():
+                flattened[key + "." + child_key] = child_value
+    return flattened
+
+import json
+import dataclasses
+
+Dataclass = TypeVar("Dataclass")
+
+class JsonSerializable:
+    def save_json(self, path: str):
+        with open(path, "w") as f:
+            dict_ = dataclasses.asdict(self)
+            json.dump(dict_, f, indent=1)
+
+    @staticmethod
+    def from_dict(dataclass: Type[Dataclass], d: Dict[str, Any]) -> Dataclass:
+        for field in dataclasses.fields(dataclass):
+            if dataclasses.is_dataclass(field.type):
+                # nested dataclass:
+                args_dict = d[field.name]
+                nested_instance = JsonSerializable.from_dict(field.type, args_dict)
+                d[field.name] = nested_instance
+        return dataclass(**d) # type: ignore
+
+    @classmethod
+    def load_json(cls, path: str):
+        with open(path) as f:
+            args_dict = json.load(f)
+        return JsonSerializable.from_dict(cls, args_dict)

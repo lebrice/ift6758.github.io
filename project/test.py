@@ -49,18 +49,17 @@ class TestConfig:
             self.image_means_train = to_np_float_array(f.readline())
     
     def get_test_features(self, train_hparams: HyperParameters) -> pd.DataFrame:
-        test_features, test_likes_list = preprocess_test(
+        return preprocess_test(
             self.i,
             self.min_max_train,
             self.image_means_train,
             self.likes_kept_train,
             train_hparams.max_number_of_likes,
         )
-        return test_features, test_likes_list
 
 
-def test_input_pipeline(data_dir: str, test_config: TestConfig, hparams: HyperParameters) -> Tuple[tf.data.Dataset, tf.data.Dataset]:
-    test_features, test_likes_list = test_config.get_test_features(hparams)
+def test_input_pipeline(data_dir: str, test_config: TestConfig, hparams: HyperParameters):
+    test_features = test_config.get_test_features(hparams)
 
     # TODO: save the information that will be used in the testing phase to a file or something.
     column_names = list(test_features.columns)
@@ -85,7 +84,8 @@ def test_input_pipeline(data_dir: str, test_config: TestConfig, hparams: HyperPa
             "userid": test_features.index.astype(str),
             "text_features": text_features.astype(float),
             "image_features": image_features.astype(float),
-            "likes_features": likes_features.astype(bool),
+            # "likes_features": likes_features.astype(bool),
+            "likes_features": likes_features,
         }
     )
     age_group_model_dataset = tf.data.Dataset.from_tensor_slices(
@@ -93,7 +93,7 @@ def test_input_pipeline(data_dir: str, test_config: TestConfig, hparams: HyperPa
             "userid": np.copy(test_features.index.astype(str)),
             "text_features": np.copy(text_features.astype(float)),
             "image_features": np.copy(image_features.astype(float)),
-            "likes_features": test_likes_list.values,
+            "likes_features": likes_features,
         }
     )
     return features_dataset.batch(hparams.batch_size), age_group_model_dataset.batch(hparams.batch_size)
@@ -155,15 +155,13 @@ if __name__ == "__main__":
     import json
     import os
 
-    with open(trained_model_hparams_path) as f:
-        hparams=HyperParameters(**json.load(f))
-        print("Hyperparameters:", hparams)
-        print("number of text features:", hparams.num_text_features)
-        print("number of image features:", hparams.num_image_features)
-        print("number of like features:", hparams.num_like_pages)
+    hparams = HyperParameters.load_json(trained_model_hparams_path) 
+    print("Hyperparameters:", hparams)
+    print("number of text features:", hparams.num_text_features)
+    print("number of image features:", hparams.num_image_features)
+    print("number of like features:", hparams.num_like_pages)
 
-    with open(trained_model_config_path) as f:
-        train_config=TrainConfig(**json.load(f))
+    train_config = TrainConfig.load_json(trained_model_config_path)
 
     model=get_model(hparams)
     model.load_weights(trained_model_weights_path)

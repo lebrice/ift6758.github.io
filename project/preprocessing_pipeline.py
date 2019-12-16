@@ -3,6 +3,7 @@ import glob
 
 import numpy as np
 import pandas as pd
+import logging
 
 import tensorflow as tf
 
@@ -304,7 +305,7 @@ def preprocess_labels(data_dir, sub_ids):
     return labels
 
 
-def preprocess_train(data_dir, num_likes=10_000, max_num_likes=2145, use_custom_likes = Tru):
+def preprocess_train(data_dir, num_likes=10_000, use_custom_likes = True, output_mhot=False, max_num_likes: int = 2000):
     '''
     Purpose: preprocesses training dataset (with labels) and returns scaled features,
     labels and parameters to scale the test data set
@@ -312,6 +313,7 @@ def preprocess_train(data_dir, num_likes=10_000, max_num_likes=2145, use_custom_
         data_dir {string}: path to ~/Train data directory
         num_likes {int}: number of like_ids to keep as features
         max_num_likes {int}: maximum number of pages liked by a single user
+        output_mhot {bool}: if True, outputs multihot and likes lists as features
     Output:
         train_features {pandas DataFrame}: vectorized features scaled between 0 and 1
                 for each user id in the training set, concatenated for all modalities
@@ -351,21 +353,22 @@ def preprocess_train(data_dir, num_likes=10_000, max_num_likes=2145, use_custom_
     feat_scaled = (features_to_scale - feat_q10) / (feat_q90 - feat_q10)
     features_q10_q90 = (feat_q10, feat_q90)
 
-    if DEBUG:
-        if use_custom_likes:
+    if use_custom_likes:
+        try:
             path = os.path.join(data_dir, "Relation", "unique_without_overlap.npy")
-            assert os.path.exists(path)
             likes_kept=np.load(path)
-        else:
-            likes_kept = [str(v) for v in range(num_likes)]
+        except IOError as e:
+            logging.error(f"ERROR: unable to open the filtered likes file, using the {num_likes} most popular pages instead...")
+            if DEBUG:
+                likes_kept = [str(v) for v in range(num_likes)]
+            else:
+                likes_kept = get_likes_kept(data_dir, num_likes)
     else:
-        if use_custom_likes:
-            path = os.path.join(data_dir, "Relation", "unique_without_overlap.npy")
-            assert os.path.exists(path)
-            likes_kept=np.load(path)
+        if DEBUG:
+            likes_kept = [str(v) for v in range(num_likes)]
         else:
             likes_kept = get_likes_kept(data_dir, num_likes)
-            #likes_kept=np.load(os.path.join(data_dir, "Relation", 'unique_w_overlap.npy'))
+                #likes_kept=np.load(os.path.join(data_dir, "Relation", 'unique_w_overlap.npy'))
 
     # multi-hot matrix of likes from train data
     likes_data = get_relations(data_dir, sub_ids, likes_kept)
@@ -379,13 +382,14 @@ def preprocess_train(data_dir, num_likes=10_000, max_num_likes=2145, use_custom_
     # DataFrame of training set labels
     train_labels = preprocess_labels(data_dir, sub_ids)
 
+    if output_mhot:
+        return train_features, likes_data, features_q10_q90, image_means, likes_kept, train_labels
+    else:
+        #return train_features, features_min_max, image_means, likes_kept, train_labels
+        return train_features, features_q10_q90, image_means, likes_kept, train_labels
 
-    #return train_features, features_min_max, image_means, likes_kept, train_labels
-    return train_features, features_q10_q90, image_means, likes_kept, train_labels, train_likes_lists
 
-
-#def preprocess_test(data_dir, min_max_train, image_means_train, likes_kept_train):
-def preprocess_test(data_dir, q10_q90_train, image_means_train, likes_kept_train, max_num_likes=2145):
+def preprocess_test(data_dir, q10_q90_train, image_means_train, likes_kept_train, max_num_likes=2145, output_mhot=False):
     '''
     Purpose: preprocesses test dataset (no labels)
     Input:
@@ -397,6 +401,7 @@ def preprocess_test(data_dir, q10_q90_train, image_means_train, likes_kept_train
         likes_kept_train {list of strings}: most frequent likes_ids from train set
                 (ordered by frequency) to serve as columns in relation features matrix
         max_num_likes {int}: maximum number of pages liked by a single user (from train set)
+        output_mhot {bool}: if True, outputs multihot and likes lists as features
     Output:
         test_features {pandas DataFrame}: vectorized features of test set
 
@@ -430,9 +435,11 @@ def preprocess_test(data_dir, q10_q90_train, image_means_train, likes_kept_train
     test_likes_lists = get_likes_lists(likes_data, max_num_likes)
 
     # concatenate all scaled features into a single DataFrame
-    test_features = pd.concat([feat_scaled, image_data.iloc[:, -2:], likes_data], axis=1, sort=False)
-
-    return test_features, test_likes_lists
+    test_features = pd.concat([feat_scaled, image_data.iloc[:, -2:], test_likes_lists], axis=1, sort=False)
+    if output_mhot:
+        return test_features, likes_data
+    else:
+        return test_features
 
 
 def get_train_val_sets(features, labels, val_prop):

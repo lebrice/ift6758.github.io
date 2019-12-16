@@ -26,7 +26,7 @@ import utils
 from preprocessing_pipeline import preprocess_train
 
 today_str = (datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
-from utils import DEBUG
+from utils import DEBUG, JsonSerializable
 
 print("DEBUGGING: ", DEBUG)
 
@@ -44,8 +44,8 @@ baseline_metrics = {
 
 
 
-@dataclass()
-class TrainConfig():
+@dataclass
+class TrainConfig(JsonSerializable):
     experiment_name: str = "debug" if DEBUG else "default_experiment"
     """
     Name of the experiment
@@ -109,9 +109,11 @@ class TrainData():
     for the training set, with userids as index.
     """
 
-    train_likes_list: np.ndarray
-    """Bag-Of-words of liked pages, as a numpy array, padded with zeros.
+    train_onehot: Optional[np.ndarray] = None
+    """One-Hot matrix of Liked pages. Optionally returned by the preprocess_train 
+    function when passed the `output_mhot=True` argument.
     """
+
 
 
     def write_training_data_config(self, log_dir: str):
@@ -128,8 +130,7 @@ class TrainData():
             f.write(",".join(likes))
 
 def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: TrainConfig) -> Tuple[tf.data.Dataset, tf.data.Dataset]:
-    train_data = TrainData(*preprocess_train(data_dir, hparams.num_like_pages, max_num_likes=hparams.max_number_of_likes))
-
+    train_data = TrainData(*preprocess_train(data_dir, hparams.num_like_pages, max_num_likes=hparams.max_number_of_likes, use_custom_likes=hparams.use_custom_likes))
     features = train_data.train_features
     labels = train_data.train_labels
 
@@ -141,21 +142,19 @@ def train_input_pipeline(data_dir: str, hparams: HyperParameters, train_config: 
 
     column_names = list(features.columns)
     print("Total number of columns:", len(column_names))
-    
     assert "faceID" not in column_names
     assert "userId" not in column_names
     assert "userid" not in column_names
+
     column_names = features.columns
     # The names of each column for each type of feature. Could be useful for debugging.
     text_columns_names, image_columns_names, likes_columns_names = split_features(column_names, hparams)
-
     expected_num_columns = hparams.num_text_features + hparams.num_image_features + hparams.max_number_of_likes
     assert features.shape[1] == expected_num_columns
 
-
     train_data.write_training_data_config(train_config.log_dir)
     (train_features, train_labels), (valid_features, valid_labels) = train_valid_split(features, labels, train_config)
-
+    
     train_dataset = make_dataset(train_features, train_labels, hparams)
     if train_config.validation_data_fraction != 0:
         valid_dataset = make_dataset(valid_features, valid_labels, hparams)
@@ -172,13 +171,26 @@ def train_valid_split(features: pd.DataFrame, labels: pd.DataFrame, train_config
     cutoff = int(all_features.shape[0] * validation_data_fraction)
 
     # perform the train-valid split.
-    valid_features, valid_labels = features.values[:cutoff], labels[:cutoff]
-    train_features, train_labels = features.values[cutoff:], labels[cutoff:]
+    # valid_features, valid_labels = features.values[:cutoff], labels[:cutoff]
+    # train_features, train_labels = features.values[cutoff:], labels[cutoff:]
+
+    from sklearn import model_selection
+    train_features, valid_features, train_labels, valid_labels = model_selection.train_test_split(
+        # training features to split
+        features,
+        # training labels to split
+        labels,
+        # between 0 and 1, proportion of sample in validation set (e.g., 0.2)
+        test_size = validation_data_fraction,
+        shuffle = True,
+        stratify = labels["age_group"],
+        # random_state = 42  # can use to always obtain the same train/validation split
+    )
     return (train_features, train_labels), (valid_features, valid_labels)
 
 
 def make_dataset(features: np.ndarray, labels: np.ndarray, hparams: HyperParameters) -> tf.data.Dataset:
-    text_features, image_features, likes_features = split_features(features, hparams)
+    text_features, image_features, likes_features = split_features(features.values, hparams)
 
     # print(text_features.shape)
     # print(image_features.shape)
@@ -226,7 +238,12 @@ def split_features(features: np.ndarray, hparams: HyperParameters) -> Tuple[np.n
     likes_features_start_index = image_features_end_index
     likes_features_end_index = likes_features_start_index + hparams.num_like_pages 
 
-    text_features   = features[..., text_features_start_index:text_features_end_index]
+    print(features.shape)
+    print(text_features_start_index,   text_features_end_index)
+    print(image_features_start_index, image_features_end_index)
+    print(likes_features_start_index, likes_features_end_index)
+
+    text_features   = features[..., text_features_start_index: text_features_end_index]
     image_features  = features[..., image_features_start_index:image_features_end_index]
     likes_features  = features[..., likes_features_start_index:likes_features_end_index]
 
@@ -290,10 +307,17 @@ def train(train_data_dir: str, hparams: HyperParameters, train_config: TrainConf
             valid_dataset = valid_dataset.repeat(100)
 
     using_validation_set = valid_dataset is not None
+    hparams_dict = asdict(hparams)
+    import pprint
+    pprint.pprint(hparams_dict, indent=4)
+    flattened_dict = utils.flatten_dict(hparams_dict)
 
     training_callbacks = [
         tf.keras.callbacks.TensorBoard(log_dir = train_config.log_dir, profile_batch=0),
-        hp.KerasCallback(train_config.log_dir, asdict(hparams)),
+        hp.KerasCallback(train_config.log_dir, flattened_dict),
+
+
+
         tf.keras.callbacks.TerminateOnNaN(),
         utils.EarlyStoppingWhenValueExplodes(monitor="loss", check_every_batch=True),
         tf.keras.callbacks.ModelCheckpoint(

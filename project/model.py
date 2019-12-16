@@ -6,12 +6,46 @@ import tensorflow as tf
 import dataclasses
 from dataclasses import dataclass, field
 from tensorboard.plugins.hparams import api as hp
+from typing import Callable
 from typing import *
+from utils import JsonSerializable
 
 # Best model so far:
+best_model_so_far = "checkpoints/one-model-each-marie-3/2019-11-26_17-57-56"
 
 @dataclass
-class HyperParameters():
+class TaskHyperParameters(JsonSerializable):
+    """
+    HyperParameters for a task-specific model
+    """
+    # name of the task
+    name: str
+    # number of dense layers
+    num_layers: int = 1
+    # units per layer
+    num_units: int = 8
+    # activation function
+    activation: str = "tanh"
+    # wether or not to use batch normalization after each dense layer
+    use_batchnorm: bool = False
+    # wether or not to use dropout after each dense layer
+    use_dropout: bool = True
+    # the dropout rate
+    dropout_rate: float = 0.1
+    # wether or not image features should be used as input
+    use_image_features: bool = True
+    # wether or not 'likes' features should be used as input
+    use_likes: bool = True
+    # L1 regularization coefficient
+    l1_reg: float = 0.005
+    # L2 regularization coefficient
+    l2_reg: float = 0.005
+    # Wether or not a task-specific Embedding layer should be used on the 'likes' features.
+    # When set to 'True', it is expected that there no shared embedding is used.
+    embed_likes: bool = False
+
+@dataclass
+class HyperParameters(JsonSerializable):
     """Hyperparameters of our model."""
     # the batch size
     batch_size: int = 128
@@ -23,231 +57,212 @@ class HyperParameters():
     # Learning Rate
     learning_rate: float = 0.001
 
-    # L1 regularization coefficient
-    l1_reg: float = 0.005
-    # L2 regularization coefficient
-    l2_reg: float = 0.005
-
     # number of individual 'pages' that were kept during preprocessing of the 'likes'.
     # This corresponds to the number of entries in the multi-hot like vector.
     num_like_pages: int = 10_000
-    # wether or not Dropout layers should be used
-    use_dropout: bool = True
-    # the dropout rate
-    dropout_rate: float = 0.1
-    # wether or not Batch Normalization should be applied after each dense layer.
-    use_batchnorm: bool = False
 
-    gender_loss_weight: float = 1.0
-    age_loss_weight: float = 1.0
+    gender_loss_weight: float   = 1.0
+    age_loss_weight: float      = 1.0
 
     num_text_features: ClassVar[int] = 91
     num_image_features: ClassVar[int] = 65
 
+    max_number_of_likes: int = 2000
+    embedding_dim: int = 8
 
-    # Gender model settings:
-    gender_num_layers: int = 1
-    gender_num_units: int = 32
-    gender_use_batchnorm: bool = False
-    gender_use_dropout: bool = True
-    gender_dropout_rate: float = 0.1
-    gender_use_likes: bool = True
-    gender_likes_condensing_layers: int = 3
-    gender_likes_condensing_units: int = -1 # hard-coded below.
+    shared_likes_embedding: bool = True
 
-    # Age Group Model settings:
-    age_group_num_layers: int = 2
-    age_group_num_units: int = 64
-    age_group_use_batchnorm: bool = False
-    age_group_use_dropout: bool = True
-    age_group_dropout_rate: float = 0.1
-    age_group_use_likes: bool = True
-    age_group_likes_condensing_layers: int = 1
-    age_group_likes_condensing_units: int = 32
-
-    # Personality Model(s) settings:
-    personality_num_layers: int = 1
-    personality_num_units: int = 8
-    personality_use_batchnorm: bool = False
-    personality_use_dropout: bool = True
-    personality_dropout_rate: float = 0.1
-
-    personality_use_image_features: bool = False
-    personality_use_likes: bool = False
-    personality_likes_condensing_layers: int = 0
-    personality_likes_condensing_units: int = 0
+    # Wether or not to use Rémi's better kept like pages
+    use_custom_likes: bool = True
 
     max_number_of_likes: int = 2000
 
+    # Gender model settings:
+    gender: TaskHyperParameters = TaskHyperParameters(
+        "gender",
+        num_layers=1,
+        num_units=32,
+        use_batchnorm=False,
+        use_dropout=True,
+        dropout_rate=0.1,
+        use_image_features=True,
+        use_likes=True,
+    )
+
+    # Age Group Model settings:
+    age_group: TaskHyperParameters = TaskHyperParameters(
+        "age_group",
+        num_layers=2,
+        num_units=64,
+        use_batchnorm=False,
+        use_dropout=True,
+        dropout_rate=0.1,
+        use_image_features=True,
+        use_likes=True,
+    )
+
+    # Personality Model(s) settings:
+    personality: TaskHyperParameters = TaskHyperParameters(
+        "personality",
+        num_layers=1,
+        num_units=8,
+        use_batchnorm=False,
+        use_dropout=True,
+        dropout_rate=0.1,
+        use_image_features=False,
+        use_likes=False,
+    )
 
 
-# best_model_hparams = HyperParameters(batch_size=128, num_layers=1, dense_units=32, activation='tanh', optimizer='ADAM', learning_rate=0.01, l1_reg=0.0, l2_reg=0.005, num_like_pages=10000, use_dropout=False, dropout_rate=0.1, use_batchnorm=False, gender_loss_weight=1.0, age_loss_weight=1.0, gender_num_layers=1, gender_num_units=32, gender_use_batchnorm=False, gender_use_dropout=False, gender_dropout_rate=0.1, gender_use_likes=False, gender_likes_condensing_layers=0, gender_likes_condensing_units=0, age_group_num_layers=2, age_group_num_units=64, age_group_use_batchnorm=False, age_group_use_dropout=False, age_group_dropout_rate=0.1, age_group_use_likes=True, age_group_likes_condensing_layers=1, age_group_likes_condensing_units=16, personality_num_layers=1, personality_num_units=8, personality_use_batchnorm=False, personality_use_dropout=False, personality_dropout_rate=0.1, personality_use_likes=False, personality_likes_condensing_layers=0, personality_likes_condensing_units=0)
-best_model_so_far = "checkpoints/one-model-each-marie-3/2019-11-26_17-57-56"
+def likes_embedding(name: str, num_page_likes: int, max_number_of_likes: int, embedding_dim: int = 8) -> tf.keras.Sequential:
+    likes_condensing = tf.keras.Sequential(name=f"{name}_likes_condensing")
+    embedding_layer = tf.keras.layers.Embedding(
+        input_dim=num_page_likes,
+        output_dim=embedding_dim,
+        input_length=max_number_of_likes,
+        mask_zero=True,
+        name=f"{name}_likes_embedding",
+    )
+    likes_condensing.add(embedding_layer)
+    likes_condensing.add(tf.keras.layers.Flatten())
+    return likes_condensing
 
-def gender_model(hparams: HyperParameters, image_features: tf.Tensor, text_features: tf.Tensor, likes_features: tf.Tensor) -> tf.keras.Sequential:
-    # Likes Condensing, if required:
-    if hparams.gender_use_likes:
-        likes_condensing = tf.keras.Sequential(name="gender_likes_condensing")
-        for units in [256, 128, 64]:
-            likes_condensing.add(tf.keras.layers.Dense(
-                units=units,
-                activation=hparams.activation,
-                kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
-            ))
-        likes_features = likes_condensing(likes_features)
 
+# define a Model type, for simplicity
+Model = Callable[[tf.Tensor, tf.Tensor, tf.Tensor], tf.Tensor]
+
+def task_model(task_params: TaskHyperParameters, name: str = None) -> tf.keras.Sequential:
     # Model:
-    model = tf.keras.Sequential(name="gender")
-    model.add(tf.keras.layers.Concatenate())
-    for i in range(hparams.gender_num_layers):
-        model.add(tf.keras.layers.Dense(
-            units=hparams.gender_num_units,
-            activation=hparams.activation,
-            kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
-        ))
+    model = tf.keras.Sequential(name=task_params.name if name is None else name)
 
-        if hparams.gender_use_batchnorm:
-            model.add(tf.keras.layers.BatchNormalization())
-
-        if hparams.gender_use_dropout:
-            model.add(tf.keras.layers.Dropout(hparams.gender_dropout_rate))
-    model.add(tf.keras.layers.Dense(units=1, activation="sigmoid", name="gender_out"))
-
-    # Calling the model to create the outputs:
-    model_inputs = [text_features, image_features]
-    if hparams.gender_use_likes:
-        model_inputs.append(likes_features)
-    model_output = model(model_inputs)
-    return model_output
-
-
-def age_group_model(hparams: HyperParameters, image_features: tf.Tensor, text_features: tf.Tensor, likes_features: tf.Tensor) -> tf.keras.Sequential:
-    # Likes Condensing, if required:
-    if hparams.age_group_use_likes:
-        likes_condensing = tf.keras.Sequential(name="age_group_likes_condensing")
-        for i in range(hparams.age_group_likes_condensing_layers):
-            likes_condensing.add(tf.keras.layers.Dense(
-                units=hparams.age_group_likes_condensing_units,
-                activation=hparams.activation,
-                kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
-            ))
-        likes_features = likes_condensing(likes_features)
-
-    # Model:
-    model = tf.keras.Sequential(name="age_group")
-    model.add(tf.keras.layers.Concatenate())
-    for i in range(hparams.age_group_num_layers):
-        model.add(tf.keras.layers.Dense(
-            units=hparams.age_group_num_units,
-            activation=hparams.activation,
-            kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
-        ))
-
-        if hparams.age_group_use_batchnorm:
-            model.add(tf.keras.layers.BatchNormalization())
-
-        if hparams.age_group_use_dropout:
-            model.add(tf.keras.layers.Dropout(hparams.age_group_dropout_rate))
-    model.add(tf.keras.layers.Dense(units=4, activation="softmax", name="age_group_out"))
-
-    # Calling the model to create the outputs:
-    model_inputs = [text_features, image_features]
-    if hparams.age_group_use_likes:
-        model_inputs.append(likes_features)
-    model_output = model(model_inputs)
-    return model_output
-
-
-
-
-def personality_model(personality_trait: str, hparams: HyperParameters, image_features: tf.Tensor, text_features: tf.Tensor, likes_features: tf.Tensor) -> tf.keras.Sequential:
-    # Likes Condensing, if required:
-    if hparams.personality_use_likes:
-        likes_condensing = tf.keras.Sequential(name=f"{personality_trait}_likes_condensing")
-        for i in range(hparams.personality_likes_condensing_layers):
-            likes_condensing.add(tf.keras.layers.Dense(
-                units=hparams.personality_likes_condensing_units,
-                activation=hparams.activation,
-                kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
-            ))
-        likes_features = likes_condensing(likes_features)
-
-    # Model:
-    model = tf.keras.Sequential(name=f"{personality_trait}")
-    if not hparams.personality_use_image_features and not hparams.personality_use_likes:
-        pass
-    else:
+    if task_params.use_image_features or task_params.use_likes:
         model.add(tf.keras.layers.Concatenate())
 
-    for i in range(hparams.personality_num_layers):
+    for i in range(task_params.num_layers):
         model.add(tf.keras.layers.Dense(
-            units=hparams.personality_num_units,
-            activation=hparams.activation,
-            kernel_regularizer=tf.keras.regularizers.L1L2(l1=hparams.l1_reg, l2=hparams.l2_reg),
+            units=task_params.num_units,
+            activation=task_params.activation,
+            kernel_regularizer=tf.keras.regularizers.L1L2(l1=task_params.l1_reg, l2=task_params.l2_reg),
         ))
-
-        if hparams.personality_use_batchnorm:
+        if task_params.use_batchnorm:
             model.add(tf.keras.layers.BatchNormalization())
+        if task_params.use_dropout:
+            model.add(tf.keras.layers.Dropout(task_params.dropout_rate))
+    
+    return model
 
-        if hparams.personality_use_dropout:
-            model.add(tf.keras.layers.Dropout(hparams.personality_dropout_rate))
+
+def apply_model(model: tf.keras.Sequential, hparams: HyperParameters, task_params: TaskHyperParameters,  name: str = None) -> Model:
+    """Given a task-specific model and the related HyperParameters, this
+    function returns a Callable which will apply the task-specific model
+    to the selected inputs and return the corresponding output Tensor. 
+    
+    Args:
+        model (tf.keras.Sequential): The Task-specific model which will be applied to the inputs and which returns the output tensor.
+        hparams (HyperParameters): The global hyperparameters
+        task_params (TaskHyperParameters): The task-specific hyperparameters
+        name (str, optional): A custom name to use for the components of this model. Defaults to None, in which case the value of `task_params.name` is used.
+    
+    Returns:
+        Model: A Callable which accepts the Text, Image and Relation tensors and returns an output Tensor.
+    """
+
+    
+    def apply(text_features: tf.Tensor, image_features: tf.Tensor, likes_features: tf.Tensor) -> tf.Tensor:
+        model_inputs = [text_features]
+        if task_params.use_image_features:
+            model_inputs.append(image_features)
+        if task_params.use_likes:
+            if task_params.embed_likes:
+                assert not hparams.shared_likes_embedding
+                likes_embedding_model = likes_embedding(
+                    name                = task_params.name if name is None else name,
+                    num_page_likes      = hparams.num_like_pages,
+                    max_number_of_likes = hparams.max_number_of_likes,
+                )
+                likes_embeddings = likes_embedding_model(likes_features)
+                model_inputs.append(likes_embeddings)
+            else:
+                assert hparams.shared_likes_embedding
+                model_inputs.append(likes_features)
+
+        if len(model_inputs) == 1:
+            model_output = model(model_inputs[0])
+        else:
+            model_output = model(model_inputs)
+        return model_output 
+    return apply
 
 
-    model.add(tf.keras.layers.Dense(units=1, activation="sigmoid", name=f"{personality_trait}_sigmoid"))
+def gender_model(hparams: HyperParameters) -> Model:
+    model = task_model(hparams.gender)
+    model.add(tf.keras.layers.Dense(units=1, activation="sigmoid", name="gender_out"))
+    model = apply_model(model, hparams, hparams.gender)
+    return model
+
+def age_group_model(hparams: HyperParameters) -> Model:
+    model = task_model(hparams.age_group)
+    model.add(tf.keras.layers.Dense(units=4, activation="softmax", name="age_group_out"))
+    model = apply_model(model, hparams, hparams.age_group)
+    return model
+
+def personality_model(personality_trait: str, hparams: HyperParameters) -> Model:
+    model = task_model(hparams.personality, name=personality_trait)
+    model.add(tf.keras.layers.Dense(units=1, activation="sigmoid", name=f"{personality_trait}_out"))
     model.add(personality_scaling(f"{personality_trait}_out"))
-
-    # Calling the model to create the outputs:
-    model_inputs = [text_features]
-
-    if hparams.personality_use_image_features:
-        model_inputs.append(image_features)
-    if hparams.personality_use_likes:
-        model_inputs.append(likes_features)
-
-    if len(model_inputs) == 1:
-        model_output = model(model_inputs[0])
-    else:
-        model_output = model(model_inputs)
-    return model_output
+    model = apply_model(model, hparams, hparams.personality, name=personality_trait)
+    return model
 
 
 def personality_scaling(name: str) -> tf.keras.layers.Layer:
-    """Returns a layer that scales a sigmoid output [0, 1) output to the desired 'personality' range of [1, 5)
-
-    Arguments:
-        name {str} -- the name to give to the layer.
-
-    Returns:
-        tf.keras.layers.Layer -- the layer to use.
-    """
+    """Returns a layer that scales a sigmoid output [0, 1) output to the desired big-5 'personality' range of [1, 5)"""
     return tf.keras.layers.Lambda(lambda x: x * 4.0 + 1.0, name=name)
 
 
 def get_model(hparams: HyperParameters) -> tf.keras.Model:
     # INPUTS: genderate content: (e.g., text, image and relations)
-    # Inputs: user id (str), text + image info (157 floats),
     # OUTPUTS:  Gender (ACC), Age (ACC), EXT (RMSE), ope (RMSE), AGR (RMSE), NEU (RMSE), CON (RMSE)
-    # Texte: 82 (LIWC) + 11 (NRC)
-    # Image
-
+    
     # defining the inputs:
     # userid         =    tf.keras.Input([], dtype=tf.string, name="userid")
-    image_features =    tf.keras.Input([hparams.num_image_features], dtype=tf.float32, name="image_features")
     text_features  =    tf.keras.Input([hparams.num_text_features], dtype=tf.float32, name="text_features")
-    likes_features =    tf.keras.Input([hparams.num_like_pages], dtype=tf.bool, name="likes_features")
+    image_features =    tf.keras.Input([hparams.num_image_features], dtype=tf.float32, name="image_features")
+    likes_features =    tf.keras.Input([hparams.max_number_of_likes], dtype=tf.int32, name="likes_features")
 
-    # MODEL OUTPUTS:
-    gender = gender_model(hparams, image_features, text_features, likes_features)
-    age_group = age_group_model(hparams, image_features, text_features, likes_features)
+    if hparams.shared_likes_embedding:
+        # single (shared) embedding model:
+        likes_embedding_model = likes_embedding(
+            name                = "shared_likes_embedding",
+            num_page_likes      = hparams.num_like_pages,
+            max_number_of_likes = hparams.max_number_of_likes,
+        )
+        likes_embeddings = likes_embedding_model(likes_features)
+        likes_embedding_model.summary()
+    
+    input_features = [text_features, image_features, likes_features]
+    if hparams.shared_likes_embedding:
+        task_model_inputs = [text_features, image_features, likes_embeddings]
+    else:
+        task_model_inputs = input_features
+
+    gender_predictor = gender_model(hparams)
+    gender = gender_predictor(*task_model_inputs)
+
+    age_group_predictor = age_group_model(hparams)
+    age_group = age_group_predictor(*task_model_inputs)
 
     personality_outputs: List[tf.Tensor] = []
     for personality_trait in ["ext", "ope", "agr", "neu", "con"]:
-        output_tensor = personality_model(personality_trait, hparams, text_features, image_features, likes_features)
+        personality_trait_predictor = personality_model(personality_trait, hparams)
+        output_tensor = personality_trait_predictor(*task_model_inputs)
         personality_outputs.append(output_tensor)
 
+    # MODEL OUTPUTS:
+    model_outputs = [age_group, gender, *personality_outputs]
+
     model = tf.keras.Model(
-        inputs=[text_features, image_features, likes_features],
-        outputs=[age_group, gender, *personality_outputs]
+        inputs=input_features,
+        outputs=model_outputs,
     )
     model.compile(
         optimizer=tf.keras.optimizers.get({"class_name": hparams.optimizer,
@@ -263,7 +278,7 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
             "neu": "mse",
             "con": "mse",
         },
-        #TODO: We can use this to change the importance of each output in the loss calculation, if need be.
+        #NOTE: We can use this to change the importance of each output in the loss calculation, if need be.
         loss_weights={
             "age_group": hparams.age_loss_weight,
             "gender": hparams.gender_loss_weight,
