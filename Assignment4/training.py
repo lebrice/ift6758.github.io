@@ -70,19 +70,21 @@ def get_model(num_classes: int) -> tf.keras.Sequential:
 """
 
 
-def train(model: tf.keras.Model, save_path: str):
+def train(model: tf.keras.Model, save_path: str, max_epochs: int = 100, early_stopping=True):
     tf.random.set_seed(123)
     callbacks = [
         # tf.keras.callbacks.TensorBoard(log_dir=os.path.join("logs"), profile_batch=0),
-        tf.keras.callbacks.EarlyStopping(patience=3),
         tf.keras.callbacks.ModelCheckpoint(save_path),
     ]
+    if early_stopping:
+        callbacks.append(tf.keras.callbacks.EarlyStopping(patience=3))
+
     history = model.fit(
         x=train_x,
         y=train_y,
         validation_data=(valid_x, valid_y),
         shuffle=True,
-        epochs=100,
+        epochs=max_epochs,
         callbacks=callbacks,
     )
     return model, history
@@ -93,11 +95,11 @@ def make_plot(history: tf.keras.callbacks.History, model_name="default"):
 
     epochs = range(1, len(history.epoch) + 1)
     plt.title(
-        f"Training and Validation Accuracy of the {model_name} model"
+        f"Training and Validation loss of the {model_name} model "
         f"over {len(history.epoch)} epochs."
     )
-    plt.plot(epochs, history.history["accuracy"], label="train acc")
-    plt.plot(epochs, history.history["val_accuracy"], label="valid acc")
+    plt.plot(epochs, history.history["loss"], label="train loss")
+    plt.plot(epochs, history.history["val_loss"], label="valid loss")
     plt.xlabel('Epochs')
     plt.ylabel('Loss')
     plt.legend()
@@ -109,6 +111,7 @@ if not os.path.exists(weights_path):
     model = get_model(10)
     print("Training a new Model.")
     model, history = train(model, weights_path)
+    num_epochs = len(history.epoch)
     model.save(weights_path)
     make_plot(history)
 else:
@@ -222,7 +225,7 @@ weights_path = os.path.join("logs", "improved_model")
 if not os.path.exists(weights_path):
     improved_model = get_improved_model(10)
     print("Training a new (improved) Model.")
-    improved_model, history = train(improved_model, weights_path)
+    improved_model, history = train(improved_model, weights_path, max_epochs=num_epochs, early_stopping=False)
     improved_model.save(weights_path)
     make_plot(history, model_name="improved")
 else:
