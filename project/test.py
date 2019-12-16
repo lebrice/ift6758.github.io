@@ -13,7 +13,7 @@ import pandas as pd
 import tensorflow as tf
 
 from model import HyperParameters, get_model, best_model_so_far
-from old_model import HyperParameters as OldHyperParameters, get_model as old_get_model, best_model_so_far as old_best_model_so_far
+from old_model import HyperParameters as OldHyperParameters, get_model as old_get_model
 
 from preprocessing_pipeline import preprocess_test
 from train import TrainConfig
@@ -68,29 +68,22 @@ class TestConfig:
                 print("WARNING, hparams has different number of image features than model!")
     
     def get_test_features(self) -> pd.DataFrame:
-        if not self.using_old_model:
-            hparams = cast(HyperParameters, self.train_hparams)
-            # new model:
-            test_features = preprocess_test(
-                self.i,
-                self.min_max_train,
-                self.image_means_train,
-                self.likes_kept_train,
-                max_num_likes=hparams.max_number_of_likes,
-            )
-            return test_features
+        if self.using_old_model:
+            from task_specific_models.age_group import max_len
+            max_num_likes = max_len
         else:
-            old_hparams = cast(OldHyperParameters, self.train_hparams)
-            test_features, likes_data = preprocess_test(
-                self.i,
-                self.min_max_train,
-                self.image_means_train,
-                self.likes_kept_train,
-                max_num_likes=2000,
-                output_mhot=True
-            )
-            self.likes_multihot_matrix = likes_data.values
-            return test_features
+            hparams = cast(HyperParameters, self.train_hparams)
+            max_num_likes = hparams.max_number_of_likes
+        
+        test_features, likes_multihot_matrix = preprocess_test(
+            self.i,
+            self.min_max_train,
+            self.image_means_train,
+            self.likes_kept_train,
+            max_num_likes=max_num_likes,
+        )
+        self.likes_multihot_matrix = likes_multihot_matrix.values
+        return test_features
 
 def test_input_pipeline(data_dir: str, test_config: TestConfig, hparams: Union[OldHyperParameters, HyperParameters], use_old_model = False):
     test_features = test_config.get_test_features()
@@ -213,7 +206,7 @@ if __name__ == "__main__":
     print(len(predictions), "predictions")
     from user import User
     
-    from age_group import get_age_model
+    from task_specific_models.age_group import get_age_model
     age_group_model = get_age_model()
     age_group_predictions = age_group_model.predict(age_group_dataset)
     

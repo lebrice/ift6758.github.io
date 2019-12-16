@@ -2,17 +2,17 @@
 
 import tensorflow as tf
 
+num_layers=2
+dense_units=62
+l1_reg=0.0025
+l2_reg=0.005
+dropout_rate=0.1
+num_text_features = 91
+num_image_features = 65
+max_len = 2000
+
 def get_age_model() -> tf.keras.Model:
     age_model_path = 'saved_models/age_model_embedding_2000_fullset.h5'
-
-    num_layers=2
-    dense_units=62
-    l1_reg=0.0025
-    l2_reg=0.005
-    dropout_rate=0.1
-    num_text_features = 91
-    num_image_features = 65
-    max_len = 2000
 
     image_features = tf.keras.Input([num_image_features], dtype=tf.float32, name="image_features")
     text_features  = tf.keras.Input([num_text_features], dtype=tf.float32, name="text_features")

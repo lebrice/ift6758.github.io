@@ -389,7 +389,7 @@ def preprocess_train(data_dir, num_likes=10_000, use_custom_likes = True, output
         return train_features, features_q10_q90, image_means, likes_kept, train_labels
 
 
-def preprocess_test(data_dir, q10_q90_train, image_means_train, likes_kept_train, max_num_likes=2145, output_mhot=False):
+def preprocess_test(data_dir, q10_q90_train, image_means_train, likes_kept_train, max_num_likes=2145):
     '''
     Purpose: preprocesses test dataset (no labels)
     Input:
@@ -401,7 +401,6 @@ def preprocess_test(data_dir, q10_q90_train, image_means_train, likes_kept_train
         likes_kept_train {list of strings}: most frequent likes_ids from train set
                 (ordered by frequency) to serve as columns in relation features matrix
         max_num_likes {int}: maximum number of pages liked by a single user (from train set)
-        output_mhot {bool}: if True, outputs multihot and likes lists as features
     Output:
         test_features {pandas DataFrame}: vectorized features of test set
 
@@ -436,10 +435,8 @@ def preprocess_test(data_dir, q10_q90_train, image_means_train, likes_kept_train
 
     # concatenate all scaled features into a single DataFrame
     test_features = pd.concat([feat_scaled, image_data.iloc[:, -2:], test_likes_lists], axis=1, sort=False)
-    if output_mhot:
-        return test_features, likes_data
-    else:
-        return test_features
+    return test_features, likes_data
+
 
 
 def get_train_val_sets(features, labels, val_prop):
