@@ -4,7 +4,7 @@ import contextlib
 import socket
 
 from typing import *
-hostnames = ["fabrice", "marie", "isa", "remi"] 
+hostnames = ["fabrice", "Brigitte", "marie", "isa", "remi"] 
 machine_hostname = socket.gethostname()
 # DEBUG should be True if running scripts locally.
 # This will automatically use the debug_data, and print more information to the console.
