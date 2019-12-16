@@ -38,12 +38,11 @@ class TestConfig:
     likes_multihot_matrix: np.ndarray = field(init=False)
 
     def __post_init__(self):
-
-        
+        # Load the hyperparameters used during Training.
         trained_model_hparams_path=os.path.join(self.trained_model_dir, "hyperparameters.json")
         try:
             self.train_hparams = HyperParameters.load_json(trained_model_hparams_path)
-        except KeyError:
+        except Exception:
             # using OLD model:
             self.using_old_model = True
             self.train_hparams = OldHyperParameters.load_json(trained_model_hparams_path)
@@ -102,14 +101,9 @@ def test_input_pipeline(data_dir: str, test_config: TestConfig, hparams: Union[O
     assert "faceID" not in column_names
     assert "userId" not in column_names
     assert "userid" not in column_names
-    # expected_num_columns= hparams.num_text_features + hparams.num_image_features + hparams.num_like_pages
-
-    # message = f"columnds present in train set but not in test set: {set(train_columns) ^ set(column_names)}"
-    # assert len(column_names) == expected_num_columns, message
-    
+        
     if test_config.using_old_model:
         old_hparams = cast(OldHyperParameters, test_config.train_hparams)
-
         old_features = test_features.drop(["noface", "multiface"], axis=1)
         all_old_features = old_features.values
         old_text_features, old_image_features, old_likes_features = split_features(all_old_features, old_hparams)
@@ -121,9 +115,8 @@ def test_input_pipeline(data_dir: str, test_config: TestConfig, hparams: Union[O
                 "likes_features": likes_multihot.astype(bool),
             }
         )
-        
         all_features=test_features.values
-        hparams.num_image_features += 2
+        OldHyperParameters.num_image_features += 2
         # hparams.max_number_of_likes = hparams.num_like_pages
     else:
         all_features = test_features.values
@@ -226,9 +219,9 @@ if __name__ == "__main__":
     
     
     age_group_ids = np.argmax(predictions[0], axis=-1)
-    # print("previous age group ids (older model)", age_group_ids)
+    print("previous age group ids (general model)", age_group_ids)
     age_group_ids = np.argmax(age_group_predictions, axis=-1)
-    # print("New age group ids (specific model)", age_group_ids)
+    print("New age group ids (specific model)", age_group_ids)
 
     for i, user in enumerate(test_dataset.unbatch()):
         

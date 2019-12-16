@@ -11,7 +11,7 @@ from typing import *
 from utils import JsonSerializable
 
 # Best model so far:
-best_model_so_far = "checkpoints/one-model-each-marie-3/2019-11-26_17-57-56"
+best_model_so_far = "checkpoints/one-model-each-marie-2/2019-11-25_21-14-40"
 
 @dataclass
 class TaskHyperParameters(JsonSerializable):
