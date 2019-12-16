@@ -233,3 +233,6 @@ if __name__ == "__main__":
         print(user)
         with open(os.path.join(output_dir, f"{userid}.xml"), "w") as xml_file:
             xml_file.write(user.to_xml())
+    
+    print(f"Mean age_group value:", np.mean(age_group_ids))
+    print(f"age_group std-dev:", np.std(age_group_ids))
