@@ -50,27 +50,31 @@ class TestConfig:
         trained_model_config_path=os.path.join(self.trained_model_dir, "train_config.json")
         self.training_config = TrainConfig.load_json(trained_model_config_path)
 
-        def to_np_float_array(csv_file_line: str) -> np.ndarray:
-            return np.asarray([float(v) for v in csv_file_line.split(",") if v.strip() != ""])
 
-        with open(os.path.join(self.trained_model_dir, "train_features_max.csv")) as f:
-            maxes = to_np_float_array(f.readline())
-        with open(os.path.join(self.trained_model_dir, "train_features_min.csv")) as f:
-            mins = to_np_float_array(f.readline())
-        
+        def read_floats(file_name: str) -> np.ndarray:
+            with open(os.path.join(self.trained_model_dir, file_name)) as f:
+                line = f.readline()
+                line_parts = line.split(",")
+                array = np.array([float(v) for v in line_parts], dtype=float)
+                return array
+
+
+        maxes = read_floats("train_features_max.csv")
+        mins = read_floats("train_features_min.csv")
+
         self.min_max_train = (mins, maxes)
-        with open(os.path.join(self.trained_model_dir, "train_features_likes.csv")) as f:
-            self.likes_kept_train = [int(like) for like in f.readline().split(",") if like.strip() != ""]
-        with open(os.path.join(self.trained_model_dir, "train_features_image_means.csv")) as f:
-            self.image_means_train = to_np_float_array(f.readline())
+
+        self.likes_kept_train = read_floats("train_features_likes.csv").astype(int)
+
+        self.image_means_train = read_floats("train_features_image_means.csv")
             
-            if len(self.image_means_train) != self.train_hparams.num_image_features:
-                print("WARNING, hparams has different number of image features than model!")
+        if len(self.image_means_train) != self.train_hparams.num_image_features:
+            print("WARNING, hparams uses a different number of image features than the saved model!")
     
     def get_test_features(self) -> pd.DataFrame:
         if self.using_old_model:
             from task_specific_models.age_group import max_len
-            max_num_likes = max_len
+            max_num_likes = max_len # usually equal to 2000.
         else:
             hparams = cast(HyperParameters, self.train_hparams)
             max_num_likes = hparams.max_number_of_likes
@@ -85,8 +89,11 @@ class TestConfig:
         self.likes_multihot_matrix = likes_multihot_matrix.values
         return test_features
 
-def test_input_pipeline(data_dir: str, test_config: TestConfig, hparams: Union[OldHyperParameters, HyperParameters], use_old_model = False):
+def test_input_pipeline(data_dir: str, test_config: TestConfig):
     test_features = test_config.get_test_features()
+
+
+
     likes_multihot =  test_config.likes_multihot_matrix
     # TODO: save the information that will be used in the testing phase to a file or something.
     column_names = list(test_features.columns)
@@ -108,14 +115,10 @@ def test_input_pipeline(data_dir: str, test_config: TestConfig, hparams: Union[O
                 "likes_features": likes_multihot.astype(bool),
             }
         )
-        all_features=test_features.values
         OldHyperParameters.num_image_features += 2
-        # hparams.max_number_of_likes = hparams.num_like_pages
-    else:
-        all_features = test_features.values
-        text_features, image_features, likes_features = split_features(all_features, hparams)
     
-    text_features, image_features, likes_features = split_features(all_features, hparams)
+    all_features = test_features.values
+    text_features, image_features, likes_features = split_features(all_features, test_config.train_hparams)
     print(text_features.shape, text_features.dtype)
     print(image_features.shape, image_features.dtype)
     print(likes_features.shape, likes_features.dtype)
@@ -197,10 +200,9 @@ if __name__ == "__main__":
 
     model = old_get_model(hparams) if test_config.using_old_model else get_model(hparams)
     model.load_weights(trained_model_weights_path)
-    test_dataset, age_group_dataset = test_input_pipeline(input_dir, test_config, hparams, use_old_model=test_config.using_old_model)
+    test_dataset, age_group_dataset = test_input_pipeline(input_dir, test_config)
 
     pred_labels = ["age_group", "gender", "ext", "ope", "agr", "neu", "con"]
-
 
     predictions=model.predict(test_dataset)
     print(len(predictions), "predictions")

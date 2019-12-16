@@ -10,7 +10,9 @@ from typing import Callable
 from typing import *
 from utils import JsonSerializable
 
-# Best model so far:
+## NEW model:
+# best_model_so_far = "checkpoints/shared-embedding-02/2019-12-14_03-59-18"
+# OLD model:
 best_model_so_far = "checkpoints/one-model-each-marie-2/2019-11-25_21-14-40"
 
 @dataclass
@@ -235,7 +237,7 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
             max_number_of_likes = hparams.max_number_of_likes,
         )
         likes_embeddings = likes_embedding_model(likes_features)
-        likes_embedding_model.summary()
+        # likes_embedding_model.summary()
     
     input_features = [text_features, image_features, likes_features]
     if hparams.shared_likes_embedding:
