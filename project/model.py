@@ -10,8 +10,10 @@ from typing import Callable
 from typing import *
 from utils import JsonSerializable
 
-# Best model so far:
-best_model_so_far = "checkpoints/one-model-each-marie-3/2019-11-26_17-57-56"
+## NEW model:
+# best_model_so_far = "checkpoints/shared-embedding-02/2019-12-14_03-59-18"
+# OLD model:
+best_model_so_far = "checkpoints/one-model-each-marie-2/2019-11-25_21-14-40"
 
 @dataclass
 class TaskHyperParameters(JsonSerializable):
@@ -74,8 +76,6 @@ class HyperParameters(JsonSerializable):
 
     # Wether or not to use Rémi's better kept like pages
     use_custom_likes: bool = True
-
-    max_number_of_likes: int = 2000
 
     # Gender model settings:
     gender: TaskHyperParameters = TaskHyperParameters(
@@ -237,7 +237,7 @@ def get_model(hparams: HyperParameters) -> tf.keras.Model:
             max_number_of_likes = hparams.max_number_of_likes,
         )
         likes_embeddings = likes_embedding_model(likes_features)
-        likes_embedding_model.summary()
+        # likes_embedding_model.summary()
     
     input_features = [text_features, image_features, likes_features]
     if hparams.shared_likes_embedding:
