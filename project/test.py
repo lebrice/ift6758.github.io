@@ -221,6 +221,10 @@ if __name__ == "__main__":
         age_group_ids_dict: Dict[str, int] = {
             userid: np.argmax(age_group_predictions) for userid, age_group_predictions in age_group_logits.items()
         }
+
+        
+
+
         print("New age group ids (specific model)", age_group_ids_dict)
 
     for i, user in enumerate(test_dataset.unbatch()):
@@ -247,3 +251,9 @@ if __name__ == "__main__":
         print(user)
         with open(os.path.join(output_dir, f"{userid}.xml"), "w") as xml_file:
             xml_file.write(user.to_xml())
+
+    if use_backup_age_model:
+        from collections import Counter
+        print("age group value counts:")
+        print(Counter(age_group_ids_dict.values()))
+
