@@ -8,14 +8,14 @@ from collections import namedtuple
 from dataclasses import dataclass, field
 from typing import *
 try:
-        
     import numpy as np
     import pandas as pd
     import tensorflow as tf
+    import sklearn
 
 except ImportError as e:
     print("ERROR:", e)
-    print("Make sure to first activate the 'datascience' conda environment (which can be created from the 'environment.yml' file found at 'ift6758.github.io/project/environment.yml'.)")
+    print("Make sure to first activate the 'datascience' conda environment (which can be found at '/home/mila/teaching/user07/miniconda3/envs/datascience' or be created from the 'environment.yml' file found at 'ift6758.github.io/project/environment.yml'.)")
     exit()
 
 from model import HyperParameters, get_model, best_model_so_far
