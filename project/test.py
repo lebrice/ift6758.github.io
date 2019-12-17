@@ -7,10 +7,16 @@ import os
 from collections import namedtuple
 from dataclasses import dataclass, field
 from typing import *
+try:
+        
+    import numpy as np
+    import pandas as pd
+    import tensorflow as tf
 
-import numpy as np
-import pandas as pd
-import tensorflow as tf
+except ImportError as e:
+    print("ERROR:", e)
+    print("Make sure to first activate the 'datascience' conda environment (which can be created from the 'environment.yml' file found at 'ift6758.github.io/project/environment.yml'.)")
+    exit()
 
 from model import HyperParameters, get_model, best_model_so_far
 from model_old import HyperParameters as OldHyperParameters, get_model as old_get_model
