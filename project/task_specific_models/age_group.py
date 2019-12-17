@@ -240,7 +240,7 @@ def preprocess_test_agemodel(test_dir, max_num_likes=2000):
     x_test_img = test_features.iloc[:, 91:156].values
     x_test_lik = test_features.iloc[:, 156:].values
 
-    return x_test_txt, x_test_img, x_test_lik
+    return test_features.index, x_test_txt, x_test_img, x_test_lik
 
 def get_age_model() -> tf.keras.Model:
     age_model_path = 'saved_models/age_model_embedding_2000_fullset.h5'

@@ -203,21 +203,30 @@ if __name__ == "__main__":
     predictions=model.predict(test_dataset)
     print(len(predictions), "predictions")
     from user import User
-       
+    
     age_group_ids = np.argmax(predictions[0], axis=-1)
     print("previous age group ids (general model)", age_group_ids)
 
-    from task_specific_models.age_group import get_age_model
-    age_group_model = get_age_model()
-    age_group_predictions = age_group_model.predict(age_group_dataset)
 
-    age_group_ids = np.argmax(age_group_predictions, axis=-1)
-    print("New age group ids (specific model)", age_group_ids)
+    # TODO: add option to use this or not:
+    use_backup_age_model = True
+
+    if use_backup_age_model:
+        from task_specific_models.age_group import get_age_model, preprocess_test_agemodel
+        age_group_model = get_age_model()
+        age_group_userids, x_test_txt, x_test_img, x_test_lik = preprocess_test_agemodel(input_dir)
+        age_group_predictions = age_group_model.predict([x_test_txt, x_test_img, x_test_lik])
+        
+        age_group_logits = dict(zip(age_group_userids, age_group_predictions))
+        age_group_ids_dict: Dict[str, int] = {
+            userid: np.argmax(age_group_predictions) for userid, age_group_predictions in age_group_logits.items()
+        }
+        print("New age group ids (specific model)", age_group_ids_dict)
 
     for i, user in enumerate(test_dataset.unbatch()):
-        
+        userid = user["userid"].numpy().decode("utf-8")
         pred_dict = {
-            "age_group_id" : np.asscalar(age_group_ids[i]),
+            "age_group_id" : np.asscalar(age_group_ids[i]),           # normal (general) model
             "gender": np.asscalar(predictions[1][i]),
             "ext": np.asscalar(predictions[2][i]),
             "ope": np.asscalar(predictions[3][i]),
@@ -225,7 +234,12 @@ if __name__ == "__main__":
             "neu": np.asscalar(predictions[5][i]),
             "con": np.asscalar(predictions[6][i]),
         }
-        userid = user["userid"].numpy().decode("utf-8")
+
+        if use_backup_age_model:
+            # Overwrite the age group ID using the backup model:
+            age_group_id = np.asscalar(age_group_ids_dict[userid])
+            pred_dict["age_group_id"] = age_group_id
+
         pred_dict["userid"] = userid
         pred_dict["is_female"] = np.round(pred_dict.pop("gender")) == 1
         
