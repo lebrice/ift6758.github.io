@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-
+"""
+Hard-Coded majority baseline
+"""
 import os
 import sys
 import argparse

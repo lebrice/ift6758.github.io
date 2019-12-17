@@ -1,5 +1,15 @@
 .vscode
 .mypy_cache
 debug_output
-
+debug_data
+**__pycache__
 *.csv
+
+server_checkpoints
+server_logs/**/*.txt
+!server_logs/**/*-results.txt
+
+saved_models
+logs
+checkpoints
+
