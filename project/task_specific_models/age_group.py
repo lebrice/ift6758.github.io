@@ -213,10 +213,14 @@ def get_likes_lists(likes_data, max_num_likes):
     return lists_of_likes
 
 def preprocess_test_agemodel(test_dir, max_num_likes=2000):
-    # TO DO: get the values from train set from .json file
-    # q10_q90_train =
-    # image_means_train =
-    # likes_kept_train =
+
+    q10 = pd.read_csv('saved_models/q10.csv', sep=',', header=None)
+    feat_q10 = q10.set_index(0)[1]
+    q90 = pd.read_csv('saved_models/q90.csv', sep=',', header=None)
+    feat_q90 = q90.set_index(0)[1]
+    image_means_train = pd.read_csv('saved_models/image_means.csv', sep=',', header=None, squeeze=True).values.tolist()
+    likes_kept_train = pd.read_csv('saved_models/likes.csv', sep=',', header=None, dtype=str, squeeze=True).values.tolist()
+
     sub_ids, text_data = get_text_data(test_dir)
 
     image_data_raw = get_image_raw(test_dir)
@@ -224,8 +228,6 @@ def preprocess_test_agemodel(test_dir, max_num_likes=2000):
 
     features_to_scale = pd.concat([text_data, image_data.iloc[:, :-2]], axis=1, sort=False)
 
-    feat_q10 = q10_q90_train[0]
-    feat_q90 = q10_q90_train[1]
     feat_scaled = (features_to_scale - feat_q10) / (feat_q90 - feat_q10)
 
     likes_data = get_relations(test_dir, sub_ids, likes_kept_train)
